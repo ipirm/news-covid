@@ -3,7 +3,7 @@ module.exports = {
     ** Headers of the page
     */
     head: {
-        title: 'Tviser',
+        title: 'Covid-19 AZE',
         meta: [
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -33,6 +33,8 @@ module.exports = {
         {src: '~plugins/components.js', ssr: true},
         {src: '~plugins/autocomplete.js', ssr: true},
         {src: '~plugins/vue-select.js', ssr: false},
+        {src: '~plugins/marquee-text.js', ssr: false},
+        {src: '~plugins/video.js', ssr: false}
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},

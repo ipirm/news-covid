@@ -1,89 +1,76 @@
 <template>
     <div>
-        <div class="overlay-header">
-            <div class="container header-container">
+        <div class="container-fluid" style="padding: 0;overflow: hidden">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header-text">
+                        <link-i18n to="/" class="logo">
+                            <img src="/images/main-page/logo.png">
+                        </link-i18n>
+                        <div class="header-text-main">COVID-19 news</div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <client-only>
+                        <marquee-text :repeat="10" :duration="20">
+                            Бегущий текст African states have been stepping up efforts to prevent the spread of
+                            coronavirus.
+                            African states have been stepping up efforts to pаааааааа
+                        </marquee-text>
+                    </client-only>
+                </div>
+            </div>
+        </div>
+        <section class="subheader">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="overlay-header-row">
-                        <div class="overlay-header-input">
-                            <autocomplete
-                                    :search="search"
-                                    :auto-select="true"
-                                    placeholder="Выберите регион"
-                                    aria-label="Выберите регион"
-                                    :get-result-value="getResultValue"
-                            />
-                        </div>
-                        <div class="overlay-header-border"></div>
-                        <div class="overlay-header-select">
-                            <v-select
+                    <div class="col-lg-1">
+                        <button :class="['hamburger','hamburger--slider',active ? 'is-active' : '']" type="button"
+                                @click="active = !active">
+                            <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+                        </button>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="subheader-row">
+                            <link-i18n class="subheader-link" to="/news"><span>Worlwide</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/"><span>Local</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/"><span>Corona map</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/"><span>Карта заражений</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/"><span>Trending</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/"><span> {{ $t('sabina') }}</span></link-i18n>
+                            <div class="subheader-row-right">
+                                <img src="/images/main-page/search.png">
+                                <v-select
                                     :options="languages"
                                     v-model="languageDefault"
                                     :clearable="false"
                                     :searchable="false"
                                     @input="changeLang()"
                             />
+
+                                <div class="subheader-row-tags"><link-i18n to="/">English</link-i18n></div>
+                                <div class="subheader-row-tags"><link-i18n to="/">Sign in</link-i18n></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="header-nav">
-                        <link-i18n
-                                class="header-nav-link"
-                                to="/"
-                        ><span>Работники</span></link-i18n>
-                        <link-i18n
-                                class="header-nav-link"
-                                to="/orders"
-                        ><span>Заказы</span></link-i18n>
-                        <link-i18n class="header-nav-link" to="/login" v-if="!loggedIn"><span>Вход</span></link-i18n>
-                        <link-i18n class="header-nav-link" v-if="!loggedIn" to="/register">Регестрация</link-i18n>
-                        <a href="#" class="header-nav-link" v-if="loggedIn"
-                           @click.prevent="logout"><span>Выйти</span></a>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="overlay-subheader">
-            <div class="container header-container">
-                <div class="row">
-                    <link-i18n class="logo" to="/">
-                        <svg-icon name="logo" style="width:126px;height:33px"/>
-                    </link-i18n>
-                    <div class="overlay-subheader-help">
-                        <span>Помощь</span>
-                        <a href="#" @click.prevent><span>9292</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
+        <section class="last-header" style="height: 40px; width: 100%"></section>
     </div>
 </template>
 
 <script>
     export default {
+        components: {},
+        name: "Header",
         data() {
             return {
-                names: [
-                    {id: 100, title: 'title1'},
-                    {id: 101, title: 'title2'},
-                    {id: 102, title: 'title3'},
-                    {id: 103, title: 'title4'},
-                    {id: 104, title: 'title5'},
-                ],
+                active: false,
                 languageDefault: this.$i18n.locale
             }
         },
-        methods: {
-            search(input) {
-                return this.names.filter(name => {
-                    return name.title.toLowerCase().startsWith(input.toLowerCase())
-                })
-            },
-            getResultValue(result) {
-                return result.title
-            },
-            logout() {
-                this.$auth.logout();
-                this.$router.push(this.localePath('/'));
-            },
+        methods:{
             changeLang() {
                 this.$router.push(this.switchLocalePath(`${this.languageDefault}`))
             }
@@ -98,3 +85,7 @@
         }
     }
 </script>
+
+<style scoped>
+
+</style>
