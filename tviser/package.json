@@ -1,0 +1,35 @@
+{
+  "name": "tviser",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Ilham",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^4.8.5",
+    "@nuxtjs/axios": "^5.9.4",
+    "@nuxtjs/svg-sprite": "^0.4.7",
+    "@trevoreyre/autocomplete-vue": "^2.1.0",
+    "bootstrap-vue": "^2.3.0",
+    "node-sass": "^4.13.1",
+    "nuxt": "^2.0.0",
+    "nuxt-i18n": "^6.5.0",
+    "sass-loader": "^8.0.2",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-select": "^3.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0"
+  }
+}

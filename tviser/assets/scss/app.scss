@@ -1,0 +1,69 @@
+body {
+  font-family: 'Nunito', sans-serif !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ol, ul {
+  padding-inline-start: 0px !important;
+  margin-block-start: 0px !important;
+  list-style: none;
+}
+
+.preloader{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity .15s ease-in-out;
+}
+.page-transitioner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  &.active {
+    display: block;
+  }
+  &__left, &__right {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    transition: transform .5s ease;
+    background-color: white;
+  }
+  &__left {
+    left: 0;
+    transform: translateY(-100%);
+  }
+  &__right {
+    right: 0;
+    transform: translateY(100%);
+  }
+  &__logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3);
+    transition: opacity .5s ease;
+    opacity: 0;
+  }
+}
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px #719ECE;
+}
+@import "main-page";
+@import "spinner";
+@import "login";
