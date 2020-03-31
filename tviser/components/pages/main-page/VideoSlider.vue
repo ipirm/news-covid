@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid" style="margin-top: 50px">
+    <div class="container-fluid" style="margin-top: 80px">
         <div class="video-title" style="margin-left: 30px">How nature reacts the virus? </div>
         <div class="row">
             <div class="col-12">
@@ -33,7 +33,6 @@
             }
         },
         mounted() {
-            console.log('Current Swiper instance object', this.mySwiper)
             this.mySwiper.slideTo(3, 1000, false)
         }
     }

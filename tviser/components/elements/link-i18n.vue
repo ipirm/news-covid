@@ -1,7 +1,7 @@
 <template>
-    <a :href="localePath(`${to}`)" @click.prevent="$bus.goTo(`${to}`,$router,localePath)">
+    <nuxt-link :href="localePath(`${to}`)" :to="localePath(`${to}`)">
         <slot/>
-    </a>
+    </nuxt-link>
 </template>
 
 <script>

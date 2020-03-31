@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="subheader-row">
-                            <link-i18n class="subheader-link" to="/news"><span>Worlwide</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/news"><span>Рабочая ссылка</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Local</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Corona map</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Карта заражений</span></link-i18n>
@@ -40,15 +40,15 @@
                             <link-i18n class="subheader-link" to="/"><span> {{ $t('sabina') }}</span></link-i18n>
                             <div class="subheader-row-right">
                                 <img src="/images/main-page/search.png">
-                                <v-select
-                                    :options="languages"
-                                    v-model="languageDefault"
-                                    :clearable="false"
-                                    :searchable="false"
-                                    @input="changeLang()"
-                            />
-
-                                <div class="subheader-row-tags"><link-i18n to="/">English</link-i18n></div>
+                                <div class="subheader-row-tags">
+                                    <v-select
+                                        :options="languages"
+                                        v-model="languageDefault"
+                                        :clearable="false"
+                                        :searchable="false"
+                                        @input="changeLang()"
+                                />
+                                </div>
                                 <div class="subheader-row-tags"><link-i18n to="/">Sign in</link-i18n></div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
         data() {
             return {
                 active: false,
-                languageDefault: this.$i18n.locale
+                languageDefault: this.$i18n.locale,
             }
         },
         methods:{

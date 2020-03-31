@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div v-swiper:mySwiper="swiperOption">
+                <div v-swiper:mySwiper="swiperOption" class="main-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" :key="banner" v-for="banner in banners">
-                            <img :src="banner">
+                        <div class="swiper-slide" v-for="(item, index) in data" :key="index">
+                            <img :src="item.urlToImage">
                             <div class="swiper-desc">
-                                <div class="swiper-title">Coronavirus pandemia over the whole world</div>
+                                <div class="swiper-title">{{ `${item.title.substring(0,60)}...` }}</div>
                                 <link-i18n to="/">read more</link-i18n>
                             </div>
                         </div>
@@ -21,18 +21,24 @@
 <script>
     export default {
         name: 'MainSlider',
+        props: {
+            data: {
+                type: Array,
+                default() {
+                    return []
+                }
+            }
+        },
         data() {
             return {
-                banners: ['/images/main-page/slide1.jpg', '/images/main-page/slide1.jpg', '/images/main-page/slide1.jpg', '/images/main-page/slide1.jpg'],
                 swiperOption: {
                     slidesPerView: 2,
                     spaceBetween: 10,
+                    autoplay:true
                 }
             }
         },
         mounted() {
-            console.log('Current Swiper instance object', this.mySwiper)
-            this.mySwiper.slideTo(3, 1000, false)
         }
     }
 </script>

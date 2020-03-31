@@ -4,19 +4,47 @@
             <img src="/images/main-page/right-advertising.png">
         </div>
         <div class="right-videos">
-            <link-i18n to="/" class="right-videos-card main-news" v-for="index in 6" :key="index">
-                <img src="/images/main-page/main1.png">
-                <span>Fed's Powell says US economy may already be in a </span>
-            </link-i18n>
+            <div class="right-videos-title">
+                <span>Интересные новости: </span>
+            </div>
+            <client-only>
+                <vue-scroll :ops="ops">
+                    <div class="scroll-news">
+                        <link-i18n to="/" class="right-videos-card main-news" v-for="(item, index) in data" :key="index">
+                            <img class="left-videos-img" :src="item.urlToImage">
+                            <span>{{ item.title }}</span>
+                        </link-i18n>
+                    </div>
+                </vue-scroll>
+            </client-only>
         </div>
-
     </div>
-
 </template>
 
 <script>
     export default {
-        name: "LeftSidebar"
+        name: "LeftSidebar",
+        props: {
+            data: {
+                type: Array,
+                default() {
+                    return []
+                }
+            }
+        },
+        data() {
+            return {
+                ops: {
+                    vuescroll: {},
+                    scrollPanel: {},
+                    rail: {},
+                    bar: {
+                        background: '#4c4c4c',
+                        // #120888
+                    }
+                }
+            }
+        }
     }
 </script>
 

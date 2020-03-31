@@ -1,3 +1,8 @@
+routerBase = {
+    router: {
+        base: '/'
+    }
+},
 module.exports = {
     /*
     ** Headers of the page
@@ -34,7 +39,9 @@ module.exports = {
         {src: '~plugins/autocomplete.js', ssr: true},
         {src: '~plugins/vue-select.js', ssr: false},
         {src: '~plugins/marquee-text.js', ssr: false},
-        {src: '~plugins/video.js', ssr: false}
+        {src: '~plugins/video.js', ssr: false},
+        {src: '~plugins/scroll.js', ssr: false},
+        {src: '~plugins/moment.js', ssr: false},
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},
@@ -46,8 +53,8 @@ module.exports = {
             {
                 noPrefixDefaultLocale: true,
                 locales: [
-                    {code: 'en', iso: 'en-US', file: 'en.json'},
-                    {code: 'ru', iso: 'es-ES', file: 'ru.json'}
+                    {code: 'en', iso: 'en-EN', file: 'en.json'},
+                    {code: 'ru', iso: 'ru-RU', file: 'ru.json'}
                 ],
                 defaultLocale: 'en',
                 vueI18n: {
@@ -62,7 +69,7 @@ module.exports = {
         '@nuxtjs/auth'
     ],
     axios: {
-        baseURL: 'http://tviser.loc/api'
+        baseURL: ''
     },
     auth: {
         redirect: false,

@@ -1,14 +1,8 @@
 <template>
     <div>
-        <div v-if="!active">
-            <Spinner />
-        </div>
-        <div v-if="active">
-            <PageTransitioner/>
             <Header/>
             <nuxt/>
             <Footer/>
-        </div>
     </div>
 </template>
 
