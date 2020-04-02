@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div v-if="!active">
+        <div v-show="!active">
             <Spinner/>
         </div>
-        <div v-if="active">
+        <div v-show="active">
             <Header/>
             <nuxt/>
             <Footer/>

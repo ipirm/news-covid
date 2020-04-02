@@ -7,6 +7,7 @@ module.exports = {
     /*
     ** Headers of the page
     */
+    mode: 'universal',
     head: {
         title: 'Covid-19 AZE',
         meta: [
