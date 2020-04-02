@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MainSlider :data="slidesNews" />
+        <MainSlider :data="slidesNews"/>
         <section class="main-page-content">
             <div class="container-fluid">
                 <div class="row">
@@ -8,9 +8,10 @@
                         <RightSidebar :data="news"/>
                     </div>
                     <div class="col-lg-6">
-                        <NewsList :data="news" />
+                        <NewsList :data="news"/>
                     </div>
                     <div class="col-lg-3">
+                       <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal" />
                         <LeftSidebar :data="news"/>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 mt-4" v-for="(item, index) in 6" :key="index">
-                        <VideoComponent />
+                        <VideoComponent/>
                     </div>
                 </div>
             </div>
@@ -54,13 +55,16 @@
 
     import {mapActions, mapState} from 'vuex'
     import VideoComponent from "../components/elements/VideoComponent";
+    import VirusStatic from "../components/global/VirusStatic";
 
     export default {
-        components: {VideoComponent, VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},
+        components: {VirusStatic, VideoComponent, VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},
         created() {
             this.getNews();
             this.getInterestingNews();
             this.getSlidesgNews();
+            this.getVirus();
+
         },
         data() {
             return {}
@@ -68,12 +72,15 @@
         methods: {
             ...mapActions('news', ['getNews']),
             ...mapActions('news', ['getSlidesgNews']),
-            ...mapActions('news', ['getInterestingNews'])
+            ...mapActions('news', ['getInterestingNews']),
+            ...mapActions('virus', ['getVirus'])
         },
         computed: {
             ...mapState('news', ['news']),
             ...mapState('news', ['interestingNews']),
-            ...mapState('news', ['slidesNews'])
+            ...mapState('news', ['slidesNews']),
+            ...mapState('virus', ['virusWorldWide']),
+            ...mapState('virus', ['virusLocal'])
         },
     }
 </script>

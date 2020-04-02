@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3869bd8b-9ddc-4974-9431-bcb771558700" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/global/VirusStatic.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/virus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/main-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/main-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/news-item.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/news-item.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/global/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/global/Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_category/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_category/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/locales/ru.json">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/global/Footer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="130">
+              <caret line="5" column="42" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/scss/news-item.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -77,13 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Resources/UserResource.php" />
-        <option value="$PROJECT_DIR$/tviser/middleware/auth-check.js" />
-        <option value="$PROJECT_DIR$/tviser/plugins/auth-lang-redirect.js" />
-        <option value="$PROJECT_DIR$/tviser/pages/personal-area.vue" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_02_08_143113_add_surname_to_users.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/tviser/components/pages/main-page/Price.vue" />
         <option value="$PROJECT_DIR$/tviser/pages/register.vue" />
         <option value="$PROJECT_DIR$/tviser/middleware/check.js" />
@@ -128,6 +137,13 @@
         <option value="$PROJECT_DIR$/tviser/assets/scss/news-id-page.scss" />
         <option value="$PROJECT_DIR$/tviser/.eslintrc.js" />
         <option value="$PROJECT_DIR$/locales/ru.json" />
+        <option value="$PROJECT_DIR$/assets/scss/main-page.scss" />
+        <option value="$PROJECT_DIR$/pages/index.vue" />
+        <option value="$PROJECT_DIR$/store/virus.js" />
+        <option value="$PROJECT_DIR$/components/global/VirusStatic.vue" />
+        <option value="$PROJECT_DIR$/pages/_category/_id.vue" />
+        <option value="$PROJECT_DIR$/components/global/Footer.vue" />
+        <option value="$PROJECT_DIR$/assets/scss/news-item.scss" />
       </list>
     </option>
   </component>
@@ -252,7 +268,35 @@
             <path>
               <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="locales" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="elements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,16 +317,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\components" />
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\assets\svg" />
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\plugins\mixins" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\components\elements" />
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\assets\svg" />
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\config" />
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\components" />
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\assets\svg" />
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\plugins\mixins" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -349,12 +393,12 @@
       <workItem from="1585735187490" duration="584000" />
       <workItem from="1585769459410" duration="7434000" />
       <workItem from="1585780788591" duration="218000" />
-      <workItem from="1585826169577" duration="625000" />
+      <workItem from="1585826169577" duration="10875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159035000" />
+    <option name="totallyTimeSpent" value="169285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -412,16 +456,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tviser/pages/personal-area.vue" />
-    <entry file="file://$PROJECT_DIR$/tviser/middleware/check.js" />
-    <entry file="file://$PROJECT_DIR$/tviser/pages/orders.vue" />
-    <entry file="file://$PROJECT_DIR$/tviser/pages/register.vue" />
-    <entry file="file://$PROJECT_DIR$/tviser/assets/svg/main-page.svg" />
-    <entry file="file://$PROJECT_DIR$/tviser/assets/scss/spinner.scss" />
-    <entry file="file://$PROJECT_DIR$/tviser/plugins/marquee-text.js" />
-    <entry file="file://$PROJECT_DIR$/tviser/assets/scss/login.scss" />
-    <entry file="file://$PROJECT_DIR$/tviser/assets/scss/burger.scss" />
-    <entry file="file://$PROJECT_DIR$/webpack.mix.js" />
     <entry file="file://$PROJECT_DIR$/tviser/node_modules/vue-video-player/src/player.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/pages/news.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/components/PageTransitioner.vue" />
@@ -464,8 +498,79 @@
     <entry file="file://$PROJECT_DIR$/tviser/assets/scss/news-id-page.scss" />
     <entry file="file://$PROJECT_DIR$/locales/ru.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="104">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/news.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="31" column="172" selection-start-line="31" selection-start-column="172" selection-end-line="31" selection-end-column="172" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/main-page.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="356" column="3" lean-forward="true" selection-start-line="356" selection-start-column="3" selection-end-line="356" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/_category/_id.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="22" lean-forward="true" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/virus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/global/Footer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/news-item.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,11 @@
                     <div class="col-lg-2">
                     </div>
                     <div class="col-lg-7">
+                        <div class="news-content-breadcumbs">
+                            <link-i18n to="/">Главная</link-i18n>
+                            <link-i18n to="/news/">Категория</link-i18n>
+                            <a>{{ activeNews.title }}</a>
+                        </div>
                         <div class="news-content-title">
                             <span>{{ activeNews.title }}</span>
                         </div>

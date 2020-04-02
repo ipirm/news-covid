@@ -2,6 +2,14 @@
     <section class="footer">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-mail">
+                        <input placeholder="Оставить отзыв/жалобу">
+                        <a href="#" @click.prevent><span>Отправить</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-3">
                     <div class="footer-title">Социальные сети</div>
                     <div class="footer-links">
