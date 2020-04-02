@@ -29,7 +29,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <LeftSidebar :data="news"/>
+                        <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal" />
+                        <LeftSidebar :data="news" style="height: 60% !important;" />
                     </div>
                 </div>
             </div>
@@ -77,22 +78,27 @@
     import LeftSidebar from "../../components/pages/main-page/LeftSidebar";
 
     import {mapActions, mapState} from 'vuex'
+    import VirusStatic from "../../components/global/VirusStatic";
 
     export default {
-        components: {LeftSidebar},
+        components: {VirusStatic, LeftSidebar},
         created() {
             this.getNews().then(() => this.findNews(this.$route.params.id));
+            this.getVirus();
         },
         data() {
             return {}
         },
         methods: {
             ...mapActions('news', ['getNews']),
-            ...mapActions('news', ['findNews'])
+            ...mapActions('news', ['findNews']),
+            ...mapActions('virus', ['getVirus'])
         },
         computed: {
             ...mapState('news', ['news']),
-            ...mapState('news', ['activeNews'])
+            ...mapState('news', ['activeNews']),
+            ...mapState('virus', ['virusWorldWide']),
+            ...mapState('virus', ['virusLocal'])
         },
     }
 </script>

@@ -11,8 +11,8 @@
                         <NewsList :data="news"/>
                     </div>
                     <div class="col-lg-3">
-                       <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal" />
-                        <LeftSidebar :data="news"/>
+                       <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"  />
+                        <LeftSidebar :data="news" style="height: 83% !important;" />
                     </div>
                 </div>
             </div>

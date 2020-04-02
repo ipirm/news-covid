@@ -8,7 +8,7 @@
         </div>
         <div class="virus-map-content">
             <span>Пандемия коронавируса</span>
-            <span>на 3/26/2020</span>
+            <span class="mt-1">{{ Date.now() | moment("DD/MM/YYYY") }}</span>
         </div>
         <div class="virus-map-table" v-if="virusLocal && virusWorldWide">
             <table style="width:100%">

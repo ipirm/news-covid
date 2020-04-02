@@ -1,0 +1,67 @@
+.news-page {
+  .news-cards-title {
+    font-size: 13px;
+    line-height: 18px;
+    color: #535353;
+    margin-left: 5px;
+    text-align: center;
+    width: 222px;
+    margin-bottom: 0 !important;
+  }
+
+  .news-cards-overlay {
+    flex-wrap: wrap;
+  }
+
+  .news-cards-item {
+    margin-top: 25px;
+    width: 30%;
+  }
+
+  .news-cards-item-title {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .news-cards-item-text {
+    margin-top: 10px;
+  }
+
+  .vs__selected {
+    background: none !important;
+    border: none !important;
+    color: #000 !important;
+  }
+
+  .vs__open-indicator path {
+    fill: rgba(60, 60, 60, .5) !important;
+  }
+
+  .news-cards-input {
+    border: 1px solid rgba(60, 60, 60, .26);
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 4px;
+  }
+
+  .overlay-category {
+    justify-content: space-between;
+    width: 94%;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .vdp-datepicker {
+    input {
+      width: 100%;
+      height: 30px;
+      border: 1px solid rgba(60, 60, 60, .26);
+      border-radius: 4px;
+      padding-left: 10px;
+      font-size: 13px;
+      line-height: 18px;
+      color: #535353;
+    }
+  }
+}

@@ -26,6 +26,7 @@
     "vue-backtotop": "^1.6.1",
     "vue-marquee-text-component": "^1.1.1",
     "vue-moment": "^4.1.0",
+    "vue-moment-datepicker": "^1.0.5",
     "vue-select": "^3.4.0",
     "vue-video-player": "^5.0.2",
     "vuescroll": "^4.15.0"
