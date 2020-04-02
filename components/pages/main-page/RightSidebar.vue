@@ -1,5 +1,5 @@
 <template>
-    <div class="right-advertising-row" style="height: 83%;">
+    <div class="right-advertising-row">
         <div class="right-advertising">
             <img src="/images/main-page/right-advertising.png">
         </div>
