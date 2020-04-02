@@ -26,7 +26,7 @@ module.exports = {
     ** Customize the progress bar color
     */
 
-    loading: {color: '#3B8070'},
+    loading: {color: '#120888'},
     /*
     ** Build configuration
     */
@@ -42,6 +42,7 @@ module.exports = {
         {src: '~plugins/video.js', ssr: false},
         {src: '~plugins/scroll.js', ssr: false},
         {src: '~plugins/moment.js', ssr: false},
+        {src: '~plugins/vue-backtotop.js', ssr: false},
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},
@@ -53,12 +54,12 @@ module.exports = {
             {
                 noPrefixDefaultLocale: true,
                 locales: [
-                    {code: 'en', iso: 'en-EN', file: 'en.json'},
+                    {code: 'az', iso: 'az-AZ', file: 'az.json'},
                     {code: 'ru', iso: 'ru-RU', file: 'ru.json'}
                 ],
-                defaultLocale: 'en',
+                defaultLocale: 'az',
                 vueI18n: {
-                    fallbackLocale: 'en'
+                    fallbackLocale: 'az'
                 },
                 lazy: true,
                 langDir: 'locales/'

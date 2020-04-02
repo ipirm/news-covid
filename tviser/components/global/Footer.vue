@@ -1,5 +1,9 @@
 <template>
-    <div>fafafa</div>
+    <section class="footer">
+       <div class="container-fluid">
+
+       </div>
+    </section>
 </template>
 
 <script>

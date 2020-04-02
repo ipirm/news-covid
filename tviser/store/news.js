@@ -1,7 +1,8 @@
 export const state = () => ({
     news: null,
     interestingNews: null,
-    slidesNews: null
+    slidesNews: null,
+    activeNews: null
 })
 
 
@@ -14,6 +15,11 @@ export const mutations = {
     },
     SET_SLIDES_NEWS: (state, payload) => {
         state.slidesNews = payload;
+    },
+    GET_NEWS: (state, payload) => {
+         state.activeNews = state.news[payload];
+         console.log(state.activeNews);
+        // state.news.find(i => i.source.id === payload)
     },
 }
 
@@ -32,4 +38,7 @@ export const actions = {
         const interestingNews = await this.$axios.$get('https://newsapi.org/v2/everything?q=apple&from=2020-03-29&to=2020-03-29&sortBy=popularity&apiKey=2d23c9173e2449bc894c0f3341f26b84')
         commit('SET_SLIDES_NEWS', interestingNews.articles)
     },
+    async findNews({commit},id) {
+        commit('GET_NEWS', id)
+    }
 }

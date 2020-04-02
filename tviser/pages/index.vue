@@ -11,7 +11,7 @@
                         <NewsList :data="news" />
                     </div>
                     <div class="col-lg-3">
-                        <LeftSidebar :data="interestingNews"/>
+                        <LeftSidebar :data="news"/>
                     </div>
                 </div>
             </div>
@@ -21,6 +21,22 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <VideoSlider/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container-fluid video-container" style="width: 95%;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="video-container-title">
+                            Watch it now:
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mt-4" v-for="(item, index) in 6" :key="index">
+                        <VideoComponent />
                     </div>
                 </div>
             </div>
@@ -37,9 +53,10 @@
     import VideoSlider from "../components/pages/main-page/VideoSlider";
 
     import {mapActions, mapState} from 'vuex'
+    import VideoComponent from "../components/elements/VideoComponent";
 
     export default {
-        components: {VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},
+        components: {VideoComponent, VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},
         created() {
             this.getNews();
             this.getInterestingNews();

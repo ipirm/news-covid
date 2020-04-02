@@ -42,14 +42,16 @@
                                 <img src="/images/main-page/search.png">
                                 <div class="subheader-row-tags">
                                     <v-select
-                                        :options="languages"
-                                        v-model="languageDefault"
-                                        :clearable="false"
-                                        :searchable="false"
-                                        @input="changeLang()"
-                                />
+                                            :options="languages"
+                                            v-model="languageDefault"
+                                            :clearable="false"
+                                            :searchable="false"
+                                            @input="changeLang()"
+                                    />
                                 </div>
-                                <div class="subheader-row-tags"><link-i18n to="/">Sign in</link-i18n></div>
+                                <div class="subheader-row-tags">
+                                    <link-i18n to="/">Sign in</link-i18n>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -70,10 +72,14 @@
                 languageDefault: this.$i18n.locale,
             }
         },
-        methods:{
+        methods: {
             changeLang() {
                 this.$router.push(this.switchLocalePath(`${this.languageDefault}`))
+                this.$moment.locale(this.languageDefault);
             }
+        },
+        mounted(){
+            this.$moment.locale(this.languageDefault);
         },
         computed: {
             availableLocales() {

@@ -1,5 +1,6 @@
 <template>
     <video-player  class="video-player-box vjs-big-play-centered"
+                   style="width: inherit"
                    ref="videoPlayer"
                    :options="playerOptions"
                    :playsinline="true"
@@ -19,6 +20,7 @@
         data() {
             return {
                 playerOptions: {
+                    fluid:true,
                     height: '360',
                     width: '770',
                     muted: true,
@@ -68,12 +70,10 @@
                 // console.log('player pause!', player)
             },
             // ...player event
-
             // or listen state event
             playerStateChanged(playerCurrentState) {
                 // console.log('player current update state', playerCurrentState)
             },
-
             // player is ready
             playerReadied(player) {
                 // you can use it to do something...

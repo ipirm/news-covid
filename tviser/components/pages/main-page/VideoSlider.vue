@@ -5,8 +5,8 @@
             <div class="col-12">
                 <div v-swiper:mySwiper="swiperOption">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" :key="index" v-for="index in 6">
-                            <VideoComponent />
+                        <div class="swiper-slide" :key="index" v-for="(item, index) in 6" style="height: 400px">
+                            <VideoComponent :item="item" />
                             <div class="swiper-desc">
                                 <div class="swiper-title">Coronavirus pandemia over the whole world</div>
                                 <link-i18n to="/">read more</link-i18n>

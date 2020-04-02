@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="data !== null">
-            <link-i18n to="/" class="news-card">
+            <link-i18n to="/news/0" class="news-card">
                 <div class="news-card-title">
                     <span>{{ data[0].title}}</span>
                 </div>
@@ -21,7 +21,7 @@
                     {{ data[0].content}}
                 </div>
             </link-i18n>
-            <link-i18n to="/" class="news-card">
+            <link-i18n to="/news/1" class="news-card">
                 <div class="news-card-title">
                     <span>{{ data[1].title}}</span>
                 </div>
@@ -42,7 +42,7 @@
                 </div>
             </link-i18n>
             <div class="d-flex">
-                <link-i18n to="/" class="news-card">
+                <link-i18n to="/news/2" class="news-card">
                     <div class="news-card-title">
                         <span>{{ data[2].title}}</span>
                     </div>
@@ -63,7 +63,7 @@
                     </div>
                 </link-i18n>
                 <div class="d-flex" style="flex-direction: column">
-                    <link-i18n to="/" class="news-card">
+                    <link-i18n to="/news/3" class="news-card">
                         <div class="news-card-title">
                             <span>{{ data[3].title}}</span>
                         </div>
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </link-i18n>
-                    <link-i18n to="/" class="news-card">
+                    <link-i18n to="/news/4" class="news-card">
                         <div class="news-card-title">
                             <span>{{ data[4].title}}</span>
                         </div>
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="d-flex">
-                <link-i18n to="/" class="news-card">
+                <link-i18n to="/news/5" class="news-card">
                     <div class="news-card-title">
                         <span>{{ data[5].title}}</span>
                     </div>
@@ -111,7 +111,7 @@
                         {{ data[5].content}}
                     </div>
                 </link-i18n>
-                <link-i18n to="/" class="news-card">
+                <link-i18n to="/news/6" class="news-card">
                     <div class="news-card-title">
                         <span>{{ data[6].title}}</span>
                     </div>
@@ -133,7 +133,7 @@
                 </link-i18n>
             </div>
                         <div class="list-news" v-if="data">
-                            <link-i18n to="/" class="list-news-card" v-for="(item,index ) in data.slice(7,dataIndex)" :key="index">
+                            <link-i18n :to="`/news/${index + 7}`" class="list-news-card" v-for="(item,index ) in data.slice(7,dataIndex)" :key="index">
                                 <img :src="item.urlToImage">
                                 <div class="list-news-desc">
                                     <div class="list-news-title">{{ item.title }}</div>

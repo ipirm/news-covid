@@ -290,3 +290,12 @@
     height: 365.47px;
   }
 }
+.video-container{
+  margin-top: 50px;
+  &-title{
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 25px;
+    color: #000000;
+  }
+}

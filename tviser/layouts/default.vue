@@ -1,8 +1,21 @@
 <template>
     <div>
+        <div v-if="!active">
+            <Spinner/>
+        </div>
+        <div v-if="active">
             <Header/>
             <nuxt/>
             <Footer/>
+            <back-to-top
+                     right="50px"
+                     bottom="50px"
+                     visibleoffsetbottom="100px"
+            >
+                <svg-icon name="btn-top" style="width: 25px;height: 25px"></svg-icon>
+            </back-to-top>
+        </div>
+
     </div>
 </template>
 

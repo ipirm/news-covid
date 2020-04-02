@@ -10,7 +10,7 @@
             <client-only>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
-                        <link-i18n to="/" class="right-videos-card" v-for="(item, index) in data" :key="index">
+                        <link-i18n :to="`/news/${index}`" class="right-videos-card" v-for="(item, index) in data" :key="index">
                             <img class="right-videos-img" :src="item.urlToImage">
                             <span>{{ item.title }}</span>
                         </link-i18n>
