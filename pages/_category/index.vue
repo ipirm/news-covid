@@ -24,7 +24,7 @@
                                 class="news-cards-item"
                                 v-for="(item, index) in news.slice(0,12)"
                                 :key="index">
-                            <div class="news-cards-item-title">
+                            <div class="news-cards-item-title" v-if="item.title">
                                 <span>{{ `${item.title.substring(0,45)}...`}}</span>
                             </div>
                             <div class="news-cards-item-image">
