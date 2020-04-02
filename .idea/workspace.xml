@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3869bd8b-9ddc-4974-9431-bcb771558700" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/global/VirusStatic.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/virus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/main-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/main-page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/news-item.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/news-item.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/global/Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_category/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_category/_id.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/scss/news-item.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tviser/components/pages/main-page/Price.vue" />
         <option value="$PROJECT_DIR$/tviser/pages/register.vue" />
         <option value="$PROJECT_DIR$/tviser/middleware/check.js" />
         <option value="$PROJECT_DIR$/tviser/pages/login.vue" />
@@ -144,6 +149,7 @@
         <option value="$PROJECT_DIR$/pages/_category/_id.vue" />
         <option value="$PROJECT_DIR$/components/global/Footer.vue" />
         <option value="$PROJECT_DIR$/assets/scss/news-item.scss" />
+        <option value="$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue" />
       </list>
     </option>
   </component>
@@ -268,17 +274,6 @@
             <path>
               <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -292,6 +287,19 @@
               <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="global" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="main-page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
@@ -393,18 +401,19 @@
       <workItem from="1585735187490" duration="584000" />
       <workItem from="1585769459410" duration="7434000" />
       <workItem from="1585780788591" duration="218000" />
-      <workItem from="1585826169577" duration="10875000" />
+      <workItem from="1585826169577" duration="11474000" />
+      <workItem from="1585857667314" duration="97000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169285000" />
+    <option name="totallyTimeSpent" value="169981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19913687" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20221949" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -456,7 +465,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tviser/node_modules/vue-video-player/src/player.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/pages/news.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/components/PageTransitioner.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/plugins/bus.js" />
@@ -571,6 +579,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
