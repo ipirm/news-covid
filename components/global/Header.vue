@@ -34,7 +34,7 @@
                         <div class="subheader-row">
                             <link-i18n class="subheader-link" to="/news"><span>Все новости</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Local</span></link-i18n>
-                            <link-i18n class="subheader-link" to="/"><span>Corona map</span></link-i18n>
+                            <link-i18n class="subheader-link" to="/map"><span>Corona map</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Карта заражений</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Trending</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span> {{ $t('sabina') }}</span></link-i18n>
