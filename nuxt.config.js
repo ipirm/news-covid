@@ -42,6 +42,7 @@ module.exports = {
         {src: '~plugins/video.js', ssr: false},
         {src: '~plugins/scroll.js', ssr: false},
         {src: '~plugins/moment.js', ssr: false},
+        {src: '~plugins/map.js', ssr: false},
         {src: '~plugins/vue-backtotop.js', ssr: false},
     ],
     css: [

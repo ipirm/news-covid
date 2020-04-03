@@ -1,7 +1,26 @@
 <template>
     <div>
-        <div v-for="(item,index) in countries" :key="index">
-            {{ item }}
+        <!--        map-type-id="terrain"-->
+        <GmapMap
+                :center="{lat:10, lng:10}"
+                :zoom="2"
+                style="width: 100%; height: 700px"
+        >
+            <GmapMarker
+                    :key="index"
+                    v-for="(item, index) in countries"
+                    :position="item.position"
+                    :clickable="true"
+                    :draggable="true"
+                    @click="myMarker(item)"
+            />
+        </GmapMap>
+        <div v-if="activeCountry">
+            Название Страны: {{ this.activeCountry.country }}
+            Случаев: {{ this.activeCountry.confirmed }}
+            Вылечилось: {{ this.activeCountry.recovered }}
+            Критическое состояние: {{ this.activeCountry.critical }}
+            Умерло: {{ this.activeCountry.deaths }}
         </div>
     </div>
 </template>
@@ -21,12 +40,17 @@
 
         },
         data() {
-            return {}
+            return {
+                activeCountry: null
+            }
         },
         methods: {
             ...mapActions('virus', ['getVirus']),
             ...mapActions('virus', ['getCountries']),
-
+            myMarker(item) {
+                console.log(item)
+                this.activeCountry = item;
+            }
         },
         computed: {
             ...mapState('virus', ['virusWorldWide']),

@@ -13,6 +13,10 @@ export const mutations = {
         state.virusLocal = payload
     },
     SET_COUNTRIES: (state, payload) => {
+        payload.forEach(function (item) {
+            let obj = {position: {lat: item.latitude, lng: item.longitude}};
+            Object.assign(item, obj);
+        });
         state.countries = payload
     }
 }
@@ -30,13 +34,13 @@ export const actions = {
                 name: 'azerbaijan'
             }
         });
-        commit('SET_VIRUS',virusWorldWide);
-        commit('SET_LOCAL_VIRUS',local);
+        commit('SET_VIRUS', virusWorldWide);
+        commit('SET_LOCAL_VIRUS', local);
     },
     async getCountries({commit}) {
         const countries = await this.$axios.$get('https://covid-19-data.p.rapidapi.com/country/all', {
             headers: {'x-rapidapi-key': 'c3ae9cdbcfmsh29bc65690a77986p10a54bjsn9bc95c48b530'}
         });
-        commit('SET_COUNTRIES',countries);
+        commit('SET_COUNTRIES', countries);
     }
 }

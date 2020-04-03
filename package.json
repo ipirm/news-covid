@@ -29,6 +29,7 @@
     "vue-moment-datepicker": "^1.0.5",
     "vue-select": "^3.4.0",
     "vue-video-player": "^5.0.2",
+    "vue2-google-maps": "^0.10.7",
     "vuescroll": "^4.15.0"
   },
   "devDependencies": {
