@@ -14,7 +14,8 @@ export const mutations = {
     },
     SET_COUNTRIES: (state, payload) => {
         payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
-        state.countries = payload
+        let obj = {active: false}
+        state.countries = Object.assign(payload,obj)
     }
 }
 

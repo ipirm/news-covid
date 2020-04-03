@@ -44,7 +44,7 @@
                     </div>
                     <div class="news-cards-overlay" v-if="news">
                         <link-i18n
-                                :to="`/category/${index}`"
+                                :to="`/news/${index}`"
                                 class="news-cards-item"
                                 v-for="(item, index) in news.slice(0,3)"
                                 :key="index">
