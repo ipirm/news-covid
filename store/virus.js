@@ -15,7 +15,19 @@ export const mutations = {
     SET_COUNTRIES: (state, payload) => {
         payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
         let obj = {active: false}
-        state.countries = Object.assign(payload,obj)
+        payload.forEach(function (item) {
+            Object.assign(item, obj)
+        });
+        state.countries = payload
+    },
+    SET_ACTIVE_FALSE: (state, payload) => {
+        state.countries.forEach(function (item) {
+            if(item.country === payload.country) {
+                item.active = true
+            } else {
+                item.active = false
+            }
+        });
     }
 }
 

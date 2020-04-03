@@ -26,6 +26,7 @@
                                         :key="index"
                                         v-for="(item, index) in countries"
                                         :marker="{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }"
+                                        v-scroll-to="`#a${index}`"
                                         @click.native="myMarker(item)"
                                 >
                                     <div class="map-round" style="width: 40px;height: 40px;"
@@ -47,10 +48,11 @@
                                 </div>
                                 <client-only>
                                     <vue-scroll :ops="ops">
-                                        <div style="height: 300px">
+                                        <div class="overlay-map-statistic" style="height: 300px">
                                         <div
                                              v-for="(item,index) in countries"
                                              :class="[item.active ? 'activeClass' : '', 'map-statistic-row']"
+                                             :id="`a${index}`"
                                              :key="index"
                                              @click="selectItem(item)"
                                         >
@@ -452,7 +454,6 @@
         },
         data() {
             return {
-                activeCountry: null,
                 ops: {
                     vuescroll: {},
                     scrollPanel: {},
@@ -469,10 +470,11 @@
             ...mapActions('virus', ['getVirus']),
             ...mapActions('virus', ['getCountries']),
             myMarker(item) {
-                this.activeCountry = item;
+                this.$store.commit('virus/SET_ACTIVE_FALSE',item);
             },
             selectItem(item){
                 this.$refs.mapRef.panTo({ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) });
+                this.$store.commit('virus/SET_ACTIVE_FALSE',item);
                 this.zoom = 5;
             }
         },

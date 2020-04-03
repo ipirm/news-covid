@@ -27,6 +27,7 @@
     "vue-marquee-text-component": "^1.1.1",
     "vue-moment": "^4.1.0",
     "vue-moment-datepicker": "^1.0.5",
+    "vue-scrollto": "^2.17.1",
     "vue-select": "^3.4.0",
     "vue-video-player": "^5.0.2",
     "vue2-gmap-custom-marker": "^5.5.10",
