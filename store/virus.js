@@ -13,10 +13,6 @@ export const mutations = {
         state.virusLocal = payload
     },
     SET_COUNTRIES: (state, payload) => {
-        payload.forEach(function (item) {
-            let obj = {position: {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)}};
-            Object.assign(item, obj);
-        });
         state.countries = payload
     }
 }

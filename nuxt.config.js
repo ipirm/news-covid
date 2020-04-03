@@ -42,7 +42,7 @@ module.exports = {
         {src: '~plugins/video.js', ssr: false},
         {src: '~plugins/scroll.js', ssr: false},
         {src: '~plugins/moment.js', ssr: false},
-        {src: '~plugins/map.js', ssr: false},
+        {src: '~plugins/map.js', ssr: true},
         {src: '~plugins/vue-backtotop.js', ssr: false},
     ],
     css: [
@@ -99,7 +99,7 @@ module.exports = {
                 })
             }
         },
-        transpile: [/^vue2-google-maps($|\/)/]
+        transpile: [/^vue2-google-maps($|\/)/, /^vue2-gmap-custom-marker($|\/)/]
     }
 }
 
