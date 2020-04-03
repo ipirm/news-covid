@@ -98,7 +98,8 @@ module.exports = {
                     exclude: /(node_modules)/
                 })
             }
-        }
+        },
+        transpile: [/^vue2-google-maps($|\/)/]
     }
 }
 

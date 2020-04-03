@@ -48,7 +48,6 @@
             ...mapActions('virus', ['getVirus']),
             ...mapActions('virus', ['getCountries']),
             myMarker(item) {
-                console.log(item)
                 this.activeCountry = item;
             }
         },
