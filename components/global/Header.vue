@@ -31,6 +31,7 @@
                         </button>
                     </div>
                     <div class="col-lg-10">
+                        
                         <div class="subheader-row">
                             <link-i18n class="subheader-link" to="/news"><span>Все новости</span></link-i18n>
                             <link-i18n class="subheader-link" to="/"><span>Local</span></link-i18n>
