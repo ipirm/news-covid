@@ -1,15 +1,19 @@
 <template>
-    <video-player  class="video-player-box vjs-big-play-centered"
-                   style="width: inherit"
-                   ref="videoPlayer"
-                   :options="playerOptions"
-                   :playsinline="true"
-                   customEventName="customstatechangedeventname"
-                   @play="onPlayerPlay($event)"
-                   @pause="onPlayerPause($event)"
-                   @statechanged="playerStateChanged($event)"
-                   @ready="playerReadied">
-    </video-player>
+    <client-only>
+        <div style="width: inherit;height: 360px">
+            <video-player class="video-player-box vjs-big-play-centered"
+                          style="width: inherit"
+                          ref="videoPlayer"
+                          :options="playerOptions"
+                          :playsinline="true"
+                          customEventName="customstatechangedeventname"
+                          @play="onPlayerPlay($event)"
+                          @pause="onPlayerPause($event)"
+                          @statechanged="playerStateChanged($event)"
+                          @ready="playerReadied">
+            </video-player>
+        </div>
+    </client-only>
 </template>
 
 <script>
@@ -20,12 +24,11 @@
         data() {
             return {
                 playerOptions: {
-                    fluid:true,
+                    fluid: true,
                     height: '360',
-                    width: '770',
                     muted: false,
                     language: 'en',
-                    playbackRates: [0.7, 1.0, 1.5, 2.0,10.0],
+                    playbackRates: [0.7, 1.0, 1.5, 2.0, 10.0],
                     sources: [{
                         type: "video/mp4",
                         src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
@@ -33,7 +36,7 @@
                     poster: "/images/main-page/main1.png",
                 },
                 userActions: {
-                    hotkeys: function(event) {
+                    hotkeys: function (event) {
                         // `this` is the player in this context
                         // `x` key = pause
                         if (event.which === 88) {
