@@ -14,7 +14,7 @@ export const mutations = {
     },
     SET_COUNTRIES: (state, payload) => {
         payload.forEach(function (item) {
-            let obj = {position: {lat: item.latitude, lng: item.longitude}};
+            let obj = {position: {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)}};
             Object.assign(item, obj);
         });
         state.countries = payload
