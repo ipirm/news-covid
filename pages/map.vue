@@ -13,7 +13,11 @@
                     :marker="{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }"
                     @click.native="myMarker(item)"
             >
-                <div class="map-round"></div>
+                <div class="map-round" style="width: 40px;height: 40px;" v-if="parseInt(item.confirmed) > 150000"></div>
+                <div class="map-round" style="width: 25px;height: 25px;" v-if="parseInt(item.confirmed) > 100000 && parseInt(item.confirmed) < 150000"></div>
+                <div class="map-round" style="width: 20px;height: 20px;" v-if="parseInt(item.confirmed) > 50000 && parseInt(item.confirmed) < 100000"></div>
+                <div class="map-round" style="width: 15px;height: 15px;" v-if="parseInt(item.confirmed) > 20000 && parseInt(item.confirmed) < 50000"></div>
+                <div class="map-round" style="width: 10px;height: 10px;" v-if="parseInt(item.confirmed) < 20000"></div>
             </gmap-custom-marker>
         </GmapMap>
         <div v-if="activeCountry">

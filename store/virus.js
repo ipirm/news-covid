@@ -13,6 +13,7 @@ export const mutations = {
         state.virusLocal = payload
     },
     SET_COUNTRIES: (state, payload) => {
+        payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
         state.countries = payload
     }
 }
