@@ -459,7 +459,7 @@
                     rail: {},
                     bar: {
                         background: '#4c4c4c',
-                        // #120888
+                        onlyShowBarOnScroll: false
                     }
                 },
                 zoom: 2,

@@ -26,7 +26,6 @@ export const mutations = {
             if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
                 return -1;
             }
-            // a должно быть равным b
             return 0;
         });
         state.countries = payload.reverse()
