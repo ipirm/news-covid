@@ -15,13 +15,14 @@
                         </div>
                         <div class="d-flex">
                             <div style="display: flex;width: 71%;height: 360px">
-                            <svg  fill="#7c7c7c"  stroke="#ffffff"
+                            <svg
                                  class="svg-content"
                                   viewBox="0 0 1000 800"
                                   width="1000"
                                   height="800"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
+                                        :stroke="[item.active ? '#fff' : '#E5C163']"
                                         v-for="(item,index) in azeCountries"
                                         :key="index"
                                         :d="item.path"
@@ -29,7 +30,7 @@
                                         :name="item.country"
                                         @click="selectItem(item)"
                                         v-scroll-to="`#a${index}`"
-                                        :fill="[item.active ? '#CD0909' : '']"
+                                        :fill="[parseInt(item.confirmed) > 20 && parseInt(item.confirmed) < 50 ? '#AD0000' : '#535353']"
                                 >
                                 </path>
                             </svg>
