@@ -8,7 +8,6 @@
                     <div class="col-lg-9">
                         <div class="news-content-breadcumbs">
                             <link-i18n to="/">Главная</link-i18n>
-                            <link-i18n to="/news/">Категория</link-i18n>
                             <a>Карта</a>
                         </div>
                         <div class="news-content-title">
@@ -476,12 +475,19 @@
                 this.$refs.mapRef.panTo({ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) });
                 this.$store.commit('virus/SET_ACTIVE_FALSE',item);
                 this.zoom = 5;
+            },
+            getId(item){
+                var letters = '\\w+$';
+                let countryId = item.split(' ').join('').toLowerCase().match(letters);
+                console.log(countryId)
+                // console.log(item)
+                return item
             }
         },
         computed: {
             ...mapState('virus', ['virusWorldWide']),
             ...mapState('virus', ['virusLocal']),
-            ...mapState('virus', ['countries'])
+            ...mapState('virus', ['countries']),
         },
     }
 </script>

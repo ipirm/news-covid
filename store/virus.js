@@ -18,7 +18,18 @@ export const mutations = {
         payload.forEach(function (item) {
             Object.assign(item, obj)
         });
-        state.countries = payload
+        payload.sort(function (a, b) {
+
+            if (parseInt(a.confirmed) > parseInt(b.confirmed)) {
+                return 1;
+            }
+            if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
+                return -1;
+            }
+            // a должно быть равным b
+            return 0;
+        });
+        state.countries = payload.reverse()
     },
     SET_ACTIVE_FALSE: (state, payload) => {
         state.countries.forEach(function (item) {
