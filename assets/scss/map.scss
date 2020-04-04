@@ -135,3 +135,15 @@
     }
   }
 }
+
+.svg-content {
+  width: 100%;
+  height: inherit;
+  margin: 10px auto 0 auto;
+
+  path {
+    cursor: pointer;
+    position: relative;
+    transition: .25s;
+  }
+}
