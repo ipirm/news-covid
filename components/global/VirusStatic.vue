@@ -21,24 +21,24 @@
                     <td><b>Заболели</b></td>
                 </tr>
                 <tr>
-                    <td><span>{{ virusWorldWide[0].confirmed.split('').reverse().join('').replace(/([0-9]{3})/g, "$1 ").split('').reverse().join('') }}</span></td>
-                    <td><span>{{ virusLocal[0].confirmed }}</span></td>
+                    <td><span>{{ virusWorldWide[0].confirmed | numFormat(0,0).replace(/,/g,' ') }}</span></td>
+                    <td><span>{{ virusLocal[0].confirmed  | numFormat(0,0).replace(/,/g,' ')  }}</span></td>
                 </tr>
                 <tr>
                     <td><b>Вылечились</b></td>
                     <td><b>Вылечились</b></td>
                 </tr>
                 <tr>
-                    <td><span style="color: #137611;">{{ virusWorldWide[0].recovered.split('').reverse().join('').replace(/([0-9]{3})/g, "$1 ").split('').reverse().join('') }}</span></td>
-                    <td><span style="color: #137611;">{{ virusLocal[0].recovered }}</span></td>
+                    <td><span style="color: #137611;">{{ virusWorldWide[0].recovered | numFormat(0,0).replace(/,/g,' ')  }}</span></td>
+                    <td><span style="color: #137611;">{{ virusLocal[0].recovered | numFormat(0,0).replace(/,/g,' ')  }}</span></td>
                 </tr>
                 <tr>
                     <td><b>Умерли</b></td>
                     <td><b>Умерли</b></td>
                 </tr>
                 <tr>
-                    <td><span>{{ virusWorldWide[0].deaths }}</span></td>
-                    <td><span>{{ virusLocal[0].deaths}}</span></td>
+                    <td><span>{{ virusWorldWide[0].deaths | numFormat(0,0).replace(/,/g,' ')  }}</span></td>
+                    <td><span>{{ virusLocal[0].deaths | numFormat(0,0).replace(/,/g,' ') }}</span></td>
                 </tr>
             </table>
         </div>

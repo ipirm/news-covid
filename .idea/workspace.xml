@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3869bd8b-9ddc-4974-9431-bcb771558700" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/plugins/number-filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/map.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/map.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/global/VirusStatic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/global/VirusStatic.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/map.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/virus.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/virus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/news.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +26,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nuxt.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="676">
+              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/map.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="460" column="46" lean-forward="true" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
+            <state relative-caret-position="304">
+              <caret line="76" column="119" selection-start-line="76" selection-start-column="119" selection-end-line="76" selection-end-column="119" />
               <folding>
+                <element signature="n#GmapMap#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#GmapMap#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#b#0;n#div#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#LeftSidebar#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#13580#13648#0" expanded="true" />
                 <element signature="e#5489#19559#0" />
               </folding>
             </state>
@@ -34,10 +57,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/virus.js">
+        <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="598">
+              <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="95" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#0;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#1;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/_category/_id.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="99" column="12" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="53" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#LeftSidebar#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/store/news.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -45,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/scss/map.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+            <state relative-caret-position="346">
+              <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -101,8 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tviser/components/pages/main-page/MainSlider.vue" />
-        <option value="$PROJECT_DIR$/tviser/locales/az.json" />
         <option value="$PROJECT_DIR$/tviser/components/pages/main-page/NewsList.vue" />
         <option value="$PROJECT_DIR$/tviser/plugins/moment.js" />
         <option value="$PROJECT_DIR$/tviser/components/global/Loading.vue" />
@@ -133,7 +185,6 @@
         <option value="$PROJECT_DIR$/assets/scss/news-item.scss" />
         <option value="$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue" />
         <option value="$PROJECT_DIR$/components/pages/main-page/LeftSidebar.vue" />
-        <option value="$PROJECT_DIR$/components/global/VirusStatic.vue" />
         <option value="$PROJECT_DIR$/pages/index.vue" />
         <option value="$PROJECT_DIR$/assets/scss/news.scss" />
         <option value="$PROJECT_DIR$/pages/_category/index.vue" />
@@ -147,10 +198,13 @@
         <option value="$PROJECT_DIR$/assets/scss/app.scss" />
         <option value="$PROJECT_DIR$/pages/_category/_id.vue" />
         <option value="$PROJECT_DIR$/plugins/map.js" />
-        <option value="$PROJECT_DIR$/nuxt.config.js" />
         <option value="$PROJECT_DIR$/plugins/vue-scrollto.js" />
-        <option value="$PROJECT_DIR$/assets/scss/map.scss" />
         <option value="$PROJECT_DIR$/store/virus.js" />
+        <option value="$PROJECT_DIR$/assets/scss/map.scss" />
+        <option value="$PROJECT_DIR$/store/news.js" />
+        <option value="$PROJECT_DIR$/nuxt.config.js" />
+        <option value="$PROJECT_DIR$/plugins/number-filter.js" />
+        <option value="$PROJECT_DIR$/components/global/VirusStatic.vue" />
         <option value="$PROJECT_DIR$/pages/map.vue" />
       </list>
     </option>
@@ -276,7 +330,13 @@
             <path>
               <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tviser-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tviser-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,17 +357,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\assets\scss" />
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\components" />
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\assets\svg" />
-      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\plugins\mixins" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\components\elements" />
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\assets\svg" />
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\config" />
       <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\assets\scss" />
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\components" />
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\assets\svg" />
+      <recent name="C:\OSPanel\OSPanel\domains\tviser-backend\tviser\plugins\mixins" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,12 +439,12 @@
       <workItem from="1585877506809" duration="459000" />
       <workItem from="1585931628520" duration="1386000" />
       <workItem from="1585934788750" duration="21104000" />
-      <workItem from="1586002042738" duration="3728000" />
+      <workItem from="1586002042738" duration="9950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205041000" />
+    <option name="totallyTimeSpent" value="211263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -442,9 +502,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tviser/node_modules/moment/locale/az.js" />
-    <entry file="file://$PROJECT_DIR$/tviser/components/elements/VideoComponent.vue" />
-    <entry file="file://$PROJECT_DIR$/tviser/assets/scss/main-page.scss" />
     <entry file="file://$PROJECT_DIR$/tviser/components/pages/main-page/VideoSlider.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/layouts/default.vue" />
     <entry file="file://$PROJECT_DIR$/tviser/package.json" />
@@ -472,13 +529,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/store/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/news.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/store/orders.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -527,27 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3588">
           <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#1;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/swiper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -615,17 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/pages/main-page/LeftSidebar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="44" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#1174#1426#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -661,33 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/_category/_id.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#LeftSidebar#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/scss/map.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nuxt.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/vue-scrollto.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -705,13 +696,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/map.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/news.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/_category/_id.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="99" column="12" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="53" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#LeftSidebar#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/scroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="22" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/swiper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nuxt.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/pages/main-page/LeftSidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#1174#1426#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/moment.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/number-filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="95" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#4;n#table#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/map.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="460" column="46" lean-forward="true" selection-start-line="460" selection-start-column="46" selection-end-line="460" selection-end-column="46" />
+        <state relative-caret-position="304">
+          <caret line="76" column="119" selection-start-line="76" selection-start-column="119" selection-end-line="76" selection-end-column="119" />
           <folding>
+            <element signature="n#GmapMap#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#GmapMap#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#b#0;n#div#0;n#div#1;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#LeftSidebar#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13580#13648#0" expanded="true" />
             <element signature="e#5489#19559#0" />
           </folding>
         </state>

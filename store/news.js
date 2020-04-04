@@ -18,8 +18,6 @@ export const mutations = {
     },
     GET_NEWS: (state, payload) => {
          state.activeNews = state.news[payload];
-         console.log(state.activeNews);
-        // state.news.find(i => i.source.id === payload)
     },
 }
 

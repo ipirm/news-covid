@@ -44,7 +44,9 @@ module.exports = {
         {src: '~plugins/moment.js', ssr: false},
         {src: '~plugins/map.js', ssr: true},
         {src: '~plugins/vue-backtotop.js', ssr: false},
-        {src: '~plugins/vue-scrollto.js'}
+        {src: '~plugins/vue-scrollto.js'},
+        {src: '~plugins/number-filter.js'},
+
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},
