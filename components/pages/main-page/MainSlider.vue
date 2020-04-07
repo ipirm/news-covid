@@ -7,7 +7,7 @@
                         <div class="swiper-slide" v-for="(item, index) in slidesNews" :key="index">
                             <img :src="`http://puny2.continent.az/storage/${item.image}`">
                             <div class="swiper-desc">
-                                <div class="swiper-title">{{item.title[$i18n.locale] }}</div>
+                                <div class="swiper-title">{{item.title[$i18n.locale] | truncate(50) }}</div>
                                 <link-i18n :to="`/news/${item.slug}`">{{ $t('readMore')}}</link-i18n>
                             </div>
                         </div>

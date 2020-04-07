@@ -46,6 +46,7 @@ module.exports = {
         {src: '~plugins/vue-backtotop.js', ssr: false},
         {src: '~plugins/vue-scrollto.js'},
         {src: '~plugins/number-filter.js'},
+        {src: '~plugins/truncate.js'},
 
     ],
     css: [
