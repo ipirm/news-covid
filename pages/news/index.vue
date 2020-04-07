@@ -30,7 +30,7 @@
                                 v-for="(item, index) in newsData"
                                 :key="index">
                             <div class="news-cards-item-title" v-if="item.title">
-                                <span>{{ item.title[$i18n.locale] | truncate(20) }}</span>
+                                <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="news-cards-item-image">
                                 <img :src="`http://puny2.continent.az/storage/${item.image}`">

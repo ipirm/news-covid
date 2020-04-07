@@ -22,11 +22,10 @@
 <script>
     import Header from "../components/global/Header";
     import Footer from "../components/global/Footer";
-    import PageTransitioner from '../components/PageTransitioner'
     import Spinner from "../components/global/Spinner";
 
     export default {
-        components: {Spinner, Footer, Header, PageTransitioner},
+        components: {Spinner, Footer, Header, },
         data() {
             return {
                 active: false
