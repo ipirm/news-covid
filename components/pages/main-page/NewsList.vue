@@ -10,7 +10,7 @@
                 </div>
                 <div class="news-card-setting">
                     <div class="news-card-comments">
-                        116 Комментариев
+                        116 {{ $t('nComments')}}
                         <div class="news-card-date">
                             <span>{{data[0].publishedAt  | moment("from", "now") }}</span>
                             <span>Spain</span>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="news-card-setting">
                     <div class="news-card-comments">
-                        116 Комментариев
+                        116 {{ $t('nComments')}}
                         <div class="news-card-date">
                             <span>{{ data[1].publishedAt  | moment("from", "now") }}</span>
                             <span>Spain</span>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="news-card-setting">
                         <div class="news-card-comments">
-                            116 Комментариев
+                            116 {{ $t('nComments')}}
                             <div class="news-card-date">
                                 <span>{{data[2].publishedAt  | moment("from", "now") }}</span>
                                 <span>Spain</span>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="news-card-setting">
                             <div class="news-card-comments">
-                                116 Комментариев
+                                116 {{ $t('nComments')}}
                                 <div class="news-card-date">
                                     <span>{{data[3].publishedAt  | moment("from", "now") }}</span>
                                     <span>Spain</span>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="news-card-setting">
                         <div class="news-card-comments">
-                            116 Комментариев
+                            116 {{ $t('nComments')}}
                             <div class="news-card-date">
                                 <span>{{data[5].publishedAt  | moment("from", "now") }}</span>
                                 <span>Spain</span>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="news-card-setting">
                         <div class="news-card-comments">
-                            116 Комментариев
+                            116 {{ $t('nComments')}}
                             <div class="news-card-date">
                                 <span>{{data[6].publishedAt  | moment("from", "now") }}</span>
                                 <span>Spain</span>
@@ -142,7 +142,7 @@
                             </link-i18n>
                         </div>
                         <a href="#" class="news-card-btn" @click.prevent="nextNews()" v-if="parseInt(this.dataIndex) < data.length">
-                            <span>Больше новостей</span>
+                            <span>{{ $t('moreNews')}}</span>
                         </a>
         </div>
     </div>

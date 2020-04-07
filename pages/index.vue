@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MainSlider :data="slidesNews"/>
+        <MainSlider />
         <section class="main-page-content">
             <div class="container-fluid">
                 <div class="row">

@@ -5,14 +5,14 @@
         </div>
         <div class="right-videos">
             <div class="right-videos-title">
-                <span>Интересные новости: </span>
+                <span>{{ $t('interestingNews')}}: </span>
             </div>
             <client-only>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
-                        <link-i18n :to="`/news/${index}`" class="right-videos-card main-news" v-for="(item, index) in data" :key="index">
-                            <img class="left-videos-img" :src="item.urlToImage">
-                            <span>{{ item.title }}</span>
+                        <link-i18n :to="`/news/${item.slug}`" class="right-videos-card main-news" v-for="(item, index) in interestingNews" :key="index">
+                            <img class="left-videos-img" :src="`http://puny2.continent.az/storage/${item.image}`">
+                            <span>{{ item.title[$i18n.locale] }}</span>
                         </link-i18n>
                     </div>
                 </vue-scroll>
@@ -22,8 +22,8 @@
 </template>
 
 <script>
+    import {mapActions, mapState} from 'vuex'
     export default {
-        name: "LeftSidebar",
         props: {
             data: {
                 type: Array,
@@ -31,6 +31,9 @@
                     return []
                 }
             }
+        },
+        created(){
+          this.getInterestingNews();
         },
         data() {
             return {
@@ -44,6 +47,12 @@
                     }
                 }
             }
+        },
+        methods:{
+            ...mapActions('news', ['getInterestingNews']),
+        },
+        computed: {
+            ...mapState('news', ['interestingNews']),
         }
     }
 </script>

@@ -2,7 +2,9 @@ export const state = () => ({
     news: null,
     interestingNews: null,
     slidesNews: null,
-    activeNews: null
+    activeNews: null,
+    newsData: null,
+    cats: null
 })
 
 
@@ -17,26 +19,49 @@ export const mutations = {
         state.slidesNews = payload;
     },
     GET_NEWS: (state, payload) => {
-         state.activeNews = state.news[payload];
+         state.activeNews = payload;
     },
+    SET_NEWS_DATA: (state, payload) => {
+        state.newsData = payload
+    },
+    SET_CATS_DATA: (state, payload) => {
+        state.cats = payload
+    },
+
 }
 
 
 export const actions = {
-
+    async getNewsSlides({commit}) {
+        const news = await this.$axios.$get('http://puny2.continent.az/api/slides');
+        commit('SET_SLIDES_NEWS', news.news)
+    },
     async getNews({commit}) {
         const news = await this.$axios.$get('https://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=2d23c9173e2449bc894c0f3341f26b84')
         commit('SET_NEWS', news.articles)
     },
     async getInterestingNews({commit}) {
-        const interestingNews = await this.$axios.$get('https://newsapi.org/v2/everything?q=bitcoin&apiKey=2d23c9173e2449bc894c0f3341f26b84')
-        commit('SET_INTERESTING_NEWS', interestingNews.articles)
+        const interestingNews = await this.$axios.$get('http://puny2.continent.az/api/interesting')
+        commit('SET_INTERESTING_NEWS', interestingNews.news)
     },
     async getSlidesgNews({commit}) {
         const interestingNews = await this.$axios.$get('https://newsapi.org/v2/everything?q=apple&from=2020-03-29&to=2020-03-29&sortBy=popularity&apiKey=2d23c9173e2449bc894c0f3341f26b84')
         commit('SET_SLIDES_NEWS', interestingNews.articles)
     },
     async findNews({commit},id) {
-        commit('GET_NEWS', id)
+        const news = await this.$axios.$get(`http://puny2.continent.az/api/news/${id}`);
+        commit('GET_NEWS', news.news)
+    },
+    async getNewsData({commit}) {
+        const news = await this.$axios.$get('http://puny2.continent.az/api/news');
+        commit('SET_NEWS_DATA', news.news)
+    },
+    async getCats({commit}) {
+        const cats = await this.$axios.$get('http://puny2.continent.az/api/cats');
+        commit('SET_CATS_DATA', cats.cats)
+    },
+    async getCatsNews({commit},id) {
+        const cats = await this.$axios.$get(`http://puny2.continent.az/api/cats/${id}`);
+        commit('SET_NEWS_DATA', cats.news)
     }
 }

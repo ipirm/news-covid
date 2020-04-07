@@ -7,25 +7,25 @@
                     </div>
                     <div class="col-lg-7">
                         <div class="news-content-breadcumbs">
-                            <link-i18n to="/">Главная</link-i18n>
-                            <link-i18n to="/news/">Категория</link-i18n>
-                            <a>{{ activeNews.title }}</a>
+                            <link-i18n to="/">{{ $t('mainPage')}}</link-i18n>
+                            <link-i18n to="/news/">{{ $t('mainPage')}}</link-i18n>
+                            <a>{{ activeNews.title[$i18n.locale]}}</a>
                         </div>
                         <div class="news-content-title">
-                            <span>{{ activeNews.title }}</span>
+                            <span>{{ activeNews.title[$i18n.locale] }}</span>
                         </div>
                         <div class="news-content-image">
-                            <img :src="activeNews.urlToImage">
+                            <img :src="`http://puny2.continent.az/storage/${activeNews.image}`">
                         </div>
                         <div class="news-content-date">
-                            <div class="news-content-date-item">Источник: {{ activeNews.source.name }}</div>
-                            <div class="news-content-date-item">{{ activeNews.publishedAt | moment("from", "now") }}
+                            <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
+                            <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}
                             </div>
-                            <div class="news-content-date-item">Spain</div>
+                            <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
                         </div>
                         <div class="news-content-text">
-                            <b>{{ activeNews.description}}</b><br><br>
-                            {{ activeNews.content }}
+                            <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
+                            {{ activeNews.text[$i18n.locale] }}
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -83,7 +83,8 @@
     export default {
         components: {VirusStatic, LeftSidebar},
         created() {
-            this.getNews().then(() => this.findNews(this.$route.params.id));
+            this.getNews();
+            this.findNews(this.$route.params.id);
             this.getVirus();
         },
         data() {

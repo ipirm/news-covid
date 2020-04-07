@@ -5,7 +5,7 @@
         </div>
         <div class="right-videos">
             <div class="right-videos-title">
-                <span>Интересные видео: </span>
+                <span>{{ $t('interestingVideos')}} </span>
             </div>
             <client-only>
                 <vue-scroll :ops="ops">
