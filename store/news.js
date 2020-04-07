@@ -44,10 +44,6 @@ export const actions = {
         const interestingNews = await this.$axios.$get('http://puny2.continent.az/api/interesting')
         commit('SET_INTERESTING_NEWS', interestingNews.news)
     },
-    async getSlidesgNews({commit}) {
-        const interestingNews = await this.$axios.$get('https://newsapi.org/v2/everything?q=apple&from=2020-03-29&to=2020-03-29&sortBy=popularity&apiKey=2d23c9173e2449bc894c0f3341f26b84')
-        commit('SET_SLIDES_NEWS', interestingNews.articles)
-    },
     async findNews({commit},id) {
         const news = await this.$axios.$get(`http://puny2.continent.az/api/news/${id}`);
         commit('GET_NEWS', news.news)
