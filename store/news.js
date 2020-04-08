@@ -50,7 +50,7 @@ export const actions = {
     },
     async getNewsData({commit}) {
         const news = await this.$axios.$get('http://puny2.continent.az/api/news');
-        commit('SET_NEWS_DATA', news.news)
+        commit('SET_NEWS_DATA', news.data)
     },
     async getCats({commit}) {
         const cats = await this.$axios.$get('http://puny2.continent.az/api/cats');
@@ -58,6 +58,6 @@ export const actions = {
     },
     async getCatsNews({commit},id) {
         const cats = await this.$axios.$get(`http://puny2.continent.az/api/cats/${id}`);
-        commit('SET_NEWS_DATA', cats.news)
+        commit('SET_NEWS_DATA', cats.data)
     }
 }
