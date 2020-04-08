@@ -62,7 +62,6 @@
         created() {
             this.getNews();
             this.getInterestingNews();
-            this.getSlidesgNews();
             this.getVirus();
 
         },
@@ -71,7 +70,6 @@
         },
         methods: {
             ...mapActions('news', ['getNews']),
-            ...mapActions('news', ['getSlidesgNews']),
             ...mapActions('news', ['getInterestingNews']),
             ...mapActions('virus', ['getVirus'])
         },
