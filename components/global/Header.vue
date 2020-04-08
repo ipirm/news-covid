@@ -12,10 +12,8 @@
                 </div>
                 <div class="col-lg-9">
                     <client-only>
-                        <marquee-text :repeat="10" :duration="20">
-                            Бегущий текст African states have been stepping up efforts to prevent the spread of
-                            coronavirus.
-                            African states have been stepping up efforts to pаааааааа
+                        <marquee-text :repeat="10" :duration="20" v-if="banner">
+                            {{ banner.running[$i18n.locale] }}
                         </marquee-text>
                     </client-only>
                 </div>
@@ -64,20 +62,23 @@
 </template>
 
 <script>
+    import {mapActions, mapState} from 'vuex'
     export default {
-        components: {},
-        name: "Header",
         data() {
             return {
                 active: false,
                 languageDefault: this.$i18n.locale,
             }
         },
+        created(){
+            this.getBanners();
+        },
         methods: {
             changeLang() {
                 this.$router.push(this.switchLocalePath(`${this.languageDefault}`))
                 this.$moment.locale(this.languageDefault);
-            }
+            },
+            ...mapActions('news', ['getBanners'])
         },
         mounted(){
             this.$moment.locale(this.languageDefault);
@@ -88,7 +89,8 @@
             },
             languages() {
                 return this.availableLocales.map(item => item.code.toLowerCase())
-            }
+            },
+                ...mapState('news', ['banner'])
         }
     }
 </script>

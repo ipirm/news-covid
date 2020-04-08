@@ -5,7 +5,8 @@ export const state = () => ({
     activeNews: null,
     newsData: null,
     cats: null,
-    videoNews: null
+    videoNews: null,
+    banner: null
 })
 
 
@@ -31,6 +32,9 @@ export const mutations = {
     SET_VIDEO_DATA: (state, payload) => {
         state.videoNews = payload
     },
+    SET_BANNER_DATA: (state,payload) =>{
+        state.banner = payload
+    }
 }
 
 
@@ -66,5 +70,9 @@ export const actions = {
     async getVideoNews({commit}) {
         const cats = await this.$axios.$get('http://puny2.continent.az/api/videos?per_page=12');
         commit('SET_VIDEO_DATA', cats.news.data)
+    },
+    async getBanners({commit}) {
+        const cats = await this.$axios.$get('http://puny2.continent.az/api/banners');
+        commit('SET_BANNER_DATA', cats.banner)
     }
 }

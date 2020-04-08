@@ -1,7 +1,7 @@
 <template>
     <div class="right-advertising-row">
         <div class="right-advertising">
-            <img src="/images/main-page/right-advertising.png">
+            <img v-if="banner" :src="`http://puny2.continent.az/storage/${banner.image_first}`">
         </div>
         <div class="right-videos">
             <div class="right-videos-title">
@@ -35,6 +35,7 @@
         },
         created() {
             this.getVideoNews();
+            this.getBanners();
         },
         data() {
             return {
@@ -50,10 +51,12 @@
             }
         },
         methods:{
-            ...mapActions('news', ['getVideoNews'])
+            ...mapActions('news', ['getVideoNews']),
+            ...mapActions('news', ['getBanners'])
         },
         computed: {
-            ...mapState('news', ['videoNews'])
+            ...mapState('news', ['videoNews']),
+            ...mapState('news', ['banner'])
         }
     }
 </script>

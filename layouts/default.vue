@@ -23,7 +23,7 @@
     import Header from "../components/global/Header";
     import Footer from "../components/global/Footer";
     import Spinner from "../components/global/Spinner";
-
+    import {mapActions, mapState} from 'vuex'
     export default {
         components: {Spinner, Footer, Header, },
         data() {
@@ -31,12 +31,21 @@
                 active: false
             }
         },
+        created(){
+      this.getBanners();
+        },
         mounted() {
             if (process.browser) {
                 window.onNuxtReady((app) => {
                     this.active = !this.active;
                 })
             }
+        },
+        methods: {
+            ...mapActions('news', ['getBanners']),
+        },
+        computed: {
+            ...mapState('news', ['banner']),
         }
     }
 </script>
