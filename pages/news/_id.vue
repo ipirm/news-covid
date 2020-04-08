@@ -25,7 +25,7 @@
                         </div>
                         <div class="news-content-text">
                             <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
-                            {{ activeNews.text[$i18n.locale] }}
+                            <span v-html="activeNews.text[$i18n.locale]"></span>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="overlay-banner">
-                        <img src="/images/main-page/right-advertising.png">
+                        <img v-if="banner"  :src="`http://puny2.continent.az/storage/${banner.image_third}`">
                     </div>
                 </div>
             </div>
@@ -86,6 +86,7 @@
             this.getNews();
             this.findNews(this.$route.params.id);
             this.getVirus();
+            this.getBanners();
         },
         data() {
             return {}
@@ -93,13 +94,15 @@
         methods: {
             ...mapActions('news', ['getNews']),
             ...mapActions('news', ['findNews']),
-            ...mapActions('virus', ['getVirus'])
+            ...mapActions('virus', ['getVirus']),
+            ...mapActions('news', ['getBanners'])
         },
         computed: {
             ...mapState('news', ['news']),
             ...mapState('news', ['activeNews']),
             ...mapState('virus', ['virusWorldWide']),
-            ...mapState('virus', ['virusLocal'])
+            ...mapState('virus', ['virusLocal']),
+            ...mapState('news', ['banner'])
         },
     }
 </script>

@@ -12,10 +12,8 @@
                 </div>
                 <div class="col-lg-9">
                     <client-only>
-                        <marquee-text :repeat="10" :duration="20">
-                            Бегущий текст African states have been stepping up efforts to prevent the spread of
-                            coronavirus.
-                            African states have been stepping up efforts to pаааааааа
+                        <marquee-text :repeat="10" :duration="20" v-if="banner">
+                            {{ banner.running[$i18n.locale] }}
                         </marquee-text>
                     </client-only>
                 </div>
@@ -87,11 +85,13 @@
 <script>
     import SubheaderDropdown from '~/components/elements/SubheaderDropdown';
 
+    import {mapActions, mapState} from 'vuex';
+
     export default {
         components: {
             SubheaderDropdown
         },
-        name: "Header",
+
         data() {
             return {
                 active: false,
@@ -99,16 +99,25 @@
                 searchShown: false
             }
         },
+
+        created(){
+            this.getBanners();
+        },
+
         methods: {
             changeLang() {
                 this.$router.push(this.switchLocalePath(`${this.languageDefault}`))
                 this.$moment.locale(this.languageDefault);
-            }
+            },
+            ...mapActions('news', ['getBanners'])
         },
+
         mounted(){
             this.$moment.locale(this.languageDefault);
         },
+
         computed: {
+            ...mapState('news', ['banner']),
             availableLocales() {
                 return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
             },
@@ -118,7 +127,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

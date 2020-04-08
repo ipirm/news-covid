@@ -1,7 +1,7 @@
 <template>
     <div class="right-advertising-row" style="height: 83%;">
         <div class="right-advertising">
-            <img src="/images/main-page/right-advertising.png">
+            <img v-if="banner"  :src="`http://puny2.continent.az/storage/${banner.image_second}`">
         </div>
         <div class="right-videos">
             <div class="right-videos-title">
@@ -12,7 +12,7 @@
                     <div class="scroll-news">
                         <link-i18n :to="`/news/${item.slug}`" class="right-videos-card main-news" v-for="(item, index) in interestingNews" :key="index">
                             <img class="left-videos-img" :src="`http://puny2.continent.az/storage/${item.image}`">
-                            <span>{{ item.title[$i18n.locale]  | truncate(40) }}</span>
+                            <span>{{ item.title[$i18n.locale] }}</span>
                         </link-i18n>
                     </div>
                 </vue-scroll>
@@ -34,6 +34,7 @@
         },
         created(){
           this.getInterestingNews();
+            this.getBanners();
         },
         data() {
             return {
@@ -50,9 +51,11 @@
         },
         methods:{
             ...mapActions('news', ['getInterestingNews']),
+            ...mapActions('news', ['getBanners'])
         },
         computed: {
             ...mapState('news', ['interestingNews']),
+            ...mapState('news', ['banner'])
         }
     }
 </script>

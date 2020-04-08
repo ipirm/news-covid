@@ -36,8 +36,7 @@
                                 <img :src="`http://puny2.continent.az/storage/${item.image}`">
                             </div>
                             <div class="news-cards-item-text">
-                                <b>{{ item.description[$i18n.locale] | truncate(55) }}</b><br>
-                                <span>{{ item.text[$i18n.locale] | truncate(150)  }}</span>
+                                {{ item.description[$i18n.locale] }}
                             </div>
                             <div class="news-content-date news-cards-date">
                                 <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>

@@ -1,7 +1,7 @@
 <template>
     <div class="right-advertising-row">
         <div class="right-advertising">
-            <img src="/images/main-page/right-advertising.png">
+            <img v-if="banner" :src="`http://puny2.continent.az/storage/${banner.image_first}`">
         </div>
         <div class="right-videos">
             <div class="right-videos-title">
@@ -10,9 +10,9 @@
             <client-only>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
-                        <link-i18n :to="`/news/${index}`" class="right-videos-card" v-for="(item, index) in data" :key="index">
-                            <img class="right-videos-img" :src="item.urlToImage">
-                            <span>{{ item.title }}</span>
+                        <link-i18n :to="`/news/${item.slug}`" class="right-videos-card" v-for="(item, index) in videoNews" :key="index">
+                            <img class="right-videos-img" :src="`http://puny2.continent.az/storage/${item.image}`">
+                            <span>{{ item.title[$i18n.locale]  }}</span>
                         </link-i18n>
                     </div>
                 </vue-scroll>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+    import {mapActions, mapState} from 'vuex'
     export default {
         props: {
             data: {
@@ -32,7 +33,10 @@
                 }
             }
         },
-        name: "RightSidebar",
+        created() {
+            this.getVideoNews();
+            this.getBanners();
+        },
         data() {
             return {
                 ops: {
@@ -45,6 +49,14 @@
                     }
                 }
             }
+        },
+        methods:{
+            ...mapActions('news', ['getVideoNews']),
+            ...mapActions('news', ['getBanners'])
+        },
+        computed: {
+            ...mapState('news', ['videoNews']),
+            ...mapState('news', ['banner'])
         }
     }
 </script>
