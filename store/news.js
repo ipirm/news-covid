@@ -58,6 +58,6 @@ export const actions = {
     },
     async getCatsNews({commit},id) {
         const cats = await this.$axios.$get(`http://puny2.continent.az/api/cats/${id}`);
-        commit('SET_NEWS_DATA', cats.cats.data)
+        commit('SET_NEWS_DATA', cats.news.data)
     }
 }
