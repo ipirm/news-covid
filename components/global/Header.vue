@@ -56,7 +56,7 @@
                                     />
                                 </div>
                                 <div class="header-row-tags header-sign-in">
-                                    <link-i18n to="/">{{ $t('signIn') }}</link-i18n>
+                                    <link-i18n to="/login">{{ $t('signIn') }}</link-i18n>
                                 </div>
                             </div>
                         </div>
