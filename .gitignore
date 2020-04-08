@@ -7,5 +7,8 @@ npm-debug.log
 # Nuxt build
 .nuxt
 
+# no idea
+.idea
+
 # Nuxt generate
 dist

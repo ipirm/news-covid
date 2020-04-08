@@ -7,7 +7,6 @@ export const state = () => ({
     cats: null
 })
 
-
 export const mutations = {
     SET_NEWS: (state, payload) => {
         state.news = payload;
@@ -30,11 +29,10 @@ export const mutations = {
 
 }
 
-
 export const actions = {
     async getNewsSlides({commit}) {
         const news = await this.$axios.$get('http://puny2.continent.az/api/slides');
-        commit('SET_SLIDES_NEWS', news.news)
+        commit('SET_SLIDES_NEWS', news.news);
     },
     async getNews({commit}) {
         const news = await this.$axios.$get('https://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=2d23c9173e2449bc894c0f3341f26b84')
