@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3">
-                        <RightSidebar :data="news"/>
+                        <RightSidebar/>
                     </div>
                     <div class="col-lg-6">
                         <NewsList :data="news"/>

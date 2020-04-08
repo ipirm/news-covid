@@ -4,7 +4,8 @@ export const state = () => ({
     slidesNews: null,
     activeNews: null,
     newsData: null,
-    cats: null
+    cats: null,
+    videoNews: null
 })
 
 
@@ -27,7 +28,9 @@ export const mutations = {
     SET_CATS_DATA: (state, payload) => {
         state.cats = payload
     },
-
+    SET_VIDEO_DATA: (state, payload) => {
+        state.videoNews = payload
+    },
 }
 
 
@@ -41,8 +44,8 @@ export const actions = {
         commit('SET_NEWS', news.articles)
     },
     async getInterestingNews({commit}) {
-        const interestingNews = await this.$axios.$get('http://puny2.continent.az/api/interesting')
-        commit('SET_INTERESTING_NEWS', interestingNews.news)
+        const interestingNews = await this.$axios.$get('http://puny2.continent.az/api/interesting?per_page=12')
+        commit('SET_INTERESTING_NEWS', interestingNews.news.data)
     },
     async findNews({commit},id) {
         const news = await this.$axios.$get(`http://puny2.continent.az/api/news/${id}`);
@@ -59,5 +62,9 @@ export const actions = {
     async getCatsNews({commit},id) {
         const cats = await this.$axios.$get(`http://puny2.continent.az/api/cats/${id}`);
         commit('SET_NEWS_DATA', cats.news.data)
+    },
+    async getVideoNews({commit}) {
+        const cats = await this.$axios.$get('http://puny2.continent.az/api/videos?per_page=12');
+        commit('SET_VIDEO_DATA', cats.news.data)
     }
 }

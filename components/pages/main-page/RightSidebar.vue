@@ -10,9 +10,9 @@
             <client-only>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
-                        <link-i18n :to="`/news/${index}`" class="right-videos-card" v-for="(item, index) in data" :key="index">
-                            <img class="right-videos-img" :src="item.urlToImage">
-                            <span>{{ item.title }}</span>
+                        <link-i18n :to="`/news/${index}`" class="right-videos-card" v-for="(item, index) in videoNews" :key="index">
+                            <img class="right-videos-img" :src="`http://puny2.continent.az/storage/${item.image}`">
+                            <span>{{ item.title[$i18n.locale]  }}</span>
                         </link-i18n>
                     </div>
                 </vue-scroll>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+    import {mapActions, mapState} from 'vuex'
     export default {
         props: {
             data: {
@@ -32,7 +33,9 @@
                 }
             }
         },
-        name: "RightSidebar",
+        created() {
+            this.getVideoNews();
+        },
         data() {
             return {
                 ops: {
@@ -45,6 +48,12 @@
                     }
                 }
             }
+        },
+        methods:{
+            ...mapActions('news', ['getVideoNews'])
+        },
+        computed: {
+            ...mapState('news', ['videoNews'])
         }
     }
 </script>
