@@ -25,7 +25,7 @@
                         </div>
                         <div class="news-content-text">
                             <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
-                            {{ activeNews.text[$i18n.locale] }}
+                            <span v-html="activeNews.text[$i18n.locale]"></span>
                         </div>
                     </div>
                     <div class="col-lg-3">
