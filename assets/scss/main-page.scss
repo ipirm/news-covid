@@ -24,6 +24,11 @@
   align-items: center;
   flex-direction: column;
   height: 370px;
+
+  a {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .swiper-desc {
@@ -139,8 +144,13 @@
   align-items: center;
   justify-content: center;
   margin-top: 25px;
-  margin-right: 15px;
+  padding-right: 15px;
   min-width: 300px;
+
+  &:nth-child(even) {
+    padding-right: 0;
+    padding-left: 15px;
+  }
 
   &-title {
     font-weight: bold;
@@ -269,6 +279,7 @@
   display: flex;
   width: fit-content;
   margin-right: 45px;
+  cursor: pointer;
 
   span {
     font-weight: 600;

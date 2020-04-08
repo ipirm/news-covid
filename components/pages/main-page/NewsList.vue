@@ -1,28 +1,28 @@
 <template>
     <div>
-        <div v-if="data !== null">
-            <link-i18n to="/news/0" class="news-card">
+        <div>
+            <link-i18n :to="`/news/${i}`" class="news-card" v-for="(item, i) in firstPost" :key="i">
                 <div class="news-card-title">
-                    <span>{{ data[0].title}}</span>
+                    <span>{{ item.title}}</span>
                 </div>
                 <div class="news-card-image">
-                    <img :src="data[0].urlToImage"/>
+                    <img :src="item.urlToImage"/>
                 </div>
                 <div class="news-card-setting">
                     <div class="news-card-comments">
                         116 {{ $t('nComments')}}
                         <div class="news-card-date">
-                            <span>{{data[0].publishedAt  | moment("from", "now") }}</span>
+                            <span>{{item.publishedAt  | moment("from", "now") }}</span>
                             <span>Spain</span>
                         </div>
                     </div>
                 </div>
                 <div class="news-card-text">
-                    {{ data[0].content}}
+                    {{ item.content}}
                 </div>
             </link-i18n>
             <div class="news">
-                <link-i18n to="/news/1" class="news-card news-card-half" v-for="(item, i) in halfPosts" :key="i">
+                <link-i18n :to="`/news/${i+1}`" class="news-card news-card-half" v-for="(item, i) in halfPosts" :key="i">
                     <div class="news-card-title">
                         <span>{{ item.title}}</span>
                     </div>
@@ -44,7 +44,7 @@
                 </link-i18n>
             </div>
             <div class="list-news" v-if="data">
-                <link-i18n :to="`/news/${index + 7}`" class="list-news-card" v-for="(item,index ) in data.slice(7,dataIndex)" :key="index">
+                <link-i18n :to="`/news/${index + 5}`" class="list-news-card" v-for="(item,index ) in data.slice(5,dataIndex)" :key="index">
                     <img :src="item.urlToImage">
                     <div class="list-news-desc">
                         <div class="list-news-title">{{ item.title }}</div>
@@ -52,9 +52,9 @@
                     </div>
                 </link-i18n>
             </div>
-            <a href="#" class="news-card-btn" @click.prevent="nextNews()" v-if="parseInt(this.dataIndex) < data.length">
+            <div class="news-card-btn" @click="nextNews()" v-if="data && parseInt(this.dataIndex) < data.length">
                 <span>{{ $t('moreNews')}}</span>
-            </a>
+            </div>
         </div>
     </div>
 </template>
@@ -83,8 +83,16 @@
             }
         },
         computed: {
+            firstPost() {
+                if (this.data)
+                    return this.data.slice(0, 1);
+                else return [];
+            },
+
             halfPosts() {
-                return this.data.slice(1, 4);
+                if (this.data)
+                    return this.data.slice(1, 5);
+                else return [];
             }
         }
     }
