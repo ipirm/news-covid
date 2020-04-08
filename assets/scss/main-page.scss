@@ -122,6 +122,17 @@
   align-items: center;
 }
 
+.news {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-card {
+    &-half {
+      width: 50%;
+    }
+  }
+}
+
 .news-card {
   display: flex;
   flex-direction: column;
@@ -301,6 +312,7 @@
   img {
     width: 100%;
     height: 365.47px;
+    object-fit: cover;
   }
 }
 

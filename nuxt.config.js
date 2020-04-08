@@ -47,7 +47,7 @@ module.exports = {
         {src: '~plugins/vue-scrollto.js'},
         {src: '~plugins/number-filter.js'},
         {src: '~plugins/truncate.js'},
-
+        {src: '~plugins/click-outside.js'},
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},
@@ -106,4 +106,3 @@ module.exports = {
         transpile: [/^vue2-google-maps($|\/)/, /^vue2-gmap-custom-marker($|\/)/]
     }
 }
-

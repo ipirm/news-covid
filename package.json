@@ -19,7 +19,7 @@
     "@trevoreyre/autocomplete-vue": "^2.1.0",
     "animated-number-vue": "^1.0.0",
     "bootstrap-vue": "^2.3.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.13.0",
     "numeral": "^2.0.6",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.5.0",
