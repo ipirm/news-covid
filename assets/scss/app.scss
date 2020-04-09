@@ -196,12 +196,13 @@ a:hover {
   justify-content: center;
 }
 
-@import "main-page";
+@import "/pages/main-page";
+@import "/pages/form-page";
 @import "spinner";
-@import "login";
 @import "burger";
 @import "/global/footer";
 @import "/global/header";
+@import "/elements/custom-select";
 @import "news-item";
 @import "news";
 @import "map";
