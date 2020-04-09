@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-mail">
-                        <input :placeholder="`$t('leaveComment')}}`">
+                        <input :placeholder="$t('leaveComment')">
                         <a href="#" @click.prevent><span>{{ $t('send')}}</span></a>
                     </div>
                 </div>

@@ -46,13 +46,12 @@
                                         <button>{{ $t('Найти') }}</button>
                                     </div>
                                 </div>
-                                <div class="header-row-tags">
-                                    <v-select
+                                <div class="header-row-tags header-lang">
+                                    <custom-select
                                         :options="languages"
                                         v-model="languageDefault"
-                                        :clearable="false"
-                                        :searchable="false"
                                         @input="changeLang()"
+                                        :value="languageDefault"
                                     />
                                 </div>
                                 <div class="header-row-tags header-sign-in">
@@ -84,12 +83,14 @@
 
 <script>
     import SubheaderDropdown from '~/components/elements/SubheaderDropdown';
+    import CustomSelect from '~/components/elements/CustomSelect';
 
     import {mapActions, mapState} from 'vuex';
 
     export default {
         components: {
-            SubheaderDropdown
+            SubheaderDropdown,
+            'custom-select': CustomSelect
         },
 
         data() {
