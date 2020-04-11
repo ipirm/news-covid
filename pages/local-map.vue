@@ -229,20 +229,17 @@
             }
         },
         methods: {
-            ...mapActions('virus', ['getVirus']),
-            ...mapActions('virus', ['getCountries']),
+            ...mapActions('virus', ['getVirus', 'getCountries']),
             ...mapActions('news', ['getNews']),
+
             selectItem(item) {
                 this.$store.commit('virus/SET_AZE_ACTIVE_COUNTRIES',item);
                 this.activeCountry = item;
             }
         },
         computed: {
-            ...mapState('virus', ['virusWorldWide']),
-            ...mapState('virus', ['virusLocal']),
-            ...mapState('virus', ['countries']),
-            ...mapState('virus', ['azeCountries']),
-            ...mapState('news', ['news']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries', 'azeCountries']),
+            ...mapState('news', ['news'])
         },
     }
 </script>

@@ -44,6 +44,7 @@
                             </div>
                         </link-i18n>
                     </div>
+                    <Pagination :curPage="curPage" :perPage="perPage" :totalElems="totalElems" v-model="curPage" />
                 </div>
                 <div class="col-lg-3">
                     <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
@@ -56,53 +57,70 @@
 
 <script>
     import LeftSidebar from "../../components/pages/main-page/LeftSidebar";
+    import Pagination from "../../components/elements/Pagination";
 
     import {mapActions, mapState} from 'vuex'
     import VirusStatic from "../../components/global/VirusStatic";
     import Datepicker from 'vue-moment-datepicker';
 
     export default {
-        components: {VirusStatic, LeftSidebar, Datepicker},
+        components: {VirusStatic, LeftSidebar, Datepicker, Pagination},
+
         created() {
             this.getVirus();
-            this.getNewsData();
-            this.$route.query.type = null;
             this.getCats().then(()=>{
                 if(this.$route.query.type) {
                     this.link = this.cats.find(i => i.slug === this.$route.query.type);
                     this.selected = this.link.title[this.$i18n.locale]
+                    this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage});
+                } else {
+                    this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
                 }
             });
         },
+
+        watch: {
+            curPage(n,o) {
+                if (this.link.id)
+                    this.getPaginatedNews({id: this.link.id, curPage: n, perPage: this.perPage});
+                else
+                    this.getPaginatedNews({curPage: n, perPage: this.perPage});
+            }
+        },
+
         data() {
             return {
                 selected: '',
                 link: {},
-                date: Date.now()
+                date: Date.now(),
+                curPage: 1,
+                perPage: 3
             }
         },
+
         methods: {
-            ...mapActions('news', ['getNews']),
-            ...mapActions('news', ['findNews']),
-            ...mapActions('news', ['getNewsData']),
+            ...mapActions('news', ['getNews', 'findNews', 'getPaginatedNews', 'getCats']),
             ...mapActions('virus', ['getVirus']),
-            ...mapActions('news', ['getCats']),
-                customFormatter(date) {
-                    return this.$moment(date).format("DD/MM/YYYY");
+
+            customFormatter(date) {
+                return this.$moment(date).format("DD/MM/YYYY");
             },
+
             changeRoute(){
                 this.link = this.cats.find(i => i.title[this.$i18n.locale] === this.selected);
-               this.$router.push({query: {type: this.link.slug}});
-                 this.$store.dispatch('news/getCatsNews',this.link.id)
+                if (this.link) {
+                    this.$router.push({query: {type: this.link.slug}});
+                    this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage}); // getting by category
+                } else {
+                    this.$router.push({query: {}});
+                    this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
+                }
             }
         },
+
         computed: {
-            ...mapState('news', ['news']),
-            ...mapState('news', ['newsData']),
-            ...mapState('news', ['activeNews']),
-            ...mapState('virus', ['virusWorldWide']),
-            ...mapState('virus', ['virusLocal']),
-            ...mapState('news', ['cats']),
+            ...mapState('news', ['news', 'newsData', 'activeNews', 'cats', 'totalElems']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal']),
 
             getOptions(){
                 const newsCats = [];
@@ -111,12 +129,8 @@
                         newsCats.push(item.title[this.$i18n.locale])
                     });
                 }
-                return newsCats
+                return newsCats;
             }
         },
     }
 </script>
-
-<style scoped>
-
-</style>

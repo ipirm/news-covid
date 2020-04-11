@@ -6,7 +6,8 @@ export const state = () => ({
     newsData: null,
     cats: null,
     videoNews: null,
-    banner: null
+    banner: null,
+    totalElems: 0
 })
 
 export const mutations = {
@@ -33,6 +34,9 @@ export const mutations = {
     },
     SET_BANNER_DATA: (state,payload) =>{
         state.banner = payload
+    },
+    SET_TOTAL_ELEMS: (state, payload) => {
+        state.totalElems = payload;
     }
 }
 
@@ -61,10 +65,6 @@ export const actions = {
         const cats = await this.$axios.$get('http://puny2.continent.az/api/cats');
         commit('SET_CATS_DATA', cats.cats)
     },
-    async getCatsNews({commit},id) {
-        const cats = await this.$axios.$get(`http://puny2.continent.az/api/cats/${id}`);
-        commit('SET_NEWS_DATA', cats.news.data)
-    },
     async getVideoNews({commit}) {
         const cats = await this.$axios.$get('http://puny2.continent.az/api/videos?per_page=12');
         commit('SET_VIDEO_DATA', cats.news.data)
@@ -72,5 +72,14 @@ export const actions = {
     async getBanners({commit}) {
         const cats = await this.$axios.$get('http://puny2.continent.az/api/banners');
         commit('SET_BANNER_DATA', cats.banner)
+    },
+    async getPaginatedNews({commit}, data) {
+        let res;
+        if (data.id)
+            res = await this.$axios.$get(`http://puny2.continent.az/api/cats/${data.id}?page=${data.curPage}&per_page=${data.perPage}`);
+        else
+            res = await this.$axios.$get(`http://puny2.continent.az/api/news?page=${data.curPage}&per_page=${data.perPage}`);
+        commit('SET_TOTAL_ELEMS', res.news.total ? res.news.total : 0);
+        commit('SET_NEWS_DATA', res.news.data);
     }
 }

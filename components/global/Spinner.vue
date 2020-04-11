@@ -16,7 +16,3 @@
         name: 'Spinner'
     }
 </script>
-
-<style scoped>
-
-</style>

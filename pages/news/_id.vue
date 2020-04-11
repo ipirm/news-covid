@@ -92,17 +92,12 @@
             return {}
         },
         methods: {
-            ...mapActions('news', ['getNews']),
-            ...mapActions('news', ['findNews']),
-            ...mapActions('virus', ['getVirus']),
-            ...mapActions('news', ['getBanners'])
+            ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
+            ...mapActions('virus', ['getVirus'])
         },
         computed: {
-            ...mapState('news', ['news']),
-            ...mapState('news', ['activeNews']),
-            ...mapState('virus', ['virusWorldWide']),
-            ...mapState('virus', ['virusLocal']),
-            ...mapState('news', ['banner'])
+            ...mapState('news', ['news', 'activeNews', 'banner']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
     }
 </script>

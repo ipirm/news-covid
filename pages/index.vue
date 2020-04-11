@@ -69,16 +69,12 @@
             return {}
         },
         methods: {
-            ...mapActions('news', ['getNews']),
-            ...mapActions('news', ['getInterestingNews']),
+            ...mapActions('news', ['getNews', 'getInterestingNews']),
             ...mapActions('virus', ['getVirus'])
         },
         computed: {
-            ...mapState('news', ['news']),
-            ...mapState('news', ['interestingNews']),
-            ...mapState('news', ['slidesNews']),
-            ...mapState('virus', ['virusWorldWide']),
-            ...mapState('virus', ['virusLocal'])
+            ...mapState('news', ['news', 'interestingNews', 'slidesNews']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
     }
 </script>
