@@ -590,33 +590,28 @@
             }
         },
         methods: {
-            ...mapActions('virus', ['getVirus']),
-            ...mapActions('virus', ['getCountries']),
+            ...mapActions('virus', ['getVirus', 'getCountries']),
             ...mapActions('news', ['getNews']),
+
             myMarker(item) {
                 this.$store.commit('virus/SET_ACTIVE_FALSE', item);
                 this.activeCountry = item;
             },
+
             selectItem(item) {
                 this.$refs.mapRef.panTo({lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)});
                 this.$store.commit('virus/SET_ACTIVE_FALSE', item);
                 this.activeCountry = item;
                 this.zoom = 5;
             },
+
             formatToPrice(value) {
                 return `${value.toFixed(0)} `;
             }
         },
         computed: {
-            ...mapState('virus', ['virusWorldWide']),
-            ...mapState('virus', ['virusLocal']),
-            ...mapState('virus', ['countries']),
-            ...mapState('news', ['news']),
-
+            ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries']),
+            ...mapState('news', ['news'])
         },
     }
 </script>
-
-<style scoped>
-
-</style>
