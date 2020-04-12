@@ -27,6 +27,28 @@
                             <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
                             <span v-html="activeNews.text[$i18n.locale]"></span>
                         </div>
+                        <template>
+                            <client-only>
+                                <div
+                                        :permalink="permalink"
+                                >
+                                    <div id=fb_thread class="text-xs-center">
+                                        <div class="fb-comments" data-href="http://covid.az/" data-numposts="5" data-width="100%"></div>
+                                    </div>
+                                    <div id="fb-root"></div>
+                                    <script>
+                                        (function (d, s, id) {
+                                            var js
+                                            var fjs = d.getElementsByTagName(s)[0]
+                                            if (d.getElementById(id)) return
+                                            js = d.createElement(s); js.id = id
+                                            js.src = 'https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0'
+                                            fjs.parentNode.insertBefore(js, fjs)
+                                        }(document, 'script', 'facebook-jssdk'))
+                                    </script>
+                                </div>
+                            </client-only>
+                        </template>
                     </div>
                     <div class="col-lg-3">
                         <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal" />
