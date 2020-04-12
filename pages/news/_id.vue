@@ -8,14 +8,14 @@
                     <div class="col-lg-7">
                         <div class="news-content-breadcumbs">
                             <link-i18n to="/">{{ $t('mainPage')}}</link-i18n>
-                            <link-i18n to="/news/">{{ $t('mainPage')}}</link-i18n>
+                            <link-i18n to="/news/">Все Новости</link-i18n>
                             <a>{{ activeNews.title[$i18n.locale]}}</a>
                         </div>
                         <div class="news-content-title">
                             <span>{{ activeNews.title[$i18n.locale] }}</span>
                         </div>
                         <div class="news-content-image">
-                            <img :src="`http://puny2.continent.az/storage/${activeNews.image}`">
+                            <img :src="`${$imagesUrl}/${activeNews.image}`">
                         </div>
                         <div class="news-content-date">
                             <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="overlay-banner">
-                        <img v-if="banner"  :src="`http://puny2.continent.az/storage/${banner.image_third}`">
+                        <img v-if="banner"  :src="`${$imagesUrl}/${banner.image_third}`">
                     </div>
                 </div>
             </div>
@@ -102,14 +102,14 @@
         },
         data() {
             return {
-                loading: true
+                loading: true,
             }
         },
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
             initCreationFacebookComments(){
-                FB.XFBML.parse() // Refres comments the XFBML
+                FB.XFBML.parse()
                 this.loading = !this.loading
             }
         },
