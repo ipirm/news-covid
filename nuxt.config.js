@@ -7,6 +7,9 @@ module.exports = {
     /*
     ** Headers of the page
     */
+    env: {
+        imagesUrl: 'https://puny2.continent.az/storage' || 'http://localhost:3000'
+    },
     head: {
         title: 'Covid-19 AZE',
         meta: [

@@ -33,7 +33,7 @@
                                 <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="news-cards-item-image">
-                                <img :src="`http://puny2.continent.az/storage/${item.image}`">
+                                <img :src="`${$imagesUrl}/${item.image}`">
                             </div>
                             <div class="news-cards-item-text">
                                 {{ item.description[$i18n.locale] }}

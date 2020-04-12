@@ -11,7 +11,7 @@
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
                         <link-i18n :to="`/news/${item.slug}`" class="right-videos-card" v-for="(item, index) in videoNews" :key="index">
-                            <img class="right-videos-img" :src="`http://puny2.continent.az/storage/${item.image}`">
+                            <img class="right-videos-img" :src="`${$imagesUrl}/${item.image}`">
                             <span>{{ item.title[$i18n.locale]  }}</span>
                         </link-i18n>
                     </div>
