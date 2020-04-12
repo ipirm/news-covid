@@ -30,22 +30,11 @@
                         <template>
                             <client-only>
                                 <div
-                                        :permalink="permalink"
                                 >
                                     <div id=fb_thread class="text-xs-center">
-                                        <div class="fb-comments" data-href="http://covid.az/" data-numposts="5" data-width="100%"></div>
+                                        <div class="fb-comments" :data-href="`http://covid.az/${this.$route.fullPath}`" data-numposts="100" data-width="100%"></div>
                                     </div>
                                     <div id="fb-root"></div>
-                                    <script>
-                                        (function (d, s, id) {
-                                            var js
-                                            var fjs = d.getElementsByTagName(s)[0]
-                                            if (d.getElementById(id)) return
-                                            js = d.createElement(s); js.id = id
-                                            js.src = 'https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0'
-                                            fjs.parentNode.insertBefore(js, fjs)
-                                        }(document, 'script', 'facebook-jssdk'))
-                                    </script>
                                 </div>
                             </client-only>
                         </template>
@@ -115,12 +104,28 @@
         },
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
-            ...mapActions('virus', ['getVirus'])
+            ...mapActions('virus', ['getVirus']),
+            initCreationFacebookComments(){
+                FB.XFBML.parse() // Refres comments the XFBML
+            }
         },
         computed: {
             ...mapState('news', ['news', 'activeNews', 'banner']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
+        mounted(){
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            setTimeout(() => {
+                this.initCreationFacebookComments()
+            }, 3000);
+        }
     }
 </script>
 
