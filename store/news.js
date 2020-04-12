@@ -46,8 +46,8 @@ export const actions = {
         commit('SET_SLIDES_NEWS', news.news);
     },
     async getNews({commit}) {
-        const news = await this.$axios.$get('https://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=2d23c9173e2449bc894c0f3341f26b84')
-        commit('SET_NEWS', news.articles)
+        const news = await this.$axios.$get('http://puny2.continent.az/api/news')
+        commit('SET_NEWS', news.news.data)
     },
     async getInterestingNews({commit}) {
         const interestingNews = await this.$axios.$get('http://puny2.continent.az/api/interesting?per_page=12')
@@ -56,10 +56,6 @@ export const actions = {
     async findNews({commit},id) {
         const news = await this.$axios.$get(`http://puny2.continent.az/api/news/${id}`);
         commit('GET_NEWS', news.news)
-    },
-    async getNewsData({commit}) {
-        const news = await this.$axios.$get('http://puny2.continent.az/api/news');
-        commit('SET_NEWS_DATA', news.news.data)
     },
     async getCats({commit}) {
         const cats = await this.$axios.$get('http://puny2.continent.az/api/cats');

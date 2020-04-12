@@ -1,9 +1,29 @@
 <template>
     <div>
-        <div>
-            <link-i18n :to="`/news/${i}`" class="news-card" v-for="(item, i) in firstPost" :key="i">
+        <link-i18n :to="`/news/${i}`" class="news-card" v-for="(item, i) in firstPost" :key="i">
+            <div class="news-card-title">
+                <span>{{ item.title[$i18n.locale] }}</span>
+            </div>
+            <div class="news-card-image">
+                <img :src="`${$imagesUrl}/${item.urlToImage}`"/>
+            </div>
+            <div class="news-card-setting">
+                <div class="news-card-comments">
+                    116 {{ $t('nComments')}}
+                    <div class="news-card-date">
+                        <span>{{ item.publishedAt  | moment("from", "now") }}</span>
+                        <span>{{ item.country[$i18n.locale] }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card-text">
+                {{ item.description[$i18n.locale]  }}
+            </div>
+        </link-i18n>
+        <div class="news">
+            <link-i18n :to="`/news/${i+1}`" class="news-card news-card-half" v-for="(item, i) in halfPosts" :key="i">
                 <div class="news-card-title">
-                    <span>{{ item.title}}</span>
+                    <span>{{ item.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-card-image">
                     <img :src="item.urlToImage"/>
@@ -13,48 +33,26 @@
                         116 {{ $t('nComments')}}
                         <div class="news-card-date">
                             <span>{{item.publishedAt  | moment("from", "now") }}</span>
-                            <span>Spain</span>
+                            <span>{{ item.country[$i18n.locale] }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="news-card-text">
-                    {{ item.content}}
+                    {{ item.description[$i18n.locale] }}
                 </div>
             </link-i18n>
-            <div class="news">
-                <link-i18n :to="`/news/${i+1}`" class="news-card news-card-half" v-for="(item, i) in halfPosts" :key="i">
-                    <div class="news-card-title">
-                        <span>{{ item.title}}</span>
-                    </div>
-                    <div class="news-card-image">
-                        <img :src="item.urlToImage"/>
-                    </div>
-                    <div class="news-card-setting">
-                        <div class="news-card-comments">
-                            116 {{ $t('nComments')}}
-                            <div class="news-card-date">
-                                <span>{{item.publishedAt  | moment("from", "now") }}</span>
-                                <span>Spain</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news-card-text">
-                        {{ item.content}}
-                    </div>
-                </link-i18n>
-            </div>
-            <div class="list-news" v-if="data">
-                <link-i18n :to="`/news/${index + 5}`" class="list-news-card" v-for="(item,index ) in data.slice(5,dataIndex)" :key="index">
-                    <img :src="item.urlToImage">
-                    <div class="list-news-desc">
-                        <div class="list-news-title">{{ item.title }}</div>
-                        <div class="list-news-subtitle">{{ item.content }}</div>
-                    </div>
-                </link-i18n>
-            </div>
-            <div class="news-card-btn" @click="nextNews()" v-if="data && parseInt(this.dataIndex) < data.length">
-                <span>{{ $t('moreNews')}}</span>
-            </div>
+        </div>
+        <div class="list-news" v-if="data">
+            <link-i18n :to="`/news/${index + 5}`" class="list-news-card" v-for="(item,index ) in data.slice(5,dataIndex)" :key="index">
+                <img :src="item.urlToImage">
+                <div class="list-news-desc">
+                    <div class="list-news-title">{{ item.title[$i18n.locale] }}</div>
+                    <div class="list-news-subtitle">{{ item.description[$i18n.locale]  }}</div>
+                </div>
+            </link-i18n>
+        </div>
+        <div class="news-card-btn" @click="nextNews()" v-if="data && parseInt(this.dataIndex) < data.length">
+            <span>{{ $t('moreNews')}}</span>
         </div>
     </div>
 </template>
@@ -74,6 +72,9 @@
             return {
                 dataIndex: 12,
             }
+        },
+        mounted() {
+            console.log(this.data)
         },
         methods:{
             nextNews() {

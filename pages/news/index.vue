@@ -8,10 +8,10 @@
                         <div class="news-cards-title">
                             <span class="mb-2" style="display: inline-block">Выберите категорию</span>
                             <v-select
-                                    placeholder="Введение ЧП"
-                                    v-model="selected"
-                                    :options="getOptions"
-                                    @input="changeRoute"
+                                placeholder="Введение ЧП"
+                                v-model="selected"
+                                :options="getOptions"
+                                @input="changeRoute"
                             />
                         </div>
                         <div class="news-cards-title">
@@ -106,7 +106,7 @@
                 return this.$moment(date).format("DD/MM/YYYY");
             },
 
-            changeRoute(){
+            changeRoute() {
                 this.link = this.cats.find(i => i.title[this.$i18n.locale] === this.selected);
                 if (this.link) {
                     this.$router.push({query: {type: this.link.slug}});
@@ -122,7 +122,7 @@
             ...mapState('news', ['news', 'newsData', 'activeNews', 'cats', 'totalElems']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal']),
 
-            getOptions(){
+            getOptions() {
                 const newsCats = [];
                 if(this.cats) {
                     this.cats.forEach((item) => {
