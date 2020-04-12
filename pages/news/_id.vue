@@ -29,8 +29,8 @@
                         </div>
                         <template>
                             <client-only>
-                                <div
-                                >
+                                <Spinner v-show="loading" />
+                                <div v-show="!loading" >
                                     <div id=fb_thread class="text-xs-center">
                                         <div class="fb-comments" :data-href="`http://covid.az/${this.$route.fullPath}`" data-numposts="100" data-width="100%"></div>
                                     </div>
@@ -90,9 +90,10 @@
 
     import {mapActions, mapState} from 'vuex'
     import VirusStatic from "../../components/global/VirusStatic";
+    import Spinner from "../../components/global/Spinner";
 
     export default {
-        components: {VirusStatic, LeftSidebar},
+        components: {Spinner, VirusStatic, LeftSidebar},
         created() {
             this.getNews();
             this.findNews(this.$route.params.id);
@@ -100,13 +101,16 @@
             this.getBanners();
         },
         data() {
-            return {}
+            return {
+                loading: true
+            }
         },
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
             initCreationFacebookComments(){
                 FB.XFBML.parse() // Refres comments the XFBML
+                this.loading = !this.loading
             }
         },
         computed: {
