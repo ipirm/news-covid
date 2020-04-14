@@ -1,7 +1,7 @@
 <template>
     <div class="right-advertising-row" style="height: 83%;">
         <div class="right-advertising">
-            <img v-if="banner"  :src="`http://puny2.continent.az/storage/${banner.image_second}`">
+            <img v-if="banner"  :src="`${$imagesUrl}/${banner.image_second}`">
         </div>
         <div class="right-videos">
             <div class="right-videos-title">

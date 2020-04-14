@@ -1,11 +1,11 @@
 <template>
     <div>
         <section class="main-page-content">
-            <div class="container-fluid" v-if="activeNews">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2">
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7"  v-for="(activeNews,index) in activeNews" :key="index">
                         <div class="news-content-breadcumbs">
                             <link-i18n to="/">{{ $t('mainPage')}}</link-i18n>
                             <link-i18n to="/news/">Все Новости</link-i18n>
@@ -29,10 +29,11 @@
                         </div>
                         <template>
                             <client-only>
-                                <Spinner v-show="loading" />
-                                <div v-show="!loading" >
+                                <Spinner v-show="loading"/>
+                                <div v-show="!loading">
                                     <div id=fb_thread class="text-xs-center">
-                                        <div class="fb-comments" :data-href="`http://covid.az/${this.$route.fullPath}`" data-numposts="100" data-width="100%"></div>
+                                        <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
+                                             data-numposts="100" data-width="100%"></div>
                                     </div>
                                     <div id="fb-root"></div>
                                 </div>
@@ -40,8 +41,8 @@
                         </template>
                     </div>
                     <div class="col-lg-3">
-                        <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal" />
-                        <LeftSidebar :data="news" style="height: 60% !important;" />
+                        <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
+                        <LeftSidebar :data="news" style="height: 60% !important;"/>
                     </div>
                 </div>
             </div>
@@ -77,7 +78,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="overlay-banner">
-                        <img v-if="banner"  :src="`${$imagesUrl}/${banner.image_third}`">
+                        <img v-if="banner" :src="`${$imagesUrl}/${banner.image_third}`">
                     </div>
                 </div>
             </div>
@@ -94,6 +95,17 @@
 
     export default {
         components: {Spinner, VirusStatic, LeftSidebar},
+        // head() {
+        //
+        //         return {
+        //             title: this.activeNews.title[this.$i18n.locale],
+        //             // meta: [
+        //             //     // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        //             //     {hid: 'description', name: 'description', content: this.activeNews}
+        //             // ]
+        //
+        //         }
+        // },
         created() {
             this.getNews();
             this.findNews(this.$route.params.id);
@@ -103,12 +115,14 @@
         data() {
             return {
                 loading: true,
+                setHead: false,
+                lang: this.$i18n.locale
             }
         },
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
-            initCreationFacebookComments(){
+            initCreationFacebookComments() {
                 FB.XFBML.parse()
                 this.loading = !this.loading
             }
@@ -117,18 +131,23 @@
             ...mapState('news', ['news', 'activeNews', 'banner']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
-        mounted(){
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+        mounted() {
+            if (process.client) {
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) {
+                        return;
+                    }
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = `https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0`;
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
 
-            setTimeout(() => {
-                this.initCreationFacebookComments()
-            }, 3000);
+                setTimeout(() => {
+                    this.initCreationFacebookComments()
+                }, 3000);
+            }
         }
     }
 </script>
