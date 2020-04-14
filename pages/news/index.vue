@@ -94,7 +94,7 @@
                 link: {},
                 date: Date.now(),
                 curPage: 1,
-                perPage: 3
+                perPage: 9
             }
         },
 

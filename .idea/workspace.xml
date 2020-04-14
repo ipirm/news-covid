@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1203c2e1-c0ac-485d-986c-9cb15217e4eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/news.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/virus.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/virus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/news/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/news/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -31,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/news/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+            <state relative-caret-position="379">
+              <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -71,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store/virus.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
+            <state relative-caret-position="1687">
               <caret line="252" column="46" selection-start-line="252" selection-start-column="46" selection-end-line="252" selection-end-column="46" />
             </state>
           </provider>
@@ -96,7 +94,6 @@
       <list>
         <option value="$PROJECT_DIR$/plugins/bus.js" />
         <option value="$PROJECT_DIR$/components/pages/main-page/MainSlider.vue" />
-        <option value="$PROJECT_DIR$/pages/news/index.vue" />
         <option value="$PROJECT_DIR$/components/pages/main-page/LeftSidebar.vue" />
         <option value="$PROJECT_DIR$/components/pages/main-page/RightSidebar.vue" />
         <option value="$PROJECT_DIR$/.nuxt/utils.js" />
@@ -105,6 +102,7 @@
         <option value="$PROJECT_DIR$/nuxt.config.js" />
         <option value="$PROJECT_DIR$/store/news.js" />
         <option value="$PROJECT_DIR$/store/virus.js" />
+        <option value="$PROJECT_DIR$/pages/news/index.vue" />
       </list>
     </option>
   </component>
@@ -235,11 +233,6 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="news" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -274,12 +267,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586874400732</updated>
-      <workItem from="1586874404926" duration="2836000" />
+      <workItem from="1586874404926" duration="3274000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16812000" />
+    <option name="totallyTimeSpent" value="17250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -465,13 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/news/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nuxt.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -488,8 +474,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/store/virus.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
+        <state relative-caret-position="1687">
           <caret line="252" column="46" selection-start-line="252" selection-start-column="46" selection-end-line="252" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/news/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
         </state>
       </provider>
     </entry>
