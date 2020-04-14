@@ -1,11 +1,11 @@
 <template>
     <div>
         <section class="main-page-content">
-            <div class="container-fluid" v-if="activeNews">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2">
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7" v-for="(activeNews,index) in activeNews" :key="index">
                         <div class="news-content-breadcumbs">
                             <link-i18n to="/">{{ $t('mainPage')}}</link-i18n>
                             <link-i18n to="/news/">Все Новости</link-i18n>
@@ -23,16 +23,17 @@
                             </div>
                             <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
                         </div>
-                        <div class="news-content-text">
+                        <div class="news-content-text mb-5">
                             <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
                             <span v-html="activeNews.text[$i18n.locale]"></span>
                         </div>
                         <template>
                             <client-only>
-                                <Spinner v-show="loading" />
-                                <div v-show="!loading" >
+                                <Spinner v-show="loading"/>
+                                <div v-show="!loading">
                                     <div id=fb_thread class="text-xs-center">
-                                        <div class="fb-comments" :data-href="`http://covid.az/${this.$route.fullPath}`" data-numposts="100" data-width="100%"></div>
+                                        <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
+                                             data-numposts="100" data-width="100%"></div>
                                     </div>
                                     <div id="fb-root"></div>
                                 </div>
@@ -40,8 +41,8 @@
                         </template>
                     </div>
                     <div class="col-lg-3">
-                        <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal" />
-                        <LeftSidebar :data="news" style="height: 60% !important;" />
+                        <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
+                        <LeftSidebar style="height: 60% !important;"/>
                     </div>
                 </div>
             </div>
@@ -53,23 +54,23 @@
                     <div class="news-cards-title">
                         <span>You may also be interested in:</span>
                     </div>
-                    <div class="news-cards-overlay" v-if="news">
+                    <div class="news-cards-overlay">
                         <link-i18n
-                                :to="`/news/${index}`"
+                                :to="`/news/${item.slug}`"
                                 class="news-cards-item"
-                                v-for="(item, index) in news.slice(0,3)"
-                                :key="index">
+                                v-for="item in newsData"
+                                :key="item.id">
                             <div class="news-cards-item-image">
-                                <img :src="item.urlToImage">
+                                <img :src="`${$imagesUrl}/${item.image}`">
                             </div>
                             <div class="news-cards-item-title">
-                                <span>{{ item.title}}</span>
+                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
                             </div>
                             <div class="news-cards-item-text">
-                                <span>{{ item.content}}</span>
+                                <span>{{ item.description[$i18n.locale] }}</span>
                             </div>
                             <div class="news-content-date news-cards-date">
-                                <div class="news-content-date-item">{{ item.publishedAt | moment("from", "now") }}</div>
+                                <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
                                 <div class="news-content-date-item">Spain</div>
                             </div>
                         </link-i18n>
@@ -77,7 +78,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="overlay-banner">
-                        <img v-if="banner"  :src="`${$imagesUrl}/${banner.image_third}`">
+                        <img v-if="banner" :src="`${$imagesUrl}/${banner.image_third}`">
                     </div>
                 </div>
             </div>
@@ -94,41 +95,68 @@
 
     export default {
         components: {Spinner, VirusStatic, LeftSidebar},
+
         created() {
-            this.getNews();
-            this.findNews(this.$route.params.id);
             this.getVirus();
             this.getBanners();
+        },
+        async fetch({store, route}) {
+            await store.dispatch('news/findNews', route.params.id).then(
+               async ()=>{
+               await  store.dispatch('news/getPaginatedNews',
+                     {
+                         id: store.state.news.activeNews.news.cat_id,
+                         curPage: 1,
+                         perPage: 3
+                     })
+            });
         },
         data() {
             return {
                 loading: true,
             }
         },
+        head() {
+            return {
+                title: this.activeNews.news.title[this.$i18n.locale],
+                meta: [
+                    { property: 'og:title', content: `${this.activeNews.news.title[this.$i18n.locale]}` || '' } ,
+                    { property: 'og:description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || '' } ,
+                    { property: 'og:image', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
+                    { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
+                    { property: 'twitter:card', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
+                ]
+            }
+        },
         methods: {
-            ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
+            ...mapActions('news', [ 'findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
-            initCreationFacebookComments(){
+            initCreationFacebookComments() {
                 FB.XFBML.parse()
                 this.loading = !this.loading
             }
         },
         computed: {
-            ...mapState('news', ['news', 'activeNews', 'banner']),
+            ...mapState('news', ['newsData', 'activeNews', 'banner']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
-        mounted(){
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+        mounted() {
+            if (process.client) {
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) {
+                        return;
+                    }
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = `https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0`;
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
 
-            setTimeout(() => {
-                this.initCreationFacebookComments()
-            }, 3000);
+                setTimeout(() => {
+                    this.initCreationFacebookComments()
+                }, 3000);
+            }
         }
     }
 </script>

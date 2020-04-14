@@ -1,7 +1,7 @@
 <template>
     <div class="right-advertising-row">
         <div class="right-advertising">
-            <img v-if="banner" :src="`http://puny2.continent.az/storage/${banner.image_first}`">
+            <img v-if="banner" :src="`${$imagesUrl}/${banner.image_first}`">
         </div>
         <div class="right-videos">
             <div class="right-videos-title">
@@ -12,7 +12,7 @@
                     <div class="scroll-news">
                         <link-i18n :to="`/news/${item.slug}`" class="right-videos-card" v-for="(item, index) in videoNews" :key="index">
                             <img class="right-videos-img" :src="`${$imagesUrl}/${item.image}`">
-                            <span>{{ item.title[$i18n.locale]  }}</span>
+                            <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
                         </link-i18n>
                     </div>
                 </vue-scroll>

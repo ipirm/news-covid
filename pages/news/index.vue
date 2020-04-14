@@ -30,7 +30,7 @@
                                 v-for="(item, index) in newsData"
                                 :key="index">
                             <div class="news-cards-item-title" v-if="item.title">
-                                <span>{{ item.title[$i18n.locale] }}</span>
+                                <span>{{ item.title[$i18n.locale] | truncate(35) }}</span>
                             </div>
                             <div class="news-cards-item-image">
                                 <img :src="`${$imagesUrl}/${item.image}`">
@@ -78,7 +78,6 @@
                 }
             });
         },
-
         watch: {
             curPage(n,o) {
                 if (this.link.id)
@@ -94,7 +93,7 @@
                 link: {},
                 date: Date.now(),
                 curPage: 1,
-                perPage: 3
+                perPage: 9
             }
         },
 

@@ -8,14 +8,13 @@ module.exports = {
     ** Headers of the page
     */
     env: {
-        imagesUrl: 'https://puny2.continent.az/storage' || 'http://localhost:3000'
+        imagesUrl: 'https://covid.info.az/storage' || 'http://localhost:3000'
     },
     head: {
         title: 'Covid-19 AZE',
         meta: [
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-            {hid: 'description', name: 'description', content: 'Nuxt.js project'}
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
@@ -86,7 +85,7 @@ module.exports = {
         '@nuxtjs/auth'
     ],
     axios: {
-        baseURL: ''
+        baseURL: 'https://covid.info.az/api/'
     },
     auth: {
         redirect: false,
