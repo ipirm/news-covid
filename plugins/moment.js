@@ -1,7 +1,2 @@
-import Vue from 'vue';
-const moment = require('moment')
-
-Vue.use(require('vue-moment'), {
-    moment
-});
-
+import Vue from 'vue'
+Vue.use(require('vue-moment'));

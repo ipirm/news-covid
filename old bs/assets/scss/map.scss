@@ -1,5 +1,5 @@
 .map-round {
-  background-color: #CD0909;
+  background-color: $color-red;
   border-radius: 50%;
   cursor: pointer;
   opacity: 0.8;
@@ -13,7 +13,7 @@
 
   &-red {
     span {
-      color: #A50000 !important;
+      color: $color-red !important;
     }
   }
 
@@ -70,7 +70,7 @@
 }
 
 .activeClass {
-  background-color: #CD0909 !important;
+  background-color: $color-red !important;
 
   span {
     color: #fff !important;

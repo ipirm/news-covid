@@ -1,0 +1,55 @@
+html,
+body,
+#__nuxt,
+#__layout,
+#content {
+  box-sizing: border-box;
+  background: #FAFAFA;
+  font-family: Saira Condensed;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+input {
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.custom-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.page-fill {
+  min-height: calc(100vh - 93px - 325px); // 93 is the header, 325 is the footer
+}

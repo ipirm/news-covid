@@ -120,7 +120,7 @@
 
 	&__submit {
 		width: 100%;
-		background: #120888;
+		background: $color-blue;
 		color: white;
 		border: none;
 		border-radius: 2px;
@@ -137,6 +137,6 @@
 	}
 
 	.blue {
-		color: #120888;
+		color: $color-blue;
 	}
 }

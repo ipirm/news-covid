@@ -81,7 +81,7 @@
 
         watch: {
             curPage(n,o) {
-                if (this.link.id)
+                if (this.link && this.link.id)
                     this.getPaginatedNews({id: this.link.id, curPage: n, perPage: this.perPage});
                 else
                     this.getPaginatedNews({curPage: n, perPage: this.perPage});
@@ -107,6 +107,7 @@
             },
 
             changeRoute() {
+                this.curPage = 1;
                 this.link = this.cats.find(i => i.title[this.$i18n.locale] === this.selected);
                 if (this.link) {
                     this.$router.push({query: {type: this.link.slug}});

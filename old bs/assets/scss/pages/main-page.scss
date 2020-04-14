@@ -186,6 +186,14 @@
     margin-top: 5px;
   }
 
+  &-image {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
   &-text {
     margin-top: 20px;
     font-size: 14px;
@@ -208,7 +216,7 @@
 }
 
 .video-js .vjs-big-play-button {
-  background-color: #120888 !important;
+  background-color: $color-blue !important;
   top: 50% !important;
   left: 50% !important;
   margin-top: -0.75em !important;
@@ -315,7 +323,7 @@
 }
 
 .ps__thumb-y {
-  background-color: #120888 !important;
+  background-color: $color-blue !important;
 }
 
 .main-swiper {
@@ -357,7 +365,7 @@
   }
 
   &-content {
-    background: #120888;
+    background: $color-blue;
     width: 250px;
     height: 70px;
     display: flex;
@@ -393,7 +401,7 @@
       font-weight: 800;
       font-size: 20px;
       line-height: 20px;
-      color: #FF0A0A;
+      color: $color-red;
     }
   tr{
     margin: 5px 0;

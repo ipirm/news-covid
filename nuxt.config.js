@@ -59,6 +59,7 @@ module.exports = {
         {src: '~plugins/number-filter.js'},
         {src: '~plugins/truncate.js'},
         {src: '~plugins/click-outside.js'},
+        {src: '~plugins/scroll-lock.js', ssr: false}
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},

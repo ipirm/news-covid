@@ -1,50 +1,41 @@
 <template>
     <div>
-        <div v-show="!active">
-            <Spinner/>
-        </div>
-        <div v-show="active">
+        <!-- <Preloader :pageReady="pageReady" /> -->
+        <div v-show="pageReady">
             <Header/>
             <nuxt/>
             <Footer/>
-            <back-to-top
-                     right="50px"
-                     bottom="50px"
-            >
+            <!-- <back-to-top right="50px" bottom="50px">
                 <svg-icon name="btn-top" style="width: 25px;height: 25px"></svg-icon>
-            </back-to-top>
+            </back-to-top> -->
         </div>
-
     </div>
 </template>
 
 <script>
-    import Header from "../components/global/Header";
-    import Footer from "../components/global/Footer";
-    import Spinner from "../components/global/Spinner";
-    import {mapActions, mapState} from 'vuex'
+    import Preloader from '~/components/global/Preloader';
+    import Header from '~/components/global/Header';
+    import Footer from '~/components/global/Footer';
+
     export default {
-        components: {Spinner, Footer, Header, },
+        components: {
+            Preloader,
+            Footer,
+            Header
+        },
+
         data() {
             return {
-                active: false
+                pageReady: false
             }
         },
-        created(){
-      this.getBanners();
-        },
+
         mounted() {
             if (process.browser) {
                 window.onNuxtReady((app) => {
-                    this.active = !this.active;
+                    this.pageReady = !this.pageReady;
                 })
             }
-        },
-        methods: {
-            ...mapActions('news', ['getBanners']),
-        },
-        computed: {
-            ...mapState('news', ['banner']),
         }
     }
 </script>

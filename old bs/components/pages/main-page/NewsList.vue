@@ -5,13 +5,13 @@
                 <span>{{ item.title[$i18n.locale] }}</span>
             </div>
             <div class="news-card-image">
-                <img :src="`${$imagesUrl}/${item.urlToImage}`"/>
+                <img :src="`${$imagesUrl}/${item.image}`"/>
             </div>
             <div class="news-card-setting">
                 <div class="news-card-comments">
                     116 {{ $t('nComments')}}
                     <div class="news-card-date">
-                        <span>{{ item.publishedAt  | moment("from", "now") }}</span>
+                        <span>{{ item.updated_at  | moment("from", "now") }}</span>
                         <span>{{ item.country[$i18n.locale] }}</span>
                     </div>
                 </div>
@@ -26,13 +26,13 @@
                     <span>{{ item.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-card-image">
-                    <img :src="item.urlToImage"/>
+                    <img :src="`${$imagesUrl}/${item.image}`"/>
                 </div>
                 <div class="news-card-setting">
                     <div class="news-card-comments">
                         116 {{ $t('nComments')}}
                         <div class="news-card-date">
-                            <span>{{item.publishedAt  | moment("from", "now") }}</span>
+                            <span>{{ item.updated_at | moment("from", "now") }}</span>
                             <span>{{ item.country[$i18n.locale] }}</span>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="list-news" v-if="data">
             <link-i18n :to="`/news/${index + 5}`" class="list-news-card" v-for="(item,index ) in data.slice(5,dataIndex)" :key="index">
-                <img :src="item.urlToImage">
+                <img :src="`${$imagesUrl}/${item.image}`">
                 <div class="list-news-desc">
                     <div class="list-news-title">{{ item.title[$i18n.locale] }}</div>
                     <div class="list-news-subtitle">{{ item.description[$i18n.locale]  }}</div>
@@ -72,9 +72,6 @@
             return {
                 dataIndex: 12,
             }
-        },
-        mounted() {
-            console.log(this.data)
         },
         methods:{
             nextNews() {

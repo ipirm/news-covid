@@ -1,5 +1,4 @@
 import Vue from 'vue';
+import CustomLink from '../components/global/Link';
 
-import LinkI18n from '../components/elements/link-i18n'
-
-Vue.component('link-i18n', LinkI18n);
+Vue.component('clink', CustomLink);

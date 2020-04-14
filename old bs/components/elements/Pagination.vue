@@ -33,6 +33,7 @@ export default {
 
   watch: {
     curPage(n,o) {
+      this.page = n;
       this.generatePagination(n);
     },
 

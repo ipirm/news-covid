@@ -1,0 +1,187 @@
+body {
+  font-family: 'Nunito', sans-serif !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ol, ul {
+  padding-inline-start: 0px !important;
+  margin-block-start: 0px !important;
+  list-style: none;
+}
+
+.page-transitioner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+
+  &.active {
+    display: block;
+  }
+
+  &__left, &__right {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    transition: transform .5s ease;
+    background-color: white;
+  }
+
+  &__left {
+    left: 0;
+    transform: translateY(-100%);
+  }
+
+  &__right {
+    right: 0;
+    transform: translateY(100%);
+  }
+
+  &__logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3);
+    transition: opacity .5s ease;
+    opacity: 0;
+  }
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.marquee-text {
+  &-wrap {
+    background-color: #000000;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 40px;
+  }
+
+  &-text {
+    margin-right: 20px;
+    color: #fff;
+    display: inline-block;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  background: $color-body;
+}
+
+.subheader-row-tags {
+  .v-select {
+    height: 30px;
+  }
+
+  .vs__selected {
+    margin: 0 !important;
+  }
+}
+
+.subheader-row-tags {
+  display: flex;
+  align-items: center;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0
+}
+
+.bounce-enter-active {
+  animation: bounce-in .8s;
+}
+
+.bounce-leave-active {
+  animation: bounce-out .5s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0)
+  }
+  50% {
+    transform: scale(1.5)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.5)
+  }
+  100% {
+    transform: scale(0)
+  }
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(30px, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-30px, 0);
+}
+
+a:hover {
+  text-decoration: none !important;
+  opacity: 0.8;
+}
+
+.hamburger-box {
+  top: 2px !important;
+}
+
+.overlay-spinner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.vue-back-to-top {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $color-blue;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

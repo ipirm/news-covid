@@ -19,7 +19,7 @@
                         </div>
                         <div class="news-content-date">
                             <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
-                            <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}
+                            <div class="news-content-date-item">{{ activeNews.updated_at | moment("from", "now") }}
                             </div>
                             <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
                         </div>
@@ -60,17 +60,17 @@
                                 v-for="(item, index) in news.slice(0,3)"
                                 :key="index">
                             <div class="news-cards-item-image">
-                                <img :src="item.urlToImage">
+                                <img :src="`${$imagesUrl}/${item.image}`">
                             </div>
                             <div class="news-cards-item-title">
-                                <span>{{ item.title}}</span>
+                                <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="news-cards-item-text">
-                                <span>{{ item.content}}</span>
+                                <span>{{ item.description[$i18n.locale] }}</span>
                             </div>
                             <div class="news-content-date news-cards-date">
-                                <div class="news-content-date-item">{{ item.publishedAt | moment("from", "now") }}</div>
-                                <div class="news-content-date-item">Spain</div>
+                                <div class="news-content-date-item">{{ item.updated_at | moment("from", "now") }}</div>
+                                <div class="news-content-date-item">{{ item.country[$i18n.locale] }}</div>
                             </div>
                         </link-i18n>
                     </div>

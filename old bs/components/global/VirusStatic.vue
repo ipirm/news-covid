@@ -7,7 +7,7 @@
             <img src="/images/main-page/map.png">
         </div>
         <div class="virus-map-content">
-            <span>{{$t('pandemiaOfVirus') }}</span>
+            <span>{{ $t('pandemiaOfVirus') }}</span>
             <span class="mt-1">{{ Date.now() | moment("DD/MM/YYYY") }}</span>
         </div>
         <div class="virus-map-table" v-if="virusLocal && virusWorldWide">
