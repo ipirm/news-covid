@@ -2,9 +2,9 @@
     <div>
         <!-- <Preloader :pageReady="pageReady" /> -->
         <div v-show="pageReady">
-            <Header/>
-            <nuxt/>
-            <Footer/>
+            <Header />
+            <nuxt class="fill-page" />
+            <Footer />
             <!-- <back-to-top right="50px" bottom="50px">
                 <svg-icon name="btn-top" style="width: 25px;height: 25px"></svg-icon>
             </back-to-top> -->

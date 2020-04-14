@@ -30,6 +30,10 @@ module.exports = {
             {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'
+            },
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap'
             }
         ]
     },
@@ -43,7 +47,7 @@ module.exports = {
     */
     plugins: [
         {src: '~plugins/bootstrap-vue', ssr: true},
-        {src: '~plugins/swiper', ssr: false},
+        '~plugins/swiper',
         {src: '~plugins/bus', ssr: true},
         {src: '~plugins/mixins/user.js', ssr: true},
         {src: '~plugins/components.js', ssr: true},
@@ -63,7 +67,6 @@ module.exports = {
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'},
-        {src: 'swiper/dist/css/swiper.css'},
     ],
     modules: [
         [

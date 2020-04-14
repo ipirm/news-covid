@@ -1,55 +1,36 @@
 export const state = () => ({
-    subheader: {
-    	top: {
-			title: 'Топ новости',
-	    	links: [
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		},
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		},
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		}
-	    	]
-    	},
-    	region: {
-			title: 'Новости по регионам',
-	    	links: [
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		},
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		},
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		}
-	    	]
-    	},
-    	categories: {
-			title: 'Читать по категориям',
-	    	links: [
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		},
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		},
-	    		{
-	    			link: '/',
-	    			title: 'Топ новости'
-	    		}
-	    	]
-    	}
-    }
+    headerBottomItems: [
+		{
+			link: '',
+			title: 'World news'
+		},
+		{
+			link: '',
+			title: 'Azerbaijan news'
+		},
+		{
+			link: '',
+			title: 'Coronavirus news'
+		},
+		{
+			link: '',
+			title: 'Business'
+		},
+		{
+			link: '',
+			title: 'Sport'
+		},
+		{
+			link: '',
+			title: 'Coronavirus world map'
+		},
+		{
+			link: '',
+			title: 'Coronavirus Azerbaijan map'
+		},
+		{
+			link: '',
+			title: 'Trending'
+		},
+	]
 });

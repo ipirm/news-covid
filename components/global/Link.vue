@@ -1,6 +1,6 @@
 <template>
-    <nuxt-link :href="localePath(`${to}`)" :to="localePath(`${to}`)">
-        <slot/>
+    <nuxt-link :href="localePath(`${to ? to : '/'}`)" :to="localePath(`${to ? to : '/'}`)">
+        <slot />
     </nuxt-link>
 </template>
 
@@ -9,7 +9,7 @@
         props:{
           to: String
         },
-        name: "link-i18n"
+        name: "clink"
     }
 </script>
 

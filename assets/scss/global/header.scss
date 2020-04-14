@@ -1,0 +1,149 @@
+.header {
+	width: 100%;
+	height: 90px;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 100%;
+
+	&__content {
+		position: fixed;
+		width: 100%;
+		height: 90px;
+		z-index: 100;
+		background: white;
+		box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+	}
+
+	&__top {
+		height: 60px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__bottom {
+		width: 100%;
+		height: 30px;
+		border-top: 1px solid #B9B9B9;
+
+		.custom-container, .swiper-container, .swiper-wrapper {
+			height: 100%;
+			padding: 0;
+		}
+
+		&__slide {
+			max-width: 180px;
+			border-left: 1px solid #B9B9B9;
+			border-right: 1px solid #B9B9B9;
+			@include flex-center;
+
+			&:first-of-type {
+				border-left: none;
+			}
+
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+
+		&__link {
+			color: #656565;
+		}
+	}
+
+	&__right {
+		display: flex;
+
+		&__bar {
+			height: 32px;
+			width: 1px;
+			background: $color-blue;
+			margin: 0 20px;
+		}
+
+		&__link {
+			color: $color-blue;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	&__langs {
+		margin-right: 40px;
+		display: flex;
+		flex-direction: column;
+		height: 28px;
+		overflow: hidden;
+		background: $color-blue;
+		cursor: pointer;
+		width: 70px;
+		align-items: center;
+		border-radius: 3px;
+
+		&.active {
+			height: 57px;
+		}
+
+		&__lang {
+			color: white;
+			text-transform: uppercase;
+			padding: 8px 0;
+		}
+
+		&__bar {
+			width: 32px;
+			height: 1px;
+			background: white;
+		}
+	}
+
+	&__search {
+		height: 28px;
+
+		.icon {
+			width: 28px;
+			cursor: pointer;
+			height: 100%;
+		}
+	}
+
+	&__logo-text {
+		height: 54px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.icon {
+			height: 100%;
+		}
+	}
+
+	&__menu-button {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0;
+		background: white;
+		border: none;
+
+		&:focus {
+			outline: none;
+		}
+
+		&__top-bar, &__bottom-bar {
+			height: 4px;
+			background: $color-blue;
+			border-radius: 6px;
+		}
+
+		&__top-bar {
+			width: 32px;
+			margin-bottom: 7px;
+		}
+
+		&__bottom-bar {
+			width: 20px;
+		}
+	}
+}

@@ -1,3 +1,15 @@
 {
-  
+    "header": {
+    	"sign-in": "Sign in",
+    	"subscribe": "Subscribe",
+
+    	"World news": "World news",
+    	"Azerbaijan news": "Azerbaijan news",
+    	"Coronavirus news": "Coronavirus news",
+    	"Business": "Business",
+    	"Sport": "Sport",
+    	"Coronavirus world map": "Coronavirus world map",
+    	"Coronavirus Azerbaijan map": "Coronavirus Azerbaijan map",
+    	"Trending": "Trending"
+    }
 }
