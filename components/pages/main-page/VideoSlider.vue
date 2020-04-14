@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid" style="margin-top: 80px" v-if="false">
+    <div class="container-fluid" style="margin-top: 80px">
         <div class="video-title" style="margin-left: 30px">How nature reacts the virus? </div>
         <div class="row">
             <div class="col-12">
