@@ -1,6 +1,7 @@
 export const state = () => ({
     virusWorldWide: null,
     virusLocal: null,
+    virusLocalData: null,
     countries: null,
     map: null,
     paths: [
@@ -168,6 +169,9 @@ export const state = () => ({
 
 
 export const mutations = {
+    SET_LOCAL_MAP: (state, payload) =>{
+      state.virusLocalData = payload
+    },
     SET_VIRUS: (state, payload) => {
         state.virusWorldWide = payload;
     },
@@ -252,5 +256,9 @@ export const actions = {
     async getWorldMap({commit}) {
         const data  = await this.$axios.$get('world')
         commit('SET_MAP', data.world);
+    },
+    async getLocalMap({commit}) {
+        const data  = await this.$axios.$get('local-map')
+        commit('SET_LOCAL_MAP', data.maps);
     }
 }
