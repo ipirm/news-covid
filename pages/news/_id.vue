@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-lg-3">
                         <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
-                        <LeftSidebar :data="news" style="height: 60% !important;"/>
+                        <LeftSidebar style="height: 60% !important;"/>
                     </div>
                 </div>
             </div>
@@ -54,23 +54,23 @@
                     <div class="news-cards-title">
                         <span>You may also be interested in:</span>
                     </div>
-                    <div class="news-cards-overlay" v-if="news">
+                    <div class="news-cards-overlay">
                         <link-i18n
-                                :to="`/news/${index}`"
+                                :to="`/news/${item.slug}`"
                                 class="news-cards-item"
-                                v-for="(item, index) in news.slice(0,3)"
-                                :key="index">
+                                v-for="item in newsData"
+                                :key="item.id">
                             <div class="news-cards-item-image">
-                                <img :src="item.urlToImage">
+                                <img :src="`${$imagesUrl}/${item.image}`">
                             </div>
                             <div class="news-cards-item-title">
-                                <span>{{ item.title}}</span>
+                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
                             </div>
                             <div class="news-cards-item-text">
-                                <span>{{ item.content}}</span>
+                                <span>{{ item.description[$i18n.locale] }}</span>
                             </div>
                             <div class="news-content-date news-cards-date">
-                                <div class="news-content-date-item">{{ item.publishedAt | moment("from", "now") }}</div>
+                                <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
                                 <div class="news-content-date-item">Spain</div>
                             </div>
                         </link-i18n>
@@ -101,14 +101,19 @@
             this.getBanners();
         },
         async fetch({store, route}) {
-            await store.dispatch('news/findNews', route.params.id);
-            await store.dispatch('news/getNews');
+            await store.dispatch('news/findNews', route.params.id).then(
+               async ()=>{
+               await  store.dispatch('news/getPaginatedNews',
+                     {
+                         id: store.state.news.activeNews.news.cat_id,
+                         curPage: 1,
+                         perPage: 3
+                     })
+            });
         },
         data() {
             return {
                 loading: true,
-                setHead: false,
-                lang: this.$i18n.locale,
             }
         },
         head() {
@@ -124,7 +129,7 @@
             }
         },
         methods: {
-            ...mapActions('news', ['getNews', 'findNews', 'getBanners']),
+            ...mapActions('news', [ 'findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
             initCreationFacebookComments() {
                 FB.XFBML.parse()
@@ -132,7 +137,7 @@
             }
         },
         computed: {
-            ...mapState('news', ['news', 'activeNews', 'banner']),
+            ...mapState('news', ['newsData', 'activeNews', 'banner']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
         mounted() {
