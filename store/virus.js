@@ -250,7 +250,7 @@ export const actions = {
         commit('SET_COUNTRIES', countries);
     },
     async getWorldMap({commit}) {
-        const data  = await this.$axios.$get('https://www.covid.info.az/api/world')
+        const data  = await this.$axios.$get('world')
         commit('SET_MAP', data.world);
     }
 }

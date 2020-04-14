@@ -85,7 +85,7 @@ module.exports = {
         '@nuxtjs/auth'
     ],
     axios: {
-        baseURL: ''
+        baseURL: 'https://covid.info.az/api/'
     },
     auth: {
         redirect: false,
