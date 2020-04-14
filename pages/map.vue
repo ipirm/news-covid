@@ -484,8 +484,10 @@
         created() {
             this.getVirus();
             this.getCountries();
-            this.getNews();
-            this.getWorldMap();
+        },
+        async fetch({store}) {
+            await store.dispatch('virus/getWorldMap');
+            await store.dispatch('news/getNews');
         },
         data() {
             return {
@@ -507,7 +509,7 @@
             }
         },
         methods: {
-            ...mapActions('virus', ['getVirus', 'getCountries','getWorldMap']),
+            ...mapActions('virus', ['getVirus', 'getCountries']),
             ...mapActions('news', ['getNews']),
 
             myMarker(item) {

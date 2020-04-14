@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                     </div>
-                    <div class="col-lg-7"  v-for="(activeNews,index) in activeNews" :key="index">
+                    <div class="col-lg-7" v-for="(activeNews,index) in activeNews" :key="index">
                         <div class="news-content-breadcumbs">
                             <link-i18n to="/">{{ $t('mainPage')}}</link-i18n>
                             <link-i18n to="/news/">Все Новости</link-i18n>
@@ -23,7 +23,7 @@
                             </div>
                             <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
                         </div>
-                        <div class="news-content-text">
+                        <div class="news-content-text mb-5">
                             <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
                             <span v-html="activeNews.text[$i18n.locale]"></span>
                         </div>
@@ -95,28 +95,32 @@
 
     export default {
         components: {Spinner, VirusStatic, LeftSidebar},
-        // head() {
-        //
-        //         return {
-        //             title: this.activeNews.title[this.$i18n.locale],
-        //             // meta: [
-        //             //     // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        //             //     {hid: 'description', name: 'description', content: this.activeNews}
-        //             // ]
-        //
-        //         }
-        // },
+
         created() {
-            this.getNews();
-            this.findNews(this.$route.params.id);
             this.getVirus();
             this.getBanners();
+        },
+        async fetch({store, route}) {
+            await store.dispatch('news/findNews', route.params.id);
+            await store.dispatch('news/getNews');
         },
         data() {
             return {
                 loading: true,
                 setHead: false,
-                lang: this.$i18n.locale
+                lang: this.$i18n.locale,
+            }
+        },
+        head() {
+            return {
+                title: this.activeNews.news.title[this.$i18n.locale],
+                meta: [
+                    { property: 'og:title', content: `${this.activeNews.news.title[this.$i18n.locale]}` || '' } ,
+                    { property: 'og:description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || '' } ,
+                    { property: 'og:image', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
+                    { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
+                    { property: 'twitter:card', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
+                ]
             }
         },
         methods: {

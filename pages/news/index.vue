@@ -78,7 +78,6 @@
                 }
             });
         },
-
         watch: {
             curPage(n,o) {
                 if (this.link.id)

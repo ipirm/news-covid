@@ -2,7 +2,13 @@ export const state = () => ({
     news: null,
     interestingNews: null,
     slidesNews: null,
-    activeNews: null,
+    activeNews: {
+        title: {
+            en: '',
+            ru: '',
+            az: ''
+        }
+    },
     newsData: null,
     cats: null,
     videoNews: null,
