@@ -20,12 +20,12 @@
                     <clink to="/local-map">Local Map </clink>
                     <clink to="/map">Map </clink>
                     <clink to="/news">News </clink>
-                    <div class="header__bottom__slider">
+                    <div class="header__bottom__slider" v-show="this.$route.path !=='/news' && this.$route.path !=='/ru/news'">
                         <div v-swiper:mySwiper="swiperOption">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide header__bottom__slide" v-for="(item, i) in cats" :key="i">
                                     <div class="header__bottom__bar"></div>
-                                    <clink :to="`/${item.slug}`" class="header__bottom__link">{{ item.title[$i18n.locale] }}</clink>
+                                    <clink :to="`/news?type=${item.slug}`" class="header__bottom__link">{{ item.title[$i18n.locale] }}</clink>
                                     <div class="header__bottom__bar"></div>
                                 </div>
                             </div>
@@ -81,7 +81,9 @@
                 langsOpen: false
             }
         },
-
+        created(){
+          console.log(this.$route)
+        },
         mounted() {
             this.$moment.locale(this.curLang);
 
