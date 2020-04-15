@@ -1,7 +1,7 @@
 <template>
     <div class="main-page__aside">
         <div class="sidebar__advertising">
-            <img v-if="banner" :src="`${$imagesUrl}/${banner.image_first}`">
+            <img v-if="banners" :src="`${$imagesUrl}/${banners.image_first}`">
         </div>
         <div class="sidebar__sticky">
             <div class="sidebar__videos__title">
@@ -30,7 +30,6 @@
     export default {
         created() {
             this.getVideoNews();
-            this.getBanners();
         },
         data() {
             return {
@@ -47,11 +46,10 @@
         },
         methods:{
             ...mapActions('news', ['getVideoNews']),
-            ...mapActions('news', ['getBanners'])
         },
         computed: {
             ...mapState('news', ['videoNews']),
-            ...mapState('news', ['banner'])
+            ...mapState('news', ['banners'])
         }
     }
 </script>

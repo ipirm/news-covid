@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="overlay-banner">
-                        <img v-if="banner" :src="`${$imagesUrl}/${banner.image_third}`">
+                        <img v-if="banners" :src="`${$imagesUrl}/${banners.image_third}`">
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
             }
         },
         computed: {
-            ...mapState('news', ['newsData', 'activeNews', 'banner']),
+            ...mapState('news', ['newsData', 'activeNews', 'banners']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
         mounted() {
