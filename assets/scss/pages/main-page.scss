@@ -34,7 +34,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin: 10px 0;
 
   a {
     font-weight: 600;
@@ -48,7 +48,7 @@
   //font-family: Libre Baskerville;
   font-weight: bold;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 100%;
   color: #000000;
 }
 
@@ -113,6 +113,10 @@
   &-card:last-of-type:after {
     display: none;
   }
+}
+
+.scroll-news {
+  height: 90vh;
 }
 
 .news {
@@ -220,7 +224,7 @@
 }
 
 .video-js .vjs-big-play-button {
-  background-color: #120888 !important;
+  background-color: $color-blue !important;
   top: 50% !important;
   left: 50% !important;
   margin-top: -0.75em !important;
@@ -327,7 +331,7 @@
 }
 
 .ps__thumb-y {
-  background-color: #120888 !important;
+  background-color: $color-blue !important;
 }
 
 .video-container {
@@ -358,13 +362,15 @@
   }
 
   &-image {
-    display: flex;
     width: 100%;
-    height: 160px;
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
   }
 
   &-content {
-    background: #120888;
+    background: $color-blue;
     width: 250px;
     height: 70px;
     display: flex;
@@ -470,27 +476,12 @@
     }
   }
 
-  &__content {
-    margin-top: 25px;
-    display: flex;
-  }
-
-  &__main {
-    width: 100%;
-    margin: 0 30px;
-  }
-
-  &__aside {
-    min-width: 250px;
-    max-width: 250px;
-  }
-
   &__video-slider {
     margin-top: 40px;
     position: relative;
-  
-    .swiper-title {
-      margin-top: 10px;
+
+    &__container {
+      position: relative;
     }
 
     &__title {
@@ -505,23 +496,24 @@
     &__arrow {
       &-left, &-right {
         position: absolute;
-        top: 180px;
-        width: 23px;
-        height: 23px;
+        top: 50%;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
 
-        svg {
-          width: 100%;
-          height: 100%;
+        img {
+          width: 24px;
+          height: 24px;
         }
       }
 
       &-left {
-        left: -20px;
+        left: -30px;
         transform: translateY(-50%) scaleX(-1);
       }
 
       &-right {
-        right: -20px;
+        right: -30px;
         transform: translateY(-50%);
       }
     }
@@ -530,8 +522,6 @@
 
 .video-player {
   width: inherit;
-  max-height: 360px;
-  height: 100%;
 }
 
 .sidebar {
@@ -612,5 +602,14 @@
       color: #000000;
       margin-bottom: 15px;
     }
+  }
+
+  &__right {
+    max-height: 90vh;
+  }
+
+  &__advertising {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }

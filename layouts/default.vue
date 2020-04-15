@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <div v-show="!pageReady">
             <Spinner/>
         </div>

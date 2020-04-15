@@ -1,12 +1,12 @@
 <template>
     <div>
         <MainSlider />
-        <section class="main-page__content custom-container">
+        <section class="page__content custom-container">
             <LeftSidebar />
-            <main class="main-page__main">
+            <main class="page__middle">
                 <NewsList :data="newsData" />
             </main>
-            <aside class="main-page__aside">
+            <aside class="page__aside">
                 <VirusStatic />
                 <RightSidebar />
             </aside>

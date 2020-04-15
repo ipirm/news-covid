@@ -40,11 +40,11 @@
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 100%);
-    background: #120888;
+    background: $color-blue;
     border-top: none;
     min-width: fit-content;
     border-radius: 0 0 6px 6px;
-    border: 1px solid #120888;
+    border: 1px solid $color-blue;
     border-top: none;
     width: 100%;
     z-index: 1;
