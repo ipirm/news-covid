@@ -13,31 +13,31 @@
                 <div class="col-lg-3">
                     <div class="footer-title">{{ $t('socialNetwork')}}</div>
                     <div class="footer-links">
-                        <link-i18n to="/">{{ $t('weInTwitter')}}</link-i18n>
-                        <link-i18n to="/">{{ $t('weOnFacebook')}}</link-i18n>
-                        <link-i18n to="/">{{ $t('weInTelegram')}}</link-i18n>
+                        <clink to="/">{{ $t('weInTwitter')}}</clink>
+                        <clink to="/">{{ $t('weOnFacebook')}}</clink>
+                        <clink to="/">{{ $t('weInTelegram')}}</clink>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-title">{{ $t('aboutUs')}}</div>
                     <div class="footer-links">
-                        <link-i18n to="/">{{ $t('writeUs')}}</link-i18n>
-                        <link-i18n to="/">{{ $t('whatWeDo')}}</link-i18n>
-                        <link-i18n to="/">{{ $t('buyAdvertisement')}}</link-i18n>
+                        <clink to="/">{{ $t('writeUs')}}</clink>
+                        <clink to="/">{{ $t('whatWeDo')}}</clink>
+                        <clink to="/">{{ $t('buyAdvertisement')}}</clink>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-title">{{ $t('subscription')}}</div>
                     <div class="footer-links">
-                        <link-i18n to="/">{{ $t('hideAdvertisements')}}</link-i18n>
-                        <link-i18n to="/">{{ $t('buyAdvertisement')}}</link-i18n>
+                        <clink to="/">{{ $t('hideAdvertisements')}}</clink>
+                        <clink to="/">{{ $t('buyAdvertisement')}}</clink>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-title">{{ $t('mobileApp')}}</div>
                     <div class="footer-links">
-                        <link-i18n to="/">{{ $t('iOS')}}</link-i18n>
-                        <link-i18n to="/">{{ $t('android')}}</link-i18n>
+                        <clink to="/">{{ $t('iOS')}}</clink>
+                        <clink to="/">{{ $t('android')}}</clink>
                     </div>
                 </div>
             </div>

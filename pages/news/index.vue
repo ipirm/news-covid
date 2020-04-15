@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="news-cards-overlay">
-                        <link-i18n
+                        <clink
                                 :to="`/news/${item.slug}`"
                                 class="news-cards-item"
                                 v-for="(item, index) in newsData"
@@ -42,7 +42,7 @@
                                 <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
                                 <div class="news-content-date-item">{{ item.country[$i18n.locale]}}</div>
                             </div>
-                        </link-i18n>
+                        </clink>
                     </div>
                     <Pagination :curPage="curPage" :perPage="perPage" :totalElems="totalElems" v-model="curPage" />
                 </div>
@@ -56,12 +56,12 @@
 </template>
 
 <script>
-    import LeftSidebar from "../../components/pages/main-page/LeftSidebar";
-    import Pagination from "../../components/elements/Pagination";
-
-    import {mapActions, mapState} from 'vuex'
-    import VirusStatic from "../../components/global/VirusStatic";
+    import LeftSidebar from "~/components/global/LeftSidebar";
+    import Pagination from "~/components/global/Pagination";
+    import VirusStatic from "~/components/global/VirusStatic";
     import Datepicker from 'vue-moment-datepicker';
+
+    import {mapActions, mapState} from 'vuex';
 
     export default {
         components: {VirusStatic, LeftSidebar, Datepicker, Pagination},

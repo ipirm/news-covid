@@ -7,8 +7,8 @@
                     </div>
                     <div class="col-lg-7" v-for="(activeNews,index) in activeNews" :key="index">
                         <div class="news-content-breadcumbs">
-                            <link-i18n to="/">{{ $t('mainPage')}}</link-i18n>
-                            <link-i18n to="/news/">Все Новости</link-i18n>
+                            <clink to="/">{{ $t('mainPage')}}</clink>
+                            <clink to="/news/">Все Новости</clink>
                             <a>{{ activeNews.title[$i18n.locale]}}</a>
                         </div>
                         <div class="news-content-title">
@@ -55,7 +55,7 @@
                         <span>You may also be interested in:</span>
                     </div>
                     <div class="news-cards-overlay">
-                        <link-i18n
+                        <clink
                                 :to="`/news/${item.slug}`"
                                 class="news-cards-item"
                                 v-for="item in newsData"
@@ -73,7 +73,7 @@
                                 <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
                                 <div class="news-content-date-item">Spain</div>
                             </div>
-                        </link-i18n>
+                        </clink>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -87,11 +87,11 @@
 </template>
 
 <script>
-    import LeftSidebar from "../../components/pages/main-page/LeftSidebar";
+    import LeftSidebar from "~/components/global/LeftSidebar";
+    import VirusStatic from "~/components/global/VirusStatic";
+    import Spinner from "~/components/global/Spinner";
 
-    import {mapActions, mapState} from 'vuex'
-    import VirusStatic from "../../components/global/VirusStatic";
-    import Spinner from "../../components/global/Spinner";
+    import {mapActions, mapState} from 'vuex';
 
     export default {
         components: {Spinner, VirusStatic, LeftSidebar},

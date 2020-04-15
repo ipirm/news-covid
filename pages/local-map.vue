@@ -7,7 +7,7 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="news-content-breadcumbs">
-                            <link-i18n to="/">Главная</link-i18n>
+                            <clink to="/">Главная</clink>
                             <a>Карта</a>
                         </div>
                         <div class="news-content-title">
@@ -16,21 +16,21 @@
                         <div class="d-flex">
                             <div style="display: flex;width: 71%;height: 360px">
                             <svg
-                                 class="svg-content"
-                                  viewBox="0 0 1000 800"
-                                  width="1000"
-                                  height="800"
-                                 xmlns="http://www.w3.org/2000/svg">
+                                class="svg-content"
+                                viewBox="0 0 1000 800"
+                                width="1000"
+                                height="800"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                        :stroke="[item.active ? '#fff' : '#E5C163']"
-                                        v-for="(item,index) in azeCountries"
-                                        :key="index"
-                                        :d="item.path"
-                                        id="AZE1676"
-                                        :name="item.country"
-                                        @click="selectItem(item)"
-                                        v-scroll-to="`#a${index}`"
-                                        :fill="[parseInt(item.confirmed) > 20 && parseInt(item.confirmed) < 50 ? '#AD0000' : '#535353']"
+                                    :stroke="[item.active ? '#fff' : '#E5C163']"
+                                    v-for="(item,index) in azeCountries"
+                                    :key="index"
+                                    :d="item.path"
+                                    id="AZE1676"
+                                    :name="item.country"
+                                    @click="selectItem(item)"
+                                    v-scroll-to="`#a${index}`"
+                                    :fill="[parseInt(item.confirmed) > 20 && parseInt(item.confirmed) < 50 ? '#AD0000' : '#535353']"
                                 >
                                 </path>
                             </svg>
@@ -183,7 +183,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
+                        <VirusStatic />
                         <LeftSidebar :data="news" style="height: 60% !important;"/>
                     </div>
                 </div>
@@ -194,18 +194,17 @@
 
 <script>
 
-    import LeftSidebar from "../components/pages/main-page/LeftSidebar";
-    import NewsList from "../components/pages/main-page/NewsList";
-    import {mapActions, mapState} from 'vuex'
-    import VirusStatic from "../components/global/VirusStatic";
+    import LeftSidebar from "~/components/global/LeftSidebar";
+    import NewsList from "~/components/global/NewsList";
+    import VirusStatic from "~/components/global/VirusStatic";
     import GmapCustomMarker from 'vue2-gmap-custom-marker';
     import AnimatedNumber from "animated-number-vue";
+
+    import {mapActions, mapState} from 'vuex';
 
     export default {
         components: {AnimatedNumber, VirusStatic, NewsList, LeftSidebar},
         created() {
-            this.getVirus();
-            this.getCountries();
             this.getNews();
             this.$store.commit('virus/SET_AZE_COUNTRIES');
         },
@@ -229,7 +228,6 @@
             }
         },
         methods: {
-            ...mapActions('virus', ['getVirus', 'getCountries']),
             ...mapActions('news', ['getNews']),
 
             selectItem(item) {

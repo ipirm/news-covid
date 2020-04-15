@@ -1,4 +1,14 @@
 {
+    "header": {
+        "login": "Login",
+        "langs": {
+            "az": "Azerbaijani",
+            "ru": "Русский"
+        }
+    },
+
+    "last24hrs": "за последние сутки",
+    "covid": "COVID-19",
     "name": "Name",
     "sabina": "Az Text",
     "videos": "Az AZ az",
@@ -6,21 +16,21 @@
     "nComments": "Commentlər",
     "moreNews": "Daha çox xəbərlər",
     "watchItNow": "Trenddə",
-    "interestingVideos": "Marağli videolar",
+    "interestingVideos": "Marağli videolar:",
     "mapOnline": "Virus xaritə online",
     "pandemiaOfVirus": "Koronavirus pandemiyasi",
     "world": "Dünya",
     "aze": "AZE",
     "cured": "Sağalan",
     "died": "Ölüm hali",
-    "hospitalized": "Virusa yoluxan",
+    "hospitalized": "Yoluxan",
     "interestingNews": "Marağli xəbərlər",
     "feedback": "Оставить отзыв/жалобу",
     "send": "Göndər",
     "socialNetwork": "Социальные сети",
     "weOnFacebook": "Biz Facebook-da",
-    "weInTelegram": "Biz telegram-da",
-    "weInTwitter": "Biz twitterde-da",
+    "weInTelegram": "Biz Telegram-da",
+    "weInTwitter": "Biz Twitter-de",
     "aboutUs": "Haqqimizda",
     "writeUs": "Biznən əlagə",
     "whatWeDo": "О нашей деятельности",

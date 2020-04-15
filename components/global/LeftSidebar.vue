@@ -1,19 +1,22 @@
 <template>
-    <div class="right-advertising-row">
-        <div class="right-advertising">
+    <div class="main-page__aside">
+        <div class="sidebar__advertising">
             <img v-if="banner" :src="`${$imagesUrl}/${banner.image_first}`">
         </div>
-        <div class="right-videos">
-            <div class="right-videos-title">
+        <div class="sidebar__sticky">
+            <div class="sidebar__videos__title">
                 <span>{{ $t('interestingVideos')}} </span>
             </div>
             <client-only>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
-                        <link-i18n :to="`/news/${item.slug}`" class="right-videos-card" v-for="(item, index) in videoNews" :key="index">
-                            <img class="right-videos-img" :src="`${$imagesUrl}/${item.image}`">
-                            <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
-                        </link-i18n>
+                        <clink :to="`/news/${item.slug}`" class="sidebar__sticky__card" v-for="(item, index) in videoNews" :key="index">
+                            <div class="sidebar__sticky__card__content">
+                                <img class="sidebar__sticky__img" :src="`${$imagesUrl}/${item.image}`">
+                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
+                            </div>
+                            <div class="sidebar__sticky__card__bar" v-if="index != videoNews.length - 1"></div>
+                        </clink>
                     </div>
                 </vue-scroll>
             </client-only>
@@ -25,14 +28,6 @@
 <script>
     import {mapActions, mapState} from 'vuex'
     export default {
-        props: {
-            data: {
-                type: Array,
-                default() {
-                    return []
-                }
-            }
-        },
         created() {
             this.getVideoNews();
             this.getBanners();

@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div style="width: inherit;height: 360px">
+        <div class="video-player">
             <video-player class="video-player-box vjs-big-play-centered"
                           style="width: inherit"
                           ref="videoPlayer"

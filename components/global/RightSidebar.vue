@@ -1,19 +1,22 @@
 <template>
-    <div class="right-advertising-row" style="height: 83%;">
-        <div class="right-advertising">
-            <img v-if="banner"  :src="`${$imagesUrl}/${banner.image_second}`">
+    <div class="main-page__aside">
+        <div class="sidebar__advertising">
+            <img v-if="banner" :src="`${$imagesUrl}/${banner.image_second}`">
         </div>
-        <div class="right-videos">
-            <div class="right-videos-title">
+        <div class="sidebar__sticky">
+            <div class="sidebar__videos__title">
                 <span>{{ $t('interestingNews')}}: </span>
             </div>
             <client-only>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news">
-                        <link-i18n :to="`/news/${item.slug}`" class="right-videos-card main-news" v-for="(item, index) in interestingNews" :key="index">
-                            <img class="left-videos-img" :src="`${$imagesUrl}/${item.image}`">
-                            <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
-                        </link-i18n>
+                        <clink :to="`/news/${item.slug}`" class="sidebar__sticky__card sidebar__sticky__card__vertical" v-for="(item, index) in interestingNews" :key="index">
+                            <div class="sidebar__sticky__card__content">
+                                <img class="sidebar__sticky__img" :src="`${$imagesUrl}/${item.image}`">
+                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
+                            </div>
+                            <div class="sidebar__sticky__card__bar" v-if="index != interestingNews.length - 1"></div>
+                        </clink>
                     </div>
                 </vue-scroll>
             </client-only>
