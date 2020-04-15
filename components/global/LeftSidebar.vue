@@ -1,5 +1,5 @@
 <template>
-    <div class="main-page__aside">
+    <div class="page__aside">
         <div class="sidebar__advertising">
             <img v-if="banners" :src="`${$imagesUrl}/${banners.image_first}`">
         </div>

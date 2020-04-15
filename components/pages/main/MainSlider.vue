@@ -1,6 +1,6 @@
 <template>
     <div class="main-page__main-slider">
-        <div class="custom-container">
+        <div class="custom-container custom-container--main">
             <div v-swiper:mySwiper="swiperOption" class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="(item, index) in slidesNews" :key="index">

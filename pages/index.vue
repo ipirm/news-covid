@@ -1,7 +1,7 @@
 <template>
     <div>
         <MainSlider />
-        <section class="page__content custom-container">
+        <section class="page__content custom-container  custom-container--main">
             <LeftSidebar />
             <main class="page__middle">
                 <NewsList :data="newsData" />
@@ -12,12 +12,12 @@
             </aside>
         </section>
         <section>
-            <div class="custom-container">
+            <div class="custom-container custom-container--main">
                 <VideoSlider />
             </div>
         </section>
         <section>
-            <div class="custom-container video-container" style="width: 95%;">
+            <div class="custom-container custom-container--main video-container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="video-container-title">
