@@ -11,7 +11,7 @@
                             <a>Карта</a>
                         </div>
                         <div class="news-content-title">
-                            <span>Карта распространения коронавируса</span>
+                            <span>{{ $t('worldMap')}}</span>
                         </div>
                         <div class="d-flex">
                             <GmapMap
@@ -489,6 +489,18 @@
         async fetch({store}) {
             await store.dispatch('virus/getWorldMap');
             await store.dispatch('news/getNews');
+        },
+        head() {
+            return {
+                title: this.$t('worldMap'),
+                meta: [
+                    { property: 'og:title', content: this.$t('worldMap') || '' } ,
+                    { property: 'og:description', content: this.map[0].title[this.$i18n.locale] || '' } ,
+                    { property: 'og:image', content: `http://covid.az/images/seo/world-img.png` || '' } ,
+                    { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
+                    { property: 'twitter:card', content: `http://covid.az/images/seo/world-img.png` || '' } ,
+                ]
+            }
         },
         data() {
             return {
