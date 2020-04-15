@@ -9,7 +9,7 @@
             </div>
             <client-only>
                 <vue-scroll :ops="ops">
-                    <div class="scroll-news">
+                    <div class="scroll-news sidebar__right">
                         <clink :to="`/news/${item.slug}`" class="sidebar__sticky__card sidebar__sticky__card__vertical" v-for="(item, index) in interestingNews" :key="index">
                             <div class="sidebar__sticky__card__content">
                                 <img class="sidebar__sticky__img" :src="`${$imagesUrl}/${item.image}`">

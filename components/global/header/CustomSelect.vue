@@ -1,7 +1,7 @@
 <template>
 	<div class="header__custom-select" :class="{ open: dropdownOpen }" v-click-outside="onBlur" v-if="options">
 		<div class="header__custom-select__top" @click="dropdownOpen = !dropdownOpen">
-			<span>{{ value }}</span>
+			<span>{{ $t(`header.langs.${value}`) }}</span>
 			<svg-icon name="header-dropdown" class="header__custom-select__dropdown" />
 		</div>
 		<div class="header__custom-select__bottom" v-show="dropdownOpen">
@@ -27,7 +27,7 @@ export default {
 		choose(i) {
 			this.chosenIndex = i;
 			this.dropdownOpen = false;
-			this.$emit('langChange', this.options[i].code);
+			this.$emit('input', this.options[i].code);
 		},
 
 		onBlur() {

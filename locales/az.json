@@ -4,7 +4,10 @@
         "langs": {
             "az": "Azerbaijani",
             "ru": "Русский"
-        }
+        },
+        "local-map": "Local map",
+        "world-map": "World map",
+        "news": "News"
     },
 
     "last24hrs": "за последние сутки",
