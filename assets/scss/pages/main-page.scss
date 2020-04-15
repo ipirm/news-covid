@@ -183,12 +183,17 @@
         font-size: 14px;
         line-height: 22px;
         color: black;
+        display: block;
       }
 
       &__comments {
+        display: flex;
+        align-items: center;
+
         svg {
           width: 24px;
           height: 23px;
+          margin-right: 5px;
         }
       }
     }
