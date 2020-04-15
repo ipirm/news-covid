@@ -34,9 +34,14 @@
         data() {
             return {
                 swiperOption: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 10,
-                    autoplay:true
+                    autoplay: true,
+                    breakpoints: {
+                        800: {
+                            slidesPerView: 2
+                        }
+                    }
                 }
             }
         },
