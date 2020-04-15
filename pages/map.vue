@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-lg-3">
                         <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
-                        <LeftSidebar :data="news" style="height: 60% !important;"/>
+                        <RightSidebar  style="height: 60% !important;"/>
                     </div>
                 </div>
             </div>
@@ -118,16 +118,15 @@
 
 <script>
 
-    import LeftSidebar from "../components/global/LeftSidebar";
-    import NewsList from "../components/global/NewsList";
     import VirusStatic from "../components/global/VirusStatic";
     import GmapCustomMarker from 'vue2-gmap-custom-marker';
     import AnimatedNumber from "animated-number-vue";
-    
+
     import {mapActions, mapState} from 'vuex';
+    import RightSidebar from "~/components/global/RightSidebar";
 
     export default {
-        components: {AnimatedNumber, VirusStatic, NewsList, LeftSidebar, 'gmap-custom-marker': GmapCustomMarker},
+        components: {RightSidebar, AnimatedNumber, VirusStatic, 'gmap-custom-marker': GmapCustomMarker},
         asyncData(context) {
             return {
                 options: {
@@ -488,7 +487,6 @@
         },
         async fetch({store}) {
             await store.dispatch('virus/getWorldMap');
-            await store.dispatch('news/getNews');
         },
         head() {
             return {
@@ -523,7 +521,6 @@
         },
         methods: {
             ...mapActions('virus', ['getVirus', 'getCountries']),
-            ...mapActions('news', ['getNews']),
 
             myMarker(item) {
                 this.$store.commit('virus/SET_ACTIVE_FALSE', item);
@@ -543,7 +540,6 @@
         },
         computed: {
             ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries','map']),
-            ...mapState('news', ['news'])
         },
     }
 </script>

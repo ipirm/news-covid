@@ -4,24 +4,9 @@
             <div class="virus-map-title">
                 {{ $t('mapOnline')}}
             </div>
-            <div class="virus-map-image">
-                <svg
-                    class="svg-content"
-                    viewBox="0 0 1000 800"
-                    width="1000"
-                    height="800"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        v-for="(item,index) in azeCountries"
-                        :key="index"
-                        :d="item.path"
-                        :stroke="[item.active ? '#fff' : '#E5C163']"
-                        :name="item.country"
-                        :fill="[parseInt(item.confirmed) > 20 && parseInt(item.confirmed) < 50 ? '#AD0000' : '#535353']"
-                    >
-                    </path>
-                </svg>
-            </div>
+            <clink to="/local-map" class="virus-map-image">
+        <img src="/images/seo/local-img.png">
+            </clink>
         </div>
         <div class="virus-map-content">
             <span>{{$t('pandemiaOfVirus') }}</span>
@@ -82,11 +67,10 @@
         name: 'VirusStatic',
 
         created() {
-            this.$store.commit('virus/SET_AZE_COUNTRIES');
         },
 
         computed: {
-            ...mapState('virus', ['virusWorldWide', 'virusLocal', 'azeCountries'])
+            ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         }
     }
 </script>

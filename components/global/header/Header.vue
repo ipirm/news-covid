@@ -17,6 +17,9 @@
             </div>
             <div class="header__bottom">
                 <div class="custom-container header__bottom__container">
+                    <clink to="/local-map">Local Map </clink>
+                    <clink to="/map">Map </clink>
+                    <clink to="/news">News </clink>
                     <div class="header__bottom__slider">
                         <div v-swiper:mySwiper="swiperOption">
                             <div class="swiper-wrapper">

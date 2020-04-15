@@ -49,19 +49,9 @@
 
     export default {
         components: {VirusStatic, VideoComponent, VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},
-
-        created() {
-            this.getPaginatedNews({curPage: 1, perPage: 13});
+        async fetch({store}) {
+            await store.dispatch('news/getPaginatedNews',{curPage: 1, perPage: 13});
         },
-
-        data() {
-            return {}
-        },
-
-        methods: {
-            ...mapActions('news', ['getPaginatedNews'])
-        },
-
         computed: {
             ...mapState('news', ['newsData'])
         }

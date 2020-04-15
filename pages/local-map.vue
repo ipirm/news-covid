@@ -21,18 +21,19 @@
                                 width="1000"
                                 height="800"
                                 xmlns="http://www.w3.org/2000/svg">
+
                                 <path
-                                    :stroke="[item.active ? '#fff' : '#E5C163']"
-                                    v-for="(item,index) in azeCountries"
-                                    :key="index"
+                                    v-for="(item,index) in dataPaths"
+                                    :stroke="[item.active ? '#fff' : '#5E5D5D']"
+                                    :key="item.id"
                                     :d="item.path"
-                                    id="AZE1676"
-                                    :name="item.country"
+                                    :name="item.name[$i18n.locale]"
                                     @click="selectItem(item)"
+                                    :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']"
                                     v-scroll-to="`#a${index}`"
-                                    :fill="[parseInt(item.confirmed) > 20 && parseInt(item.confirmed) < 50 ? '#AD0000' : '#535353']"
                                 >
                                 </path>
+
                             </svg>
                             </div>
                             <div class="overlay-map-column">
@@ -45,17 +46,17 @@
                                         <vue-scroll :ops="ops">
                                             <div class="overlay-map-statistic" style="height: 330px">
                                                 <div
-                                                        v-for="(item,index) in azeCountries"
+                                                        v-for="(item,index) in dataPaths"
                                                         :class="[item.active ? 'activeClass' : '', 'map-statistic-row']"
                                                         :id="`a${index}`"
-                                                        :key="index"
+                                                        :key="item.id"
                                                         @click="selectItem(item)"
                                                 >
                                                     <div class="map-statistic-item map-statistic-red">
                                                         <span>{{ item.confirmed | numFormat(0,0).replace(/,/g,' ')}} </span>
                                                     </div>
                                                     <div class="map-statistic-item map-statistic-blue">
-                                                        <span>{{ item.country.country}}</span></div>
+                                                        <span>{{ item.name[$i18n.locale] }}</span></div>
                                                 </div>
                                             </div>
                                         </vue-scroll>
@@ -74,12 +75,12 @@
                                         </div>
                                         <div class="overlay-map-column-row-item"><span>
 
-                                                 {{ this.activeCountry.recovered | numFormat(0,0).replace(/,/g,' ') }}
+                                                 {{ this.activeCountry.help | numFormat(0,0).replace(/,/g,' ') }}
                                         </span>
                                         </div>
                                         <div class="overlay-map-column-row-item">
                                             <span>
-                                               {{ this.activeCountry.deaths | numFormat(0,0).replace(/,/g,' ') }}
+                                               {{ this.activeCountry.death | numFormat(0,0).replace(/,/g,' ') }}
                                             </span></div>
                                     </div>
                                 </div>
@@ -100,7 +101,7 @@
                     </div>
                     <div class="col-lg-3">
                         <VirusStatic />
-                        <LeftSidebar :data="news" style="height: 60% !important;"/>
+                        <RightSidebar  style="height: 60% !important;"/>
                     </div>
                 </div>
             </div>
@@ -110,21 +111,17 @@
 
 <script>
 
-    import LeftSidebar from "~/components/global/LeftSidebar";
-    import NewsList from "~/components/global/NewsList";
     import VirusStatic from "~/components/global/VirusStatic";
     import AnimatedNumber from "animated-number-vue";
 
-    import {mapActions, mapState} from 'vuex';
+    import { mapState} from 'vuex';
+    import RightSidebar from "~/components/global/RightSidebar";
 
     export default {
-        components: {AnimatedNumber, VirusStatic, NewsList, LeftSidebar},
+        components: {RightSidebar, AnimatedNumber, VirusStatic},
         async fetch({store}) {
             await store.dispatch('virus/getLocalMap');
-        },
-        created() {
-            this.getNews();
-            this.$store.commit('virus/SET_AZE_COUNTRIES');
+            await store.dispatch('virus/getPathMap');
         },
         head() {
             return {
@@ -158,15 +155,13 @@
             }
         },
         methods: {
-            ...mapActions('news', ['getNews']),
-
             selectItem(item) {
                 this.$store.commit('virus/SET_AZE_ACTIVE_COUNTRIES',item);
                 this.activeCountry = item;
             }
         },
         computed: {
-            ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries', 'azeCountries','virusLocalData']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries','virusLocalData','dataPaths']),
         },
     }
 </script>

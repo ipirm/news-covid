@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-lg-3">
                         <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
-                        <LeftSidebar style="height: 60% !important;"/>
+                        <RightSidebar style="height: 60% !important;"/>
                     </div>
                 </div>
             </div>
@@ -87,14 +87,14 @@
 </template>
 
 <script>
-    import LeftSidebar from "~/components/global/LeftSidebar";
     import VirusStatic from "~/components/global/VirusStatic";
     import Spinner from "~/components/global/Spinner";
 
     import {mapActions, mapState} from 'vuex';
+    import RightSidebar from "~/components/global/RightSidebar";
 
     export default {
-        components: {Spinner, VirusStatic, LeftSidebar},
+        components: {RightSidebar, Spinner, VirusStatic},
 
         created() {
             this.getVirus();
