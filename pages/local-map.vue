@@ -113,7 +113,6 @@
     import LeftSidebar from "~/components/global/LeftSidebar";
     import NewsList from "~/components/global/NewsList";
     import VirusStatic from "~/components/global/VirusStatic";
-    import GmapCustomMarker from 'vue2-gmap-custom-marker';
     import AnimatedNumber from "animated-number-vue";
 
     import {mapActions, mapState} from 'vuex';

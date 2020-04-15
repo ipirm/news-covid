@@ -1,6 +1,6 @@
 <template>
     <div>
-        <clink :to="`/news/${i}`" class="news-card" v-for="(item, i) in firstPosts" :key="i">
+        <clink :to="`/news/${item.slug}`" class="news-card" v-for="(item, i) in firstPosts" :key="i">
             <div class="news-card-title">
                 <span>{{ item.title[$i18n.locale] }}</span>
             </div>
@@ -26,7 +26,7 @@
             </div>
         </clink>
         <div class="news">
-            <clink :to="`/news/${i+1}`" class="news-card news-card-half" v-for="(item, i) in halfPosts" :key="i">
+            <clink :to="`/news/${item.slug}`" class="news-card news-card-half" v-for="(item, i) in halfPosts" :key="i">
                 <div class="news-card-title">
                     <span>{{ item.title[$i18n.locale] }}</span>
                 </div>
@@ -53,7 +53,7 @@
             </clink>
         </div>
         <div class="list-news" v-if="data">
-            <clink :to="`/news/${index + 5}`" class="list-news-card" v-for="(item,index ) in data.slice(5,this.data.length)" :key="index">
+            <clink :to="`/news/${item.slug}`" class="list-news-card" v-for="(item,index ) in data.slice(5,this.data.length)" :key="index">
                 <img :src="`${$imagesUrl}/${item.image}`">
                 <div class="list-news-desc">
                     <div class="list-news-title">{{ item.title[$i18n.locale] }}</div>
@@ -109,7 +109,7 @@
                 }
             }
         },
-        
+
         computed: {
             firstPosts() {
                 if (this.data)
