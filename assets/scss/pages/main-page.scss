@@ -345,125 +345,6 @@
   }
 }
 
-.virus-map {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  &-title {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    color: #000000;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  &-image {
-    width: 100%;
-    img {
-      object-fit: contain;
-      width: 100%;
-    }
-  }
-
-  &-content {
-    background: $color-blue;
-    width: 250px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    span {
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 20px;
-      display: flex;
-      letter-spacing: 0.05em;
-      color: #FFFFFF;
-    }
-  }
-
-  &__info {
-    background: white;
-    padding: 10px;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 25px;
-    position: relative;
-    display: flex;
-
-    &:last-of-type {
-      margin-bottom: 25px;
-    }
-
-    &__col {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    &__title {
-      font-size: 14px;
-      line-height: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    &__subtitle {
-      font-size: 12px;
-      line-height: 20px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    &__number {
-      font-weight: 800;
-      font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 10px;
-
-      &.red {
-        color: $color-red;
-      }
-
-      &.green {
-        color: $color-green;
-      }
-    }
-
-    &__middle-bar {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: black;
-      width: 1px;
-      height: 80%;
-    }
-  }
-
-  &-container {
-    background: white;
-    padding: 10px;
-    margin-bottom: 30px;
-
-    .svg-content {
-      margin: 0;
-
-      path {
-        cursor: default;
-      }
-    }
-  }
-}
-
 .main-page {
   &__main-slider {
     padding-top: 30px;
@@ -524,92 +405,44 @@
   width: inherit;
 }
 
-.sidebar {
-  &__sticky {
-    position: sticky;
-    min-height: 90vh;
-    max-height: 90vh;
-    top: 80px;
-    background: white;
-    padding: 10px;
-    overflow: hidden;
+@media (max-width: 1000px) {
+  .video-container {
+    display: none;
+  }
+}
 
-    &__card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+@media (max-width: 910px) {
 
-      &__vertical {
-        .sidebar {
-          &__sticky {
-            &__card {
-              &__content {
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-              }
+}
 
-              &__bar {
-                width: 100%;
-              }
-            }
+@media (max-width: 800px) {
+  .swiper-title {
+    font-size: 16px;
+  }
 
-            &__img {
-              width: 100%;
-              margin-right: 0;
-              margin-bottom: 10px;
-            }
-          }
+  .main-page {
+    &__main-slider {
+      &__pic {
+        max-height: 250px;
+      }
+    }
+
+    &__video-slider {
+      .swiper-container {
+        overflow: visible;
+      }
+
+      &__arrow {
+        &-left, &-right {
+          display: none;
         }
       }
-
-      &__content {
-        display: flex;
-        align-items: center;
-
-        &:hover {
-          text-decoration-line: underline;
-        }
-      }
-
-      &__bar {
-        margin: 15px 0;
-        background: black;
-        width: 72%;
-        height: 1px;
-      }
-
-      span {
-        font-size: 12px;
-        line-height: 13px;
-        align-items: center;
-        font-weight: bold;
-        color: black;
-      }
-    }
-
-    &__img {
-      width: 55%;
-      margin-right: 10px;
     }
   }
 
-  &__videos {
-    &__title {
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 25px;
-      color: #000000;
-      margin-bottom: 15px;
+  .news-card {
+    &-half {
+      width: 100%;
     }
-  }
-
-  &__right {
-    max-height: 90vh;
-  }
-
-  &__advertising {
-    width: 100%;
-    margin-bottom: 20px;
   }
 }

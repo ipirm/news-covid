@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__content">
       <div class="header__top">
-        <div class="custom-container header__top__container">
+        <div class="custom-container custom-container--main header__top__container">
           <clink :to="'/'" class="header__logo__link">
             <svg-icon name="header-logo" class="header__logo" />
           </clink>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="header__bottom">
-        <div class="custom-container header__bottom__container">
+        <div class="custom-container custom-container--main header__bottom__container">
           <div class="header__bottom__left">
             <clink to="/local-map" class="header__bottom__link">{{ $t('header.local-map') }}</clink>
             <clink to="/map" class="header__bottom__link">{{ $t('header.world-map') }}</clink>
@@ -73,7 +73,14 @@ export default {
       searchActive: false,
       swiperOption: {
         slidesPerView: 'auto',
-        init: false
+        init: false,
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+          1000: {
+            slidesPerView: 2
+          }
+        }
       },
       leftArrowActive: false,
       rightArrowActive: false,
