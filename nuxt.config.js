@@ -4,9 +4,6 @@ routerBase = {
     }
 },
 module.exports = {
-    /*
-    ** Headers of the page
-    */
     env: {
         imagesUrl: 'https://covid.info.az/storage' || 'http://localhost:3000'
     },
@@ -36,32 +33,31 @@ module.exports = {
     ** Customize the progress bar color
     */
 
-    loading: {color: '#120888'},
+    loading: {color: '#354D8A'},
     /*
     ** Build configuration
     */
     plugins: [
+        '~plugins/swiper',
+        '~plugins/moment',
         {src: '~plugins/bootstrap-vue', ssr: true},
-        {src: '~plugins/swiper', ssr: false},
         {src: '~plugins/bus', ssr: true},
-        {src: '~plugins/mixins/user.js', ssr: true},
-        {src: '~plugins/components.js', ssr: true},
-        {src: '~plugins/autocomplete.js', ssr: true},
-        {src: '~plugins/vue-select.js', ssr: false},
-        {src: '~plugins/marquee-text.js', ssr: false},
-        {src: '~plugins/video.js', ssr: false},
-        {src: '~plugins/scroll.js', ssr: false},
-        {src: '~plugins/moment.js', ssr: false},
-        {src: '~plugins/map.js', ssr: true},
-        {src: '~plugins/vue-backtotop.js', ssr: false},
-        {src: '~plugins/vue-scrollto.js'},
-        {src: '~plugins/number-filter.js'},
-        {src: '~plugins/truncate.js'},
-        {src: '~plugins/click-outside.js'},
+        {src: '~plugins/mixins/user', ssr: true},
+        {src: '~plugins/components', ssr: true},
+        {src: '~plugins/autocomplete', ssr: true},
+        {src: '~plugins/vue-select', ssr: false},
+        {src: '~plugins/marquee-text', ssr: false},
+        {src: '~plugins/video', ssr: false},
+        {src: '~plugins/scroll', ssr: false},
+        {src: '~plugins/map', ssr: true},
+        {src: '~plugins/vue-backtotop', ssr: false},
+        {src: '~plugins/vue-scrollto'},
+        {src: '~plugins/number-filter'},
+        {src: '~plugins/truncate'},
+        {src: '~plugins/click-outside'},
     ],
     css: [
-        {src: '~assets/scss/app.scss', lang: 'scss'},
-        {src: 'swiper/dist/css/swiper.css'},
+        {src: '~assets/scss/app.scss', lang: 'scss'}
     ],
     modules: [
         [

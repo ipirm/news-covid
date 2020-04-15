@@ -10,9 +10,9 @@ export const state = () => ({
         }
     },
     newsData: null,
-    cats: null,
+    cats: [],
     videoNews: null,
-    banner: null,
+    banners: [],
     totalElems: 0
 })
 
@@ -32,14 +32,14 @@ export const mutations = {
     SET_NEWS_DATA: (state, payload) => {
         state.newsData = payload
     },
-    SET_CATS_DATA: (state, payload) => {
-        state.cats = payload
+    SET_CATS: (state, payload) => {
+        state.cats = payload;
     },
     SET_VIDEO_DATA: (state, payload) => {
         state.videoNews = payload
     },
-    SET_BANNER_DATA: (state,payload) =>{
-        state.banner = payload
+    SET_BANNERS: (state,payload) =>{
+        state.banners = payload;
     },
     SET_TOTAL_ELEMS: (state, payload) => {
         state.totalElems = payload;
@@ -51,34 +51,27 @@ export const actions = {
         const news = await this.$axios.$get('slides');
         commit('SET_SLIDES_NEWS', news.news);
     },
-    async getNews({commit}) {
-        const news = await this.$axios.$get('https://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=2d23c9173e2449bc894c0f3341f26b84')
-        commit('SET_NEWS', news.articles)
-    },
+
     async getInterestingNews({commit}) {
         const interestingNews = await this.$axios.$get('interesting?per_page=12')
         commit('SET_INTERESTING_NEWS', interestingNews.news.data)
     },
-    async findNews({commit},id) {
+
+    async findNews({commit}, id) {
         const news = await this.$axios.$get(`news/${id}`);
         commit('GET_NEWS', news)
     },
+
     async getNewsData({commit}) {
         const news = await this.$axios.$get('news');
         commit('SET_NEWS_DATA', news.news.data)
     },
-    async getCats({commit}) {
-        const cats = await this.$axios.$get('cats');
-        commit('SET_CATS_DATA', cats.cats)
-    },
+
     async getVideoNews({commit}) {
         const cats = await this.$axios.$get('videos?per_page=12');
         commit('SET_VIDEO_DATA', cats.news.data)
     },
-    async getBanners({commit}) {
-        const cats = await this.$axios.$get('banners');
-        commit('SET_BANNER_DATA', cats.banner)
-    },
+
     async getPaginatedNews({commit}, data) {
         let res;
         if (data.id)
@@ -87,5 +80,16 @@ export const actions = {
             res = await this.$axios.$get(`news?page=${data.curPage}&per_page=${data.perPage}`);
         commit('SET_TOTAL_ELEMS', res.news.total ? res.news.total : 0);
         commit('SET_NEWS_DATA', res.news.data);
+    },
+
+    // global action (gets called from index.js)
+    async getBanners({commit}) {
+        const res = await this.$axios.$get('banners');
+        commit('SET_BANNERS', res.banner);
+    },
+
+    async getCats({commit}) {
+        const res = await this.$axios.$get('cats');
+        commit('SET_CATS', res.cats);
     }
 }

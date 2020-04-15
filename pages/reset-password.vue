@@ -13,16 +13,16 @@
 	        		<input class="form-page__input" name="code" type="text" :placeholder="$t('writeCode')" required v-if="step == 2">
 	        		<input class="form-page__input" name="password" type="password" :placeholder="$t('newPassword')" required v-if="step == 3">
 	        		<input class="form-page__input" name="password-again" type="password" :placeholder="$t('repeatPassword')" required v-if="step == 3">
-	        		<link-i18n :to="'/login'" class="form-page__text">{{ $t('LogIn') }}</link-i18n>
-	        		<link-i18n :to="'/register'" class="form-page__text double">{{ $t('noAccount') }} <span class="blue double-second">{{ $t('signUp') }}</span></link-i18n>
+	        		<clink :to="'/login'" class="form-page__text">{{ $t('LogIn') }}</clink>
+	        		<clink :to="'/register'" class="form-page__text double">{{ $t('noAccount') }} <span class="blue double-second">{{ $t('signUp') }}</span></clink>
 	        		<div class="form-page__enter-with">
 	        			<span class="form-page__text">{{ $t('signInBy') }}</span>
-	        			<link-i18n :to="'https://facebook.com/'" class="form-page__social">
-	        				<img src="~/static/svg/form-page/fb.svg">
-	        			</link-i18n>
-	        			<link-i18n :to="'https://instagram.com/'" class="form-page__social">
-	        				<img src="~/static/svg/form-page/ig.svg">
-	        			</link-i18n>
+	        			<clink :to="'https://facebook.com/'" class="form-page__social">
+	        				<svg-icon name="form-page/fb.svg" />
+	        			</clink>
+	        			<clink :to="'https://instagram.com/'" class="form-page__social">
+	        				<svg-icon name="form-page/ig.svg" />
+	        			</clink>
 	        		</div>
 	        	</div>
         		<button class="form-page__submit" @click="goToNextStep()">{{ $t('send') }}</button>

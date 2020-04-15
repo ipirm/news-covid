@@ -7,7 +7,7 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="news-content-breadcumbs">
-                            <link-i18n to="/">Главная</link-i18n>
+                            <clink to="/">Главная</clink>
                             <a>Карта</a>
                         </div>
                         <div class="news-content-title">
@@ -118,12 +118,13 @@
 
 <script>
 
-    import LeftSidebar from "../components/pages/main-page/LeftSidebar";
-    import NewsList from "../components/pages/main-page/NewsList";
-    import {mapActions, mapState} from 'vuex'
+    import LeftSidebar from "../components/global/LeftSidebar";
+    import NewsList from "../components/global/NewsList";
     import VirusStatic from "../components/global/VirusStatic";
     import GmapCustomMarker from 'vue2-gmap-custom-marker';
     import AnimatedNumber from "animated-number-vue";
+    
+    import {mapActions, mapState} from 'vuex';
 
     export default {
         components: {AnimatedNumber, VirusStatic, NewsList, LeftSidebar, 'gmap-custom-marker': GmapCustomMarker},
