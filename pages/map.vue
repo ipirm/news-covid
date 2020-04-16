@@ -407,6 +407,7 @@ export default {
         { name: 'description', content: this.map[0].title[this.$i18n.locale] || '' },
         { property: 'og:image', content: `http://covid.az/images/seo/world-img.png` || '' },
         { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' },
+        { name: 'keywords', content: `${this.$t('keywords')}` || '' },
         { property: 'twitter:card', content: `http://covid.az/images/seo/world-img.png` || '' },
       ]
     }

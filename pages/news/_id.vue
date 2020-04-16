@@ -124,6 +124,7 @@
                     { property: 'og:description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || '' },
                     { name: 'description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || '' },
                     { property: 'og:image', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
+                    { name: 'keywords', content: `${this.$t('keywords')}` || '' },
                     { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
                     { property: 'twitter:card', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
                 ]

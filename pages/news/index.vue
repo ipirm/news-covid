@@ -71,6 +71,7 @@ export default {
             title: `${this.$t('MetaTitle')}`,
             meta: [
                 { name: 'description', content: `${this.$t('metaDescription')}` || '' },
+                { name: 'keywords', content: `${this.$t('keywords')}` || '' },
                 { property: 'og:title', content: `${this.$t('MetaTitle')}` || '' } ,
                 { property: 'og:description', content: `${this.$t('metaDescription')}` || '' } ,
                 { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,

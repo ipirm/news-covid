@@ -62,6 +62,7 @@
                     { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,
                     { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
                     { property: 'twitter:card', content: '/images/main-page/slide1.png' || '' } ,
+                    { name: 'keywords', content: `${this.$t('keywords')}` || '' },
                 ]
             }
         },
