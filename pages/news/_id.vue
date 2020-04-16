@@ -16,7 +16,7 @@
                         </div>
                         <div class="news-content-image">
                             <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load>
-                            <VideoComponent :data="activeNews" />
+                            <VideoComponent v-show="activeNews.video !== null"  :data="activeNews" />
                         </div>
                         <div class="news-content-date">
                             <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
