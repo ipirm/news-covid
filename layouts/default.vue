@@ -25,7 +25,6 @@
             Header,
             BackToTop
         },
-
         data() {
             return {
                 pageReady: false

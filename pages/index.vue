@@ -52,6 +52,19 @@
         async fetch({store}) {
             await store.dispatch('news/getPaginatedNews',{curPage: 1, perPage: 13});
         },
+        head() {
+            return {
+                title: `${this.$t('MetaTitle')}`,
+                meta: [
+                    { property: 'description', content: `${this.$t('metaDescription')}` || '' },
+                    { property: 'og:title', content: `${this.$t('MetaTitle')}` || '' } ,
+                    { property: 'og:description', content: `${this.$t('metaDescription')}` || '' } ,
+                    { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,
+                    { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
+                    { property: 'twitter:card', content: '/images/main-page/slide1.png' || '' } ,
+                ]
+            }
+        },
         computed: {
             ...mapState('news', ['newsData'])
         }
