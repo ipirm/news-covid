@@ -70,7 +70,8 @@
 			font-size: 14px;
 			line-height: 19px;
 			padding: 0 30px;
-
+			width: auto !important;
+			height: auto !important;
 			&:hover {
 				color: white;
 				opacity: .8;

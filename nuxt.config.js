@@ -80,8 +80,14 @@ module.exports = {
         '@nuxtjs/google-analytics',
         ['nuxt-lazy-load', {
             defaultImage: '/images/seo/loading.gif',
-        }]
+        }],
+        '@nuxtjs/sitemap'
     ],
+    sitemap: {
+        hostname: "http://covid.az",
+        gzip: true,
+        exclude: ["/secret", "/admin/**"]
+    },
     googleAnalytics: {
         id: "UA-163816416-1"
     },
