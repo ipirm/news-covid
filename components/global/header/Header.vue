@@ -72,13 +72,13 @@ export default {
       curLang: this.$i18n.locale,
       searchActive: false,
       swiperOption: {
-        slidesPerView: 'auto',
+        slidesPerView: 2,
         init: false,
         observer: true,
         observeParents: true,
         breakpoints: {
           1000: {
-            slidesPerView: 2
+            slidesPerView: 'auto',
           }
         }
       },
