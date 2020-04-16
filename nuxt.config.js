@@ -7,6 +7,15 @@ module.exports = {
     env: {
         imagesUrl: 'https://covid.info.az/storage' || 'http://localhost:3000'
     },
+    webfontloader: {
+        google: {
+            families: [
+                'Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap',
+                'Libre+Baskerville&display=swap',
+                'Roboto:wght@500&display=swap'
+            ]
+        }
+    },
     head: {
         title: 'Covid-19 AZE',
         meta: [
@@ -14,19 +23,7 @@ module.exports = {
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
         ],
         link: [
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-            {
-                rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap'
-            },
-            {
-                rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap'
-            },
-            {
-                rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'
-            }
+            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
         ]
     },
     /*
@@ -38,7 +35,7 @@ module.exports = {
     ** Build configuration
     */
     plugins: [
-        '~plugins/swiper',
+        {src: '~plugins/swiper', ssr: false},
         '~plugins/moment',
         {src: '~plugins/bootstrap-vue', ssr: true},
         {src: '~plugins/bus', ssr: true},
@@ -79,7 +76,8 @@ module.exports = {
         ],
         '@nuxtjs/svg-sprite',
         '@nuxtjs/axios',
-        '@nuxtjs/auth'
+        '@nuxtjs/auth',
+        'nuxt-webfontloader',
     ],
     axios: {
         baseURL: 'https://covid.info.az/api/'
@@ -110,6 +108,19 @@ module.exports = {
                 })
             }
         },
-        transpile: [/^vue2-google-maps($|\/)/, /^vue2-gmap-custom-marker($|\/)/]
+        transpile: [/^vue2-google-maps($|\/)/, /^vue2-gmap-custom-marker($|\/)/],
+        extractCSS: true,
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    styles: {
+                        name: 'styles',
+                        test: /\.(css|vue)$/,
+                        chunks: 'all',
+                        enforce: true
+                    }
+                }
+            }
+        }
     }
 }
