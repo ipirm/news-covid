@@ -9,7 +9,7 @@
           <span>{{ $t('worldMap')}}</span>
         </div>
         <div class="d-flex">
-          <GmapMap ref="mapRef" :center="{lat:10, lng:10}" :zoom="zoom" :options="options" style="width: 100%; height: 460px;">
+          <GmapMap ref="mapRef" :center="{lat:10, lng:10}" :zoom="zoom" :options="options" style="width: 100%; height: 460px;" v-lazy-load>
             <gmap-custom-marker :key="index" v-for="(item, index) in countries" :marker="{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }" v-scroll-to="`#a${index}`" @click.native="myMarker(item)">
               <div class="map-round" style="width: 40px;height: 40px;" v-if="parseInt(item.confirmed) > 150000"></div>
               <div class="map-round" style="width: 25px;height: 25px;" v-if="parseInt(item.confirmed) > 100000 && parseInt(item.confirmed) < 150000"></div>

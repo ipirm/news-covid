@@ -10,7 +10,7 @@
         </div>
         <div class="d-flex">
           <div style="display: flex;width: 100%;height: 360px">
-            <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+            <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800" xmlns="http://www.w3.org/2000/svg" v-lazy-load>
               <path v-for="(item,index) in dataPaths" :stroke="[item.active ? '#fff' : '#5E5D5D']" :key="item.id" :d="item.path" :name="item.name[$i18n.locale]" @click="selectItem(item)" :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']" v-scroll-to="`#a${index}`">
               </path>
             </svg>
