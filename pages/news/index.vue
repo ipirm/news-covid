@@ -70,7 +70,7 @@ export default {
         return {
             title: `${this.$t('MetaTitle')}`,
             meta: [
-                { property: 'description', content: `${this.$t('metaDescription')}` || '' },
+                { name: 'description', content: `${this.$t('metaDescription')}` || '' },
                 { property: 'og:title', content: `${this.$t('MetaTitle')}` || '' } ,
                 { property: 'og:description', content: `${this.$t('metaDescription')}` || '' } ,
                 { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,
