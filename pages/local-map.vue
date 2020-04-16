@@ -65,7 +65,7 @@
             <b style="font-size: 26px;">
               {{ item.title[$i18n.locale] }}
             </b>
-            <p v-html="item.title[$i18n.locale]"></p>
+            <p v-html="item.text[$i18n.locale]"></p>
           </div>
         </main>
         <aside class="page__aside">
