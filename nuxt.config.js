@@ -77,7 +77,7 @@ module.exports = {
         '@nuxtjs/svg-sprite',
         '@nuxtjs/axios',
         '@nuxtjs/auth',
-        'nuxt-webfontloader',
+        'nuxt-webfontloader'
     ],
     axios: {
         baseURL: 'https://covid.info.az/api/'
