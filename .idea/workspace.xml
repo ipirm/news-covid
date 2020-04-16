@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/pages/news/_id.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="364">
-              <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+              <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
               </folding>
@@ -341,12 +341,12 @@
       <workItem from="1586959196961" duration="10896000" />
       <workItem from="1586992031932" duration="574000" />
       <workItem from="1586996071975" duration="3129000" />
-      <workItem from="1587008809437" duration="25508000" />
+      <workItem from="1587008809437" duration="25531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73996000" />
+    <option name="totallyTimeSpent" value="74019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -681,7 +681,7 @@
     <entry file="file://$PROJECT_DIR$/pages/news/_id.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
-          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
           <folding>
             <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" />
           </folding>
