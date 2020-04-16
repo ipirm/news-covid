@@ -84,7 +84,8 @@ routerBase = {
             ['nuxt-lazy-load', {
                 defaultImage: '/images/seo/loading.gif',
             }],
-            '@nuxtjs/sitemap'
+            '@nuxtjs/sitemap',
+            '@nuxtjs/robots'
         ],
         sitemap: {
             hostname: "http://covid.az",
