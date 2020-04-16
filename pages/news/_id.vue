@@ -15,7 +15,7 @@
                             <span>{{ activeNews.title[$i18n.locale] }}</span>
                         </div>
                         <div class="news-content-image">
-                            <img :src="`${$imagesUrl}/${activeNews.image}`">
+                            <img :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load>
                         </div>
                         <div class="news-content-date">
                             <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
@@ -61,7 +61,7 @@
                                 v-for="item in newsData"
                                 :key="item.id">
                             <div class="news-cards-item-image">
-                                <img :src="`${$imagesUrl}/${item.image}`">
+                                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
                             </div>
                             <div class="news-cards-item-title">
                                 <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="overlay-banner">
-                        <img v-if="banners" :src="`${$imagesUrl}/${banners.image_third}`">
+                        <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_third}`" v-lazy-load>
                     </div>
                 </div>
             </div>

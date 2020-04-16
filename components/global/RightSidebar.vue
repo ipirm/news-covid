@@ -2,7 +2,7 @@
     <client-only>
         <div class="page__aside">
             <div class="sidebar__advertising">
-                <img v-if="banners" :src="`${$imagesUrl}/${banners.image_second}`">
+                <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_second}`" v-lazy-load>
             </div>
             <div class="sidebar__sticky">
                 <div class="sidebar__videos__title">

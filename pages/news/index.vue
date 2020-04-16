@@ -22,7 +22,7 @@
                   <span>{{ item.title[$i18n.locale] | truncate(35) }}</span>
                 </div>
                 <div class="news-cards-item-image">
-                  <img :src="`${$imagesUrl}/${item.image}`">
+                  <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
                 </div>
                 <div class="news-cards-item-text">
                   {{ item.description[$i18n.locale] }}

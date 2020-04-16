@@ -77,7 +77,10 @@ module.exports = {
         '@nuxtjs/axios',
         '@nuxtjs/auth',
         'nuxt-webfontloader',
-        '@nuxtjs/google-analytics'
+        '@nuxtjs/google-analytics',
+        ['nuxt-lazy-load', {
+            defaultImage: '/images/seo/loading.gif',
+        }]
     ],
     googleAnalytics: {
         id: "UA-163816416-1"

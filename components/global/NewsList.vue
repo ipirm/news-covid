@@ -5,7 +5,7 @@
                 <span>{{ item.title[$i18n.locale] }}</span>
             </div>
             <div class="news-card-image">
-                <img :src="`${$imagesUrl}/${item.image}`"/>
+                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load />
                 <div class="news-card-image__infos">
                     <div class="news-card-image__infos__comments">
                         <svg-icon name="comments" />
@@ -31,7 +31,7 @@
                     <span>{{ item.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-card-image">
-                    <img :src="`${$imagesUrl}/${item.image}`"/>
+                    <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load/>
                     <div class="news-card-image__infos">
                     <div class="news-card-image__infos__comments">
                         <svg-icon name="comments" />
@@ -54,7 +54,7 @@
         </div>
         <div class="list-news" v-if="data">
             <clink :to="`/news/${item.slug}`" class="list-news-card" v-for="(item,index ) in data.slice(5,this.data.length)" :key="index">
-                <img :src="`${$imagesUrl}/${item.image}`">
+                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
                 <div class="list-news-desc">
                     <div class="list-news-title">{{ item.title[$i18n.locale] }}</div>
                     <div class="list-news-subtitle">{{ item.description[$i18n.locale]  }}</div>

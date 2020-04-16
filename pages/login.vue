@@ -1,6 +1,6 @@
 <template>
     <div class="form-page">
-        <img class="form-page__bg" src="~/static/images/form-page/bg.png">
+        <img class="form-page__bg" data-src="~/static/images/form-page/bg.png" v-lazy-load>
         <div class="form-page__card">
     		<div class="form-page__container">
 	        	<h1 class="form-page__title">{{ $t('explore') }}</h1>

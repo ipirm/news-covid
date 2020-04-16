@@ -5,7 +5,7 @@
                 {{ $t('mapOnline')}}
             </div>
             <clink to="/local-map" class="virus-map-image">
-        <img src="/images/seo/local-img.png">
+        <img data-src="/images/seo/local-img.png" v-lazy-load>
             </clink>
         </div>
         <div class="virus-map-content">

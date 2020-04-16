@@ -13,10 +13,10 @@
                 </div>
             </div>
             <div class="main-page__video-slider__arrow-left" @click="mySwiper.slidePrev()">
-                <img src="~/assets/svg/video-arrow-right.svg" />
+                <img data-src="~/assets/svg/video-arrow-right.svg" v-lazy-load />
             </div>
             <div class="main-page__video-slider__arrow-right" @click="mySwiper.slideNext()">
-                <img src="~/assets/svg/video-arrow-right.svg" />
+                <img data-src="~/assets/svg/video-arrow-right.svg" v-lazy-load />
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
 
 <script>
     import VideoComponent from "~/components/pages/main/VideoComponent";
-    
+
     export default {
         name: 'VideoSlider',
         components: {VideoComponent},

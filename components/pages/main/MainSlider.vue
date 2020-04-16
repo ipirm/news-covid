@@ -5,7 +5,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="(item, index) in slidesNews" :key="index">
                         <clink :to="`/news/${item.slug}`">
-                            <img :src="`${$imagesUrl}/${item.image}`" class="main-page__main-slider__pic">
+                            <img :data-src="`${$imagesUrl}/${item.image}`" class="main-page__main-slider__pic" v-lazy-load>
                             <div class="swiper-desc">
                                 <div class="swiper-title">{{item.title[$i18n.locale] | truncate(50) }}</div>
                             </div>

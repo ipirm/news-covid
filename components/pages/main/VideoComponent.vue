@@ -3,6 +3,7 @@
         <div class="video-player">
             <video-player class="video-player-box vjs-big-play-centered"
                           style="width: inherit"
+                          v-lazy-load
                           ref="videoPlayer"
                           :options="playerOptions"
                           :playsinline="true"
