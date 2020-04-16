@@ -55,6 +55,7 @@ module.exports = {
         {src: '~plugins/number-filter'},
         {src: '~plugins/truncate'},
         {src: '~plugins/click-outside'},
+        { src: '~plugins/ga.js', ssr: false }
     ],
     css: [
         {src: '~assets/scss/app.scss', lang: 'scss'}

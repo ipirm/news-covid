@@ -1,31 +1,35 @@
 <template>
-    <div class="page__aside">
-        <div class="sidebar__advertising">
-            <img v-if="banners" :src="`${$imagesUrl}/${banners.image_second}`">
-        </div>
-        <div class="sidebar__sticky">
-            <div class="sidebar__videos__title">
-                <span>{{ $t('interestingNews')}}: </span>
+    <client-only>
+        <div class="page__aside">
+            <div class="sidebar__advertising">
+                <img v-if="banners" :src="`${$imagesUrl}/${banners.image_second}`">
             </div>
-            <client-only>
+            <div class="sidebar__sticky">
+                <div class="sidebar__videos__title">
+                    <span>{{ $t('interestingNews')}}: </span>
+                </div>
                 <vue-scroll :ops="ops">
                     <div class="scroll-news sidebar__right">
-                        <clink :to="`/news/${item.slug}`" class="sidebar__sticky__card sidebar__sticky__card__vertical" v-for="(item, index) in interestingNews" :key="index">
+                        <clink :to="`/news/${item.slug}`"
+                               class="sidebar__sticky__card sidebar__sticky__card__vertical"
+                               v-for="(item, index) in interestingNews" :key="index">
                             <div class="sidebar__sticky__card__content">
                                 <img class="sidebar__sticky__img" :src="`${$imagesUrl}/${item.image}`">
                                 <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
                             </div>
-                            <div class="sidebar__sticky__card__bar" v-if="index != interestingNews.length - 1"></div>
+                            <div class="sidebar__sticky__card__bar"
+                                 v-if="index != interestingNews.length - 1"></div>
                         </clink>
                     </div>
                 </vue-scroll>
-            </client-only>
+            </div>
         </div>
-    </div>
+    </client-only>
 </template>
 
 <script>
     import {mapActions, mapState} from 'vuex'
+
     export default {
         props: {
             data: {
@@ -35,8 +39,8 @@
                 }
             }
         },
-        created(){
-          this.getInterestingNews();
+        created() {
+            this.getInterestingNews();
         },
         data() {
             return {
@@ -51,7 +55,7 @@
                 }
             }
         },
-        methods:{
+        methods: {
             ...mapActions('news', ['getInterestingNews']),
         },
         computed: {
