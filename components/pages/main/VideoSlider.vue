@@ -4,7 +4,7 @@
         <div class="main-page__video-slider__container">
             <div v-swiper:mySwiper="swiperOption">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" :key="index" v-for="(item, index) in videosData">
+                    <div class="swiper-slide" :key="index" v-for="(item, index) in naturalVideos">
                         <VideoComponent :data="item" />
                         <clink :to="'/'" class="swiper-desc">
                             <div class="swiper-title">{{ item.title[$i18n.locale] }}</div>
@@ -30,7 +30,7 @@
         name: 'VideoSlider',
         components: {VideoComponent},
         created(){
-          this.getVideos();
+          this.getNaturalVideos();
         },
         data() {
             return {
@@ -44,10 +44,10 @@
             }
         },
         methods:{
-            ...mapActions('news', ['getVideos']),
+            ...mapActions('news', ['getNaturalVideos']),
         },
         computed: {
-            ...mapState('news', ['videosData'])
+            ...mapState('news', ['naturalVideos'])
         }
     }
 </script>

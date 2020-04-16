@@ -25,11 +25,11 @@
                         </div>
                     </div>
                 </div>
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-4 mt-4" v-for="(item, index) in 6" :key="index">-->
-<!--                        <VideoComponent />-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="row">
+                    <div class="col-lg-4 mt-4" v-for="item in videosData" :key="item.id">
+                        <VideoComponent :data="item" v-lazy-load />
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -51,6 +51,7 @@
         components: {VirusStatic, VideoComponent, VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},
         async fetch({store}) {
             await store.dispatch('news/getPaginatedNews',{curPage: 1, perPage: 13});
+            await store.dispatch('news/getVideos');
         },
         head() {
             return {
@@ -67,7 +68,8 @@
             }
         },
         computed: {
-            ...mapState('news', ['newsData'])
+            ...mapState('news', ['newsData']),
+            ...mapState('news', ['videosData'])
         }
     }
 </script>

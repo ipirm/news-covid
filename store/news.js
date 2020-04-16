@@ -14,7 +14,8 @@ export const state = () => ({
     videoNews: null,
     banners: [],
     totalElems: 0,
-    videosData: null
+    videosData: null,
+    naturalVideos: null
 })
 
 export const mutations = {
@@ -47,6 +48,9 @@ export const mutations = {
     },
     SET_VIDEOS_NEWS: (state, payload) => {
         state.videosData = payload;
+    },
+    SET_NATURAL_VIDEOS_NEWS: (state, payload) => {
+        state.naturalVideos = payload;
     },
 }
 
@@ -99,5 +103,9 @@ export const actions = {
     async getVideos({commit}){
         const data = await this.$axios.$get(`all-video?page=1&per_page=8`);
         commit('SET_VIDEOS_NEWS', data.news.data);
+    },
+    async getNaturalVideos({commit}){
+        const data = await this.$axios.$get(`natural-video?page=1&per_page=6`);
+        commit('SET_NATURAL_VIDEOS_NEWS', data.news.data);
     }
 }
