@@ -25,11 +25,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 mt-4" v-for="(item, index) in 6" :key="index">
-                        <VideoComponent />
-                    </div>
-                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-4 mt-4" v-for="(item, index) in 6" :key="index">-->
+<!--                        <VideoComponent />-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </section>
     </div>
@@ -45,7 +45,7 @@
     import VideoComponent from "~/components/pages/main/VideoComponent";
     import VirusStatic from "~/components/global/VirusStatic";
 
-    import {mapActions, mapState} from 'vuex';
+    import { mapState} from 'vuex';
 
     export default {
         components: {VirusStatic, VideoComponent, VideoSlider, NewsList, RightSidebar, MainSlider, LeftSidebar},

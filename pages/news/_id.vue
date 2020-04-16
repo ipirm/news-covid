@@ -15,7 +15,8 @@
                             <span>{{ activeNews.title[$i18n.locale] }}</span>
                         </div>
                         <div class="news-content-image">
-                            <img :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load>
+                            <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load>
+                            <VideoComponent :data="activeNews" />
                         </div>
                         <div class="news-content-date">
                             <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
@@ -61,7 +62,7 @@
                                 v-for="item in newsData"
                                 :key="item.id">
                             <div class="news-cards-item-image">
-                                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
+                                <img  :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
                             </div>
                             <div class="news-cards-item-title">
                                 <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
@@ -92,9 +93,10 @@
 
     import {mapActions, mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
+    import VideoComponent from "../../components/pages/main/VideoComponent";
 
     export default {
-        components: {RightSidebar, Spinner, VirusStatic},
+        components: {VideoComponent, RightSidebar, Spinner, VirusStatic},
 
         created() {
             this.getVirus();

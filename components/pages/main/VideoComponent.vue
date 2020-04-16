@@ -18,23 +18,21 @@
 </template>
 
 <script>
-    // Similarly, you can also introduce the plugin resource pack you want to use within the component
-    // import 'some-videojs-plugin'
     export default {
         name: 'VideoComponent',
+        props:['data'],
         data() {
             return {
                 playerOptions: {
                     fluid: true,
-                    height: '360',
                     muted: false,
                     language: 'en',
                     playbackRates: [0.7, 1.0, 1.5, 2.0, 10.0],
                     sources: [{
                         type: "video/mp4",
-                        src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
+                        src: this.data.video
                     }],
-                    poster: "/images/main-page/main1.png",
+                    poster: `${this.$imagesUrl}/${this.data.image}`,
                 },
                 userActions: {
                     hotkeys: function (event) {

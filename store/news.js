@@ -13,7 +13,8 @@ export const state = () => ({
     cats: [],
     videoNews: null,
     banners: [],
-    totalElems: 0
+    totalElems: 0,
+    videosData: null
 })
 
 export const mutations = {
@@ -43,7 +44,10 @@ export const mutations = {
     },
     SET_TOTAL_ELEMS: (state, payload) => {
         state.totalElems = payload;
-    }
+    },
+    SET_VIDEOS_NEWS: (state, payload) => {
+        state.videosData = payload;
+    },
 }
 
 export const actions = {
@@ -91,5 +95,9 @@ export const actions = {
     async getCats({commit}) {
         const res = await this.$axios.$get('cats');
         commit('SET_CATS', res.cats);
+    },
+    async getVideos({commit}){
+        const data = await this.$axios.$get(`all-video?page=1&per_page=8`);
+        commit('SET_VIDEOS_NEWS', data.news.data);
     }
 }

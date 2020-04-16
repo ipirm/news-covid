@@ -1,13 +1,13 @@
 <template>
     <div class="main-page__video-slider">
-        <h2 class="main-page__video-slider__title">How nature reacts with the virus?</h2>
+        <h2 class="main-page__video-slider__title">How nature reacts with the virus? </h2>
         <div class="main-page__video-slider__container">
             <div v-swiper:mySwiper="swiperOption">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" :key="index" v-for="(item, index) in 6">
-                        <VideoComponent />
+                    <div class="swiper-slide" :key="index" v-for="(item, index) in videosData">
+                        <VideoComponent :data="item" />
                         <clink :to="'/'" class="swiper-desc">
-                            <div class="swiper-title">Coronavirus pandemia over the whole world</div>
+                            <div class="swiper-title">{{ item.title[$i18n.locale] }}</div>
                         </clink>
                     </div>
                 </div>
@@ -23,11 +23,15 @@
 </template>
 
 <script>
+    import { mapState, mapActions} from 'vuex';
     import VideoComponent from "~/components/pages/main/VideoComponent";
 
     export default {
         name: 'VideoSlider',
         components: {VideoComponent},
+        created(){
+          this.getVideos();
+        },
         data() {
             return {
                 swiperOption: {
@@ -35,8 +39,15 @@
                     spaceBetween: 10,
                     observer: true,
                     observeParents: true
-                }
+                },
+                videos: []
             }
+        },
+        methods:{
+            ...mapActions('news', ['getVideos']),
+        },
+        computed: {
+            ...mapState('news', ['videosData'])
         }
     }
 </script>
