@@ -12,6 +12,5 @@ export const actions = {
 		await dispatch('news/getCats');
 		await dispatch('virus/getCountries');
 		await dispatch('virus/getVirus');
-		await dispatch('virus/getCountriesByDay');
 	}
 }

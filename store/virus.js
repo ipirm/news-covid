@@ -1,8 +1,6 @@
 export const state = () => ({
     virusWorldWide: null,
-    virusLocal: null,
     virusLocalData: null,
-    virusPerCountry: null,
     countries: null,
     map: null,
     dataPaths: null
@@ -15,9 +13,6 @@ export const mutations = {
     },
     SET_VIRUS: (state, payload) => {
         state.virusWorldWide = payload;
-    },
-    SET_LOCAL_VIRUS: (state, payload) => {
-        state.virusLocal = payload
     },
     SET_PATHS_VIRUS: (state, payload) => {
         state.dataPaths = payload.map((item) => {
@@ -62,9 +57,6 @@ export const mutations = {
     },
     SET_MAP: (state, payload) => {
         state.map = payload;
-    },
-    SET_VIRUS_PER_COUNTRY: (state, payload) => {
-        state.virusPerCountry = payload;
     }
 }
 
@@ -72,34 +64,14 @@ export const mutations = {
 export const actions = {
 
     async getVirus({commit}) {
-        const virusWorldWide = await this.$axios.$get('https://covid-19-data.p.rapidapi.com/totals', {
-            headers: {'x-rapidapi-key': 'c3ae9cdbcfmsh29bc65690a77986p10a54bjsn9bc95c48b530'}
-        });
-        const local = await this.$axios.$get('https://covid-19-data.p.rapidapi.com/country', {
-            headers: {'x-rapidapi-key': 'c3ae9cdbcfmsh29bc65690a77986p10a54bjsn9bc95c48b530'},
-            params: {
-                name: 'azerbaijan'
-            }
-        });
-        commit('SET_VIRUS', virusWorldWide);
-        commit('SET_LOCAL_VIRUS', local);
+        const local = await this.$axios.$get('https://api.covid19api.com/summary');
+        commit('SET_VIRUS', local);
     },
     async getCountries({commit}) {
         const countries = await this.$axios.$get('https://covid-19-data.p.rapidapi.com/country/all', {
             headers: {'x-rapidapi-key': 'c3ae9cdbcfmsh29bc65690a77986p10a54bjsn9bc95c48b530'}
         });
         commit('SET_COUNTRIES', countries);
-    },
-    async getCountriesByDay({commit}) {
-        const countries = await this.$axios.$post('https://covid-19-live-stats.p.rapidapi.com/country', {
-                country: 'Azerbaijan'
-            }, {
-                headers: {
-                    "x-rapidapi-key": "c3ae9cdbcfmsh29bc65690a77986p10a54bjsn9bc95c48b530"
-                }
-            },
-        );
-        commit('SET_VIRUS_PER_COUNTRY', countries);
     },
     async getWorldMap({commit}) {
         const data = await this.$axios.$get('world')

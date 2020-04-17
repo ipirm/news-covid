@@ -9,51 +9,52 @@
             </clink>
         </div>
         <div class="virus-map-content">
-            <span>{{$t('pandemiaOfVirus') }}</span>
+            <span>{{$t('last24hrs') }}</span>
             <span class="mt-1">{{ Date.now() | moment("DD/MM/YYYY") }}</span>
         </div>
         <div class="virus-map__info">
             <div class="virus-map__info__col">
                 <h2 class="virus-map__info__title">{{ $t('world') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-                <span class="virus-map__info__number red">{{ virusWorldWide[0].confirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Global.NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-                <span class="virus-map__info__number green">{{ virusWorldWide[0].recovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number green">{{ virusWorldWide.Global.NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-                <span class="virus-map__info__number red">{{ virusWorldWide[0].deaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Global.NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
             </div>
             <div class="virus-map__info__col">
                 <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-                <span class="virus-map__info__number red">{{ virusLocal[0].confirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-                <span class="virus-map__info__number green">{{ virusLocal[0].recovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[15].NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-                <span class="virus-map__info__number red">{{ virusLocal[0].deaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
             </div>
             <div class="virus-map__info__middle-bar"></div>
         </div>
         <div class="virus-map-content">
-            <span>{{$t('last24hrs') }}</span>
+            <span>{{$t('pandemiaOfVirus') }}</span>
+            <span class="mt-1">{{ virusWorldWide.Countries[15].Date | moment("DD/MM/YYYY") }}</span>
         </div>
-        <div class="virus-map__info">
+        <div class="virus-map__info" >
             <div class="virus-map__info__col">
                 <h2 class="virus-map__info__title">{{ $t('world') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-                <span class="virus-map__info__number red">{{ virusLocal[0].confirmed }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Global.TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-                <span class="virus-map__info__number green">{{ virusWorldWide[0].recovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number green">{{ virusWorldWide.Global.TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-                <span class="virus-map__info__number red">{{ virusWorldWide[0].deaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Global.TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
             </div>
             <div class="virus-map__info__col">
                 <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-                <span class="virus-map__info__number red">{{ virusPerCountry[0].newCases | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-                <span class="virus-map__info__number green">{{ virusLocal[0].recovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[15].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
                 <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-                <span class="virus-map__info__number red">{{ virusLocal[0].deaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
             </div>
             <div class="virus-map__info__middle-bar"></div>
         </div>
@@ -67,11 +68,10 @@
         name: 'VirusStatic',
 
         created() {
-            console.log(this.virusPerCountry);
         },
 
         computed: {
-            ...mapState('virus', ['virusWorldWide', 'virusLocal','virusPerCountry'])
+            ...mapState('virus', ['virusWorldWide'])
         }
     }
 </script>
