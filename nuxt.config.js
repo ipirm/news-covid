@@ -22,6 +22,7 @@ routerBase = {
                 {name: "robots", content: "index, follow"},
                 {name: "googlebot", content: "index, follow"},
                 {property:"og:type", content:"website"},
+                { name: "google-site-verification", content: "WV19gWivUf8nqWY7pKLX4sw7qnEniWZN3szX5h-kve0" },
                 {'http-equiv': 'X-UA-Compatible', content: 'ie=edge'},
                 {name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'},
             ],
