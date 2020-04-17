@@ -96,10 +96,10 @@ export default {
         { property: 'og:title', content: this.$t('localMap') || '' },
         { property: 'og:description', content: this.virusLocalData[0].title[this.$i18n.locale] || '' },
         { name: 'description', content: this.virusLocalData[0].title[this.$i18n.locale] || '' },
-        { property: 'og:image', content: `http://covid.az/images/seo/local-img.png` || '' },
+        { property: 'og:image', content: `https://covid.az/images/seo/local-img.png` || '' },
         { name: 'keywords', content: `${this.$t('keywords')}` || '' },
-        { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' },
-        { property: 'twitter:card', content: `http://covid.az/images/seo/local-img.png` || '' },
+        { property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || '' },
+        { property: 'twitter:card', content: `https://covid.az/images/seo/local-img.png` || '' },
       ]
     }
   },

@@ -405,10 +405,10 @@ export default {
         { property: 'og:title', content: this.$t('worldMap') || '' },
         { property: 'og:description', content: this.map[0].title[this.$i18n.locale] || '' },
         { name: 'description', content: this.map[0].title[this.$i18n.locale] || '' },
-        { property: 'og:image', content: `http://covid.az/images/seo/world-img.png` || '' },
-        { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' },
+        { property: 'og:image', content: `https://covid.az/images/seo/world-img.png` || '' },
+        { property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || '' },
         { name: 'keywords', content: `${this.$t('keywords')}` || '' },
-        { property: 'twitter:card', content: `http://covid.az/images/seo/world-img.png` || '' },
+        { property: 'twitter:card', content: `https://covid.az/images/seo/world-img.png` || '' },
       ]
     }
   },

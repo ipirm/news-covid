@@ -88,7 +88,7 @@ routerBase = {
             '@nuxtjs/robots'
         ],
         sitemap: {
-            hostname: "http://covid.az",
+            hostname: "https://covid.az",
             gzip: true,
             exclude: ["/secret", "/admin/**"]
         },

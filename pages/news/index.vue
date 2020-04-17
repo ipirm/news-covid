@@ -75,7 +75,7 @@ export default {
                 { property: 'og:title', content: `${this.$t('MetaTitle')}` || '' } ,
                 { property: 'og:description', content: `${this.$t('metaDescription')}` || '' } ,
                 { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,
-                { property: 'og:url', content: `http://covid.az/${this.$route.fullPath}` || '' } ,
+                { property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || '' } ,
                 { property: 'twitter:card', content: '/images/main-page/slide1.png' || '' } ,
             ]
         }
