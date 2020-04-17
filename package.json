@@ -28,6 +28,7 @@
     "nuxt-i18n": "^6.5.0",
     "nuxt-lazy-load": "^1.1.9",
     "nuxt-webfontloader": "^1.1.0",
+    "redirect-ssl": "^1.4.1",
     "sass-loader": "^8.0.2",
     "swiper": "^5.3.7",
     "vue-awesome-swiper": "^4.1.0",

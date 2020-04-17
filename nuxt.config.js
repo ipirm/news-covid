@@ -95,6 +95,7 @@ routerBase = {
         googleAnalytics: {
             id: "UA-163816416-1"
         },
+        serverMiddleware: [ 'redirect-ssl' ],
         axios: {
             baseURL: 'https://covid.info.az/api/'
         },
