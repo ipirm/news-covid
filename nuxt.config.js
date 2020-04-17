@@ -93,7 +93,7 @@ routerBase = {
             exclude: ["/secret", "/admin/**"]
         },
         googleAnalytics: {
-            id: "UA-163816416-1"
+            id: "UA-163816416-2"
         },
         serverMiddleware: [ 'redirect-ssl' ],
         axios: {
