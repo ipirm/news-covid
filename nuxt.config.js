@@ -48,14 +48,14 @@ routerBase = {
             {src: '~plugins/autocomplete', ssr: true},
             {src: '~plugins/vue-select', ssr: false},
             {src: '~plugins/marquee-text', ssr: false},
-            {src: '~plugins/video', ssr: false},
             {src: '~plugins/scroll', ssr: false},
             {src: '~plugins/map', ssr: true},
             {src: '~plugins/vue-backtotop', ssr: false},
             {src: '~plugins/vue-scrollto'},
             {src: '~plugins/number-filter'},
             {src: '~plugins/truncate'},
-            {src: '~plugins/click-outside'}
+            {src: '~plugins/click-outside'},
+            {src: '~plugins/youtube.js',ssr:false}
         ],
         css: [
             {src: '~assets/scss/app.scss', lang: 'scss'}

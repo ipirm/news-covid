@@ -5,7 +5,7 @@
             <div v-swiper:mySwiper="swiperOption">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" :key="index" v-for="(item, index) in naturalVideos">
-                        <VideoComponent :data="item" />
+                        <VideoComponent width="100%" height="300px" :data="item" />
                         <clink :to="'/'" class="swiper-desc">
                             <div class="swiper-title">{{ item.title[$i18n.locale] }}</div>
                         </clink>

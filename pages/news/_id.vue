@@ -15,8 +15,10 @@
                             <span>{{ activeNews.title[$i18n.locale] }}</span>
                         </div>
                         <div class="news-content-image">
-                            <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load>
-                            <VideoComponent v-show="activeNews.video !== null"  :data="activeNews" />
+                            <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`"
+                                 v-lazy-load>
+                                <VideoComponent width="100%" height="400px" v-show="activeNews.video !== null"
+                                                :data="activeNews" />
                         </div>
                         <div class="news-content-date">
                             <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
@@ -62,7 +64,7 @@
                                 v-for="item in newsData"
                                 :key="item.id">
                             <div class="news-cards-item-image">
-                                <img  :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
+                                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
                             </div>
                             <div class="news-cards-item-title">
                                 <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
@@ -104,14 +106,14 @@
         },
         async fetch({store, route}) {
             await store.dispatch('news/findNews', route.params.id).then(
-               async ()=>{
-               await  store.dispatch('news/getPaginatedNews',
-                     {
-                         id: store.state.news.activeNews.news.cat_id,
-                         curPage: 1,
-                         perPage: 3
-                     })
-            });
+                async () => {
+                    await store.dispatch('news/getPaginatedNews',
+                        {
+                            id: store.state.news.activeNews.news.cat_id,
+                            curPage: 1,
+                            perPage: 3
+                        })
+                });
         },
         data() {
             return {
@@ -122,18 +124,21 @@
             return {
                 title: this.activeNews.news.title[this.$i18n.locale],
                 meta: [
-                    { property: 'og:title', content: `${this.activeNews.news.title[this.$i18n.locale]}` || '' } ,
-                    { property: 'og:description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || '' },
-                    { name: 'description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || '' },
-                    { property: 'og:image', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
-                    { name: 'keywords', content: `${this.$t('keywords')}` || '' },
-                    { property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || '' } ,
-                    { property: 'twitter:card', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || '' } ,
+                    {property: 'og:title', content: `${this.activeNews.news.title[this.$i18n.locale]}` || ''},
+                    {
+                        property: 'og:description',
+                        content: `${this.activeNews.news.description[this.$i18n.locale]}` || ''
+                    },
+                    {name: 'description', content: `${this.activeNews.news.description[this.$i18n.locale]}` || ''},
+                    {property: 'og:image', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || ''},
+                    {name: 'keywords', content: `${this.$t('keywords')}` || ''},
+                    {property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || ''},
+                    {property: 'twitter:card', content: `${this.$imagesUrl}/${this.activeNews.news.image}` || ''},
                 ]
             }
         },
         methods: {
-            ...mapActions('news', [ 'findNews', 'getBanners']),
+            ...mapActions('news', ['findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
             initCreationFacebookComments() {
                 FB.XFBML.parse()

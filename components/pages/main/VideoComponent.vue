@@ -1,18 +1,7 @@
 <template>
     <client-only>
         <div class="video-player">
-            <video-player class="video-player-box vjs-big-play-centered"
-                          style="width: inherit"
-                          v-lazy-load
-                          ref="videoPlayer"
-                          :options="playerOptions"
-                          :playsinline="true"
-                          customEventName="customstatechangedeventname"
-                          @play="onPlayerPlay($event)"
-                          @pause="onPlayerPause($event)"
-                          @statechanged="playerStateChanged($event)"
-                          @ready="playerReadied">
-            </video-player>
+            <youtube :video-id="data.video" :player-width="width" :player-height="height" :player-vars="{autoplay: 0}"></youtube>
         </div>
     </client-only>
 </template>
@@ -20,67 +9,6 @@
 <script>
     export default {
         name: 'VideoComponent',
-        props:['data'],
-        data() {
-            return {
-                playerOptions: {
-                    fluid: true,
-                    muted: false,
-                    language: 'en',
-                    playbackRates: [0.7, 1.0, 1.5, 2.0, 10.0],
-                    sources: [{
-                        type: "video/mp4",
-                        src: this.data.video
-                    }],
-                    poster: `${this.$imagesUrl}/${this.data.image}`,
-                },
-                userActions: {
-                    hotkeys: function (event) {
-                        // `this` is the player in this context
-                        // `x` key = pause
-                        if (event.which === 88) {
-                            this.pause();
-                        }
-                        // `y` key = play
-                        if (event.which === 89) {
-                            this.play();
-                        }
-                    }
-                }
-            }
-        },
-        // @waiting="onPlayerWaiting($event)"
-        // @playing="onPlayerPlaying($event)"
-        // @loadeddata="onPlayerLoadeddata($event)"
-        // @timeupdate="onPlayerTimeupdate($event)"
-        // @canplay="onPlayerCanplay($event)"
-        // @canplaythrough="onPlayerCanplaythrough($event)"
-        // @ended="onPlayerEnded($event)"
-        mounted() {
-        },
-        computed: {
-            player() {
-                return this.$refs.videoPlayer.player
-            }
-        },
-        methods: {
-            // listen event
-            onPlayerPlay(player) {
-                // console.log('player play!', player)
-            },
-            onPlayerPause(player) {
-                // console.log('player pause!', player)
-            },
-            // ...player event
-            // or listen state event
-            playerStateChanged(playerCurrentState) {
-                // console.log('player current update state', playerCurrentState)
-            },
-            // player is ready
-            playerReadied(player) {
-                // you can use it to do something...
-                // player.[methods]
-            }
-        }
+        props:['data','width','height'],
     }
 </script>
