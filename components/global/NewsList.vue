@@ -5,7 +5,7 @@
                 <span>{{ item.title[$i18n.locale] }}</span>
             </div>
             <div class="news-card-image">
-                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load />
+                <img :data-src="`${$imagesUrl}/${item.image}`" style="height: 400px" v-lazy-load />
                 <div class="news-card-image__infos">
                     <div class="news-card-image__infos__comments">
                         <svg-icon name="comments" />
