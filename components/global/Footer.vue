@@ -13,9 +13,9 @@
                 <div class="col-lg-3">
                     <div class="footer-title">{{ $t('socialNetwork')}}</div>
                     <div class="footer-links">
-                        <a href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" target="_blank" >{{ $t('weInTwitter')}}</a>
+                        <a href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" target="_blank" >{{ $t('weInTelegram')}}</a>
                         <clink to="/">{{ $t('weOnFacebook')}}</clink>
-                        <clink to="/">{{ $t('weInTelegram')}}</clink>
+                        <clink to="/">{{ $t('weInTwitter')}}</clink>
                     </div>
                 </div>
                 <div class="col-lg-3">
