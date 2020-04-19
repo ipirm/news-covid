@@ -4,11 +4,11 @@
       <div class="header__top">
         <div class="custom-container custom-container--main header__top__container">
           <clink :to="'/'" class="header__logo__link">
-            <svg-icon name="header-logo" class="header__logo" />
+            <svg-icon name="header-new-logo" class="header__logo" />
           </clink>
           <div class="header__running-text">
             <client-only>
-              <marquee-text :repeat="10" :duration="20" v-if="banners && banners.running">
+              <marquee-text :repeat="10" :duration="40" v-if="banners && banners.running">
                 {{ banners.running[$i18n.locale] }}
               </marquee-text>
             </client-only>
@@ -23,7 +23,7 @@
             <clink to="/news" class="header__bottom__link">{{ $t('header.news') }}</clink>
           </div>
           <div class="header__bottom__right">
-            <div class="header__bottom__slider" v-show="this.$route.path !=='/news' && this.$route.path !=='/ru/news'">
+            <div class="header__bottom__slider" style="max-width: 500px;">
               <div v-swiper:mySwiper="swiperOption">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide header__bottom__slide" v-for="(item, i) in cats" :key="i">
@@ -65,7 +65,9 @@ export default {
   components: {
     'custom-select': CustomSelect
   },
-
+ created(){
+   console.log(this.$route.name)
+ },
   data() {
     return {
       active: false,

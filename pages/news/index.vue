@@ -56,7 +56,8 @@ export default {
 
   created() {
     this.getVirus();
-    this.getCats().then(() => {
+    this.getCats();
+
       if (this.$route.query.type) {
         this.link = this.cats.find(i => i.slug === this.$route.query.type);
         this.selected = this.link.title[this.$i18n.locale]
@@ -64,7 +65,6 @@ export default {
       } else {
         this.getPaginatedNews({ curPage: this.curPage, perPage: this.perPage });
       }
-    });
   },
     head() {
         return {
