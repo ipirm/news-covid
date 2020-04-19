@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-mail">
-                        <input :placeholder="$t('leaveComment')">
-                        <a href="#" @click.prevent><span>{{ $t('send')}}</span></a>
+                        <input  :placeholder="$t('leaveComment')" v-model="message">
+                        <a  href="#" @click.prevent="sendMail"><span>{{ $t('send')}}</span></a>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,24 @@
 
 <script>
     export default {
-        name: "Footer"
+        name: "Footer",
+        data(){
+            return {
+                message: '',
+                error: false
+            }
+        },
+        methods:{
+            sendMail(){
+                if(this.message !== '') {
+                    this.$store.dispatch('orders/sendOrder', this.message).then(()=>{
+                        this.message = ''
+                    })
+                }else{
+                 this.error = true
+                }
+            }
+        }
     }
 </script>
 
