@@ -7,7 +7,14 @@
     },
     "local-map": "Lokal xəritə",
     "world-map": "Dünya xəritəsi",
-    "news": "Xəbərlər"
+    "news": "Xəbərlər",
+    "mobile": {
+      "main": "Главная",
+      "search": "Поиск",
+      "world": "Мир",
+      "az": "Родина",
+      "menu": "Меню"
+    }
   },
 
   "last24hrs": "Son gün üçün",
