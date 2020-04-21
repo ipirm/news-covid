@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <div class="header__top">
+      <div class="header__top desktop">
         <div class="custom-container custom-container--main header__top__container">
           <clink :to="'/'" class="header__logo__link">
-            <svg-icon name="header-new-logo" class="header__logo" />
+            <svg-icon name="header-logo" class="header__logo" />
           </clink>
           <div class="header__running-text">
             <client-only>
@@ -17,10 +17,15 @@
       </div>
       <div class="header__bottom">
         <div class="custom-container custom-container--main header__bottom__container">
-          <div class="header__bottom__left">
+          <div class="header__bottom__left desktop">
             <clink to="/local-map" class="header__bottom__link">{{ $t('header.local-map') }}</clink>
             <clink to="/map" class="header__bottom__link">{{ $t('header.world-map') }}</clink>
             <clink to="/news" class="header__bottom__link">{{ $t('header.news') }}</clink>
+          </div>
+          <div class="header__bottom__left mobile">
+            <clink :to="'/'" class="header__logo__link">
+              <svg-icon name="header-logo-text" class="header__logo" />
+            </clink>
           </div>
           <div class="header__bottom__right">
             <div class="header__bottom__slider" style="max-width: 500px;">
@@ -42,17 +47,51 @@
                 <div class="transparency"></div>
               </div>
             </div>
-            <div class="header__search" v-click-outside="hideSearch">
+            <div class="header__search desktop" v-click-outside="hideSearch">
               <div class="header__search__input-area" :class="{ active: searchActive }">
                 <input type="text" name="search">
               </div>
               <svg-icon name="search-icon" class="header__search__icon" @click="toggleSearch" />
             </div>
-            <custom-select class="header__langs" :options="availableLangs" @input="changeLang" v-model="curLang" />
-            <clink :to="'/login'" class="header__login">{{ $t('header.login') }}</clink>
+            <custom-select class="header__langs desktop" :options="availableLangs" @input="changeLang" v-model="curLang" />
+            <!-- <clink :to="'/login'" class="header__login">{{ $t('header.login') }}</clink> -->
           </div>
         </div>
       </div>
+    </div>
+    <div class="header__mobile-bottom">
+      <ul>
+        <li>
+          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/' }">
+            <svg-icon name="header-mobile-main" />
+            <span>{{ $t('header.mobile.main') }}</span>
+          </clink>
+        </li>
+        <li>
+          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+            <svg-icon name="header-mobile-search" />
+            <span>{{ $t('header.mobile.search') }}</span>
+          </clink>
+        </li>
+        <li>
+          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+            <svg-icon name="header-mobile-world" />
+            <span>{{ $t('header.mobile.world') }}</span>
+          </clink>
+        </li>
+        <li>
+          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+            <svg-icon name="header-mobile-az" />
+            <span>{{ $t('header.mobile.az') }}</span>
+          </clink>
+        </li>
+        <li>
+          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+            <svg-icon name="header-mobile-menu" />
+            <span>{{ $t('header.mobile.menu') }}</span>
+          </clink>
+        </li>
+      </ul>
     </div>
   </header>
 </template>
@@ -65,28 +104,22 @@ export default {
   components: {
     'custom-select': CustomSelect
   },
- created(){
-   console.log(this.$route.name)
- },
+
   data() {
     return {
       active: false,
       curLang: this.$i18n.locale,
       searchActive: false,
       swiperOption: {
-        slidesPerView: 2,
+        slidesPerView: 'auto',
         init: false,
         observer: true,
-        observeParents: true,
-        breakpoints: {
-          1000: {
-            slidesPerView: 'auto',
-          }
-        }
+        observeParents: true
       },
       leftArrowActive: false,
       rightArrowActive: false,
-      langsOpen: false
+      langsOpen: false,
+      activeMobileTabLink: '/'
     }
   },
 
