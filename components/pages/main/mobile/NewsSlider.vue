@@ -40,7 +40,7 @@
                     slidesPerView: 1,
                     spaceBetween: 10,
                     loop: true,
-                    autoplay: true,
+                    autoplay: false,
                     observer: true,
                     observeParents: true
                 }

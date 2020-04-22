@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="page__aside">
+        <div class="page__aside" style="height: auto !important;">
             <div class="sidebar__advertising">
                 <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_second}`" v-lazy-load>
             </div>

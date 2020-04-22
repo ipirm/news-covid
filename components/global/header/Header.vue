@@ -74,13 +74,13 @@
           </clink>
         </li>
         <li>
-          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+          <clink to="/map" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
             <svg-icon name="mobile/header-mobile-world" />
             <span>{{ $t('header.mobile.world') }}</span>
           </clink>
         </li>
         <li>
-          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+          <clink to="/local-map" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
             <svg-icon name="mobile/header-mobile-az" />
             <span>{{ $t('header.mobile.az') }}</span>
           </clink>

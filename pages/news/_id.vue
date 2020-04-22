@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="page__content custom-container">
+        <div class="page__content custom-container news-page-item" >
             <main class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index" style="margin-right: 20px;">
                 <div class="news-content-breadcumbs">
                     <clink to="/">{{ $t('mainPage')}}</clink>
@@ -14,7 +14,7 @@
                     <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load style="height: 500px;  width: 100%">
                     <VideoComponent width="100%" height="500px" v-show="activeNews.video !== null" :data="activeNews" />
                 </div>
-                <div class="news-content-date">
+                <div class="news-content-date" style="justify-content: space-between">
                     <client-only>
                         <div class="overlay-social">
                             <facebook :url="url" scale="1.5" />
@@ -47,16 +47,8 @@
                         </div>
                     </client-only>
                 </template>
-            </main>
-            <aside class="page__aside" style="margin-top: 88px">
-                <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
-                <RightSidebar style="height: 60% !important;"/>
-            </aside>
-        </div>
-        <div class="page__content custom-container">
-            <div class="page__double-main">
                 <div class="news-cards-title">
-                    <span>You may also be interested in:</span>
+                    <span>{{ $t('newsPageinterestiong')}}</span>
                 </div>
                 <div class="news-cards-overlay">
                     <clink
@@ -71,14 +63,26 @@
                             <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
                         </div>
                         <div class="news-cards-item-text">
-                            <span>{{ item.description[$i18n.locale] }}</span>
+                            <span>{{ item.description[$i18n.locale]  | truncate(85) }}</span>
                         </div>
                         <div class="news-content-date news-cards-date">
                             <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
-                            <div class="news-content-date-item">Spain</div>
+                            <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
                         </div>
                     </clink>
                 </div>
+            </main>
+            <aside class="page__aside news-page-aside" style="margin-top: 88px">
+                <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
+                <RightSidebar/>
+                <div class="overlay-banner">
+                    <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_third}`" v-lazy-load>
+                </div>
+            </aside>
+        </div>
+        <div class="page__content custom-container news-page-item news-item-mobile">
+            <div class="page__double-main">
+                <NewsSlider :data="newsData" :showDescriptionBlya="true" />
             </div>
             <aside class="page__aside">
                 <div class="overlay-banner">
@@ -96,9 +100,10 @@
     import {mapActions, mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
     import VideoComponent from "../../components/pages/main/VideoComponent";
+    import NewsSlider from '~/components/pages/main/mobile/NewsSlider';
     export default {
         components: {
-            VideoComponent, RightSidebar, Spinner, VirusStatic},
+            VideoComponent, RightSidebar, Spinner, VirusStatic,NewsSlider},
 
         async fetch({store, route}) {
             await store.dispatch('news/findNews', route.params.id).then(
