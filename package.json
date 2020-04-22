@@ -39,6 +39,7 @@
     "vue-moment-datepicker": "^1.0.5",
     "vue-scrollto": "^2.17.1",
     "vue-select": "^3.4.0",
+    "vue-socialmedia-share": "^1.0.1",
     "vue-youtube-embed": "^2.2.2",
     "vue2-gmap-custom-marker": "^5.5.10",
     "vue2-google-maps": "^0.10.7",

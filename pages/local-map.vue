@@ -1,9 +1,9 @@
 <template>
     <section class="main-page-content">
-      <div class="custom-container">
+      <div class="custom-container" style="margin-top: 40px">
         <div class="news-content-breadcumbs">
-          <clink to="/">Главная</clink>
-          <a>Карта</a>
+          <clink to="/">{{ $t('mainPage')}}</clink>
+          <a>{{ $t('header.local-map')}}</a>
         </div>
         <div class="news-content-title">
           <span>{{ $t('localMap') }}</span>
@@ -18,8 +18,8 @@
           <div class="overlay-map-column">
             <div class="map-statistic">
               <div class="map-statistic-row map-statistic-header">
-                <div class="map-statistic-item"><span>Заболевшие:</span></div>
-                <div class="map-statistic-item"><span>Страна/Регион:</span></div>
+                <div class="map-statistic-item"><span>{{ $t('hospitalized') }}:</span></div>
+                <div class="map-statistic-item"><span>{{ $t('mapRegion')}}:</span></div>
               </div>
               <client-only>
                 <vue-scroll :ops="ops">
@@ -37,9 +37,9 @@
             </div>
             <div class="overlay-map-column-panel">
               <div class="overlay-map-column-header">
-                <div class="overlay-map-column-header-item"><span>Заболевшие:</span></div>
-                <div class="overlay-map-column-header-item"><span>Вылечились:</span></div>
-                <div class="overlay-map-column-header-item"><span>Умерли:</span></div>
+                <div class="overlay-map-column-header-item"><span>{{ $t('hospitalized') }}</span></div>
+                <div class="overlay-map-column-header-item"><span>{{ $t('cured') }}</span></div>
+                <div class="overlay-map-column-header-item"><span>{{ $t('died') }}</span></div>
               </div>
               <div class="overlay-map-column-row">
                 <div class="overlay-map-column-row-item"><span>

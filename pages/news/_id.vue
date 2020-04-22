@@ -1,26 +1,40 @@
 <template>
     <div>
         <section class="page__content custom-container">
-            <div class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index">
+            <div class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index" style="margin-right: 20px;">
                 <div class="news-content-breadcumbs">
                     <clink to="/">{{ $t('mainPage')}}</clink>
-                    <clink to="/news/">Все Новости</clink>
+                    <clink to="/news/">{{ $t('header.news')}}</clink>
                     <a>{{ activeNews.title[$i18n.locale]}}</a>
                 </div>
                 <div class="news-content-title">
                     <span>{{ activeNews.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-content-image">
-                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`"
-                         v-lazy-load>
-                        <VideoComponent width="100%" height="400px" v-show="activeNews.video !== null"
+                    <img
+                            v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`"
+                         v-lazy-load
+                    style="height: 500px;  width: 100%"
+                    >
+                        <VideoComponent width="100%" height="500px" v-show="activeNews.video !== null"
                                         :data="activeNews" />
                 </div>
                 <div class="news-content-date">
+                    <client-only>
+                        <div class="overlay-social">
+                            <facebook :url="url" scale="1.5" />
+                            <twitter :url="url" :title="activeNews.title[$i18n.locale]" scale="1.5" />
+                            <linkedin :url="url" scale="1.5" />
+                            <telegram :url="url" scale="1.5" />
+                            <whats-app :url="url" :title="activeNews.title[$i18n.locale]" scale="1.5" />
+                        </div>
+                    </client-only>
+                    <div class="d-flex">
                     <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
                     <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}
                     </div>
                     <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
+                    </div>
                 </div>
                 <div class="news-content-text mb-5">
                     <b>{{ activeNews.description[$i18n.locale]}}</b><br><br>
@@ -39,7 +53,7 @@
                     </client-only>
                 </template>
             </div>
-            <div class="page__aside">
+            <div class="page__aside" style="margin-top: 88px">
                 <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
                 <RightSidebar style="height: 60% !important;"/>
             </div>
@@ -90,9 +104,9 @@
     import {mapActions, mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
     import VideoComponent from "../../components/pages/main/VideoComponent";
-
     export default {
-        components: {VideoComponent, RightSidebar, Spinner, VirusStatic},
+        components: {
+            VideoComponent, RightSidebar, Spinner, VirusStatic},
 
         created() {
             this.getVirus();
@@ -112,6 +126,7 @@
         data() {
             return {
                 loading: true,
+                url: `https://covid.az${this.$route.fullPath}`
             }
         },
         head() {
