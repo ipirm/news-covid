@@ -1,7 +1,7 @@
 <template>
     <div>
-        <section class="page__content custom-container">
-            <div class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index">
+        <div class="page__content custom-container">
+            <main class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index">
                 <div class="news-content-breadcumbs">
                     <clink to="/">{{ $t('mainPage')}}</clink>
                     <clink to="/news/">Все Новости</clink>
@@ -11,10 +11,8 @@
                     <span>{{ activeNews.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-content-image">
-                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`"
-                         v-lazy-load>
-                        <VideoComponent width="100%" height="400px" v-show="activeNews.video !== null"
-                                        :data="activeNews" />
+                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load>
+                    <VideoComponent width="100%" height="400px" v-show="activeNews.video !== null" :data="activeNews" />
                 </div>
                 <div class="news-content-date">
                     <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
@@ -38,47 +36,44 @@
                         </div>
                     </client-only>
                 </template>
-            </div>
-            <div class="page__aside">
+            </main>
+            <aside class="page__aside">
                 <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
                 <RightSidebar style="height: 60% !important;"/>
-            </div>
-        </section>
-        <div class="news-cards-container">
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-7">
-                    <div class="news-cards-title">
-                        <span>You may also be interested in:</span>
-                    </div>
-                    <div class="news-cards-overlay">
-                        <clink
-                                :to="`/news/${item.slug}`"
-                                class="news-cards-item"
-                                v-for="item in newsData"
-                                :key="item.id">
-                            <div class="news-cards-item-image">
-                                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
-                            </div>
-                            <div class="news-cards-item-title">
-                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
-                            </div>
-                            <div class="news-cards-item-text">
-                                <span>{{ item.description[$i18n.locale] }}</span>
-                            </div>
-                            <div class="news-content-date news-cards-date">
-                                <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
-                                <div class="news-content-date-item">Spain</div>
-                            </div>
-                        </clink>
-                    </div>
+            </aside>
+        </div>
+        <div class="page__content custom-container">
+            <div class="page__double-main">
+                <div class="news-cards-title">
+                    <span>You may also be interested in:</span>
                 </div>
-                <div class="col-lg-3">
-                    <div class="overlay-banner">
-                        <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_third}`" v-lazy-load>
-                    </div>
+                <div class="news-cards-overlay">
+                    <clink
+                            :to="`/news/${item.slug}`"
+                            class="news-cards-item"
+                            v-for="item in newsData"
+                            :key="item.id">
+                        <div class="news-cards-item-image">
+                            <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
+                        </div>
+                        <div class="news-cards-item-title">
+                            <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
+                        </div>
+                        <div class="news-cards-item-text">
+                            <span>{{ item.description[$i18n.locale] }}</span>
+                        </div>
+                        <div class="news-content-date news-cards-date">
+                            <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
+                            <div class="news-content-date-item">Spain</div>
+                        </div>
+                    </clink>
                 </div>
             </div>
+            <aside class="page__aside">
+                <div class="overlay-banner">
+                    <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_third}`" v-lazy-load>
+                </div>
+            </aside>
         </div>
     </div>
 </template>
@@ -94,10 +89,6 @@
     export default {
         components: {VideoComponent, RightSidebar, Spinner, VirusStatic},
 
-        created() {
-            this.getVirus();
-            this.getBanners();
-        },
         async fetch({store, route}) {
             await store.dispatch('news/findNews', route.params.id).then(
                 async () => {
@@ -109,11 +100,13 @@
                         })
                 });
         },
+
         data() {
             return {
                 loading: true,
             }
         },
+
         head() {
             return {
                 title: this.activeNews.news.title[this.$i18n.locale],
@@ -131,18 +124,22 @@
                 ]
             }
         },
+
         methods: {
             ...mapActions('news', ['findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
+
             initCreationFacebookComments() {
                 FB.XFBML.parse()
                 this.loading = !this.loading
             }
         },
+
         computed: {
             ...mapState('news', ['newsData', 'activeNews', 'banners']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal'])
         },
+
         mounted() {
             if (process.client) {
                 (function (d, s, id) {
@@ -163,7 +160,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

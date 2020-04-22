@@ -17,6 +17,11 @@
     }
   },
 
+  "corona-info": {
+    "today": "Сегодня",
+    "all-time": "За все время"
+  },
+
   "last24hrs": "Son gün üçün",
   "covid": "COVID-19",
   "name": "Name",
@@ -102,7 +107,7 @@
   "enterLogin": "Login-i daxil edin",
   "worldMap": "Koronavirusun yayılma xəritəsi",
   "localMap": "Koronavirusun Azərbaycanda yayılma xəritəsi",
-  "MetaTitle": "Koronovirus COVID–19 | Hər ölkənin gözü ilə",
+  "MetaTitle": "Koronavirus COVID-19 | Hər ölkənin gözü ilə",
   "metaDescription": "Pandemiya haqqında hər gün yeni xəbərlər. Wuhan virusunun Azərbaycanda və Rusiyada yayılması. Karantin rejimi və mövcud rejimlə bağlı olan elektron yenilənmələr. Azərbaycanda və Dünyada Korovanirus. Online yenilənən dünya xəritəsi",
   "keywords": "Xəbərlər,pandemiya,yayılma,Uxan,virus,Azərbaycan,Rusiya,karantin xəbərləri,elektron yerləşmə,rejime uyğunlaşma,koronavirus dünyada,koronavirus azərbaycanda, online rejimli xəritə,məktəblərin bağlanması,iran,italiya,fransa,lənkəran,çin,gürcüstan,Covid-19,Covid,COVID,Koronavirus,koronovirus, Covid 19,statistika,silahlar,şərhlər,geriçəkilmə,SARS,təhlükə,haradan,tənəzzül,mənbə,info,qan qruoları,rəqəmlər,Uxan,ölülər,uşaqlarda,uşaqlar,pişiklərdə,pişiklər,itlərdə,itlər,canlılarda"
 

@@ -3,7 +3,7 @@
         <div class="custom-container custom-container--main">
             <div v-swiper:mySwiper="swiperOption" class="swiper-container" v-lazy-load>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="item in slidesNews" :key="item.id">
+                    <div class="swiper-slide" v-for="item in data" :key="item.id">
                         <clink :to="`/news/${item.slug}`">
                             <img :data-src="`${$imagesUrl}/${item.image}`" class="main-page__main-slider__pic" v-lazy-load>
                             <div class="swiper-desc">
@@ -18,7 +18,8 @@
 </template>
 
 <script>
-    import {mapActions, mapState} from 'vuex'
+    import {mapActions, mapState} from 'vuex';
+
     export default {
         props: {
             data: {
@@ -28,15 +29,15 @@
                 }
             }
         },
-        created(){
-          this.getNewsSlides()
-        },
+
         data() {
             return {
                 swiperOption: {
                     slidesPerView: 1,
                     spaceBetween: 10,
                     autoplay: true,
+                    observer: true,
+                    observeParents: true,
                     breakpoints: {
                         800: {
                             slidesPerView: 2
@@ -44,16 +45,6 @@
                     }
                 }
             }
-        },
-        methods:{
-            ...mapActions('news', ['getNewsSlides']),
-        },
-        computed: {
-            ...mapState('news', ['slidesNews']),
         }
     }
 </script>
-
-<style scoped>
-
-</style>
