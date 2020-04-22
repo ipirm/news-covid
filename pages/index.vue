@@ -14,7 +14,7 @@
             </section>
             <section>
                 <div class="custom-container custom-container--main">
-                    <VideoSlider :data="videoNews" />
+                    <VideoSlider :data="naturalVideos" />
                 </div>
             </section>
             <section>
