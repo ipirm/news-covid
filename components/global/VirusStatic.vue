@@ -67,15 +67,8 @@
     export default {
         name: 'VirusStatic',
 
-        created() {
-        },
-
         computed: {
             ...mapState('virus', ['virusWorldWide'])
         }
     }
 </script>
-
-<style scoped>
-
-</style>

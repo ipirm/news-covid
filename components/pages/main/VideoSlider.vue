@@ -1,12 +1,12 @@
 <template>
     <div class="main-page__video-slider">
-        <h2 class="main-page__video-slider__title">How nature reacts with the virus? </h2>
+        <h2 class="main-page__video-slider__title" v-if="title">{{ $t(title) }}</h2>
         <div class="main-page__video-slider__container">
             <div v-swiper:mySwiper="swiperOption">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" :key="index" v-for="(item, index) in naturalVideos">
+                    <div class="swiper-slide" :key="index" v-for="(item, index) in data">
                         <VideoComponent width="100%" height="300px" :data="item" />
-                        <clink :to="`/news/${item.slug}`" class="swiper-desc" style="text-align: left;">
+                        <clink :to="`/news/${item.slug}`" class="swiper-desc" style="text-align: left;" v-if="item.title">
                             <div class="swiper-title">{{ item.title[$i18n.locale] }}</div>
                         </clink>
                     </div>
@@ -27,27 +27,27 @@
     import VideoComponent from "~/components/pages/main/VideoComponent";
 
     export default {
+        props: ['data', 'title'],
+
         name: 'VideoSlider',
+
         components: {VideoComponent},
-        created(){
-          this.getNaturalVideos();
-        },
+
         data() {
             return {
                 swiperOption: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 10,
                     observer: true,
-                    observeParents: true
+                    observeParents: true,
+                    breakpoints: {
+                        761: {
+                            slidesPerView: 2
+                        }
+                    }
                 },
                 videos: []
             }
-        },
-        methods:{
-            ...mapActions('news', ['getNaturalVideos']),
-        },
-        computed: {
-            ...mapState('news', ['naturalVideos'])
         }
     }
 </script>
