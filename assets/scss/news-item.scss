@@ -184,9 +184,6 @@
   }
 }
 
-.main-page__mobile__news-slider {
-  display: none;
-}
 .news-cards-item{
   max-width: 277px;
 }
@@ -204,12 +201,19 @@
 @media only screen and (max-width: 700px) {
   .news-item-mobile{
     display: flex;
+
   }
   .news-page-aside {
     display: none;
   }
   .news-page-item {
     padding: 0 15px;
+    .main-page__mobile__news-slider{
+      display: block !important;
+    }
+    .news-content-youtube{
+      height: 200px !important;
+    }
     .news-content-date-item{
       font-size: 11px;
     }
@@ -221,9 +225,6 @@
       display: none;
     }
 
-    .main-page__mobile__news-slider {
-      display: block;
-    }
 
     .news-content-breadcumbs {
       display: none;

@@ -92,7 +92,11 @@
         </div>
     </div>
 </template>
-
+<style scoped>
+    .main-page__mobile__news-slider {
+        display: none;
+    }
+</style>
 <script>
     import VirusStatic from "~/components/global/VirusStatic";
     import Spinner from "~/components/global/Spinner";
