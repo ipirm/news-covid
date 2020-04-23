@@ -630,7 +630,20 @@
   }
 }
 
+.footer{
+  .custom-container--main{
+    padding: 0 140px !important;
+  }
+}
 @media (max-width: 500px) {
+  .footer{
+    .custom-container--main{
+      padding: 0 15px !important;
+    }
+  }
+  .footer-underline{
+    margin: 10px 0px 10px 0px !important;
+  }
   .mobile-banner{
     display: none !important;
   }
@@ -646,6 +659,14 @@
 }
 
 @media (max-width: 450px) {
+  .nuxt-link-exact-active {
+    path{
+      fill: #18456D !important;
+    }
+    span{
+      color: #354D8A !important;
+    }
+  }
   .main-page {
     &__video-slider {
       iframe {

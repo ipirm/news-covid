@@ -1,6 +1,6 @@
 <template>
     <section class="footer">
-        <div class="custom-container--main">
+        <div class="custom-container--main" style="max-width: 1440px !important;margin: auto">
             <div class="footer__leave-comment">
                 <input  :placeholder="$t('leaveComment')" v-model="message">
                 <a  href="#" @click.prevent="sendMail"><span>{{ $t('send')}}</span></a>

@@ -62,31 +62,31 @@
     <div class="header__mobile-bottom">
       <ul>
         <li>
-          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/' }">
+          <clink :to="'/'" class="header__mobile-bottom__item">
             <svg-icon name="mobile/header-mobile-main" />
             <span>{{ $t('header.mobile.main') }}</span>
           </clink>
         </li>
         <li>
-          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+          <clink @click.prevent.stop class="header__mobile-bottom__item">
             <svg-icon name="mobile/header-mobile-search" />
             <span>{{ $t('header.mobile.search') }}</span>
           </clink>
         </li>
         <li>
-          <clink to="/map" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+          <clink to="/map" class="header__mobile-bottom__item">
             <svg-icon name="mobile/header-mobile-world" />
             <span>{{ $t('header.mobile.world') }}</span>
           </clink>
         </li>
         <li>
-          <clink to="/local-map" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+          <clink to="/local-map" class="header__mobile-bottom__item">
             <svg-icon name="mobile/header-mobile-az" />
             <span>{{ $t('header.mobile.az') }}</span>
           </clink>
         </li>
         <li>
-          <clink :to="'/'" class="header__mobile-bottom__item" :class="{ active: activeMobileTabLink == '/xz' }">
+          <clink @click.prevent.stop class="header__mobile-bottom__item">
             <svg-icon name="mobile/header-mobile-menu" />
             <span>{{ $t('header.mobile.menu') }}</span>
           </clink>

@@ -1,5 +1,5 @@
 <template>
-    <section class="main-page-content">
+    <section class="main-page-content  map-page">
       <div class="custom-container" style="margin-top: 40px">
         <div class="news-content-breadcumbs">
           <clink to="/">{{ $t('mainPage')}}</clink>

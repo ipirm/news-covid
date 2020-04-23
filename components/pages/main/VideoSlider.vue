@@ -38,7 +38,7 @@
                 swiperOption: {
                     slidesPerView: 'auto',
                     spaceBetween: 10,
-                    loop: true,
+                    loop: false,
                     observer: true,
                     observeParents: true,
                     breakpoints: {
