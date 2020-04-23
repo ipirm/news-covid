@@ -21,6 +21,17 @@
     "today": "Сегодня",
     "all-time": "За все время"
   },
+
+  "mobile": {
+    "news": {
+      "important": "Важные новости",
+      "interesting": "Интересные новости"
+    },
+    "videos": {
+      "interesting": "Интересные видео"
+    }
+  },
+
   "watchAlso": "Buna da baxın",
   "newsPageinterestiong": "Sizə maraqlı ola bilər:",
   "mapRegion": "Dünya/Bölgə",

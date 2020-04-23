@@ -1,5 +1,6 @@
 <template>
 	<div class="main-page__mobile__news-slider">
+		<h2 class="main-page__mobile__news-slider__title" v-if="title">{{ $t(title) }}</h2>
 		<div v-swiper:mySwiper="swiperOption" class="swiper-container" v-lazy-load>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide" v-for="(item, i) in data" :key="i">
@@ -15,14 +16,10 @@
 			                    <div class="news-card-image__infos__time">
 			                        <span>{{ item.updated_at | moment("from", "now") }}</span>
 			                    </div>
-			                    <div class="news-card-image__infos__bar"></div>
-			                    <div class="news-card-image__infos__country">
-			                        <span>{{ item.country[$i18n.locale] }}</span>
-			                    </div>
 			                </div>
 						</div>
-						<h2 class="main-page__mobile__news-slider__title">{{ item.title[$i18n.locale] | truncate(75) }}</h2>
-						<p class="main-page__mobile__news-slider__desc" v-if="item.description && item.description[$i18n.locale] && showDescriptionBlya">{{ item.description[$i18n.locale] | truncate(300) }}</p>
+						<h3 class="main-page__mobile__news-slider__slide__title">{{ item.title[$i18n.locale] | truncate(75) }}</h3>
+						<p class="main-page__mobile__news-slider__slide__desc" v-if="item.description && item.description[$i18n.locale] && showDescriptionBlya">{{ item.description[$i18n.locale] | truncate(300) }}</p>
 					</clink>
 				</div>
 			</div>
@@ -32,12 +29,12 @@
 
 <script>
 	export default {
-		props: ['data', 'showDescriptionBlya'],
+		props: ['data', 'showDescription', 'title'],
 
         data() {
             return {
                 swiperOption: {
-                    slidesPerView: 1,
+                    slidesPerView: 'auto',
                     spaceBetween: 10,
                     loop: true,
                     autoplay: false,

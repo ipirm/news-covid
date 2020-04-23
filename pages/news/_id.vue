@@ -82,7 +82,7 @@
         </div>
         <div class="page__content custom-container news-page-item news-item-mobile">
             <div class="page__double-main">
-                <NewsSlider :data="newsData" :showDescriptionBlya="true" />
+                <NewsSlider :data="newsData" :showDescription="true" />
             </div>
             <aside class="page__aside">
                 <div class="overlay-banner">

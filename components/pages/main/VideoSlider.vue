@@ -1,6 +1,6 @@
 <template>
     <div class="main-page__video-slider">
-        <h2 class="main-page__video-slider__title" v-if="title">{{ $t(title) }}</h2>
+        <h2 class="main-page__video-slider__title main-page__mobile__news-slider__title" v-if="title">{{ $t(title) }}</h2>
         <div class="main-page__video-slider__container">
             <div v-swiper:mySwiper="swiperOption">
                 <div class="swiper-wrapper">
@@ -36,13 +36,15 @@
         data() {
             return {
                 swiperOption: {
-                    slidesPerView: 1,
+                    slidesPerView: 'auto',
                     spaceBetween: 10,
+                    loop: true,
                     observer: true,
                     observeParents: true,
                     breakpoints: {
                         761: {
-                            slidesPerView: 2
+                            slidesPerView: 2,
+                            loop: false
                         }
                     }
                 },

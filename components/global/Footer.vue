@@ -1,57 +1,53 @@
 <template>
     <section class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="input-mail">
-                        <input  :placeholder="$t('leaveComment')" v-model="message">
-                        <a  href="#" @click.prevent="sendMail"><span>{{ $t('send')}}</span></a>
+        <div class="custom-container--main">
+            <div class="footer__leave-comment">
+                <input  :placeholder="$t('leaveComment')" v-model="message">
+                <a  href="#" @click.prevent="sendMail"><span>{{ $t('send')}}</span></a>
+            </div>
+            <div class="footer__blocks">
+                <div class="footer__blocks__item">
+                    <div class="footer__blocks__item__inner">
+                        <div class="footer-title">{{ $t('socialNetwork')}}</div>
+                        <div class="footer-links">
+                            <a href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" target="_blank" >{{ $t('weInTelegram')}}</a>
+                            <clink to="/">{{ $t('weOnFacebook')}}</clink>
+                            <clink to="/">{{ $t('weInTwitter')}}</clink>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__blocks__item">
+                    <div class="footer__blocks__item__inner">
+                        <div class="footer-title">{{ $t('aboutUs')}}</div>
+                        <div class="footer-links">
+                            <clink to="/">{{ $t('writeUs')}}</clink>
+                            <clink to="/">{{ $t('whatWeDo')}}</clink>
+                            <clink to="/">{{ $t('buyAdvertisement')}}</clink>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__blocks__item">
+                    <div class="footer__blocks__item__inner">
+                        <div class="footer-title">{{ $t('subscription')}}</div>
+                        <div class="footer-links">
+                            <clink to="/">{{ $t('hideAdvertisements')}}</clink>
+                            <clink to="/">{{ $t('buyAdvertisement')}}</clink>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__blocks__item">
+                    <div class="footer__blocks__item__inner">
+                        <div class="footer-title">{{ $t('mobileApp')}}</div>
+                        <div class="footer-links">
+                            <clink to="/">{{ $t('iOS')}}</clink>
+                            <clink to="/">{{ $t('android')}}</clink>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-title">{{ $t('socialNetwork')}}</div>
-                    <div class="footer-links">
-                        <a href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" target="_blank" >{{ $t('weInTelegram')}}</a>
-                        <clink to="/">{{ $t('weOnFacebook')}}</clink>
-                        <clink to="/">{{ $t('weInTwitter')}}</clink>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-title">{{ $t('aboutUs')}}</div>
-                    <div class="footer-links">
-                        <clink to="/">{{ $t('writeUs')}}</clink>
-                        <clink to="/">{{ $t('whatWeDo')}}</clink>
-                        <clink to="/">{{ $t('buyAdvertisement')}}</clink>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-title">{{ $t('subscription')}}</div>
-                    <div class="footer-links">
-                        <clink to="/">{{ $t('hideAdvertisements')}}</clink>
-                        <clink to="/">{{ $t('buyAdvertisement')}}</clink>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-title">{{ $t('mobileApp')}}</div>
-                    <div class="footer-links">
-                        <clink to="/">{{ $t('iOS')}}</clink>
-                        <clink to="/">{{ $t('android')}}</clink>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-underline"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-reserve">
-                        {{ $t('allRights')}}
-                    </div>
-                </div>
+            <div class="footer-underline"></div>
+            <div class="footer__copyright">
+                <span>{{ $t('allRights')}}</span>
             </div>
         </div>
     </section>

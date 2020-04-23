@@ -37,11 +37,11 @@
         <div class="mobile">
             <NewsSlider :data="slidesNews" />
             <CoronaInfoTabs />
-            <NewsSlider :data="newsData" :showDescriptionBlya="true" />
+            <NewsSlider :data="newsData" :showDescription="true" :title="'mobile.news.important'" />
             <MobileBanner :data="banner1" />
-            <NewsSlider :data="videoNews" />
+            <NewsSlider :data="videoNews" :title="'mobile.videos.interesting'" />
             <MobileBanner :data="banner2" />
-            <NewsSlider :data="interestingNews" />
+            <NewsSlider :data="interestingNews" :title="'mobile.news.interesting'" />
             <VideoSlider :data="naturalVideos" :title="'How nature reacts with the virus?'" />
             <VideoSlider :data="videosData" />
         </div>
