@@ -354,7 +354,7 @@
 
     &__pic {
       width: 100%;
-      height: 200px !important;
+      height: 400px !important;
       object-fit: cover;
     }
   }
@@ -668,6 +668,9 @@
 }
 
 @media (max-width: 400px) {
+  .main-page__main-slider__pic{
+    height: 200px !important;
+  }
   .vue-back-to-top{
     display: none !important;
   }

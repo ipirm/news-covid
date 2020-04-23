@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1203c2e1-c0ac-485d-986c-9cb15217e4eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/scss/pages/main-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/pages/main-page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/main/mobile/NewsSlider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/main/mobile/NewsSlider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -56,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/assets/scss/pages/main-page.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="292">
-              <caret line="477" column="27" selection-start-line="477" selection-start-column="27" selection-end-line="477" selection-end-column="27" />
+              <caret line="356" column="15" selection-start-line="356" selection-start-column="15" selection-end-line="356" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -85,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getNews</find>
       <find>map</find>
       <find>img</find>
       <find>.header__bottom</find>
@@ -115,6 +111,7 @@
       <find>.swiper-slide</find>
       <find>iframe</find>
       <find>85</find>
+      <find>_pic</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -390,12 +387,12 @@
       <workItem from="1587315423139" duration="2050000" />
       <workItem from="1587576049971" duration="4539000" />
       <workItem from="1587590492014" duration="8074000" />
-      <workItem from="1587648338644" duration="3553000" />
+      <workItem from="1587648338644" duration="4009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110911000" />
+    <option name="totallyTimeSpent" value="111367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -796,7 +793,7 @@
     <entry file="file://$PROJECT_DIR$/assets/scss/pages/main-page.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
-          <caret line="477" column="27" selection-start-line="477" selection-start-column="27" selection-end-line="477" selection-end-column="27" />
+          <caret line="356" column="15" selection-start-line="356" selection-start-column="15" selection-end-line="356" selection-end-column="15" />
         </state>
       </provider>
     </entry>
