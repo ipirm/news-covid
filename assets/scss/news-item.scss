@@ -145,45 +145,6 @@
   justify-content: center;
 }
 
-.input-mail {
-  display: flex;
-  width: 550px;
-  margin: auto auto 35px auto;
-
-  input {
-    width: 100%;
-    font-size: 12px;
-    line-height: 16px;
-    color: #000000;
-    border: none;
-    text-align: center;
-  }
-
-  input::placeholder {
-    font-size: 12px;
-    line-height: 16px;
-    color: #000000;
-  }
-
-  a {
-    width: 113px;
-    height: 30px;
-    background: $color-red;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    span {
-      font-weight: bold;
-      font-size: 12px;
-      line-height: 16px;
-      color: #FFFFFF;
-
-    }
-  }
-}
-
 .news-cards-item{
   max-width: 277px;
 }
