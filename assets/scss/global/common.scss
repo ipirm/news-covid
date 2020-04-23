@@ -165,9 +165,13 @@ a:hover {
   padding-left: 160px;
   padding-right: 100px;
 
-  &--main {
+  &--main, &--news {
     padding-right: 40px;
     padding-left: 40px;
+  }
+
+  &--news {
+    max-width: 1440px;
   }
 }
 
