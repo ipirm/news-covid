@@ -1,5 +1,5 @@
 <template>
-  <div class="news-page">
+  <div class="news-page news-page-list">
         <div class="page__content custom-container">
         <div class="page__double-main">
             <div class="d-flex overlay-category">
@@ -7,11 +7,11 @@
                 <span class="mb-2" style="display: inline-block">Выберите категорию</span>
                 <v-select placeholder="Введение ЧП" v-model="selected" :options="getOptions" @input="changeRoute" />
               </div>
-              <div class="news-cards-title">
+              <div class="news-cards-title news-search">
                 <span class="mb-2" style="display: inline-block">Поиск статьи</span>
                 <input class="news-cards-input" placeholder="Введение текст" />
               </div>
-              <div class="news-cards-title" style="margin-right: 20px">
+              <div class="news-cards-title news-data-table" style="margin-right: 20px">
                 <span class="mb-2" style="display: inline-block">Выберите промежуток даты</span>
                 <datepicker :format="customFormatter" :value="date" />
               </div>
