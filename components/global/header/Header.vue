@@ -68,7 +68,7 @@
           </clink>
         </li>
         <li>
-          <clink @click.prevent.stop class="header__mobile-bottom__item">
+          <clink  to='/news' class="header__mobile-bottom__item">
             <svg-icon name="mobile/header-mobile-search" />
             <span>{{ $t('header.mobile.search') }}</span>
           </clink>
