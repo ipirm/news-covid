@@ -39,6 +39,8 @@
 
     &__item {
       width: 25%;
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -100,8 +102,6 @@
       &__item {
         width: 50%;
         margin-bottom: 30px;
-        display: flex;
-        justify-content: center;
 
         &__inner {
           width: 160px;
