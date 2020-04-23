@@ -332,6 +332,18 @@
 			padding-left: 10px;
 			padding-right: 10px;
 
+			.nuxt-link-exact-active {
+				display: none;
+
+				.color-switch {
+					fill: $color-blue !important;
+				}
+
+				span {
+					color: $color-blue !important;
+				}
+			}
+
 			ul {
 				margin: 0;
 				padding: 0;
@@ -359,12 +371,6 @@
 								color: #9E9E9E;
 								font-size: 11px;
 								line-height: 12px;
-							}
-
-							&.active {
-								span {
-									color: $color-blue;
-								}
 							}
 						}
 					}

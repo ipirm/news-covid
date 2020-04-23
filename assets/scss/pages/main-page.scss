@@ -497,15 +497,6 @@
         margin-bottom: 20px;
         position: relative;
 
-        // зачатки градиента
-        // &:after {
-        //   content: '';
-        //   height: 100%;
-        //   position: absolute;
-        //   right: 0;
-
-        // }
-
         .swiper-slide {
           width: 85%;
           background-color: #fff;
@@ -516,6 +507,7 @@
           width: 100%;
           height: 300px;
           object-fit: cover;
+          border-radius: 5px 5px 0 0;
 
           &-area {
             position: relative;

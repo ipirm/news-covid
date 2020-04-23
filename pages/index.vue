@@ -14,7 +14,7 @@
             </section>
             <section>
                 <div class="custom-container custom-container--main">
-                    <VideoSlider :data="naturalVideos" />
+                    <VideoSlider :data="naturalVideos" :title="'How nature reacts with the virus?'" />
                 </div>
             </section>
             <section>

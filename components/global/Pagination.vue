@@ -1,7 +1,6 @@
 <template>
   <div class="pagination" v-show="totalElems > perPage">
     <button class="pagination__button-left" @click="changePage(page-1)" :disabled="page == 1">
-      <!-- TODO: добавить свг штукенцию + сделать так чтобы когда page == 1, то он будет серый (#535353), else синий (#120888) (NOTICE: оставь style, чтобы он показывал налево (а так будет только один svg file, который показывает направо)) -->
       <img alt="Назад" v-show="page == 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
       <img alt="Назад" v-show="page > 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
     </button>
@@ -15,7 +14,6 @@
       <span>{{ lastPage }}</span>
     </button>
     <button class="pagination__button-right" @click="changePage(page+1)" :disabled="page == lastPage">
-      <!-- TODO: добавить свг штукенцию + сделать так чтобы когда page == 1, то он будет серый (#535353), else синий (#120888) -->
       <img alt="Вперед" v-show="page == lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
       <img alt="Вперед" v-show="page < lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
     </button>
@@ -68,6 +66,7 @@ export default {
         this.page = p;
         this.$emit('change', p);
         this.$bus.$emit('pageChanged', p);
+        document.querySelector('.vue-back-to-top').click();
       }
     },
 
