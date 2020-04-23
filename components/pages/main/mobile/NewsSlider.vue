@@ -1,7 +1,7 @@
 <template>
 	<div class="main-page__mobile__news-slider">
 		<h2 class="main-page__mobile__news-slider__title" v-if="title">{{ $t(title) }}</h2>
-		<div v-swiper:mySwiper="swiperOption" class="swiper-container" v-lazy-load>
+		<div v-swiper:mySwiper="swiperOption" class="swiper-container" v-if="data">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide" v-for="(item, i) in data" :key="i">
 					<clink :to="`/news/${item.slug}`" class="main-page__mobile__news-slider__item">
@@ -18,7 +18,7 @@
 			                    </div>
 			                </div>
 						</div>
-						<h3 class="main-page__mobile__news-slider__slide__title">{{ item.title[$i18n.locale] | truncate(75) }}</h3>
+						<h3 class="main-page__mobile__news-slider__slide__title">{{ item.title[$i18n.locale] | truncate(50) }}</h3>
 						<p class="main-page__mobile__news-slider__slide__desc" v-if="item.description && item.description[$i18n.locale] && showDescriptionBlya">{{ item.description[$i18n.locale] | truncate(300) }}</p>
 					</clink>
 				</div>
@@ -39,7 +39,7 @@
                     loop: true,
                     autoplay: false,
                     observer: true,
-                    observeParents: true
+					observeParents: true
                 }
             }
         }

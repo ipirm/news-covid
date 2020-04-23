@@ -35,7 +35,7 @@
             </section>
         </div>
         <div class="mobile">
-            <NewsSlider :data="slidesNews" />
+            <MainSlider :data="slidesNews" />
             <CoronaInfoTabs />
             <NewsSlider :data="newsData" :showDescription="true" :title="'mobile.news.important'" />
             <MobileBanner :data="banner1" />
