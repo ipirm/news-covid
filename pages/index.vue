@@ -42,8 +42,8 @@
             <NewsSlider :data="videoNews" :title="'mobile.videos.interesting'" />
             <MobileBanner :data="banner2" />
             <NewsSlider :data="interestingNews" :title="'mobile.news.interesting'" />
-            <VideoSlider :data="naturalVideos" :title="'How nature reacts with the virus?'" />
-            <VideoSlider :data="videosData" />
+            <VideoSlider :data="naturalVideos" :title="$t('naturalVideo')" />
+            <VideoSlider :data="videosData" :title="$t('watchNow')" />
         </div>
     </div>
 </template>
