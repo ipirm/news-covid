@@ -37,7 +37,7 @@
         <div class="mobile">
             <MainSlider :data="slidesNews" />
             <CoronaInfoTabs />
-            <NewsSlider :data="newsData" :showDescription="true" :title="'mobile.news.important'" />
+            <NewsSlider :data="newsData" :title="'mobile.news.important'" />
             <MobileBanner :data="banner1" />
             <NewsSlider :data="videoNews" :title="'mobile.videos.interesting'" />
             <MobileBanner :data="banner2" />

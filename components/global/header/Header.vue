@@ -1,6 +1,13 @@
 <template>
   <header class="header">
     <div class="header__content">
+      <div class="header__top mobile">
+        <ul>
+          <li v-for="(lang, i) in this.$i18n.locales" :key="i">
+            <span class="header__top__lang" :class="{ active: curLang == lang.code }" @click="() => {curLang = lang.code; changeLang()}">{{ $t(`header.langs.${lang.code}`) }}</span>
+          </li>
+        </ul>
+      </div>
       <div class="header__top desktop">
         <div class="custom-container custom-container--main header__top__container">
           <clink :to="'/'" class="header__logo__link">
@@ -33,7 +40,7 @@
                 <div class="swiper-wrapper">
                   <div class="swiper-slide header__bottom__slide" v-for="(item, i) in cats" :key="i">
                     <div class="header__bottom__bar"></div>
-                    <clink :to="`/news?type=${item.slug}`" class="header__bottom__link">{{ item.title[$i18n.locale] }}</clink>
+                    <nuxt-link :to="`/news?type=${item.slug}`" @click.prevent="goToNewsCat(item.slug)" class="header__bottom__link">{{ item.title[$i18n.locale] }}</nuxt-link>
                     <div class="header__bottom__bar"></div>
                   </div>
                 </div>
@@ -207,6 +214,13 @@ export default {
 
     hideSearch() {
       this.searchActive = false;
+    },
+
+    goToNewsCat(cat) {
+      // :to="`/news?type=${item.slug}`"
+      this.$router.push('/news', {query: {
+        type: cat
+      }});
     }
   },
 
