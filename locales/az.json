@@ -126,15 +126,15 @@
   "metaDescription": "Pandemiya haqqında hər gün yeni xəbərlər. Wuhan virusunun Azərbaycanda və Rusiyada yayılması. Karantin rejimi və mövcud rejimlə bağlı olan elektron yenilənmələr. Azərbaycanda və Dünyada Korovanirus. Online yenilənən dünya xəritəsi",
   "keywords": "Xəbərlər,pandemiya,yayılma,Uxan,virus,Azərbaycan,Rusiya,karantin xəbərləri,elektron yerləşmə,rejime uyğunlaşma,koronavirus dünyada,koronavirus azərbaycanda, online rejimli xəritə,məktəblərin bağlanması,iran,italiya,fransa,lənkəran,çin,gürcüstan,Covid-19,Covid,COVID,Koronavirus,koronovirus, Covid 19,statistika,silahlar,şərhlər,geriçəkilmə,SARS,təhlükə,haradan,tənəzzül,mənbə,info,qan qruoları,rəqəmlər,Uxan,ölülər,uşaqlarda,uşaqlar,pişiklərdə,pişiklər,itlərdə,itlər,canlılarda",
   "search": {
-    "searchBtn": "Поиск",
-    "searchNews": "Поиск статьи",
-    "cats": "Выберите категорию",
-    "type": "Выберите тип",
-    "country": "Выберите страну"
+    "searchBtn": "Axtarış",
+    "searchNews": "Məqalə axtarışı",
+    "cats": "Kateqoriya seçin",
+    "type": "Növü seçin",
+    "country": "Ölkəni seçin"
   },
   "contact": {
-    "who": "Кто мы такие и чем занимаемся?",
-    "social": "Социальные сети",
-    "come": "Присоединяйтесь к нам:"
+    "who": "Biz kimik və nə edirik?",
+    "social": "Sosial Şəbəkələr",
+    "come": "Bizə qoşulun:"
   }
 }
