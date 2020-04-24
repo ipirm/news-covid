@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="page__content custom-container custom-container--news news-page-item" >
-            <main class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index" style="margin-right: 20px;">
+            <main class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index"
+                  style="margin-right: 20px;max-width: 950px; margin-left: auto;">
                 <div class="news-content-breadcumbs">
                     <clink to="/">{{ $t('mainPage')}}</clink>
                     <clink to="/news/">{{ $t('header.news')}}</clink>
