@@ -67,18 +67,18 @@
             </b>
             <p v-html="item.text[$i18n.locale]"></p>
           </div>
-          <template>
-            <client-only>
-              <Spinner v-show="loading"/>
-              <div v-show="!loading">
-                <div id=fb_thread class="text-xs-center">
-                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
-                       data-numposts="100" data-width="100%"></div>
-                </div>
-                <div id="fb-root"></div>
-              </div>
-            </client-only>
-          </template>
+<!--          <template>-->
+<!--            <client-only>-->
+<!--              <Spinner v-show="loading"/>-->
+<!--              <div v-show="!loading">-->
+<!--                <div id=fb_thread class="text-xs-center">-->
+<!--                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"-->
+<!--                       data-numposts="100" data-width="100%"></div>-->
+<!--                </div>-->
+<!--                <div id="fb-root"></div>-->
+<!--              </div>-->
+<!--            </client-only>-->
+<!--          </template>-->
         </main>
         <aside class="page__aside">
           <VirusStatic />

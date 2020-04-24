@@ -53,7 +53,7 @@
             </clink>
         </div>
         <div class="list-news" v-if="data">
-            <clink :to="`/news/${item.slug}`" class="list-news-card" v-for="(item,index ) in data.slice(5,this.data.length)" :key="index">
+            <clink :to="`/news/${item.slug}`" class="list-news-card" v-for="(item,index ) in data.slice(6,this.data.length)" :key="index">
                 <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
                 <div class="list-news-desc">
                     <div class="list-news-title">{{ item.title[$i18n.locale] }}</div>
