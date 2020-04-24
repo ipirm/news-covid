@@ -4,6 +4,7 @@ routerBase = {
     }
 },
     module.exports = {
+
         env: {
             imagesUrl: 'https://covid.info.az/storage' || 'http://localhost:3000'
         },
@@ -21,10 +22,13 @@ routerBase = {
                 {charset: 'UTF-8'},
                 {name: "robots", content: "index, follow"},
                 {name: "googlebot", content: "index, follow"},
-                {property:"og:type", content:"website"},
-                { name: "google-site-verification", content: "WV19gWivUf8nqWY7pKLX4sw7qnEniWZN3szX5h-kve0" },
+                {property: "og:type", content: "website"},
+                {name: "google-site-verification", content: "WV19gWivUf8nqWY7pKLX4sw7qnEniWZN3szX5h-kve0"},
                 {'http-equiv': 'X-UA-Compatible', content: 'ie=edge'},
-                {name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'},
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
+                },
             ],
             link: [
                 {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
@@ -55,8 +59,8 @@ routerBase = {
             {src: '~plugins/number-filter'},
             {src: '~plugins/truncate'},
             {src: '~plugins/click-outside'},
-            {src: '~plugins/youtube.js',ssr:false},
-            {src: '~plugins/social.js',ssr:false},
+            {src: '~plugins/youtube.js', ssr: false},
+            {src: '~plugins/social.js', ssr: false},
         ],
         css: [
             {src: '~assets/scss/app.scss', lang: 'scss'}
@@ -87,7 +91,9 @@ routerBase = {
                 defaultImage: '/images/seo/loading.gif',
             }],
             '@nuxtjs/sitemap',
-            '@nuxtjs/robots'
+            '@nuxtjs/robots',
+            "nuxt-mq"
+
         ],
         sitemap: {
             hostname: "https://covid.az",
@@ -97,7 +103,7 @@ routerBase = {
         googleAnalytics: {
             id: "UA-163816416-2"
         },
-        serverMiddleware: [ 'redirect-ssl' ],
+        serverMiddleware: ['redirect-ssl'],
         axios: {
             baseURL: 'https://covid.info.az/api/'
         },
@@ -112,6 +118,16 @@ routerBase = {
                     }
                 }
             },
+        },
+        mq: {
+            defaultBreakpoint: "desktop",
+            breakpoints: {
+                mobile: 768,
+                tablet: 1024,
+                desktop: 1400,
+                desktopWide: 2000,
+                desktopUltraWide: Infinity
+            }
         },
         svgSprite: {
             input: '~/assets/svg/'

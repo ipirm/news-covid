@@ -1,6 +1,17 @@
 <template>
     <div class="main-page">
-        <div class="desktop">
+        <div class="mobile" v-if="$mq === 'mobile'">
+            <MainSlider :data="slidesNews" />
+            <CoronaInfoTabs />
+            <NewsSlider :data="newsData" :title="'mobile.news.important'" />
+            <MobileBanner :data="banner1" />
+            <NewsSlider :data="videoNews" :title="'mobile.videos.interesting'" />
+            <MobileBanner :data="banner2" />
+            <NewsSlider :data="interestingNews" :title="'mobile.news.interesting'" />
+            <VideoSlider :data="naturalVideos" :title="$t('naturalVideo')" />
+            <VideoSlider :data="videosData" :title="$t('watchNow')" />
+        </div>
+        <div class="desktop" v-else>
             <MainSlider :data="slidesNews" />
             <section class="page__content custom-container  custom-container--main">
                 <LeftSidebar />
@@ -33,17 +44,6 @@
                     </div>
                 </div>
             </section>
-        </div>
-        <div class="mobile">
-            <MainSlider :data="slidesNews" />
-            <CoronaInfoTabs />
-            <NewsSlider :data="newsData" :title="'mobile.news.important'" />
-            <MobileBanner :data="banner1" />
-            <NewsSlider :data="videoNews" :title="'mobile.videos.interesting'" />
-            <MobileBanner :data="banner2" />
-            <NewsSlider :data="interestingNews" :title="'mobile.news.interesting'" />
-            <VideoSlider :data="naturalVideos" :title="$t('naturalVideo')" />
-            <VideoSlider :data="videosData" :title="$t('watchNow')" />
         </div>
     </div>
 </template>
