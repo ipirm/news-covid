@@ -74,7 +74,7 @@
             </main>
             <aside class="page__aside news-page-aside" style="margin-top: 88px">
                 <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
-                <RightSidebar/>
+                <LeftSidebar/>
                 <div class="overlay-banner">
                     <img v-if="banners" :data-src="`${$imagesUrl}/${banners.image_third}`" v-lazy-load>
                 </div>
@@ -96,18 +96,21 @@
     .main-page__mobile__news-slider {
         display: none;
     }
+    .news-cards-item-title{
+        padding: 0 !important;
+    }
 </style>
 <script>
     import VirusStatic from "~/components/global/VirusStatic";
     import Spinner from "~/components/global/Spinner";
 
     import {mapActions, mapState} from 'vuex';
-    import RightSidebar from "~/components/global/RightSidebar";
+    import LeftSidebar from "~/components/global/LeftSidebar";
     import VideoComponent from "../../components/pages/main/VideoComponent";
     import NewsSlider from '~/components/pages/main/mobile/NewsSlider';
     export default {
         components: {
-            VideoComponent, RightSidebar, Spinner, VirusStatic,NewsSlider},
+            VideoComponent, LeftSidebar, Spinner, VirusStatic,NewsSlider},
 
         async fetch({store, route}) {
             await store.dispatch('news/findNews', route.params.id).then(
@@ -115,6 +118,7 @@
                     await store.dispatch('news/getPaginatedNews',
                         {
                             id: store.state.news.activeNews.news.cat_id,
+                            slug:route.params.id,
                             curPage: 1,
                             perPage: 3
                         })

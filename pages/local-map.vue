@@ -11,7 +11,7 @@
         <div class="d-flex">
           <div style="display: flex;width: 100%;height: 360px">
             <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800" xmlns="http://www.w3.org/2000/svg" v-lazy-load>
-              <path v-for="(item,index) in dataPaths" :stroke="[item.active ? '#fff' : '#5E5D5D']" :key="item.id" :d="item.path" :name="item.name[$i18n.locale]" @click="selectItem(item)" :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']" v-scroll-to="`#a${index}`">
+              <path v-for="item in dataPaths" :stroke="[item.active ? '#fff' : '#5E5D5D']" :key="item.id" :d="item.path" :name="item.name[$i18n.locale]" @click="selectItem(item)" :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']" v-scroll-to="`#a${item.id}`">
               </path>
             </svg>
           </div>
@@ -24,7 +24,7 @@
               <client-only>
                 <vue-scroll :ops="ops">
                   <div class="overlay-map-statistic" style="height: 330px">
-                    <div v-for="(item,index) in dataPaths" :class="[item.active ? 'activeClass' : '', 'map-statistic-row']" :id="`a${index}`" :key="item.id" @click="selectItem(item)">
+                    <div v-for="item in dataPaths" :class="[item.active ? 'activeClass' : '', 'map-statistic-row']" :id="`a${item.id}`" :key="item.id" @click="selectItem(item)">
                       <div class="map-statistic-item map-statistic-red">
                         <span>{{ item.confirmed | numFormat(0,0).replace(/,/g,' ')}} </span>
                       </div>
@@ -67,6 +67,18 @@
             </b>
             <p v-html="item.text[$i18n.locale]"></p>
           </div>
+          <template>
+            <client-only>
+              <Spinner v-show="loading"/>
+              <div v-show="!loading">
+                <div id=fb_thread class="text-xs-center">
+                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
+                       data-numposts="100" data-width="100%"></div>
+                </div>
+                <div id="fb-root"></div>
+              </div>
+            </client-only>
+          </template>
         </main>
         <aside class="page__aside">
           <VirusStatic />
@@ -82,9 +94,10 @@ import AnimatedNumber from "animated-number-vue";
 
 import { mapState } from 'vuex';
 import RightSidebar from "~/components/global/RightSidebar";
+import Spinner from "~/components/global/Spinner";
 
 export default {
-  components: { RightSidebar, AnimatedNumber, VirusStatic },
+  components: {Spinner, RightSidebar, AnimatedNumber, VirusStatic },
   async fetch({ store }) {
     await store.dispatch('virus/getLocalMap');
     await store.dispatch('virus/getPathMap');
@@ -105,6 +118,8 @@ export default {
   },
   data() {
     return {
+      loading: true,
+      url: `https://covid.az${this.$route.fullPath}`,
       ops: {
         vuescroll: {},
         scrollPanel: {},
@@ -126,6 +141,28 @@ export default {
     selectItem(item) {
       this.$store.commit('virus/SET_AZE_ACTIVE_COUNTRIES', item);
       this.activeCountry = item;
+    },
+    initCreationFacebookComments() {
+      FB.XFBML.parse()
+      this.loading = !this.loading
+    }
+  },
+  mounted() {
+    if (process.client) {
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = `https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v6.0`;
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      setTimeout(() => {
+        this.initCreationFacebookComments()
+      }, 3000);
     }
   },
   computed: {

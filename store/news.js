@@ -84,7 +84,7 @@ export const actions = {
         let res;
         if (data.id)
             res = await this.$axios
-                .$get(`cats-search?page=${data.curPage}&per_page=${data.perPage}&id=${data.id}&location=${data.location}`);
+                .$get(`cats-search?page=${data.curPage}&per_page=${data.perPage}&id=${data.id}&slug=${data.slug}`);
         else
             res = await this.$axios.$get(`news?page=${data.curPage}&per_page=${data.perPage}`);
         commit('SET_TOTAL_ELEMS', res.news.total ? res.news.total : 0);

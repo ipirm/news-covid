@@ -14,7 +14,7 @@
             </section>
             <section>
                 <div class="custom-container custom-container--main">
-                    <VideoSlider :data="naturalVideos" :title="'How nature reacts with the virus?'" />
+                    <VideoSlider :data="naturalVideos" :title="$t('naturalVideo')" />
                 </div>
             </section>
             <section>

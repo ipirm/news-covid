@@ -4,16 +4,16 @@
             <div class="page__middle">
                 <div class="d-flex overlay-category">
                     <div class="news-search d-flex">
-                        <input class="news-cards-input" placeholder="Поиск статьи"/>
-                        <a class="news-search-btn" href="#" @click.prevent><span>Поиск</span></a>
+                        <input class="news-cards-input" :placeholder="$t('search.searchNews')"/>
+                        <a class="news-search-btn" href="#" @click.prevent><span>{{ $t('search.searchBtn')}}</span></a>
                     </div>
                     <div class="news-search d-flex">
-                        <v-select placeholder="Выберите страну" v-model="selectedLocation"
+                        <v-select :placeholder="$t('search.country')" v-model="selectedLocation"
                                   :options="getOptions(locations)"
                                   @input="changeRoute"/>
-                        <v-select class="cats-select" placeholder="Выберите категорию" v-model="selected" :options="getOptions(cats)"
+                        <v-select class="cats-select" :placeholder="$t('search.cats')" v-model="selected" :options="getOptions(cats)"
                                   @input="changeRoute"/>
-                        <v-select placeholder="Выберите тип" v-model="selectedType" :options="getOptions(cats)"
+                        <v-select :placeholder="$t('search.type')" v-model="selectedType" :options="getOptions(cats)"
                                   @input="changeRoute"/>
                         <datepicker :format="customFormatter" :value="date"/>
                     </div>

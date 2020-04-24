@@ -18,6 +18,17 @@ export const mutations = {
         state.dataPaths = payload.map((item) => {
             return Object.assign(item, {active: false});
         });
+        state.dataPaths.sort(function (a, b) {
+
+            if (parseInt(a.confirmed) > parseInt(b.confirmed)) {
+                return 1;
+            }
+            if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
+                return -1;
+            }
+            return 0;
+        });
+        state.dataPaths.reverse()
     },
     SET_COUNTRIES: (state, payload) => {
         payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");

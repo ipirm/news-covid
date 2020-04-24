@@ -11,7 +11,7 @@
                         <div class="footer-title">{{ $t('socialNetwork')}}</div>
                         <div class="footer-links">
                             <a href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" target="_blank" >{{ $t('weInTelegram')}}</a>
-                            <clink to="/">{{ $t('weOnFacebook')}}</clink>
+                            <a href="https://www.facebook.com/covid.info.az/" target="_blank">{{ $t('weOnFacebook')}}</a>
                             <clink to="/">{{ $t('weInTwitter')}}</clink>
                         </div>
                     </div>
@@ -20,9 +20,9 @@
                     <div class="footer__blocks__item__inner">
                         <div class="footer-title">{{ $t('aboutUs')}}</div>
                         <div class="footer-links">
-                            <clink to="/">{{ $t('writeUs')}}</clink>
-                            <clink to="/">{{ $t('whatWeDo')}}</clink>
-                            <clink to="/">{{ $t('buyAdvertisement')}}</clink>
+                            <clink to="/contact">{{ $t('writeUs')}}</clink>
+                            <clink to="/contact">{{ $t('whatWeDo')}}</clink>
+                            <clink to="/contact">{{ $t('buyAdvertisement')}}</clink>
                         </div>
                     </div>
                 </div>
