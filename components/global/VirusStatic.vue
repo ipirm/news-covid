@@ -1,11 +1,13 @@
 <template>
     <div class="virus-map">
         <div class="virus-map-container">
-            <div class="virus-map-title">
-                {{ $t('mapOnline')}}
-            </div>
-            <clink to="/local-map" class="virus-map-image">
-        <img data-src="/images/seo/local-img.png" v-lazy-load>
+            <clink to="/local-map" class="link-map">
+                <div class="virus-map-title">
+                    {{ $t('mapOnline')}}
+                </div>
+                <div class="virus-map-image">
+                    <img data-src="/images/seo/local-img.png" v-lazy-load>
+                </div>
             </clink>
         </div>
         <div class="virus-map-content">
@@ -37,7 +39,7 @@
             <span>{{$t('pandemiaOfVirus') }}</span>
             <span class="mt-1">{{ virusWorldWide.Countries[15].Date | moment("DD/MM/YYYY") }}</span>
         </div>
-        <div class="virus-map__info" >
+        <div class="virus-map__info">
             <div class="virus-map__info__col">
                 <h2 class="virus-map__info__title">{{ $t('world') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
@@ -62,7 +64,7 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex';
+    import {mapState} from 'vuex';
 
     export default {
         name: 'VirusStatic',

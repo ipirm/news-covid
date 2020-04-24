@@ -108,7 +108,7 @@
 
   &-overlay {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   &-item {
@@ -121,13 +121,21 @@
       font-size: 20px;
       line-height: 25px;
       color: #000000;
-      margin: 15px 0 10px 0;
+      margin: 0 !important;
+      padding: 11px !important;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
     }
 
     &-text {
       font-size: 15px;
       line-height: 20px;
       color: #000000;
+
     }
 
     &-image {
@@ -147,9 +155,6 @@
   justify-content: center;
 }
 
-.news-cards-item{
-  max-width: 277px;
-}
 .news-cards-title {
   margin-top: 25px;
 }
