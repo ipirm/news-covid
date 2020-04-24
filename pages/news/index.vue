@@ -3,20 +3,20 @@
         <div class="page__content custom-container custom-container--news">
             <div class="page__middle">
                 <div class="d-flex overlay-category">
-                    <div class="news-search d-flex">
+                    <div class="news-search d-flex" style="display: none !important;">
                         <input class="news-cards-input" :placeholder="$t('search.searchNews')"/>
                         <a class="news-search-btn" href="#" @click.prevent><span>{{ $t('search.searchBtn')}}</span></a>
                     </div>
                     <div class="news-search d-flex">
-                        <v-select :placeholder="$t('search.country')" v-model="selectedLocation"
+                        <v-select style="display: none" :placeholder="$t('search.country')" v-model="selectedLocation"
                                   :options="getOptionsLocations"
                                   @input="changeRoute"/>
-                        <v-select class="cats-select" :placeholder="$t('search.cats')" v-model="selected"
+                        <v-select style="width: 100% !important;max-width:100% !important;"  class="cats-select" :placeholder="$t('search.cats')" v-model="selected"
                                   :options="getOptions"
                                   @input="changeRoute"/>
-                        <v-select :placeholder="$t('search.type')" v-model="selectedType" :options="getOptions"
+                        <v-select style="display: none" :placeholder="$t('search.type')" v-model="selectedType" :options="getOptions"
                                   @input="changeRoute"/>
-                        <datepicker :format="customFormatter" :value="date"/>
+                        <datepicker style="display: none" :format="customFormatter" :value="date"/>
                     </div>
                 </div>
                 <div class="news-cards-overlay">
