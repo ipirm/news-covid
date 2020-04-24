@@ -29,7 +29,7 @@ export const mutations = {
         state.slidesNews = payload;
     },
     GET_NEWS: (state, payload) => {
-         state.activeNews = payload;
+        state.activeNews = payload;
     },
     SET_NEWS_DATA: (state, payload) => {
         state.newsData = payload
@@ -40,7 +40,7 @@ export const mutations = {
     SET_VIDEO_DATA: (state, payload) => {
         state.videoNews = payload
     },
-    SET_BANNERS: (state,payload) =>{
+    SET_BANNERS: (state, payload) => {
         state.banners = payload;
     },
     SET_TOTAL_ELEMS: (state, payload) => {
@@ -82,11 +82,11 @@ export const actions = {
 
     async getPaginatedNews({commit}, data) {
         let res;
-        if (data.id)
-            res = await this.$axios
-                .$get(`cats-search?page=${data.curPage}&per_page=${data.perPage}&id=${data.id}&slug=${data.slug}`);
-        else
+        if (data.id) {
+            res = await this.$axios.$get(`cats-search?page=${data.curPage}&per_page=${data.perPage}&id=${data.id}&slug=${data.slug}`);
+        } else {
             res = await this.$axios.$get(`news?page=${data.curPage}&per_page=${data.perPage}`);
+        }
         commit('SET_TOTAL_ELEMS', res.news.total ? res.news.total : 0);
         commit('SET_NEWS_DATA', res.news.data);
     },
@@ -101,11 +101,11 @@ export const actions = {
         const res = await this.$axios.$get('cats');
         commit('SET_CATS', res.cats);
     },
-    async getVideos({commit}){
+    async getVideos({commit}) {
         const data = await this.$axios.$get(`all-video?page=1&per_page=8`);
         commit('SET_VIDEOS_NEWS', data.news.data);
     },
-    async getNaturalVideos({commit}){
+    async getNaturalVideos({commit}) {
         const data = await this.$axios.$get(`natural-video?page=1&per_page=6`);
         commit('SET_NATURAL_VIDEOS_NEWS', data.news.data);
     }
