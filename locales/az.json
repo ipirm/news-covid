@@ -9,26 +9,26 @@
     "world-map": "Dünya xəritəsi",
     "news": "Xəbərlər",
     "mobile": {
-      "main": "Главная",
-      "search": "Поиск",
-      "world": "Мир",
-      "az": "Родина",
-      "menu": "Меню"
+      "main": "Əsas",
+      "search": "Axtarış",
+      "world": "Dünya",
+      "az": "Ölkə",
+      "menu": "Menyu"
     }
   },
 
   "corona-info": {
-    "today": "Сегодня",
-    "all-time": "За все время"
+    "today": "Bugün",
+    "all-time": "Bütün zamanlarda"
   },
 
   "mobile": {
     "news": {
-      "important": "Важные новости",
-      "interesting": "Интересные новости"
+      "important": "Vacib xəbərlər",
+      "interesting": "Maraqlı xəbərlər"
     },
     "videos": {
-      "interesting": "Интересные видео"
+      "interesting": "Maraqlı Videolar"
     }
   },
 
