@@ -1,6 +1,12 @@
 .news-page {
-  .page__middle {
-    margin: 0 !important;
+  .page {
+    &__double-main {
+      max-width: 950px;
+    }
+
+    &__content {
+      justify-content: center;
+    }
   }
 
   .news-cards-title {
@@ -15,14 +21,21 @@
 
   .news-cards-overlay {
     flex-wrap: wrap;
+    margin: 0 -10px;
   }
 
   .news-cards-item {
     margin-top: 25px;
-    width: 31%;
+    width: 33.33%;
     //box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
-    background-color: #fff;
-    border-radius: 3px;
+    margin-right: 0;
+    padding: 0 10px;
+    
+    &__inner {
+      border-radius: 3px;
+      background-color: #fff;
+      overflow: hidden;
+    }
 
     &-image {
       width: 100%;
@@ -83,9 +96,6 @@
 
   .overlay-category {
     justify-content: space-between;
-    width: 94%;
-    margin: auto;
-    margin-top: 30px;
   }
 
   .vdp-datepicker {
@@ -179,10 +189,7 @@
   background-color: #fff;
   padding: 20px 15px;
   justify-content: flex-start;
-  width: 97%;
   flex-direction: column;
-  margin: 0 !important;
-  margin-top: 65px !important;
 }
 
 .news-search {
@@ -243,3 +250,22 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .news-page {
+    .news-cards {
+      &-item {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .news-page {
+    .news-cards {
+      &-item {
+        width: 100%;
+      }
+    }
+  }
+}
