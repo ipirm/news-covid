@@ -29,7 +29,7 @@
                 </div>
             </section>
             <section>
-                <div class="custom-container custom-container--main video-container">
+                <div class="custom-container custom-container--main video-container main-page__bottom-videos">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="video-container-title">
