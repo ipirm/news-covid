@@ -61,6 +61,7 @@ routerBase = {
             {src: '~plugins/click-outside'},
             {src: '~plugins/youtube.js', ssr: false},
             {src: '~plugins/social.js', ssr: false},
+            {src: '~plugins/tooltip.js', ssr: false},
         ],
         css: [
             {src: '~assets/scss/app.scss', lang: 'scss'}

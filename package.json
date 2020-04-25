@@ -32,6 +32,7 @@
     "redirect-ssl": "^1.4.1",
     "sass-loader": "^8.0.2",
     "swiper": "^5.3.7",
+    "v-tooltip": "^2.0.3",
     "vue-awesome-swiper": "^4.1.0",
     "vue-backtotop": "^1.6.1",
     "vue-filter-number-format": "^2.0.0",

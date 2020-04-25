@@ -24,7 +24,13 @@
               <client-only>
                 <vue-scroll :ops="ops">
                   <div class="overlay-map-statistic" style="height: 330px">
-                    <div v-for="item in dataPaths" :class="[item.active ? 'activeClass' : '', 'map-statistic-row']" :id="`a${item.id}`" :key="item.id" @click="selectItem(item)">
+                    <div
+                            v-for="item in dataPaths"
+                            :class="[item.active ? 'activeClass' : '', 'map-statistic-row']"
+                            :id="`a${item.id}`"
+                            :key="item.id"
+                            v-tooltip.top-center="msg"
+                            @click="selectItem(item)">
                       <div class="map-statistic-item map-statistic-red">
                         <span>{{ item.confirmed | numFormat(0,0).replace(/,/g,' ')}} </span>
                       </div>
@@ -79,7 +85,6 @@
 <!--              </div>-->
 <!--            </client-only>-->
 <!--          </template>-->
-          {{ this.dataPaths}}
         </main>
         <aside class="page__aside">
           <VirusStatic />
