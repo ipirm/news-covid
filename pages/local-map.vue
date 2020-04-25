@@ -11,7 +11,7 @@
         <div class="d-flex">
           <div style="display: flex;width: 100%;height: 360px">
             <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800" xmlns="http://www.w3.org/2000/svg" v-lazy-load>
-              <path v-for="item in dataPaths" :stroke="[item.active ? '#fff' : '#5E5D5D']" :key="item.id" :d="item.path" :name="item.name[$i18n.locale]" @click="selectItem(item)" :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']" v-scroll-to="`#a${item.id}`">
+              <path v-tooltip="$t('tooltip.map')" v-for="item in dataPaths" :stroke="[item.active ? '#fff' : '#5E5D5D']" :key="item.id" :d="item.path" :name="item.name[$i18n.locale]" @click="selectItem(item)" :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']" v-scroll-to="`#a${item.id}`">
               </path>
             </svg>
           </div>
@@ -24,7 +24,12 @@
               <client-only>
                 <vue-scroll :ops="ops">
                   <div class="overlay-map-statistic" style="height: 330px">
-                    <div v-for="item in dataPaths" :class="[item.active ? 'activeClass' : '', 'map-statistic-row']" :id="`a${item.id}`" :key="item.id" @click="selectItem(item)">
+                    <div
+                            v-for="item in dataPaths"
+                            :class="[item.active ? 'activeClass' : '', 'map-statistic-row']"
+                            :id="`a${item.id}`"
+                            :key="item.id"
+                            @click="selectItem(item)">
                       <div class="map-statistic-item map-statistic-red">
                         <span>{{ item.confirmed | numFormat(0,0).replace(/,/g,' ')}} </span>
                       </div>
@@ -79,7 +84,6 @@
 <!--              </div>-->
 <!--            </client-only>-->
 <!--          </template>-->
-          {{ this.dataPaths}}
         </main>
         <aside class="page__aside">
           <VirusStatic />
