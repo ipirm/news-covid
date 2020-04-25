@@ -39,7 +39,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-4 mt-4" v-for="item in videosData" :key="item.id">
-                            <VideoComponent width="100%" height="300px" :data="item" v-lazy-load />
+                            <VideoComponent width="100%" height="300" :data="item" v-lazy-load />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <template>
     <client-only>
         <div class="video-player">
-            <youtube :video-id="data.video" :player-width="width" :player-height="height" :player-vars="{autoplay: 0}"></youtube>
+            <youtube  :video-id="data.video" :player-width="width" :player-height="height" :player-vars="{autoplay: 0}"></youtube>
         </div>
     </client-only>
 </template>

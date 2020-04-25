@@ -37,7 +37,7 @@
                                 <div class="overlay-map-statistic" style="height: 330px">
                                     <div v-for="(item,index) in countries"
                                          :class="[item.active ? 'activeClass' : '', 'map-statistic-row']"
-                                         :id="`a${index}`" :key="index" @click="selectItem(item)">
+                                         :id="`a${index+1}`" :key="index" @click="selectItem(item)">
                                         <div class="map-statistic-item map-statistic-red">
                                             <span>{{ item.confirmed | numFormat(0,0).replace(/,/g,' ')}} </span>
                                         </div>
@@ -413,11 +413,9 @@
                 }
             }
         },
-        created() {
-            this.getVirus();
-            this.getCountries();
-        },
         async fetch({store}) {
+            await store.dispatch('virus/getVirus');
+            await store.dispatch('virus/getCountries');
             await store.dispatch('virus/getWorldMap');
         },
         head() {
@@ -464,7 +462,8 @@
             },
 
             selectItem(item) {
-                this.$refs.mapRef.panTo({lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)});
+                if (item.country !== 'World')
+                    this.$refs.mapRef.panTo({lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)});
                 this.$store.commit('virus/SET_ACTIVE_FALSE', item);
                 this.activeCountry = item;
                 this.zoom = 5;
@@ -476,9 +475,10 @@
             initCreationFacebookComments() {
                 FB.XFBML.parse()
                 this.loading = !this.loading
-            }
+            },
         },
         mounted() {
+            this.activeCountry = this.countries.find(item => item.active);
             if (process.client) {
                 (function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];

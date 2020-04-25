@@ -13,7 +13,7 @@
                 </div>
                 <div class="news-content-image">
                     <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load style="height: 500px;  width: 100%">
-                    <VideoComponent width="100%" height="500px" v-show="activeNews.video !== null" :data="activeNews" />
+                    <VideoComponent width="100%" :height="$mq === 'mobile' ? '200px' : '500px'" v-show="activeNews.video !== null" :data="activeNews" />
                 </div>
                 <div class="news-content-date" style="justify-content: space-between">
                     <client-only>

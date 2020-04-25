@@ -79,6 +79,7 @@
 <!--              </div>-->
 <!--            </client-only>-->
 <!--          </template>-->
+          {{ this.dataPaths}}
         </main>
         <aside class="page__aside">
           <VirusStatic />
@@ -148,6 +149,7 @@ export default {
     }
   },
   mounted() {
+    this.activeCountry = this.dataPaths.find(item => item.active);
     if (process.client) {
       (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];

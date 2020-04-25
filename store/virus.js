@@ -28,25 +28,49 @@ export const mutations = {
             }
             return 0;
         });
-        state.dataPaths.reverse()
+        state.dataPaths.reverse();
+        if(state.virusWorldWide){
+            let world = {
+                id: 5000,
+                active: true,
+                name: { az: "Azərbaycan", ru: "Азербайджан" },
+                path: '',
+                confirmed: state.virusWorldWide.Countries[15].TotalConfirmed,
+                help: state.virusWorldWide.Countries[15].TotalRecovered,
+                death: state.virusWorldWide.Countries[15].TotalDeaths
+            }
+            state.dataPaths.unshift(world);
+        }
     },
     SET_COUNTRIES: (state, payload) => {
-        payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
-        let obj = {active: false}
-        payload.forEach(function (item) {
-            Object.assign(item, obj)
-        });
-        payload.sort(function (a, b) {
+            payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
+            let obj = {active: false}
+            payload.forEach(function (item) {
+                Object.assign(item, obj)
+            });
+            payload.sort(function (a, b) {
 
-            if (parseInt(a.confirmed) > parseInt(b.confirmed)) {
-                return 1;
+                if (parseInt(a.confirmed) > parseInt(b.confirmed)) {
+                    return 1;
+                }
+                if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
+                    return -1;
+                }
+                return 0;
+            });
+            state.countries = payload.reverse();
+            if(state.virusWorldWide){
+                let world = {
+                    active: true,
+                    country: 'World',
+                    latitude: 33.93911,
+                    longitude: 67.709953,
+                    confirmed: state.virusWorldWide.Global.TotalConfirmed,
+                    recovered: state.virusWorldWide.Global.TotalRecovered,
+                    deaths: state.virusWorldWide.Global.TotalDeaths
+                }
+                state.countries.unshift(world);
             }
-            if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
-                return -1;
-            }
-            return 0;
-        });
-        state.countries = payload.reverse()
     },
     SET_ACTIVE_FALSE: (state, payload) => {
         state.countries.forEach(function (item) {
