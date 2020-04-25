@@ -14,7 +14,7 @@
                     <gmap-custom-marker :key="index" v-for="(item, index) in countries"
                                         v-tooltip="$t('tooltip.map')"
                                         :marker="{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }"
-                                        v-scroll-to="`#a${index}`" @click.native="myMarker(item)">
+                                        v-scroll-to="{ el: `#a${index}`, offset: -100}" @click.native="myMarker(item)">
                         <div class="map-round" style="width: 40px;height: 40px;"
                              v-if="parseInt(item.confirmed) > 150000"></div>
                         <div class="map-round" style="width: 25px;height: 25px;"
