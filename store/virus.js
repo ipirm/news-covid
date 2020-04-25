@@ -430,7 +430,8 @@ export const state = () => ({
             stroke: "#888888",
             strokeWidth: "0.5",
             id: "RU-IRK"
-        },]
+        },],
+    russiaMapText: null
 })
 
 
@@ -525,11 +526,32 @@ export const mutations = {
                 item.active = false
             }
         });
+        state.russianJson.forEach(function (item) {
+                if (item.id === payload.IsoCode) {
+                item.active = true
+            } else {
+                item.active = false
+            }
+        });
+    },
+    SET_RUSSIA_ACTIVE_MARKER_COUNTRIES: (state, payload) => {
+        state.russianJson.forEach(function (item) {
+            if (item.id === payload.id) {
+                item.active = true
+            } else {
+                item.active = false
+            }
+        });
     },
     SET_MAP: (state, payload) => {
         state.map = payload;
     },
+
+    SET_RUSSIA_MAP_TEXT: (state, payload) => {
+        state.russiaMapText = payload;
+    },
     SET_RUSSIA_MAP: (state, payload) => {
+
         let obj = {active: false}
         payload.forEach(function (item) {
             Object.assign(item, obj)
@@ -548,6 +570,17 @@ export const mutations = {
             return 0;
         });
         state.russiaMap = payload.reverse();
+        if (state.virusWorldWide) {
+            let world = {
+                active: true,
+                IsoCode: 'Rare',
+                LocationName: "Россия",
+                Confirmed: state.virusWorldWide.Countries[182].TotalConfirmed,
+                Recovered: state.virusWorldWide.Countries[182].TotalRecovered,
+                Deaths: state.virusWorldWide.Countries[182].TotalDeaths
+            }
+            state.russiaMap.unshift(world);
+        }
     }
 }
 
@@ -579,5 +612,9 @@ export const actions = {
     async getRussiaMap({commit}) {
         const data = await this.$axios.$get('https://covid19.rosminzdrav.ru/wp-json/api/mapdata/')
         commit('SET_RUSSIA_MAP', data.Items);
+    },
+    async getRussiaData({commit}) {
+        const data = await this.$axios.$get('rossia')
+        commit('SET_RUSSIA_MAP_TEXT', data.maps);
     }
 }

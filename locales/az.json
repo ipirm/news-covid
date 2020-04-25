@@ -139,5 +139,9 @@
   },
   "tooltip": {
     "map": "Bölgəni seçin"
+  },
+  "mapRussia": {
+    "link": "Rusiya xaritəsi",
+    "title": "Koronavirusun Rusiyada yayılması xəritəsi"
   }
 }

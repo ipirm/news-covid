@@ -3,25 +3,24 @@
         <div class="custom-container" style="margin-top: 40px">
             <div class="news-content-breadcumbs">
                 <clink to="/">{{ $t('mainPage')}}</clink>
-                <a>{{ $t('header.local-map')}}</a>
+                <a>{{ $t('mapRussia.link')}}</a>
             </div>
             <div class="news-content-title">
-                <span>{{ $t('localMap') }}</span>
+                <span>{{ $t('mapRussia.title') }}</span>
             </div>
             <div class="d-flex">
-                <div  style="display: flex;width: 100%;height: 400px">
+                <div class="russia-map"  style="display: flex;width: 100%;height: 400px">
                     <svg class="svg-content" viewBox="0 0 1000 590"  width="1000" height="590"
-                         xmlns="http://www.w3.org/2000/svg" >
+                         xmlns="http://www.w3.org/2000/svg" v-lazy-load>
                         <path  v-for="item in russianJson"
                                :d="item.d"
                                v-tooltip="$t('tooltip.map')"
                                :key="item.id"
                                @click="SelectMarker(item)"
-                               fill="#4E4E4E"
+                               :fill="[item.active ? '#9E0000' : '#4E4E4E']"
                                v-scroll-to="{ el: `#${item.id}`, offset: -150}"
-                               :stroke="[item.active ? '#fff' : '#5E5D5D']"
+                               :stroke="[item.active ? 'red' : '#5E5D5D']"
                                stroke-width="0.5" >
-
                         </path>
                     </svg>
                 </div>
@@ -76,10 +75,11 @@
         </div>
         <div class="page__content custom-container" style="margin-top: 50px">
             <main class="page__double-main">
-                <div class="news-content-text" v-for="item in virusLocalData" :key="item.id">
-                    <b style="font-size: 26px;">
+                <div class="news-content-text" v-for="item in russiaMapText" :key="item.id">
+                    <b style="font-size: 26px">
                         {{ item.title[$i18n.locale] }}
                     </b>
+                    <br>
                     <p v-html="item.text[$i18n.locale]"></p>
                 </div>
                 <!--          <template>-->
@@ -116,18 +116,19 @@
         async fetch({store}) {
             await store.dispatch('virus/getLocalMap');
             await store.dispatch('virus/getRussiaMap');
+            await store.dispatch('virus/getRussiaData');
         },
         head() {
             return {
-                title: this.$t('localMap'),
+                title: this.$t('mapRussia.title'),
                 meta: [
-                    {property: 'og:title', content: this.$t('localMap') || ''},
-                    {property: 'og:description', content: this.virusLocalData[0].title[this.$i18n.locale] || ''},
-                    {name: 'description', content: this.virusLocalData[0].title[this.$i18n.locale] || ''},
-                    {property: 'og:image', content: `https://covid.az/images/seo/local-img.png` || ''},
+                    {property: 'og:title', content: this.$t('mapRussia.title') || ''},
+                    {property: 'og:description', content: this.russiaMapText[0].title[this.$i18n.locale] || ''},
+                    {name: 'description', content: this.russiaMapText[0].title[this.$i18n.locale] || ''},
+                    {property: 'og:image', content: `https://covid.az/images/seo/russia-map.png` || ''},
                     {name: 'keywords', content: `${this.$t('keywords')}` || ''},
                     {property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || ''},
-                    {property: 'twitter:card', content: `https://covid.az/images/seo/local-img.png` || ''},
+                    {property: 'twitter:card', content: `https://covid.az/images/seo/russia-map.png` || ''},
                 ]
             }
         },
@@ -161,6 +162,7 @@
                const RussianActive =  this.russiaMap.find(i=> i.IsoCode === item.id);
                 this.activeCountry = RussianActive;
                 this.$store.commit('virus/SET_RUSSIA_ACTIVE_COUNTRIES', RussianActive);
+                this.$store.commit('virus/SET_RUSSIA_ACTIVE_MARKER_COUNTRIES', item);
             },
             initCreationFacebookComments() {
                 FB.XFBML.parse()
@@ -168,6 +170,7 @@
             }
         },
         mounted() {
+            this.activeCountry = this.russiaMap.find(item => item.active);
             if (process.client) {
                 (function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -186,7 +189,7 @@
             }
         },
         computed: {
-            ...mapState('virus', ['virusWorldWide', 'virusLocal',  'virusLocalData','russiaMap','russianJson']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal',  'virusLocalData','russiaMap','russianJson','russiaMapText']),
         },
     }
 

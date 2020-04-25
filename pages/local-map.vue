@@ -78,6 +78,7 @@
                     <b style="font-size: 26px;">
                         {{ item.title[$i18n.locale] }}
                     </b>
+                    <br>
                     <p v-html="item.text[$i18n.locale]"></p>
                 </div>
                 <!--          <template>-->

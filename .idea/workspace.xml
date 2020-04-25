@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1203c2e1-c0ac-485d-986c-9cb15217e4eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/russia-map.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/seo/1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/seo/russia-map.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/svg/calendar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/svg/calendar.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/map.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/map.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/global/header/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/global/header/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/az.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/az.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/local-map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/local-map.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/map.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/russia-map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/russia-map.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/virus.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/virus.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -22,17 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/locales/az.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#7061#7676#0" />
-              </folding>
+            <state relative-caret-position="517">
+              <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -40,77 +41,82 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="59" />
+            <state relative-caret-position="258">
+              <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/svg/calendar.svg">
+        <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/map.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#b#0;n#div#0;n#div#0;n#div#3;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/scss/map.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="158" column="15" selection-start-line="158" selection-start-column="15" selection-end-line="158" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/global/header/Header.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="29" column="111" selection-start-line="29" selection-start-column="111" selection-end-line="29" selection-end-column="111" />
+              <folding>
+                <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#header#0;n#template#0;n#!!top" />
+                <element signature="n#clink#0;n#li#0;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+                <element signature="n#clink#0;n#li#1;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+                <element signature="n#clink#0;n#li#2;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+                <element signature="n#li#3;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+                <element signature="n#svg#0;n#clink#0;n#li#4;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/images/seo/1.svg">
           <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/virus.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="519" column="53" lean-forward="true" selection-start-line="519" selection-start-column="53" selection-end-line="519" selection-end-column="53" />
-              <folding>
-                <element signature="e#177#165586#0" />
-                <element signature="e#382#1330#0" />
-                <element signature="e#1371#2516#0" />
-                <element signature="e#2560#2787#0" />
-                <element signature="e#2839#3056#0" />
-                <element signature="e#3193#3235#0" />
-                <element signature="e#3377#3654#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/vue-scrollto.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/locales/ru.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="133" column="10" selection-start-line="133" selection-start-column="3" selection-end-line="133" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/tooltip.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nuxt.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1303">
-              <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+            <state relative-caret-position="595">
+              <caret line="136" column="12" selection-start-line="136" selection-start-column="3" selection-end-line="136" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -166,7 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layouts/default.vue" />
         <option value="$PROJECT_DIR$/components/pages/main/MainSlider.vue" />
         <option value="$PROJECT_DIR$/store/index.js" />
         <option value="$PROJECT_DIR$/assets/scss/pages/form-page.scss" />
@@ -197,26 +202,27 @@
         <option value="$PROJECT_DIR$/pages/news/index.vue" />
         <option value="$PROJECT_DIR$/assets/svg/mobile/header-mobile-world.svg" />
         <option value="$USER_HOME$/Downloads/globe.svg" />
-        <option value="$PROJECT_DIR$/components/global/header/Header.vue" />
         <option value="$PROJECT_DIR$/components/global/NewsList.vue" />
         <option value="$PROJECT_DIR$/pages/news/_id.vue" />
         <option value="$PROJECT_DIR$/plugins/youtube.js" />
         <option value="$PROJECT_DIR$/components/pages/main/VideoComponent.vue" />
         <option value="$PROJECT_DIR$/pages/index.vue" />
         <option value="$PROJECT_DIR$/components/pages/main/VideoSlider.vue" />
-        <option value="$PROJECT_DIR$/assets/scss/map.scss" />
         <option value="$PROJECT_DIR$/nuxt.config.js" />
         <option value="$PROJECT_DIR$/plugins/tooltip.js" />
-        <option value="$PROJECT_DIR$/locales/ru.json" />
-        <option value="$PROJECT_DIR$/locales/az.json" />
         <option value="$PROJECT_DIR$/assets/scss/global/tooltip.scss" />
         <option value="$PROJECT_DIR$/assets/scss/app.scss" />
         <option value="$PROJECT_DIR$/plugins/vue-scrollto.js" />
-        <option value="$PROJECT_DIR$/pages/local-map.vue" />
-        <option value="$PROJECT_DIR$/pages/map.vue" />
         <option value="$PROJECT_DIR$/static/svg/calendar.svg" />
+        <option value="$PROJECT_DIR$/locales/az.json" />
+        <option value="$PROJECT_DIR$/locales/ru.json" />
+        <option value="$PROJECT_DIR$/static/ssss.svg" />
         <option value="$PROJECT_DIR$/store/virus.js" />
+        <option value="$PROJECT_DIR$/assets/scss/map.scss" />
+        <option value="$PROJECT_DIR$/components/global/header/Header.vue" />
+        <option value="$PROJECT_DIR$/pages/local-map.vue" />
         <option value="$PROJECT_DIR$/pages/russia-map.vue" />
+        <option value="$PROJECT_DIR$/pages/map.vue" />
       </list>
     </option>
   </component>
@@ -339,18 +345,25 @@
             <path>
               <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
               <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
               <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="svg" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -362,7 +375,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/svg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images/seo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -370,16 +383,16 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\assets\scss" />
-      <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static\images\seo" />
-      <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static\images\seo" />
       <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static\svg" />
       <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\assets\svg" />
       <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static\images\icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static\images\seo" />
+      <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\assets\scss" />
+      <recent name="C:\OSPanel\OSPanel\domains\covid-nuxt\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -429,18 +442,18 @@
       <workItem from="1587720056384" duration="142000" />
       <workItem from="1587736721525" duration="4963000" />
       <workItem from="1587751523327" duration="5308000" />
-      <workItem from="1587811120892" duration="23441000" />
+      <workItem from="1587811120892" duration="28561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175821000" />
+    <option name="totallyTimeSpent" value="180941000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19050555" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31196055" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -492,16 +505,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/svg/form-page/ig.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/scss/news.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="106" selection-start-line="106" selection-end-line="106" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/scss/contact.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -602,13 +605,6 @@
     <entry file="file://$PROJECT_DIR$/assets/svg/mobile/header-mobile-world.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/global/header/Header.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="106" column="71" lean-forward="true" selection-start-line="106" selection-start-column="71" selection-end-line="106" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/news/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -676,13 +672,6 @@
     <entry file="file://$PROJECT_DIR$/store/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/scss/map.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/global/RightSidebar.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -736,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/locales/az.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="140" column="13" selection-start-line="140" selection-start-column="13" selection-end-line="140" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/scss/app.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -764,16 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/tooltip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -785,13 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/locales/ru.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="133" column="10" selection-start-line="133" selection-start-column="3" selection-end-line="133" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -808,54 +773,102 @@
     <entry file="file://$PROJECT_DIR$/static/svg/calendar.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/map.vue">
+    <entry file="file://$PROJECT_DIR$/plugins/tooltip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="87" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="87" />
+        <state relative-caret-position="156">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#6604#18834#0" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/ssss.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales/az.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/store/virus.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="519" column="53" lean-forward="true" selection-start-line="519" selection-start-column="53" selection-end-line="519" selection-end-column="53" />
+        <state relative-caret-position="376">
+          <caret line="576" column="38" lean-forward="true" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="38" />
           <folding>
-            <element signature="e#177#165586#0" />
-            <element signature="e#382#1330#0" />
-            <element signature="e#1371#2516#0" />
-            <element signature="e#2560#2787#0" />
-            <element signature="e#2839#3056#0" />
-            <element signature="e#3193#3235#0" />
-            <element signature="e#3377#3654#0" />
+            <element signature="e#177#166516#0" />
+            <element signature="e#167775#168814#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
+    <entry file="file://$PROJECT_DIR$/locales/ru.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="59" />
+        <state relative-caret-position="595">
+          <caret line="136" column="12" selection-start-line="136" selection-start-column="3" selection-end-line="136" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/seo/1.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/map.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="158" column="15" selection-start-line="158" selection-start-column="15" selection-end-line="158" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/global/header/Header.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="29" column="111" selection-start-line="29" selection-start-column="111" selection-end-line="29" selection-end-column="111" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#header#0;n#template#0;n#!!top" />
+            <element signature="n#clink#0;n#li#0;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+            <element signature="n#clink#0;n#li#1;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+            <element signature="n#clink#0;n#li#2;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+            <element signature="n#li#3;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
+            <element signature="n#svg#0;n#clink#0;n#li#4;n#ul#0;n#div#1;n#header#0;n#template#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+        <state relative-caret-position="326">
+          <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#7061#7676#0" />
+            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/map.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#div#0;n#div#0;n#div#3;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
