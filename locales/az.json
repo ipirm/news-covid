@@ -136,5 +136,8 @@
     "who": "Biz kimik və nə edirik?",
     "social": "Sosial Şəbəkələr",
     "come": "Bizə qoşulun:"
+  },
+  "tooltip": {
+    "map": "Bölgəni seçin"
   }
 }
