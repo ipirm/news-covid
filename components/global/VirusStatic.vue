@@ -24,7 +24,16 @@
                 <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
                 <span class="virus-map__info__number red">{{ virusWorldWide.Global.NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
             </div>
-            <div class="virus-map__info__col">
+            <div class="virus-map__info__col" v-if="notGlobal">
+                <h2 class="virus-map__info__title">RUS</h2>
+                <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
+                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[181].NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+            </div>
+            <div class="virus-map__info__col" v-else>
                 <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
                 <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
@@ -49,7 +58,16 @@
                 <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
                 <span class="virus-map__info__number red">{{ virusWorldWide.Global.TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
             </div>
-            <div class="virus-map__info__col">
+            <div class="virus-map__info__col" v-if="notGlobal">
+                <h2 class="virus-map__info__title">RUS</h2>
+                <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
+                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[181].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
+                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+            </div>
+            <div class="virus-map__info__col" v-else>
                 <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
                 <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
                 <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
@@ -68,7 +86,12 @@
 
     export default {
         name: 'VirusStatic',
-
+        props: {
+            notGlobal: {
+                type: Boolean,
+                default: false
+            }
+        },
         computed: {
             ...mapState('virus', ['virusWorldWide'])
         }

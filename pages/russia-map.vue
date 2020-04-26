@@ -74,6 +74,9 @@
                 </div>
             </div>
         </div>
+        <div class="mobile" v-if="$mq === 'mobile'">
+            <CoronaInfoTabs :notGlobal="true" style="margin-top: 20px" />
+        </div>
         <div class="page__content custom-container" style="margin-top: 50px">
             <main class="page__double-main">
                 <div class="news-content-text" v-for="item in russiaMapText" :key="item.id">
@@ -83,21 +86,21 @@
                     <br>
                     <p v-html="item.text[$i18n.locale]"></p>
                 </div>
-                <!--          <template>-->
-                <!--            <client-only>-->
-                <!--              <Spinner v-show="loading"/>-->
-                <!--              <div v-show="!loading">-->
-                <!--                <div id=fb_thread class="text-xs-center">-->
-                <!--                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"-->
-                <!--                       data-numposts="100" data-width="100%"></div>-->
-                <!--                </div>-->
-                <!--                <div id="fb-root"></div>-->
-                <!--              </div>-->
-                <!--            </client-only>-->
-                <!--          </template>-->
+                          <template>
+                            <client-only>
+                              <Spinner v-show="loading"/>
+                              <div v-show="!loading">
+                                <div id=fb_thread class="text-xs-center">
+                                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
+                                       data-numposts="100" data-width="100%"></div>
+                                </div>
+                                <div id="fb-root"></div>
+                              </div>
+                            </client-only>
+                          </template>
             </main>
             <aside class="page__aside">
-                <VirusStatic/>
+                <VirusStatic  :notGlobal="true" />
                 <RightSidebar style="height: 60% !important;"/>
             </aside>
         </div>
@@ -106,14 +109,13 @@
 
 <script>
     import VirusStatic from "~/components/global/VirusStatic";
-    import AnimatedNumber from "animated-number-vue";
-
+    import CoronaInfoTabs from '~/components/pages/main/mobile/CoronaInfoTabs';
     import {mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
     import Spinner from "~/components/global/Spinner";
 
     export default {
-        components: {Spinner, RightSidebar, AnimatedNumber, VirusStatic},
+        components: {Spinner, RightSidebar,CoronaInfoTabs, VirusStatic},
         async fetch({store}) {
             await store.dispatch('virus/getLocalMap');
             await store.dispatch('virus/getRussiaMap');

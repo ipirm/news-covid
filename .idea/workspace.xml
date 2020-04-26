@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1203c2e1-c0ac-485d-986c-9cb15217e4eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/news/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/news/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/global/VirusStatic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/global/VirusStatic.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/local-map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/local-map.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/russia-map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/russia-map.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -20,16 +23,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/news/_id.vue">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="17" column="86" lean-forward="true" selection-start-line="17" selection-start-column="86" selection-end-line="17" selection-end-column="86" />
+            <state relative-caret-position="52">
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="51" />
               <folding>
-                <element signature="n#style#0;n#main#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#2;n#main#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#main#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#aside#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
+                <element signature="e#2664#2731#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="86" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="702">
+              <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#section#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#5843#5901#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="86" selection-start-line="86" selection-end-line="97" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#5711#5769#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/store/virus.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="577" column="61" selection-start-line="577" selection-start-column="58" selection-end-line="577" selection-end-column="61" />
+              <folding>
+                <element signature="e#177#166516#0" />
+                <element signature="e#167775#168814#0" />
               </folding>
             </state>
           </provider>
@@ -86,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/store/index.js" />
         <option value="$PROJECT_DIR$/assets/scss/pages/form-page.scss" />
         <option value="$PROJECT_DIR$/.nuxt/components/nuxt-build-indicator.vue" />
         <option value="$PROJECT_DIR$/plugins/social.js" />
@@ -97,7 +163,6 @@
         <option value="$PROJECT_DIR$/assets/scss/global/footer.scss" />
         <option value="$PROJECT_DIR$/assets/scss/pages/main-page.scss" />
         <option value="$PROJECT_DIR$/assets/scss/news-item.scss" />
-        <option value="$PROJECT_DIR$/components/global/VirusStatic.vue" />
         <option value="$PROJECT_DIR$/store/orders.js" />
         <option value="$PROJECT_DIR$/assets/scss/news.scss" />
         <option value="$PROJECT_DIR$/pages/contanct.vue" />
@@ -130,13 +195,15 @@
         <option value="$PROJECT_DIR$/locales/ru.json" />
         <option value="$PROJECT_DIR$/static/ssss.svg" />
         <option value="$PROJECT_DIR$/assets/scss/map.scss" />
-        <option value="$PROJECT_DIR$/pages/local-map.vue" />
         <option value="$PROJECT_DIR$/pages/map.vue" />
         <option value="$PROJECT_DIR$/static/icons8-russia-map-25 (1).svg" />
         <option value="$PROJECT_DIR$/components/global/header/Header.vue" />
         <option value="$PROJECT_DIR$/store/virus.js" />
-        <option value="$PROJECT_DIR$/pages/russia-map.vue" />
         <option value="$PROJECT_DIR$/pages/news/_id.vue" />
+        <option value="$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue" />
+        <option value="$PROJECT_DIR$/pages/local-map.vue" />
+        <option value="$PROJECT_DIR$/pages/russia-map.vue" />
+        <option value="$PROJECT_DIR$/components/global/VirusStatic.vue" />
       </list>
     </option>
   </component>
@@ -259,13 +326,34 @@
             <path>
               <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
               <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
               <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,18 +435,19 @@
       <workItem from="1587751523327" duration="5308000" />
       <workItem from="1587811120892" duration="30124000" />
       <workItem from="1587873966887" duration="1067000" />
-      <workItem from="1587875862855" duration="195000" />
+      <workItem from="1587875862855" duration="794000" />
+      <workItem from="1587888819566" duration="1621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183766000" />
+    <option name="totallyTimeSpent" value="185986000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32305795" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2435265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -574,23 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="49" column="94" selection-start-line="49" selection-start-column="83" selection-end-line="49" selection-end-column="94" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue/types/options.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5044">
@@ -630,13 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -687,31 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/global/header/Header.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -733,17 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/virus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="556" column="36" selection-start-line="556" selection-start-column="36" selection-end-line="556" selection-end-column="36" />
-          <folding>
-            <element signature="e#177#166516#0" />
-            <element signature="e#167775#168814#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/locales/az.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
@@ -753,14 +782,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/news/_id.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="86" lean-forward="true" selection-start-line="17" selection-start-column="86" selection-end-line="17" selection-end-column="86" />
+        <state relative-caret-position="26">
+          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#main#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#2;n#main#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#main#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#aside#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/virus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="577" column="61" selection-start-line="577" selection-start-column="58" selection-end-line="577" selection-end-column="61" />
+          <folding>
+            <element signature="e#177#166516#0" />
+            <element signature="e#167775#168814#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="51" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#2664#2731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="86" selection-start-line="86" selection-end-line="97" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#5711#5769#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="86" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#section#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#5843#5901#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
         </state>
       </provider>
     </entry>

@@ -19,7 +19,16 @@
 	                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
 	                <span class="virus-map__info__number red">{{ virusWorldWide.Global.NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 	            </div>
-	            <div class="virus-map__info__col">
+				<div class="virus-map__info__col" v-if="notGlobal">
+					<h2 class="virus-map__info__title">RUS</h2>
+					<h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
+					<span class="virus-map__info__number green">{{ virusWorldWide.Countries[181].NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+				</div>
+	            <div class="virus-map__info__col" v-else>
 	                <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
 	                <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
 	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
@@ -42,15 +51,24 @@
 	                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
 	                <span class="virus-map__info__number red">{{ virusWorldWide.Global.TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 	            </div>
-	            <div class="virus-map__info__col">
-	                <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
+	            <div class="virus-map__info__col" v-if="notGlobal">
+	                <h2 class="virus-map__info__title">RUS</h2>
 	                <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
 	                <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-	                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[15].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[181].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
 	                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 	            </div>
+				<div class="virus-map__info__col" v-else>
+					<h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
+					<h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
+					<span class="virus-map__info__number green">{{ virusWorldWide.Countries[15].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+				</div>
 	            <div class="virus-map__info__middle-bar"></div>
 	        </div>
 	    </div>
@@ -61,6 +79,12 @@
     import { mapState } from 'vuex';
 
     export default {
+		props: {
+			notGlobal: {
+				type: Boolean,
+				default: false
+			}
+		},
         data() {
         	return {
         		tabShown: 'today'
