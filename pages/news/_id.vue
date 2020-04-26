@@ -12,7 +12,7 @@
                     <span>{{ activeNews.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-content-image">
-                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load style="height: 500px;  width: 100%">
+                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load style="height: 500px;  width: 100%;object-fit: cover;">
                     <VideoComponent width="100%" :height="$mq === 'mobile' ? '200px' : '500px'" v-show="activeNews.video !== null" :data="activeNews" />
                 </div>
                 <div class="news-content-date" style="justify-content: space-between">
