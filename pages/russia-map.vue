@@ -216,7 +216,7 @@
 </script>
 <style scoped>
     .pinch-zoom-wrapper{
-        height: 400px !important;
+        height: 195px !important;
     }
 
 </style>
