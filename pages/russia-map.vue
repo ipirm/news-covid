@@ -10,8 +10,25 @@
             </div>
             <div class="d-flex">
                 <div class="russia-map"  style="display: flex;width: 100%;height: 400px">
+                    <client-only v-if="$mq === 'mobile'">
+                        <pinch-zoom disableZoomControl="disable" backgroundColor="transparent">
                     <svg class="svg-content" viewBox="0 0 1000 590"  width="1000" height="590"
                          xmlns="http://www.w3.org/2000/svg" v-lazy-load>
+                        <path  v-for="item in russianJson"
+                               :d="item.d"
+                               v-tooltip="$t('tooltip.map')"
+                               :key="item.id"
+                               @click="SelectMarker(item)"
+                               :fill="[item.active ? '#9E0000' : '#4E4E4E']"
+                               v-scroll-to="{ el: `#${item.id}`, offset: -150}"
+                               :stroke="[item.active ? 'red' : '#5E5D5D']"
+                               stroke-width="0.5" >
+                        </path>
+                    </svg>
+                        </pinch-zoom>
+                    </client-only>
+                    <svg class="svg-content" viewBox="0 0 1000 590"  width="1000" height="590"
+                         xmlns="http://www.w3.org/2000/svg" v-lazy-load v-else>
                         <path  v-for="item in russianJson"
                                :d="item.d"
                                v-tooltip="$t('tooltip.map')"
@@ -198,4 +215,8 @@
 
 </script>
 <style scoped>
+    .pinch-zoom-wrapper{
+        height: 400px !important;
+    }
+
 </style>

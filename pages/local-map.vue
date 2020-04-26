@@ -11,18 +11,34 @@
             </div>
             <div class="d-flex">
                 <div style="display: flex;width: 100%;height: 360px">
-                    <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800"
-                         xmlns="http://www.w3.org/2000/svg" v-lazy-load>
-                        <path v-tooltip="$t('tooltip.map')"
-                              v-for="item in dataPaths"
-                              :stroke="[item.active ? '#fff' : '#5E5D5D']"
-                              :key="item.id" :d="item.path"
-                              :name="item.name[$i18n.locale]"
-                              @click="selectItem(item)"
-                              :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']"
-                              v-scroll-to="{ el: `#a${item.id}`, offset: -150}">
-                        </path>
-                    </svg>
+                        <client-only v-if="$mq === 'mobile'">
+                            <pinch-zoom disableZoomControl="disable" backgroundColor="transparent">
+                                <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800"
+                                     xmlns="http://www.w3.org/2000/svg" v-lazy-load>
+                                    <path v-tooltip="$t('tooltip.map')"
+                                          v-for="item in dataPaths"
+                                          :stroke="[item.active ? '#fff' : '#5E5D5D']"
+                                          :key="item.id" :d="item.path"
+                                          :name="item.name[$i18n.locale]"
+                                          @click="selectItem(item)"
+                                          :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']"
+                                          v-scroll-to="{ el: `#a${item.id}`, offset: -150}">
+                                    </path>
+                                </svg>
+                            </pinch-zoom>
+                        </client-only>
+                        <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800"
+                             xmlns="http://www.w3.org/2000/svg" v-lazy-load v-else>
+                            <path v-tooltip="$t('tooltip.map')"
+                                  v-for="item in dataPaths"
+                                  :stroke="[item.active ? '#fff' : '#5E5D5D']"
+                                  :key="item.id" :d="item.path"
+                                  :name="item.name[$i18n.locale]"
+                                  @click="selectItem(item)"
+                                  :fill="[parseInt(item.confirmed) > 5 ? '#AD0000' : '#4E4E4E']"
+                                  v-scroll-to="{ el: `#a${item.id}`, offset: -150}">
+                            </path>
+                        </svg>
                 </div>
                 <div class="overlay-map-column">
                     <div class="map-statistic">
@@ -190,4 +206,7 @@
 
 </script>
 <style scoped>
+    .pinch-zoom-wrapper{
+        height: 195px !important;
+    }
 </style>
