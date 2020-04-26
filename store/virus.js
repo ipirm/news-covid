@@ -575,9 +575,9 @@ export const mutations = {
                 active: true,
                 IsoCode: 'Rare',
                 LocationName: "Россия",
-                Confirmed: state.virusWorldWide.Countries[182].TotalConfirmed,
-                Recovered: state.virusWorldWide.Countries[182].TotalRecovered,
-                Deaths: state.virusWorldWide.Countries[182].TotalDeaths
+                Confirmed: state.virusWorldWide.Countries[181].TotalConfirmed,
+                Recovered: state.virusWorldWide.Countries[181].TotalRecovered,
+                Deaths: state.virusWorldWide.Countries[181].TotalDeaths
             }
             state.russiaMap.unshift(world);
         }

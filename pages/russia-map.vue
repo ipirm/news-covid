@@ -38,6 +38,7 @@
                                             :class="[item.active ? 'activeClass' : '', 'map-statistic-row']"
                                             :id="item.IsoCode"
                                             :key="item.IsoCode"
+                                            v-if=" item.LocationName !== 'No region speified'"
                                             @click="selectItem(item)">
                                         <div class="map-statistic-item map-statistic-red">
                                             <span>{{ item.Confirmed | numFormat(0,0).replace(/,/g,' ')}} </span>
