@@ -7,6 +7,7 @@
             </div>
             <div class="news-content-title">
                 <span>{{ $t('localMap') }}</span>
+                <p>{{$t('actual.title')}}</p>
             </div>
             <div class="d-flex">
                 <div style="display: flex;width: 100%;height: 360px">
@@ -73,7 +74,7 @@
             </div>
         </div>
         <div class="mobile" v-if="$mq === 'mobile'">
-            <CoronaInfoTabs  style="margin-top: 20px" />
+            <CoronaInfoTabs style="margin-top: 20px"/>
         </div>
         <div class="page__content custom-container" style="margin-top: 50px">
             <main class="page__double-main">
@@ -84,18 +85,18 @@
                     <br>
                     <p v-html="item.text[$i18n.locale]"></p>
                 </div>
-                          <template>
-                            <client-only>
-                              <Spinner v-show="loading"/>
-                              <div v-show="!loading">
-                                <div id=fb_thread class="text-xs-center">
-                                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
-                                       data-numposts="100" data-width="100%"></div>
-                                </div>
-                                <div id="fb-root"></div>
-                              </div>
-                            </client-only>
-                          </template>
+                <template>
+                    <client-only>
+                        <Spinner v-show="loading"/>
+                        <div v-show="!loading">
+                            <div id=fb_thread class="text-xs-center">
+                                <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
+                                     data-numposts="100" data-width="100%"></div>
+                            </div>
+                            <div id="fb-root"></div>
+                        </div>
+                    </client-only>
+                </template>
             </main>
             <aside class="page__aside">
                 <VirusStatic/>

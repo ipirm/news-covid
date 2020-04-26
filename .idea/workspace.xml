@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1203c2e1-c0ac-485d-986c-9cb15217e4eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/global/VirusStatic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/global/VirusStatic.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/az.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/az.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/local-map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/local-map.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/russia-map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/russia-map.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -23,52 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="51" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#2664#2731#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="86" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
+        <entry file="file://$PROJECT_DIR$/locales/ru.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
+            <state relative-caret-position="621">
+              <caret line="141" column="66" selection-start-line="141" selection-start-column="66" selection-end-line="141" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
+        <entry file="file://$PROJECT_DIR$/locales/az.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#section#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#vue-scroll#0;n#client-only#0;n#div#0;n#div#1;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#5843#5901#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="621">
+              <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -76,27 +43,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="86" selection-start-line="86" selection-end-line="97" selection-end-column="37" />
+            <state relative-caret-position="234">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#5711#5769#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/virus.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="577" column="61" selection-start-line="577" selection-start-column="58" selection-end-line="577" selection-end-column="61" />
-              <folding>
-                <element signature="e#177#166516#0" />
-                <element signature="e#167775#168814#0" />
               </folding>
             </state>
           </provider>
@@ -191,8 +143,6 @@
         <option value="$PROJECT_DIR$/assets/scss/app.scss" />
         <option value="$PROJECT_DIR$/plugins/vue-scrollto.js" />
         <option value="$PROJECT_DIR$/static/svg/calendar.svg" />
-        <option value="$PROJECT_DIR$/locales/az.json" />
-        <option value="$PROJECT_DIR$/locales/ru.json" />
         <option value="$PROJECT_DIR$/static/ssss.svg" />
         <option value="$PROJECT_DIR$/assets/scss/map.scss" />
         <option value="$PROJECT_DIR$/pages/map.vue" />
@@ -201,9 +151,11 @@
         <option value="$PROJECT_DIR$/store/virus.js" />
         <option value="$PROJECT_DIR$/pages/news/_id.vue" />
         <option value="$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue" />
-        <option value="$PROJECT_DIR$/pages/local-map.vue" />
         <option value="$PROJECT_DIR$/pages/russia-map.vue" />
         <option value="$PROJECT_DIR$/components/global/VirusStatic.vue" />
+        <option value="$PROJECT_DIR$/locales/az.json" />
+        <option value="$PROJECT_DIR$/pages/local-map.vue" />
+        <option value="$PROJECT_DIR$/locales/ru.json" />
       </list>
     </option>
   </component>
@@ -326,34 +278,7 @@
             <path>
               <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
               <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="covid-nuxt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="covid-nuxt" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -436,12 +361,12 @@
       <workItem from="1587811120892" duration="30124000" />
       <workItem from="1587873966887" duration="1067000" />
       <workItem from="1587875862855" duration="794000" />
-      <workItem from="1587888819566" duration="1621000" />
+      <workItem from="1587888819566" duration="2483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185986000" />
+    <option name="totallyTimeSpent" value="186848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -745,13 +670,6 @@
     <entry file="file://$PROJECT_DIR$/static/images/seo/1.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/locales/ru.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3536">
-          <caret line="136" column="12" selection-start-line="136" selection-start-column="3" selection-end-line="136" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/global/header/Header.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -770,13 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="710">
           <caret line="158" column="15" selection-start-line="158" selection-start-column="15" selection-end-line="158" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/locales/az.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -804,38 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="51" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#2664#2731#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="86" selection-start-line="86" selection-end-line="97" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#0;n#div#0;n#main#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#5711#5769#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="86" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/russia-map.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -855,8 +734,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/global/VirusStatic.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
+        <state relative-caret-position="1092">
           <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/pages/main/mobile/CoronaInfoTabs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="86" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="51" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#2664#2731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/local-map.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#CoronaInfoTabs#0;n#div#1;n#section#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales/az.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales/ru.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="141" column="66" selection-start-line="141" selection-start-column="66" selection-end-line="141" selection-end-column="66" />
         </state>
       </provider>
     </entry>
