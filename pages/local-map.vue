@@ -9,8 +9,8 @@
                 <span>{{ $t('localMap') }}</span>
                 <p>{{$t('actual.title')}}</p>
             </div>
-            <div class="d-flex">
-                <div style="display: flex;width: 100%;height: 360px">
+            <div class="overlay-map-content">
+                <div class="overlay-map-content__map">
                         <client-only v-if="$mq === 'mobile'">
                             <pinch-zoom disableZoomControl="disable" backgroundColor="transparent">
                                 <svg class="svg-content" viewBox="0 0 1000 800" width="1000" height="800"
@@ -203,10 +203,4 @@
             ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries', 'virusLocalData', 'dataPaths']),
         },
     }
-
 </script>
-<style scoped>
-    .pinch-zoom-wrapper{
-        height: 360px !important;
-    }
-</style>
