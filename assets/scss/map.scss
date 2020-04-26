@@ -5,6 +5,15 @@
   opacity: 0.8;
 }
 
+.pinch-zoom-wrapper{
+  width: 100%;
+  height: 360px !important;
+
+  .pinch-zoom-content {
+    width: 100%;
+  }
+}
+
 .map-statistic {
   display: flex;
   flex-direction: column;
@@ -61,7 +70,6 @@
     background-color: #535353;
     height: 34px;
 
-
     span {
       color: #fff;
       font-size: 12px;
@@ -74,6 +82,23 @@
 
   span {
     color: #fff !important;
+  }
+}
+
+.overlay-map-content {
+  display: flex;
+  align-items: center;
+
+  &__map {
+    // display: flex;
+    width: 100%;
+    min-height: 360px;
+    max-height: 360px;
+
+    .svg-content {
+      margin: 0;
+      max-height: 360px;
+    }
   }
 }
 
@@ -154,10 +179,23 @@
   }
 }
 
+@media (max-width: 1140px) {
+  .map-page {
+    .overlay-map-column {
+      max-width: 200px;
+    }
+  }
+}
+
 @media only screen and (max-width: 700px) {
+  .overlay-map-content {
+    display: block;
+  }
+
   .russia-map{
     height: 240px !important;
   }
+
   .map-page {
     .news-content-breadcumbs {
       display: none;
