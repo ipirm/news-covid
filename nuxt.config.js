@@ -94,8 +94,8 @@ routerBase = {
             }],
             '@nuxtjs/sitemap',
             '@nuxtjs/robots',
-            "nuxt-mq"
-
+            "nuxt-mq",
+            'cookie-universal-nuxt'
         ],
         sitemap: {
             hostname: "https://covid.az",

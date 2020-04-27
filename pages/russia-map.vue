@@ -1,5 +1,6 @@
 <template>
     <section class="main-page-content  map-page">
+        <MapPopup :maps="['world', 'az']" />
         <div class="custom-container" style="margin-top: 40px">
             <div class="news-content-breadcumbs">
                 <clink to="/">{{ $t('mainPage')}}</clink>
@@ -12,19 +13,19 @@
                 <div class="russia-map"  style="display: flex;width: 100%;height: 400px">
                     <client-only v-if="$mq === 'mobile'">
                         <pinch-zoom disableZoomControl="disable" backgroundColor="transparent">
-                    <svg class="svg-content" viewBox="0 0 1000 590"  width="1000" height="590"
-                         xmlns="http://www.w3.org/2000/svg" v-lazy-load>
-                        <path  v-for="item in russianJson"
-                               :d="item.d"
-                               v-tooltip="$t('tooltip.map')"
-                               :key="item.id"
-                               @click="SelectMarker(item)"
-                               :fill="[item.active ? '#9E0000' : '#4E4E4E']"
-                               v-scroll-to="{ el: `#${item.id}`, offset: -150}"
-                               :stroke="[item.active ? 'red' : '#5E5D5D']"
-                               stroke-width="0.5" >
-                        </path>
-                    </svg>
+                            <svg class="svg-content" viewBox="0 0 1000 590"  width="1000" height="590"
+                                 xmlns="http://www.w3.org/2000/svg" v-lazy-load>
+                                <path  v-for="item in russianJson"
+                                       :d="item.d"
+                                       v-tooltip="$t('tooltip.map')"
+                                       :key="item.id"
+                                       @click="SelectMarker(item)"
+                                       :fill="[item.active ? '#9E0000' : '#4E4E4E']"
+                                       v-scroll-to="{ el: `#${item.id}`, offset: -150}"
+                                       :stroke="[item.active ? 'red' : '#5E5D5D']"
+                                       stroke-width="0.5" >
+                                </path>
+                            </svg>
                         </pinch-zoom>
                     </client-only>
                     <svg class="svg-content" viewBox="0 0 1000 590"  width="1000" height="590"
@@ -96,15 +97,14 @@
         </div>
         <div class="page__content custom-container" style="margin-top: 50px">
             <main class="page__double-main">
-                <div class="news-content-text" v-for="item in russiaMapText" :key="item.id">
-                    <b style="font-size: 26px">
-                        {{ item.title[$i18n.locale] }}
-                    </b>
-                    <br>
-                    <p v-html="item.text[$i18n.locale]"></p>
-                </div>
-                <template>
-                    <client-only>
+                <client-only>
+                    <div class="news-content-text" v-for="(item,i) in russiaMapText" :key="i">
+                        <b style="font-size: 26px">
+                            {{ item.title[$i18n.locale] }}
+                        </b>
+                        <br>
+                        <p v-html="item.text[$i18n.locale]"></p>
+                    </div>
                         <Spinner v-show="loading"/>
                         <div v-show="!loading">
                             <div id=fb_thread class="text-xs-center">
@@ -113,12 +113,11 @@
                             </div>
                         <div id="fb-root"></div>
                         </div>
-                    </client-only>
-                </template>
-                <div class="news-cards-title">
-                    <span>{{ $t('newsPageinterestiong')}}</span>
-                </div>
-                <NewsCards :data="newsData" />
+                    <div class="news-cards-title">
+                        <span>{{ $t('newsPageinterestiong')}}</span>
+                    </div>
+                    <NewsCards :data="newsData" />
+                </client-only>
             </main>
             <aside class="page__aside">
                 <VirusStatic  :notGlobal="true" />
@@ -135,14 +134,15 @@
     import RightSidebar from "~/components/global/RightSidebar";
     import Spinner from "~/components/global/Spinner";
     import NewsCards from "~/components/global/NewsCards";
+    import MapPopup from "~/components/global/MapPopup";
 
     export default {
-        components: {Spinner, RightSidebar,CoronaInfoTabs, VirusStatic, NewsCards},
+        components: {Spinner, RightSidebar,CoronaInfoTabs, VirusStatic, NewsCards, MapPopup},
         async fetch({store}) {
             await store.dispatch('virus/getLocalMap');
             await store.dispatch('virus/getRussiaMap');
             await store.dispatch('virus/getRussiaData');
-            await store.dispatch('news/getPaginatedNews', { curPage: 1, perPage: 3 });
+            await store.dispatch('news/getPaginatedNews', { curPage: 3, perPage: 3 });
         },
         head() {
             return {

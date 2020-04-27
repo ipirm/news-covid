@@ -29,6 +29,12 @@
     },
     "videos": {
       "interesting": "Maraqlı Videolar"
+    },
+    "popup": {
+      "check-out-interesting-maps": "Bunlara da baxın:",
+      "corona-in-az": "Koronavirus Azərbaycanda",
+      "corona-in-world": "Koronavirus dünyada",
+      "corona-in-ru": "Koronavirus Rusiyada"
     }
   },
 

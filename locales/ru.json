@@ -27,13 +27,21 @@
     },
     "videos": {
       "interesting": "Интересные видео"
+    },
+    "popup": {
+      "check-out-interesting-maps": "Вам также может быть интересно:",
+      "corona-in-az": "Коронавирус в Азербайджане",
+      "corona-in-world": "Коронавирус в мире",
+      "corona-in-ru": "Коронавирус в России"
     }
   },
+  
   "watchNow": "Смотрите также",
   "naturalVideo": "Природа и Коронавирус",
   "watchAlso": "Cмотрите также",
   "newsPageinterestiong": "Вам также может быть интересно",
   "mapRegion": "Страна/Регион",
+  "last24hrs": "За последний день",
   "name": "Имя",
   "sabina": "Русский текст",
   "videos": "Интересные новости:",
