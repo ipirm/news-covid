@@ -463,9 +463,9 @@ export const mutations = {
                 active: true,
                 name: {az: "Azərbaycan", ru: "Азербайджан"},
                 path: '',
-                confirmed: state.virusWorldWide.Countries[15].TotalConfirmed,
-                help: state.virusWorldWide.Countries[15].TotalRecovered,
-                death: state.virusWorldWide.Countries[15].TotalDeaths
+                confirmed: state.virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').TotalConfirmed,
+                help: state.virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').TotalRecovered,
+                death: state.virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').TotalDeaths
             }
             state.dataPaths.unshift(world);
         }
@@ -575,9 +575,9 @@ export const mutations = {
                 active: true,
                 IsoCode: 'Rare',
                 LocationName: "Россия",
-                Confirmed: state.virusWorldWide.Countries[181].TotalConfirmed,
-                Recovered: state.virusWorldWide.Countries[181].TotalRecovered,
-                Deaths: state.virusWorldWide.Countries[181].TotalDeaths
+                Confirmed: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalConfirmed,
+                Recovered: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalRecovered,
+                Deaths: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalDeaths
             }
             state.russiaMap.unshift(world);
         }

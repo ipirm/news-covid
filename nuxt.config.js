@@ -124,7 +124,7 @@ routerBase = {
         mq: {
             defaultBreakpoint: "desktop",
             breakpoints: {
-                mobile: 768,
+                mobile: 761,
                 tablet: 1024,
                 desktop: 1400,
                 desktopWide: 2000,

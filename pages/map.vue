@@ -93,6 +93,10 @@
                             </div>
                         </client-only>
                     </template>
+                    <div class="news-cards-title">
+                        <span>{{ $t('newsPageinterestiong')}}</span>
+                    </div>
+                    <NewsCards :data="newsData" />
                 </div>
                 <div class="page__aside">
                     <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
@@ -110,9 +114,10 @@
     import Spinner from "~/components/global/Spinner";
     import {mapActions, mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
+    import NewsCards from "~/components/global/NewsCards";
 
     export default {
-        components: {RightSidebar, AnimatedNumber, VirusStatic, 'gmap-custom-marker': GmapCustomMarker, Spinner},
+        components: {RightSidebar, AnimatedNumber, VirusStatic, 'gmap-custom-marker': GmapCustomMarker, Spinner, NewsCards},
         asyncData(context) {
             return {
                 options: {
@@ -419,6 +424,7 @@
             await store.dispatch('virus/getVirus');
             await store.dispatch('virus/getCountries');
             await store.dispatch('virus/getWorldMap');
+            await store.dispatch('news/getPaginatedNews', { curPage: 1, perPage: 3 });
         },
         head() {
             return {
@@ -500,6 +506,7 @@
         },
         computed: {
             ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries', 'map']),
+            ...mapState('news', ['newsData'])
         },
     }
 

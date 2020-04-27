@@ -51,31 +51,7 @@
                 <div class="news-cards-title">
                     <span>{{ $t('newsPageinterestiong')}}</span>
                 </div>
-                <div class="news-cards-overlay">
-                    <clink
-                            :to="`/news/${item.slug}`"
-                            class="news-cards-item"
-                            v-for="item in newsData"
-                            :key="item.id">
-                        <div class="news-cards-overlay__inner">
-                            <div class="news-cards-item-image">
-                                <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
-                            </div>
-                            <div class="news-cards-overlay__info">
-                                <div class="news-cards-item-title">
-                                    <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
-                                </div>
-                                <div class="news-cards-item-text">
-                                    <span>{{ item.description[$i18n.locale]  | truncate(85) }}</span>
-                                </div>
-                                <div class="news-content-date news-cards-date">
-                                    <div class="news-content-date-item">{{ item.created_at | moment("from", "now") }}</div>
-                                    <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </clink>
-                </div>
+                <NewsCards :data="newsData" />
             </main>
             <aside class="page__aside news-page-aside" style="margin-top: 88px">
                 <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
@@ -113,9 +89,11 @@
     import LeftSidebar from "~/components/global/LeftSidebar";
     import VideoComponent from "../../components/pages/main/VideoComponent";
     import NewsSlider from '~/components/pages/main/mobile/NewsSlider';
+    import NewsCards from '~/components/global/NewsCards';
+
     export default {
         components: {
-            VideoComponent, LeftSidebar, Spinner, VirusStatic,NewsSlider},
+            VideoComponent, LeftSidebar, Spinner, VirusStatic,NewsSlider,NewsCards},
 
         async fetch({store, route}) {
             await store.dispatch('news/findNews', route.params.id).then(

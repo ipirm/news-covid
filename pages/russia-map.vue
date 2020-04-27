@@ -103,18 +103,22 @@
                     <br>
                     <p v-html="item.text[$i18n.locale]"></p>
                 </div>
-                          <template>
-                            <client-only>
-                              <Spinner v-show="loading"/>
-                              <div v-show="!loading">
-                                <div id=fb_thread class="text-xs-center">
-                                  <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
-                                       data-numposts="100" data-width="100%"></div>
-                                </div>
-                                <div id="fb-root"></div>
-                              </div>
-                            </client-only>
-                          </template>
+                <template>
+                    <client-only>
+                        <Spinner v-show="loading"/>
+                        <div v-show="!loading">
+                            <div id=fb_thread class="text-xs-center">
+                              <div class="fb-comments" :data-href="`http://covid.az/${$route.fullPath}`"
+                                   data-numposts="100" data-width="100%"></div>
+                            </div>
+                        <div id="fb-root"></div>
+                        </div>
+                    </client-only>
+                </template>
+                <div class="news-cards-title">
+                    <span>{{ $t('newsPageinterestiong')}}</span>
+                </div>
+                <NewsCards :data="newsData" />
             </main>
             <aside class="page__aside">
                 <VirusStatic  :notGlobal="true" />
@@ -130,13 +134,15 @@
     import {mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
     import Spinner from "~/components/global/Spinner";
+    import NewsCards from "~/components/global/NewsCards";
 
     export default {
-        components: {Spinner, RightSidebar,CoronaInfoTabs, VirusStatic},
+        components: {Spinner, RightSidebar,CoronaInfoTabs, VirusStatic, NewsCards},
         async fetch({store}) {
             await store.dispatch('virus/getLocalMap');
             await store.dispatch('virus/getRussiaMap');
             await store.dispatch('virus/getRussiaData');
+            await store.dispatch('news/getPaginatedNews', { curPage: 1, perPage: 3 });
         },
         head() {
             return {
@@ -209,6 +215,7 @@
             }
         },
         computed: {
+            ...mapState('news', ['newsData']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal',  'virusLocalData','russiaMap','russianJson','russiaMapText']),
         },
     }
@@ -218,5 +225,4 @@
     .pinch-zoom-wrapper{
         height: 195px !important;
     }
-
 </style>

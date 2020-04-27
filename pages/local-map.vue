@@ -113,6 +113,10 @@
                         </div>
                     </client-only>
                 </template>
+                <div class="news-cards-title">
+                    <span>{{ $t('newsPageinterestiong')}}</span>
+                </div>
+                <NewsCards :data="newsData" />
             </main>
             <aside class="page__aside">
                 <VirusStatic/>
@@ -128,13 +132,17 @@
     import {mapState} from 'vuex';
     import RightSidebar from "~/components/global/RightSidebar";
     import Spinner from "~/components/global/Spinner";
+    import NewsCards from "~/components/global/NewsCards";
 
     export default {
-        components: {Spinner, RightSidebar, CoronaInfoTabs, VirusStatic},
+        components: {Spinner, RightSidebar, CoronaInfoTabs, VirusStatic, NewsCards},
+
         async fetch({store}) {
             await store.dispatch('virus/getLocalMap');
             await store.dispatch('virus/getPathMap');
+            await store.dispatch('news/getPaginatedNews', { curPage: 1, perPage: 3 });
         },
+
         head() {
             return {
                 title: this.$t('localMap'),
@@ -149,6 +157,7 @@
                 ]
             }
         },
+
         data() {
             return {
                 loading: true,
@@ -170,6 +179,7 @@
                 }
             }
         },
+
         methods: {
             selectItem(item) {
                 this.$store.commit('virus/SET_AZE_ACTIVE_COUNTRIES', item);
@@ -180,6 +190,7 @@
                 this.loading = !this.loading
             }
         },
+
         mounted() {
             this.activeCountry = this.dataPaths.find(item => item.active);
             if (process.client) {
@@ -199,8 +210,10 @@
                 }, 3000);
             }
         },
+
         computed: {
             ...mapState('virus', ['virusWorldWide', 'virusLocal', 'countries', 'virusLocalData', 'dataPaths']),
+            ...mapState('news', ['newsData'])
         },
     }
 </script>

@@ -22,20 +22,20 @@
 				<div class="virus-map__info__col" v-if="notGlobal">
 					<h2 class="virus-map__info__title">RUS</h2>
 					<h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'russia').NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
 					<h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-					<span class="virus-map__info__number green">{{ virusWorldWide.Countries[181].NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<span class="virus-map__info__number green">{{ virusWorldWide.Countries.find(v => v.Slug == 'russia').NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
 					<h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'russia').NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 				</div>
 	            <div class="virus-map__info__col" v-else>
 	                <h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
 	                <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').NewConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
 	                <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-	                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[15].NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number green">{{ virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').NewRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
 	                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').NewDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 	            </div>
 	            <div class="virus-map__info__middle-bar"></div>
 	        </div>
@@ -54,20 +54,20 @@
 	            <div class="virus-map__info__col" v-if="notGlobal">
 	                <h2 class="virus-map__info__title">RUS</h2>
 	                <h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
 	                <h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-	                <span class="virus-map__info__number green">{{ virusWorldWide.Countries[181].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number green">{{ virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
 	                <h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries[181].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+	                <span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 	            </div>
 				<div class="virus-map__info__col" v-else>
 					<h2 class="virus-map__info__title">{{ $t('aze') }}</h2>
 					<h3 class="virus-map__info__subtitle">{{ $t('hospitalized') }}</h3>
-					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').TotalConfirmed | numFormat(0,0).replace(/,/g,' ') }}</span>
 					<h3 class="virus-map__info__subtitle">{{ $t('cured') }}</h3>
-					<span class="virus-map__info__number green">{{ virusWorldWide.Countries[15].TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<span class="virus-map__info__number green">{{ virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').TotalRecovered | numFormat(0,0).replace(/,/g,' ') }}</span>
 					<h3 class="virus-map__info__subtitle">{{ $t('died') }}</h3>
-					<span class="virus-map__info__number red">{{ virusWorldWide.Countries[15].TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
+					<span class="virus-map__info__number red">{{ virusWorldWide.Countries.find(v => v.Slug == 'azerbaijan').TotalDeaths | numFormat(0,0).replace(/,/g,' ') }}</span>
 				</div>
 	            <div class="virus-map__info__middle-bar"></div>
 	        </div>
