@@ -1,22 +1,22 @@
 <template>
   <div class="pagination">
     <div class="pagination__content" v-if="totalElems > perPage">
-      <button class="pagination__button-left" @click="changePage(page-1)" :disabled="page == 1">
-        <img alt="Назад" v-show="page == 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
-        <img alt="Назад" v-show="page > 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
+      <button class="pagination__button-left" @click="changePage(value-1)" :disabled="value == 1">
+        <img alt="Назад" v-show="value == 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
+        <img alt="Назад" v-show="value > 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
       </button>
-      <button class="pagination__button" @click="changePage(1)" :class="{ 'current': page == 1 }" :disabled="page == 1">
+      <button class="pagination__button" @click="changePage(1)" :class="{ 'current': value == 1 }" :disabled="value == 1">
         <span>1</span>
       </button>
-      <button class="pagination__button" v-for="(button,i) in buttons" :key="`pagination-${i}`" @click="changePage(button)" :class="{ 'three-dots': button == '. . .', 'current': button == page }" :disabled="button == '. . .' || button == page">
+      <button class="pagination__button" v-for="(button,i) in buttons" :key="`pagination-${i}`" @click="changePage(button)" :class="{ 'three-dots': button == '. . .', 'current': button == value }" :disabled="button == '. . .' || button == value">
         <span>{{ button }}</span>
       </button>
-      <button class="pagination__button" @click="changePage(lastPage)" :class="{ 'current': page == lastPage }" :disabled="page == lastPage">
+      <button class="pagination__button" @click="changePage(lastPage)" :class="{ 'current': value == lastPage }" :disabled="value == lastPage">
         <span>{{ lastPage }}</span>
       </button>
-      <button class="pagination__button-right" @click="changePage(page+1)" :disabled="page == lastPage">
-        <img alt="Вперед" v-show="page == lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
-        <img alt="Вперед" v-show="page < lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
+      <button class="pagination__button-right" @click="changePage(value+1)" :disabled="value == lastPage">
+        <img alt="Вперед" v-show="value == lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
+        <img alt="Вперед" v-show="value < lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
       </button>
     </div>
     <div v-if="totalElems == 0">
@@ -45,7 +45,6 @@ export default {
 
   data() {
     return {
-      page: 1,
       buttons: [] // only consists of the middle numbers and ...
     }
   },
@@ -63,7 +62,6 @@ export default {
 
     changePage(p) {
       if (p > 0 && p < this.lastPage + 1) {
-        this.page = p;
         this.$emit('input', p);
         this.$bus.$emit('pageChanged', p);
         document.querySelector('.vue-back-to-top').click();

@@ -147,6 +147,12 @@
             this.search();
         },
 
+        mounted() {
+            this.$bus.$on('updateCat', (cat) => {
+                this.cat_id = cat;
+            })
+        },
+
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getPaginatedNews', 'getCats', 'getSearchNews']),
             ...mapActions('virus', ['getVirus']),
@@ -174,7 +180,9 @@
                     this.source = this.$route.query.source;
                 }
                 if (this.$route.query.cat_id) {
-                    this.cat_id = this.$route.query.cat_id;
+                    let cat = this.cats.find(v => v.id == this.$route.query.cat_id);
+                    if (cat && this.$i18n)
+                        this.cat_id = cat.title[this.$i18n.locale];
                 }
                 if (this.$route.query.updated_at) {
                     this.updated_at = this.$route.query.updated_at;
@@ -202,8 +210,10 @@
                 if (this.source) {
                     query.source = this.source;
                 }
-                if (this.cat_id) {
-                    query.cat_id = this.cat_id;
+                if (this.cat_id && this.$i18n) {
+                    let cat = this.cats.find(v => v.title[this.$i18n.locale] == this.cat_id);
+                    if (cat)
+                        query.cat_id = cat.id;
                 }
                 if (this.updated_at) {
                     query.updated_at = this.updated_at;
