@@ -6,11 +6,15 @@
         <div v-show="pageReady">
             <Header/>
             <client-only>
-                <div style="width: 100%; height:150px" v-if="$mq !== 'mobile'">
-                    <adsbygoogle/>
+                <div style="display: flex;justify-content: center;align-items: center" v-if="$mq !== 'mobile'">
+                    <div style="width: 100%; height:150px">
+                        <adsbygoogle/>
+                    </div>
                 </div>
-                <div style="height:100px;width: 100%" v-else>
-                    <adsbygoogle/>
+                <div style="display: flex;justify-content: center;align-items: center" v-else>
+                    <div style="height:100px;width: 100%">
+                        <adsbygoogle/>
+                    </div>
                 </div>
             </client-only>
             <nuxt class="full-fill"/>
