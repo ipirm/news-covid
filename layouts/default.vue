@@ -5,6 +5,7 @@
         </div>
         <div v-show="pageReady">
             <Header />
+            <adsbygoogle />
             <nuxt class="full-fill" />
             <Footer />
             <BackToTop />
