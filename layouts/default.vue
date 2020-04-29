@@ -4,11 +4,16 @@
             <Spinner/>
         </div>
         <div v-show="pageReady">
-            <Header />
-            <adsbygoogle />
-            <nuxt class="full-fill" />
-            <Footer />
-            <BackToTop />
+            <Header/>
+            <div style="width: 100%; max-height:150px" v-if="$mq !== 'mobile'">
+                <adsbygoogle/>
+            </div>
+            <div style="max-height:100px;width: 100%" v-else>
+                <adsbygoogle/>
+            </div>
+            <nuxt class="full-fill"/>
+            <Footer/>
+            <BackToTop/>
         </div>
     </div>
 </template>
