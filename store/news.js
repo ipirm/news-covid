@@ -15,7 +15,8 @@ export const state = () => ({
     banners: [],
     totalElems: 0,
     videosData: null,
-    naturalVideos: null
+    naturalVideos: null,
+    searchNews: null
 })
 
 export const mutations = {
@@ -52,6 +53,9 @@ export const mutations = {
     SET_NATURAL_VIDEOS_NEWS: (state, payload) => {
         state.naturalVideos = payload;
     },
+    SET_SEARCH_DATA_NEWS:(state, payload) =>{
+        state.searchNews = payload;
+    }
 }
 
 export const actions = {
@@ -108,5 +112,46 @@ export const actions = {
     async getNaturalVideos({commit}) {
         const data = await this.$axios.$get(`natural-video?page=1&per_page=6`);
         commit('SET_NATURAL_VIDEOS_NEWS', data.news.data);
-    }
+    },
+    async getSearchNews({commit}, query) {
+        let url = 'search?';
+
+        if (query.country) {
+            url += `country=${query.country}&`;
+        }
+        if (query.source) {
+            url += `source=${query.source}&`;
+        }
+        if (query.cat_id) {
+            url += `cat_id=${query.cat_id}&`;
+        }
+        if (query.updated_at) {
+            url += `updated_at=${query.updated_at}&`;
+        }
+        if (query.type) {
+            url += `type=${query.type}&`;
+        }
+        if (query.title) {
+            url += `title=${query.title}&`;
+        }
+        if (query.video) {
+            url += 'video=1&';
+        }
+        if (query.interesting) {
+            url += 'interesting=1&';
+        }
+        if (query.lang) {
+            url += `lang=${query.lang}&`;
+        }
+        if (query.page) {
+            url += `page=${query.page}&`;
+        }
+        if (query.per_page) {
+            url += `per_page=${query.per_page}&`;
+        }
+
+        const res = await this.$axios.$get(`${url}`);
+        commit('SET_SEARCH_DATA_NEWS', res.data);
+        commit('SET_TOTAL_ELEMS', res.total ? res.total : 0);
+    },
 }
