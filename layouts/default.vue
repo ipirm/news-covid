@@ -6,10 +6,10 @@
         <div v-show="pageReady">
             <Header/>
             <client-only>
-                <div style="width: 100%; max-height:150px" v-if="$mq !== 'mobile'">
+                <div style="width: 100%; height:150px" v-if="$mq !== 'mobile'">
                     <adsbygoogle/>
                 </div>
-                <div style="max-height:100px;width: 100%" v-else>
+                <div style="height:100px;width: 100%" v-else>
                     <adsbygoogle/>
                 </div>
             </client-only>
