@@ -95,12 +95,16 @@ routerBase = {
             '@nuxtjs/sitemap',
             '@nuxtjs/robots',
             "nuxt-mq",
-            'cookie-universal-nuxt'
+            'cookie-universal-nuxt',
+            '@nuxtjs/google-adsense'
         ],
         sitemap: {
             hostname: "https://covid.az",
             gzip: true,
             exclude: ["/secret", "/admin/**"]
+        },
+        'google-adsense': {
+            id: 'ca-pub-8393839430219283'
         },
         googleAnalytics: {
             id: "UA-163816416-2"
