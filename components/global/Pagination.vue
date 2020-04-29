@@ -1,46 +1,46 @@
 <template>
-  <div class="pagination" v-show="totalElems > perPage">
-    <button class="pagination__button-left" @click="changePage(page-1)" :disabled="page == 1">
-      <img alt="Назад" v-show="page == 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
-      <img alt="Назад" v-show="page > 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
-    </button>
-    <button class="pagination__button" @click="changePage(1)" :class="{ 'current': page == 1 }" :disabled="page == 1">
-      <span>1</span>
-    </button>
-    <button class="pagination__button" v-for="(button,i) in buttons" :key="`pagination-${i}`" @click="changePage(button)" :class="{ 'three-dots': button == '. . .', 'current': button == page }" :disabled="button == '. . .' || button == page">
-      <span>{{ button }}</span>
-    </button>
-    <button class="pagination__button" @click="changePage(lastPage)" :class="{ 'current': page == lastPage }" :disabled="page == lastPage">
-      <span>{{ lastPage }}</span>
-    </button>
-    <button class="pagination__button-right" @click="changePage(page+1)" :disabled="page == lastPage">
-      <img alt="Вперед" v-show="page == lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
-      <img alt="Вперед" v-show="page < lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
-    </button>
+  <div class="pagination">
+    <div class="pagination__content" v-if="totalElems > perPage">
+      <button class="pagination__button-left" @click="changePage(page-1)" :disabled="page == 1">
+        <img alt="Назад" v-show="page == 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
+        <img alt="Назад" v-show="page > 1" data-src="~/static/svg/pagination-right-inactive.svg" style="transform: scaleX(-1);" v-lazy-load>
+      </button>
+      <button class="pagination__button" @click="changePage(1)" :class="{ 'current': page == 1 }" :disabled="page == 1">
+        <span>1</span>
+      </button>
+      <button class="pagination__button" v-for="(button,i) in buttons" :key="`pagination-${i}`" @click="changePage(button)" :class="{ 'three-dots': button == '. . .', 'current': button == page }" :disabled="button == '. . .' || button == page">
+        <span>{{ button }}</span>
+      </button>
+      <button class="pagination__button" @click="changePage(lastPage)" :class="{ 'current': page == lastPage }" :disabled="page == lastPage">
+        <span>{{ lastPage }}</span>
+      </button>
+      <button class="pagination__button-right" @click="changePage(page+1)" :disabled="page == lastPage">
+        <img alt="Вперед" v-show="page == lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
+        <img alt="Вперед" v-show="page < lastPage" data-src="~/static/svg/pagination-right-inactive.svg" v-lazy-load>
+      </button>
+    </div>
+    <div v-if="totalElems == 0">
+      <span class="pagination__empty" v-if="emptyText">{{ $t(emptyText) }}</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: [ 'perPage', 'totalElems', 'curPage' ],
-
-  model: {
-    prop: 'page',
-    event: 'change'
-  },
+  props: [ 'perPage', 'totalElems', 'value', 'emptyText' ],
 
   watch: {
-    curPage(n,o) {
+    value(n,o) {
       this.generatePagination(n);
     },
 
     totalElems(n,o) {
-      this.generatePagination(this.curPage);
+      this.generatePagination(this.value);
     }
   },
 
   mounted() {
-    this.generatePagination(this.curPage);
+    this.generatePagination(this.value);
   },
 
   data() {
@@ -58,13 +58,13 @@ export default {
 
   methods: {
     init() {
-      this.generatePagination(this.curPage);
+      this.generatePagination(this.value);
     },
 
     changePage(p) {
       if (p > 0 && p < this.lastPage + 1) {
         this.page = p;
-        this.$emit('change', p);
+        this.$emit('input', p);
         this.$bus.$emit('pageChanged', p);
         document.querySelector('.vue-back-to-top').click();
       }
