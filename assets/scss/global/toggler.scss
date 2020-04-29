@@ -1,0 +1,44 @@
+.toggler {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 120%;
+    color: #000000;
+    display: block;
+  }
+
+  &__button {
+    width: 46px;
+    height: 24px;
+    background: #C4C4C4;
+    display: flex;
+    align-items: center;
+    transition: background .2s ease;
+    padding: 1px;
+    border-radius: 100px;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.active {
+      background: $color-blue;
+
+      .toggler__button__toggler {
+        transform: translateX(100%);
+      }
+    }
+
+    &__toggler {
+      background: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      transition: transform .2s ease;
+    }
+  }
+}
