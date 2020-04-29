@@ -98,18 +98,18 @@ routerBase = {
             'cookie-universal-nuxt',
             '@nuxtjs/google-adsense'
         ],
-        sitemap: {
-            hostname: "https://covid.az",
-            gzip: true,
-            exclude: ["/secret", "/admin/**"]
-        },
-        'google-adsense': {
-            id: 'ca-pub-8393839430219283'
-        },
-        googleAnalytics: {
-            id: "UA-163816416-2"
-        },
-        serverMiddleware: ['redirect-ssl'],
+        // sitemap: {
+        //     hostname: "https://covid.az",
+        //     gzip: true,
+        //     exclude: ["/secret", "/admin/**"]
+        // },
+        // 'google-adsense': {
+        //     id: 'ca-pub-8393839430219283'
+        // },
+        // googleAnalytics: {
+        //     id: "UA-163816416-2"
+        // },
+        // serverMiddleware: ['redirect-ssl'],
         axios: {
             baseURL: 'https://covid.info.az/api/'
         },
