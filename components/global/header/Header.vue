@@ -134,9 +134,7 @@
                 </li>
                 <li>
                     <clink to="/russia-map" class="header__mobile-bottom__item">
-                        <!-- Created with Inkscape (http://www.inkscape.org/) -->
                         <svg
-                           xmlns:svg="http://www.w3.org/2000/svg"
                            xmlns="http://www.w3.org/2000/svg"
                            version="1.0"
                            width="1091.9919"

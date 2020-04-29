@@ -2,25 +2,27 @@
     <div class="news-page news-page-list">
         <div class="page__content custom-container custom-container--news">
             <div class="page__double-main">
-                <div class="d-flex overlay-category">
-                    <div class="news-search d-flex" style="display: none !important;">
-                        <input class="news-cards-input" :placeholder="$t('search.searchNews')"/>
-                        <a class="news-search-btn" href="#" @click.prevent><span>{{ $t('search.searchBtn')}}</span></a>
+                <form class="d-flex overlay-category" @submit.prevent="submitForm">
+                    <div class="news-search d-flex">
+                        <input class="news-cards-input" v-model="titleSearch" :placeholder="$t('search.searchNews')"/>
+                        <button class="news-search-btn" type="submit"><span>{{ $t('search.searchBtn')}}</span></button>
                     </div>
                     <div class="news-search d-flex">
-                        <v-select style="display: none" :placeholder="$t('search.country')" v-model="selectedLocation"
+                        <v-select :placeholder="$t('search.country')" v-model="selectedLocation"
                                   :options="getOptionsLocations"
-                                  @input="changeRoute"/>
-                        <v-select style="width: 100% !important;max-width:100% !important;"  class="cats-select" :placeholder="$t('search.cats')" v-model="selected"
+                        />
+                        <v-select class="cats-select" :placeholder="$t('search.cats')" v-model="selected"
                                   :options="getOptions"
                                   @input="changeRoute"/>
-                        <v-select style="display: none" :placeholder="$t('search.type')" v-model="selectedType" :options="getOptions"
-                                  @input="changeRoute"/>
-                        <datepicker style="display: none" :format="customFormatter" :value="date"/>
+                        <v-select :placeholder="$t('search.type')" v-model="selectedType" :options="['local','worldwide']"
+                        />
+                        <datepicker :format="customFormatter" :value="date"/>
                     </div>
-                </div>
+                </form>
                 <div class="news-cards-overlay">
-                    <clink :to="`/news/${item.slug}`" class="news-cards-item" v-for="(item, index) in newsData" :key="index">
+                    {{ searchNews }}
+                    <clink :to="`/news/${item.slug}`" class="news-cards-item" v-for="(item, index) in newsData"
+                           :key="index">
                         <div class="news-cards-item__inner">
                             <div class="news-cards-item-title" v-if="item.title">
                                 <span>{{ item.title[$i18n.locale] | truncate(50) }}</span>
@@ -92,18 +94,18 @@
         watch: {
             curPage(n, o) {
                 if (this.link)
-                    this.getPaginatedNews({ id: this.link.id, curPage: n, perPage: this.perPage });
+                    this.getPaginatedNews({id: this.link.id, curPage: n, perPage: this.perPage});
                 else
-                    this.getPaginatedNews({ curPage: n, perPage: this.perPage });
+                    this.getPaginatedNews({curPage: n, perPage: this.perPage});
             }
         },
         watchQuery(n, o) {
             this.link = this.cats.find(i => i.slug === n.type);
             if (this.link) {
                 this.selected = this.link.title[this.$i18n.locale]
-                this.getPaginatedNews({ id: this.link.id, curPage: this.curPage, perPage: this.perPage });
+                this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage});
             } else {
-                this.getPaginatedNews({ curPage: this.curPage, perPage: this.perPage });
+                this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
             }
         },
         data() {
@@ -113,43 +115,56 @@
                 selectedType: '',
                 locationsItems: '',
                 date: Date.now(),
-                link: {},
+                link: {
+                    id: 0
+                },
                 curPage: 1,
                 perPage: 18,
+                titleSearch: ''
             }
         },
 
         methods: {
-            ...mapActions('news', ['getNews', 'findNews', 'getPaginatedNews', 'getCats']),
+            ...mapActions('news', ['getNews', 'findNews', 'getPaginatedNews', 'getCats', 'getSearchNews']),
             ...mapActions('virus', ['getVirus']),
             ...mapActions('search', ['getLocations']),
+            submitForm() {
+                let body = {
+                    country: this.selectedLocation || '',
+                    lang: this.$i18n.locale || '',
+                    type: this.selectedType,
+                    title: this.titleSearch,
+                    cat_id: ""
+                }
+                console.log(body);
+                this.getSearchNews(body);
+            },
             customFormatter(date) {
                 return this.$moment(date).format("DD/MM/YYYY");
             },
-
             changeRoute() {
                 this.link = this.cats.find(i => i.title[this.$i18n.locale] === this.selected);
                 if (this.link) {
-                    this.$router.push({ query: { type: this.link.slug } });
-                    this.getPaginatedNews({ id: this.link.id, curPage: this.curPage, perPage: this.perPage }); // getting by category
+                    this.$router.push({query: {type: this.link.slug}});
+                    this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage}); // getting by category
                 } else {
-                    this.$router.push({ query: {} });
-                    this.getPaginatedNews({ curPage: this.curPage, perPage: this.perPage });
+                    this.$router.push({query: {}});
+                    this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
                 }
             },
             queryHandler() {
                 if (this.$route.query.type) {
                     this.link = this.cats.find(i => i.slug === this.$route.query.type);
                     this.selected = this.link.title[this.$i18n.locale]
-                    this.getPaginatedNews({ id: this.link.id, curPage: this.curPage, perPage: this.perPage });
+                    this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage});
                 } else {
-                    this.getPaginatedNews({ curPage: this.curPage, perPage: this.perPage });
+                    this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
                 }
             }
         },
 
         computed: {
-            ...mapState('news', ['news', 'newsData', 'activeNews', 'cats', 'totalElems']),
+            ...mapState('news', ['news', 'newsData', 'activeNews', 'cats', 'totalElems', 'searchNews']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal']),
             ...mapState('search', ['locations']),
             getOptions() {

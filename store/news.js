@@ -15,7 +15,8 @@ export const state = () => ({
     banners: [],
     totalElems: 0,
     videosData: null,
-    naturalVideos: null
+    naturalVideos: null,
+    searchNews: null
 })
 
 export const mutations = {
@@ -52,6 +53,9 @@ export const mutations = {
     SET_NATURAL_VIDEOS_NEWS: (state, payload) => {
         state.naturalVideos = payload;
     },
+    SET_SEARCH_DATA_NEWS:(state, payload) =>{
+        state.searchNews = payload;
+    }
 }
 
 export const actions = {
@@ -108,5 +112,28 @@ export const actions = {
     async getNaturalVideos({commit}) {
         const data = await this.$axios.$get(`natural-video?page=1&per_page=6`);
         commit('SET_NATURAL_VIDEOS_NEWS', data.news.data);
-    }
+    },
+    async getSearchNews({commit},body) {
+        let url = 'search?';
+        if(body.country){
+            url = url + `&country=${body.country}`
+        }
+        if(body.type){
+            url = url + `&type=${body.type}`
+        }
+        if(body.cat_id){
+            url = url + `&cat_id=${body.cat_id.id}`
+        }
+        if(body.title !== ''){
+            url = url + `&title=${body.title}`
+        }
+        // if(body.country !== ''){
+        //     url.split('').push('&country'+ body.country).join('');
+        // }
+        console.log(url);
+        const data = await this.$axios
+            .$get(`${url}&lang=${body.lang}`);
+        //     .$get(`search?country=${body.country}&lang=${body.lang}&cat_id=${body.cat_id}&type=${body.type}&title=${body.title}`);
+        commit('SET_SEARCH_DATA_NEWS', data.data);
+    },
 }
