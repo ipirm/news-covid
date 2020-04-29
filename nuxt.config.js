@@ -4,7 +4,6 @@ routerBase = {
     }
 },
     module.exports = {
-
         env: {
             imagesUrl: 'https://covid.info.az/storage' || 'http://localhost:3000'
         },

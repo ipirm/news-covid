@@ -2,26 +2,28 @@
     <div class="news-page news-page-list">
         <div class="page__content custom-container custom-container--news">
             <div class="page__double-main">
-                <form class="d-flex overlay-category" @submit.prevent="submitForm">
-                    <div class="news-search d-flex">
-                        <input class="news-cards-input" v-model="titleSearch" :placeholder="$t('search.searchNews')"/>
+                <form class="d-flex overlay-category" @submit.prevent="search">
+                    <div class="news-search">
+                        <input class="news-cards-input" v-model="title" :placeholder="$t('search.searchNews')"/>
                         <button class="news-search-btn" type="submit"><span>{{ $t('search.searchBtn')}}</span></button>
                     </div>
-                    <div class="news-search d-flex">
-                        <v-select :placeholder="$t('search.country')" v-model="selectedLocation"
-                                  :options="getOptionsLocations"
-                        />
-                        <v-select class="cats-select" :placeholder="$t('search.cats')" v-model="selected"
-                                  :options="getOptions"
-                                  @input="changeRoute"/>
-                        <v-select :placeholder="$t('search.type')" v-model="selectedType" :options="['local','worldwide']"
-                        />
-                        <datepicker :format="customFormatter" :value="date"/>
+                    <div class="news-search middle">
+                        <client-only>
+                            <v-select class="news-search-item" :placeholder="$t('search.country')" v-model="country" :options="countries" />
+                            <v-select class="news-search-item" :placeholder="$t('search.cats')" v-model="cat_id" :options="categories" />
+                            <v-select class="news-search-item" :placeholder="$t('search.type')" v-model="type" :options="['local','worldwide']" />
+                            <datepicker class="news-search-item" :format="customFormatter" :value="date" v-if="false" />
+                        </client-only>
+                    </div>
+                    <div class="news-search">
+                        <div class="news-search__togglers">
+                            <Toggler :title="'interesting'" v-model="interesting" />
+                            <Toggler :title="'video'" v-model="video" />
+                        </div>
                     </div>
                 </form>
                 <div class="news-cards-overlay">
-                    {{ searchNews }}
-                    <clink :to="`/news/${item.slug}`" class="news-cards-item" v-for="(item, index) in newsData"
+                    <clink :to="`/news/${item.slug}`" class="news-cards-item" v-for="(item, index) in searchNews"
                            :key="index">
                         <div class="news-cards-item__inner">
                             <div class="news-cards-item-title" v-if="item.title">
@@ -64,19 +66,22 @@
     import LeftSidebar from "~/components/global/LeftSidebar";
     import Pagination from "~/components/global/Pagination";
     import VirusStatic from "~/components/global/VirusStatic";
+    import Toggler from "~/components/global/Toggler";
     import Datepicker from 'vue-moment-datepicker';
 
     import {mapActions, mapState} from 'vuex';
 
     export default {
-        components: {VirusStatic, LeftSidebar, Datepicker, Pagination},
+        components: {VirusStatic, LeftSidebar, Datepicker, Pagination, Toggler},
 
         created() {
             this.getVirus();
             this.getCats();
             this.getLocations();
-            this.queryHandler();
+            this.readURLQuery();
+            this.search();
         },
+
         head() {
             return {
                 title: `${this.$t('MetaTitle')}`,
@@ -91,75 +96,144 @@
                 ]
             }
         },
-        watch: {
-            curPage(n, o) {
-                if (this.link)
-                    this.getPaginatedNews({id: this.link.id, curPage: n, perPage: this.perPage});
-                else
-                    this.getPaginatedNews({curPage: n, perPage: this.perPage});
-            }
-        },
-        watchQuery(n, o) {
-            this.link = this.cats.find(i => i.slug === n.type);
-            if (this.link) {
-                this.selected = this.link.title[this.$i18n.locale]
-                this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage});
-            } else {
-                this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
-            }
-        },
+
         data() {
             return {
-                selected: '',
-                selectedLocation: '',
-                selectedType: '',
                 locationsItems: '',
                 date: Date.now(),
-                link: {
-                    id: 0
-                },
+
                 curPage: 1,
                 perPage: 18,
-                titleSearch: ''
+
+                country: '',
+                source: '', // TODO LATER
+                cat_id: '',
+                updated_at: '', // TODO LATER
+                type: '',
+                title: '',
+                video: false,
+                interesting: false
             }
+        },
+
+        watch: {
+            curPage(n, o) {
+                this.updateQuery();
+            },
+            country(n, o) {
+                this.updateQuery();
+            },
+            source(n, o) {
+                this.updateQuery();
+            },
+            cat_id(n, o) {
+                this.updateQuery();
+            },
+            updated_at(n, o) {
+                this.updateQuery();
+            },
+            type(n, o) {
+                this.updateQuery();
+            },
+            title(n, o) {
+                this.updateQuery();
+            },
+            video(n, o) {
+                this.updateQuery();
+            },
+            interesting(n, o) {
+                this.updateQuery();
+            }
+        },
+
+        watchQuery(n, o) {
+            this.search();
         },
 
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getPaginatedNews', 'getCats', 'getSearchNews']),
             ...mapActions('virus', ['getVirus']),
             ...mapActions('search', ['getLocations']),
-            submitForm() {
-                let body = {
-                    country: this.selectedLocation || '',
-                    lang: this.$i18n.locale || '',
-                    type: this.selectedType,
-                    title: this.titleSearch,
-                    cat_id: ""
-                }
-                console.log(body);
-                this.getSearchNews(body);
-            },
+
             customFormatter(date) {
                 return this.$moment(date).format("DD/MM/YYYY");
             },
-            changeRoute() {
-                this.link = this.cats.find(i => i.title[this.$i18n.locale] === this.selected);
-                if (this.link) {
-                    this.$router.push({query: {type: this.link.slug}});
-                    this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage}); // getting by category
-                } else {
-                    this.$router.push({query: {}});
-                    this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
+
+            search() {
+                this.getSearchNews(this.getSearchQuery());
+            },
+
+            updateQuery() {
+                this.$router.push({ query: this.getURLQuery() });
+            },
+
+            readURLQuery() {
+                if (this.$route.query.country) {
+                    this.country = this.$route.query.country;
+                }
+                if (this.$route.query.source) {
+                    this.source = this.$route.query.source;
+                }
+                if (this.$route.query.cat_id) {
+                    this.cat_id = this.$route.query.cat_id;
+                }
+                if (this.$route.query.updated_at) {
+                    this.updated_at = this.$route.query.updated_at;
+                }
+                if (this.$route.query.type) {
+                    this.type = this.$route.query.type;
+                }
+                if (this.$route.query.title) {
+                    this.title = this.$route.query.title;
+                }
+                if (this.$route.query.video) {
+                    this.video = true;
+                }
+                if (this.$route.query.interesting) {
+                    this.interesting = true;
                 }
             },
-            queryHandler() {
-                if (this.$route.query.type) {
-                    this.link = this.cats.find(i => i.slug === this.$route.query.type);
-                    this.selected = this.link.title[this.$i18n.locale]
-                    this.getPaginatedNews({id: this.link.id, curPage: this.curPage, perPage: this.perPage});
-                } else {
-                    this.getPaginatedNews({curPage: this.curPage, perPage: this.perPage});
+
+            getURLQuery() {
+                let query = {};
+
+                if (this.country) {
+                    query.country = this.country;
                 }
+                if (this.source) {
+                    query.source = this.source;
+                }
+                if (this.cat_id) {
+                    query.cat_id = this.cat_id;
+                }
+                if (this.updated_at) {
+                    query.updated_at = this.updated_at;
+                }
+                if (this.type) {
+                    query.type = this.type;
+                }
+                if (this.title) {
+                    query.title = this.title;
+                }
+                if (this.video) {
+                    query.video = this.video;
+                }
+                if (this.interesting) {
+                    query.interesting = this.interesting;
+                }
+
+                return query;
+            },
+
+            getSearchQuery() {
+                let query = this.getURLQuery();
+
+                if (this.$i18n)
+                    query.lang = this.$i18n.locale;
+                query.page = this.curPage;
+                query.per_page = this.perPage;
+
+                return query;
             }
         },
 
@@ -167,7 +241,8 @@
             ...mapState('news', ['news', 'newsData', 'activeNews', 'cats', 'totalElems', 'searchNews']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal']),
             ...mapState('search', ['locations']),
-            getOptions() {
+
+            categories() {
                 const newsCats = [];
                 if (this.cats) {
                     this.cats.forEach((item) => {
@@ -177,7 +252,8 @@
                 return newsCats;
 
             },
-            getOptionsLocations() {
+
+            countries() {
                 const newsCats = [];
                 if (this.locations) {
                     this.locations.forEach((item) => {
@@ -185,9 +261,8 @@
                     });
                 }
                 return newsCats;
-
-            },
-        },
+            }
+        }
     }
 
 </script>

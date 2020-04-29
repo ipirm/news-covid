@@ -113,27 +113,45 @@ export const actions = {
         const data = await this.$axios.$get(`natural-video?page=1&per_page=6`);
         commit('SET_NATURAL_VIDEOS_NEWS', data.news.data);
     },
-    async getSearchNews({commit},body) {
+    async getSearchNews({commit}, query) {
         let url = 'search?';
-        if(body.country){
-            url = url + `&country=${body.country}`
+
+        if (query.country) {
+            url += `country=${query.country}&`;
         }
-        if(body.type){
-            url = url + `&type=${body.type}`
+        if (query.source) {
+            url += `source=${query.source}&`;
         }
-        if(body.cat_id){
-            url = url + `&cat_id=${body.cat_id.id}`
+        if (query.cat_id) {
+            url += `cat_id=${query.cat_id}&`;
         }
-        if(body.title !== ''){
-            url = url + `&title=${body.title}`
+        if (query.updated_at) {
+            url += `updated_at=${query.updated_at}&`;
         }
-        // if(body.country !== ''){
-        //     url.split('').push('&country'+ body.country).join('');
-        // }
-        console.log(url);
-        const data = await this.$axios
-            .$get(`${url}&lang=${body.lang}`);
-        //     .$get(`search?country=${body.country}&lang=${body.lang}&cat_id=${body.cat_id}&type=${body.type}&title=${body.title}`);
-        commit('SET_SEARCH_DATA_NEWS', data.data);
+        if (query.type) {
+            url += `type=${query.type}&`;
+        }
+        if (query.title) {
+            url += `title=${query.title}&`;
+        }
+        if (query.video) {
+            url += 'video=1&';
+        }
+        if (query.interesting) {
+            url += 'interesting=1&';
+        }
+        if (query.lang) {
+            url += `lang=${query.lang}&`;
+        }
+        if (query.page) {
+            url += `page=${query.page}&`;
+        }
+        if (query.per_page) {
+            url += `per_page=${query.per_page}&`;
+        }
+
+        const res = await this.$axios.$get(`${url}&lang=${url.lang}`);
+        commit('SET_SEARCH_DATA_NEWS', res.data);
+        commit('SET_TOTAL_ELEMS', res.total ? res.total : 0);
     },
 }
