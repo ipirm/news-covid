@@ -150,7 +150,7 @@ export const actions = {
             url += `per_page=${query.per_page}&`;
         }
 
-        const res = await this.$axios.$get(`${url}&lang=${url.lang}`);
+        const res = await this.$axios.$get(`${url}`);
         commit('SET_SEARCH_DATA_NEWS', res.data);
         commit('SET_TOTAL_ELEMS', res.total ? res.total : 0);
     },
