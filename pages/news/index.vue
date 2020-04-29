@@ -11,7 +11,7 @@
                         <client-only>
                             <v-select class="news-search-item" :placeholder="$t('search.country')" v-model="country" :options="countries" />
                             <v-select class="news-search-item" :placeholder="$t('search.cats')" v-model="cat_id" :options="categories" />
-                            <v-select class="news-search-item" :placeholder="$t('search.type')" v-model="type" :options="['local','worldwide']" />
+                            <v-select class="news-search-item" :placeholder="$t('search.type')" v-model="fakeType" :options="types" />
                             <datepicker class="news-search-item" :format="customFormatter" :value="date" v-if="false" />
                         </client-only>
                     </div>
@@ -112,7 +112,9 @@
                 type: '',
                 title: '',
                 video: false,
-                interesting: false
+                interesting: false,
+                
+                fakeType: ''
             }
         },
 
@@ -132,7 +134,10 @@
             updated_at(n, o) {
                 this.updateQuery();
             },
-            type(n, o) {
+            fakeType(n, o) {
+                if (n == this.types[0]) this.type = 'local';
+                else if (n == this.types[1]) this.type = 'worldwide';
+                
                 this.updateQuery();
             },
             video(n, o) {
@@ -189,6 +194,8 @@
                 }
                 if (this.$route.query.type) {
                     this.type = this.$route.query.type;
+                    if (this.type == 'local') this.fakeType = this.types[0];
+                    else if (this.type == 'worldwide') this.fakeType = this.types[1];
                 }
                 if (this.$route.query.title) {
                     this.title = this.$route.query.title;
@@ -271,6 +278,10 @@
                     });
                 }
                 return newsCats;
+            },
+
+            types() {
+                return [this.$t('local'),this.$t('worldwide')];
             }
         }
     }
