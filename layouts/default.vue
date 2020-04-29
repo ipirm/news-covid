@@ -5,12 +5,14 @@
         </div>
         <div v-show="pageReady">
             <Header/>
-            <div style="width: 100%; max-height:150px" v-if="$mq !== 'mobile'">
-                <adsbygoogle/>
-            </div>
-            <div style="max-height:100px;width: 100%" v-else>
-                <adsbygoogle/>
-            </div>
+            <client-only>
+                <div style="width: 100%; max-height:150px" v-if="$mq !== 'mobile'">
+                    <adsbygoogle/>
+                </div>
+                <div style="max-height:100px;width: 100%" v-else>
+                    <adsbygoogle/>
+                </div>
+            </client-only>
             <nuxt class="full-fill"/>
             <Footer/>
             <BackToTop/>
