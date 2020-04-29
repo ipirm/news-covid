@@ -52,7 +52,7 @@
                         </div>
                     </clink>
                 </div>
-                <Pagination :curPage="curPage" :perPage="perPage" :totalElems="totalElems" v-model="curPage"/>
+                <Pagination :perPage="perPage" :totalElems="totalElems" v-model="curPage" :emptyText="'not-found'" />
             </div>
             <div class="page__aside news-page__aside">
                 <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
@@ -118,7 +118,7 @@
 
         watch: {
             curPage(n, o) {
-                this.updateQuery();
+                this.updateQuery(true);
             },
             country(n, o) {
                 this.updateQuery();
@@ -133,9 +133,6 @@
                 this.updateQuery();
             },
             type(n, o) {
-                this.updateQuery();
-            },
-            title(n, o) {
                 this.updateQuery();
             },
             video(n, o) {
@@ -163,7 +160,9 @@
                 this.getSearchNews(this.getSearchQuery());
             },
 
-            updateQuery() {
+            updateQuery(savePage) {
+                if (!savePage)
+                    this.curPage = 1;
                 this.$router.push({ query: this.getURLQuery() });
             },
 
@@ -222,6 +221,8 @@
                     query.interesting = this.interesting;
                 }
 
+                query.page = this.curPage;
+
                 return query;
             },
 
@@ -230,7 +231,6 @@
 
                 if (this.$i18n)
                     query.lang = this.$i18n.locale;
-                query.page = this.curPage;
                 query.per_page = this.perPage;
 
                 return query;

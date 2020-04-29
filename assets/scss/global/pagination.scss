@@ -21,6 +21,10 @@
     }
   }
 
+  &__content {
+    display: flex;
+  }
+
   &__button {
     &.current {
       color: white;
