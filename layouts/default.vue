@@ -5,9 +5,9 @@
         </div>
         <div v-show="pageReady">
             <Header/>
-            <client-only>
-                <adsbygoogle/>
-            </client-only>
+<!--            <client-only>-->
+<!--                <adsbygoogle/>-->
+<!--            </client-only>-->
             <nuxt class="full-fill"/>
             <Footer/>
             <BackToTop/>
