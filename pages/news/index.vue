@@ -115,7 +115,7 @@
                 title: '',
                 video: false,
                 interesting: false,
-                
+
                 fakeType: ''
             }
         },
@@ -140,7 +140,7 @@
                 if (n == this.types[0]) this.type = 'local';
                 else if (n == this.types[1]) this.type = 'worldwide';
                 else this.type = '';
-                
+
                 this.updateQuery();
             },
             video(n, o) {
@@ -191,7 +191,7 @@
                 if (this.$route.query.source) {
                     let source;
                     if (this.sources)
-                    source = this.sources.find(v => v.id == this.$route.query.source);
+                    source = this.sources.find(v => v.title == this.$route.query.source);
                     if (source)
                         this.source = source.title;
                 }
@@ -228,7 +228,7 @@
                 if (this.source) {
                     let source = this.sources.find(v => v.title == this.source);
                     if (source)
-                        query.source = source.id;
+                        query.source = source.title;
                 }
                 if (this.cat_id && this.$i18n) {
                     let cat = this.cats.find(v => v.title[this.$i18n.locale] == this.cat_id);
