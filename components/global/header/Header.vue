@@ -42,7 +42,7 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide header__bottom__slide" v-for="(item, i) in cats" :key="i">
                                         <div class="header__bottom__bar"></div>
-                                        <a href="#" @click.prevent="goToNewsCat(item.slug)"
+                                        <a :href="`/news?cat_id=${item.id}&page=1`" @click.prevent="goToNewsCat(item.id, item.title[$i18n.locale])"
                                            class="header__bottom__link">{{ item.title[$i18n.locale] }}</a>
                                         <div class="header__bottom__bar"></div>
                                     </div>
@@ -308,8 +308,10 @@
                 this.searchActive = false;
             },
 
-            goToNewsCat(cat) {
-                this.$router.push(this.localePath({name: "news", query: {type: cat}}));
+            goToNewsCat(cat_id, cat_title) {
+                if (this.$router.currentRoute.path != '/news')
+                    this.$router.push(this.localePath({name: "news", query: {cat_id: cat_id}}));
+                else this.$bus.$emit('updateCat', cat_title);
             }
         },
 

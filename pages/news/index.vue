@@ -11,7 +11,7 @@
                         <client-only>
                             <v-select class="news-search-item" :placeholder="$t('search.country')" v-model="country" :options="countries" />
                             <v-select class="news-search-item" :placeholder="$t('search.cats')" v-model="cat_id" :options="categories" />
-                            <v-select class="news-search-item" :placeholder="$t('search.type')" v-model="type" :options="['local','worldwide']" />
+                            <v-select class="news-search-item" :placeholder="$t('search.type')" v-model="fakeType" :options="types" />
                             <datepicker class="news-search-item" :format="customFormatter" :value="date" v-if="false" />
                         </client-only>
                     </div>
@@ -112,7 +112,9 @@
                 type: '',
                 title: '',
                 video: false,
-                interesting: false
+                interesting: false,
+                
+                fakeType: ''
             }
         },
 
@@ -132,7 +134,10 @@
             updated_at(n, o) {
                 this.updateQuery();
             },
-            type(n, o) {
+            fakeType(n, o) {
+                if (n == this.types[0]) this.type = 'local';
+                else if (n == this.types[1]) this.type = 'worldwide';
+                
                 this.updateQuery();
             },
             video(n, o) {
@@ -145,6 +150,12 @@
 
         watchQuery(n, o) {
             this.search();
+        },
+
+        mounted() {
+            this.$bus.$on('updateCat', (cat) => {
+                this.cat_id = cat;
+            })
         },
 
         methods: {
@@ -174,13 +185,17 @@
                     this.source = this.$route.query.source;
                 }
                 if (this.$route.query.cat_id) {
-                    this.cat_id = this.$route.query.cat_id;
+                    let cat = this.cats.find(v => v.id == this.$route.query.cat_id);
+                    if (cat && this.$i18n)
+                        this.cat_id = cat.title[this.$i18n.locale];
                 }
                 if (this.$route.query.updated_at) {
                     this.updated_at = this.$route.query.updated_at;
                 }
                 if (this.$route.query.type) {
                     this.type = this.$route.query.type;
+                    if (this.type == 'local') this.fakeType = this.types[0];
+                    else if (this.type == 'worldwide') this.fakeType = this.types[1];
                 }
                 if (this.$route.query.title) {
                     this.title = this.$route.query.title;
@@ -202,8 +217,10 @@
                 if (this.source) {
                     query.source = this.source;
                 }
-                if (this.cat_id) {
-                    query.cat_id = this.cat_id;
+                if (this.cat_id && this.$i18n) {
+                    let cat = this.cats.find(v => v.title[this.$i18n.locale] == this.cat_id);
+                    if (cat)
+                        query.cat_id = cat.id;
                 }
                 if (this.updated_at) {
                     query.updated_at = this.updated_at;
@@ -261,6 +278,10 @@
                     });
                 }
                 return newsCats;
+            },
+
+            types() {
+                return [this.$t('local'),this.$t('worldwide')];
             }
         }
     }
