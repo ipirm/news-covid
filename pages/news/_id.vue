@@ -6,6 +6,7 @@
                 <div class="news-content-breadcumbs">
                     <clink to="/">{{ $t('mainPage')}}</clink>
                     <clink to="/news/">{{ $t('header.news')}}</clink>
+                    <clink :to="`/news?cat_id=${activeNews.cat_id}`">{{ $t(cats.find(v => v.id == activeNews.cat_id).title[$i18n.locale])}}</clink>
                     <a>{{ activeNews.title[$i18n.locale]}}</a>
                 </div>
                 <div class="news-content-title">
@@ -26,10 +27,10 @@
                         </div>
                     </client-only>
                     <div class="d-flex">
-                    <div class="news-content-date-item">{{ $t('source')}}: {{ activeNews.source }}</div>
+                    <div class="news-content-date-item">{{ $t('source')}}: <clink style="margin-left: 6px" :to="`/news?source=${getSourceId(activeNews.source)}`">{{ activeNews.source }}</clink></div>
                     <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}
                     </div>
-                    <div class="news-content-date-item">{{ activeNews.country[$i18n.locale] }}</div>
+                    <div class="news-content-date-item"><clink :to="`/news?country=${activeNews.country[$i18n.locale]}`">{{ activeNews.country[$i18n.locale] }}</clink></div>
                     </div>
                 </div>
                 <div class="news-content-text mb-5">
@@ -108,6 +109,10 @@
                 });
         },
 
+        created() {
+            this.getSources();
+        },
+
         data() {
             return {
                 loading: true,
@@ -136,16 +141,25 @@
         methods: {
             ...mapActions('news', ['findNews', 'getBanners']),
             ...mapActions('virus', ['getVirus']),
+            ...mapActions('search', ['getSources']),
 
             initCreationFacebookComments() {
                 FB.XFBML.parse()
                 this.loading = !this.loading
+            },
+
+            getSourceId(source) {
+                if (this.sources)
+                    source = this.sources.find(v => v.title == source);
+                if (source && source.id) return source.id;
+                return -1;
             }
         },
 
         computed: {
-            ...mapState('news', ['newsData', 'activeNews', 'banners']),
-            ...mapState('virus', ['virusWorldWide', 'virusLocal'])
+            ...mapState('news', ['newsData', 'activeNews', 'banners', 'cats']),
+            ...mapState('virus', ['virusWorldWide', 'virusLocal']),
+            ...mapState('search', ['sources'])
         },
 
         mounted() {

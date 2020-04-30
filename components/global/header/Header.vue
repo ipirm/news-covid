@@ -61,9 +61,10 @@
                         </div>
                         <div class="header__search desktop" v-click-outside="hideSearch">
                             <div class="header__search__input-area" :class="{ active: searchActive }">
-                                <input type="text" name="search">
+                                <input type="text" name="search" @keyup.enter="search()" v-model="searchInput">
                             </div>
-                            <svg-icon name="search-icon" class="header__search__icon" @click="toggleSearch"/>
+                            <svg-icon name="search-icon" class="header__search__icon" @click="toggleSearch" v-show="!searchActive" />
+                            <svg-icon name="cross" style="width: 12px; height: 12px" class="header__search__icon" @click="toggleSearch" v-show="searchActive" />
                         </div>
                         <custom-select class="header__langs desktop" :options="availableLangs" @input="changeLang"
                                        v-model="curLang"/>
@@ -249,7 +250,8 @@
                 leftArrowActive: false,
                 rightArrowActive: false,
                 langsOpen: false,
-                activeMobileTabLink: '/'
+                activeMobileTabLink: '/',
+                searchInput: ''
             }
         },
 
@@ -293,6 +295,12 @@
                 if (this.$router.currentRoute.path != '/news')
                     this.$router.push(this.localePath({name: "news", query: {cat_id: cat_id}}));
                 else this.$bus.$emit('updateCat', cat_title);
+            },
+
+            search() {
+                if (this.$router.currentRoute.path != '/news')
+                    this.$router.push(this.localePath({name: "news", query: {title: this.searchInput}}));
+                else this.$bus.$emit('updateSearch', this.searchInput);
             }
         },
 

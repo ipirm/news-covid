@@ -29,6 +29,7 @@
     background: white;
     padding: 10px;
     overflow: hidden;
+    border-radius: 5px;
 
     &__card {
       display: flex;
@@ -87,6 +88,7 @@
     &__img {
       width: 55%;
       margin-right: 10px;
+      border-radius: 5px;
     }
   }
 
@@ -107,6 +109,12 @@
   &__advertising {
     width: 100%;
     margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+      max-width: unset;
+    }
   }
 }
 
@@ -143,6 +151,10 @@
     align-items: center;
     justify-content: center;
 
+    &:first-of-type {
+      border-radius: 5px 5px 0 0;
+    }
+
     span {
       font-weight: bold;
       font-size: 18px;
@@ -164,6 +176,7 @@
 
     &:last-of-type {
       margin-bottom: 25px;
+      border-radius: 0 0 5px 5px;
     }
 
     &__col {
@@ -218,6 +231,7 @@
     background: white;
     padding: 10px;
     margin-bottom: 30px;
+    border-radius: 5px;
 
     .svg-content {
       margin: 0;

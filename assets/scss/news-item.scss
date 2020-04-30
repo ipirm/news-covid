@@ -77,6 +77,10 @@
       margin-right: 20px;
       display: flex;
       align-items: center;
+
+      a {
+        color: $color-blue;
+      }
     }
 
     &-item:after {
