@@ -32,7 +32,7 @@
     padding: 0 10px;
     
     &__inner {
-      border-radius: 3px;
+      border-radius: 5px;
       background-color: #fff;
       overflow: hidden;
     }
@@ -96,6 +96,7 @@
 
   .overlay-category {
     justify-content: space-between;
+    border-radius: 5px;
   }
 
   .vdp-datepicker {
@@ -277,6 +278,24 @@
   }
 }
 
+@media (max-width: 650px) {
+  .news-search {
+    &.middle {
+      margin: 0 -10px;
+      flex-wrap: wrap;
+
+      .news-search {
+        &-item {
+          width: 50%;
+          margin-right: 0;
+          margin-bottom: 10px;
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .news-page {
     .news-cards {
@@ -293,10 +312,7 @@
       .news-search {
         &-item {
           margin-bottom: 10px;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
+          width: 100%;
         }
       }
     }
