@@ -2,7 +2,7 @@
     <div class="news-page news-page-list">
         <div class="page__content custom-container custom-container--news">
             <div class="page__double-main">
-                <form class="d-flex overlay-category" @submit.prevent="search">
+                <form class="d-flex overlay-category" @submit.prevent="updateQuery">
                     <div class="news-search">
                         <input class="news-cards-input" v-model="title" :placeholder="$t('search.searchNews')"/>
                         <button class="news-search-btn" type="submit"><span>{{ $t('search.searchBtn')}}</span></button>
@@ -12,6 +12,7 @@
                             <v-select class="news-search-item" :placeholder="$t('search.country')" v-model="country" :options="countries" />
                             <v-select class="news-search-item" :placeholder="$t('search.cats')" v-model="cat_id" :options="categories" />
                             <v-select class="news-search-item" :placeholder="$t('search.type')" v-model="fakeType" :options="types" />
+                            <v-select class="news-search-item" :placeholder="$t('search.sources')" v-model="source" :options="srcs" />
                             <datepicker class="news-search-item" :format="customFormatter" :value="date" v-if="false" />
                         </client-only>
                     </div>
@@ -78,6 +79,7 @@
             this.getVirus();
             this.getCats();
             this.getLocations();
+            this.getSources();
             this.readURLQuery();
             this.search();
         },
@@ -137,6 +139,7 @@
             fakeType(n, o) {
                 if (n == this.types[0]) this.type = 'local';
                 else if (n == this.types[1]) this.type = 'worldwide';
+                else this.type = '';
                 
                 this.updateQuery();
             },
@@ -156,12 +159,16 @@
             this.$bus.$on('updateCat', (cat) => {
                 this.cat_id = cat;
             })
+            this.$bus.$on('updateSearch', (title) => {
+                this.title = title;
+                this.updateQuery();
+            })
         },
 
         methods: {
             ...mapActions('news', ['getNews', 'findNews', 'getPaginatedNews', 'getCats', 'getSearchNews']),
             ...mapActions('virus', ['getVirus']),
-            ...mapActions('search', ['getLocations']),
+            ...mapActions('search', ['getLocations', 'getSources']),
 
             customFormatter(date) {
                 return this.$moment(date).format("DD/MM/YYYY");
@@ -182,7 +189,11 @@
                     this.country = this.$route.query.country;
                 }
                 if (this.$route.query.source) {
-                    this.source = this.$route.query.source;
+                    let source;
+                    if (this.sources)
+                    source = this.sources.find(v => v.id == this.$route.query.source);
+                    if (source)
+                        this.source = source.title;
                 }
                 if (this.$route.query.cat_id) {
                     let cat = this.cats.find(v => v.id == this.$route.query.cat_id);
@@ -215,7 +226,9 @@
                     query.country = this.country;
                 }
                 if (this.source) {
-                    query.source = this.source;
+                    let source = this.sources.find(v => v.title == this.source);
+                    if (source)
+                        query.source = source.id;
                 }
                 if (this.cat_id && this.$i18n) {
                     let cat = this.cats.find(v => v.title[this.$i18n.locale] == this.cat_id);
@@ -257,13 +270,13 @@
         computed: {
             ...mapState('news', ['news', 'newsData', 'activeNews', 'cats', 'totalElems', 'searchNews']),
             ...mapState('virus', ['virusWorldWide', 'virusLocal']),
-            ...mapState('search', ['locations']),
+            ...mapState('search', ['locations', 'sources']),
 
             categories() {
                 const newsCats = [];
                 if (this.cats) {
                     this.cats.forEach((item) => {
-                        newsCats.push(item.title[this.$i18n.locale])
+                        newsCats.push(item.title[this.$i18n.locale]);
                     });
                 }
                 return newsCats;
@@ -274,10 +287,20 @@
                 const newsCats = [];
                 if (this.locations) {
                     this.locations.forEach((item) => {
-                        newsCats.push(item.title[this.$i18n.locale])
+                        newsCats.push(item.title[this.$i18n.locale]);
                     });
                 }
                 return newsCats;
+            },
+
+            srcs() {
+                const sources = [];
+                if (this.sources) {
+                    this.sources.forEach((item) => {
+                        sources.push(item.title);
+                    });
+                }
+                return sources;
             },
 
             types() {
