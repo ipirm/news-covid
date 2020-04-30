@@ -54,7 +54,7 @@
                                 <div class="transparency"></div>
                             </div>
                             <div class="header__bottom__slider__arrow-right" :class="{ active: rightArrowActive }"
-                                 @click="mySwiper.slideNext();">
+                                 @click="mySwiper.slideNext()">
                                 <svg-icon name="header-slider-arrow-right"/>
                                 <div class="transparency"></div>
                             </div>
@@ -67,7 +67,9 @@
                         </div>
                         <custom-select class="header__langs desktop" :options="availableLangs" @input="changeLang"
                                        v-model="curLang"/>
-                        <!-- <clink :to="'/login'" class="header__login">{{ $t('header.login') }}</clink> -->
+                         <clink v-if="!loggedIn" :to="'/login'" class="header__login">{{ $t('header.login') }}</clink>
+                         <a v-if="loggedIn" class="header__login" style="margin: 0 10px;color: #fff">{{ user.name }}</a>
+                         <a v-if="loggedIn"  @click.prevent="logout" class="header__login" style="margin: 0 10px;color: #fff">Log out</a>
                     </div>
                 </div>
             </div>
@@ -219,31 +221,6 @@
                         <span>{{ $t('mapRussia.link') }}</span>
                     </clink>
                 </li>
-
-                <!--                <li>-->
-                <!--                    <clink :to="'/menu'" class="header__mobile-bottom__item">-->
-                <!--                        <svg class="color-switch" width="22" height="20" viewBox="0 0 22 20" fill="none"-->
-                <!--                             xmlns="http://www.w3.org/2000/svg">-->
-                <!--                            <g clip-path="url(#clip1)">-->
-                <!--                                <path class="color-switch"-->
-                <!--                                      d="M19.9754 2.51043H2.02456C0.908231 2.51043 0 3.33605 0 4.35219C0 5.36703 0.908231 6.1927 2.02456 6.1927H19.9754C21.0918 6.1927 22 5.36703 22 4.35219C22 3.33605 21.0918 2.51043 19.9754 2.51043Z"-->
-                <!--                                      fill="#9E9E9E"/>-->
-                <!--                                <path class="color-switch"-->
-                <!--                                      d="M19.9754 8.15887H2.02456C0.908231 8.15887 0 8.9845 0 10.0006C0 11.0155 0.908231 11.8411 2.02456 11.8411H19.9754C21.0918 11.8411 22 11.0155 22 10.0006C22 8.9845 21.0918 8.15887 19.9754 8.15887Z"-->
-                <!--                                      fill="#9E9E9E"/>-->
-                <!--                                <path class="color-switch"-->
-                <!--                                      d="M19.9754 13.8073H2.02456C0.908231 13.8073 0 14.633 0 15.6491C0 16.6639 0.908231 17.4896 2.02456 17.4896H19.9754C21.0918 17.4896 22 16.6639 22 15.6491C22 14.633 21.0918 13.8073 19.9754 13.8073Z"-->
-                <!--                                      fill="#9E9E9E"/>-->
-                <!--                            </g>-->
-                <!--                            <defs>-->
-                <!--                                <clipPath id="clip1">-->
-                <!--                                    <rect width="22" height="20" fill="white"/>-->
-                <!--                                </clipPath>-->
-                <!--                            </defs>-->
-                <!--                        </svg>-->
-                <!--                        <span>{{ $t('header.mobile.menu') }}</span>-->
-                <!--                    </clink>-->
-                <!--                </li>-->
             </ul>
         </div>
     </header>
@@ -288,6 +265,10 @@
         },
 
         methods: {
+            logout() {
+                this.$auth.logout();
+                this.$router.push(this.localePath('/'));
+            },
             updateArrows() {
                 if (this.mySwiper) {
                     this.leftArrowActive = !this.mySwiper.isBeginning;

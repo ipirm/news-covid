@@ -117,8 +117,8 @@ routerBase = {
             strategies: {
                 local: {
                     endpoints: {
-                        login: {url: 'login', method: 'post', propertyName: 'meta.token'},
-                        user: {url: 'user', method: 'get', propertyName: 'data'},
+                        login: {url: 'login', method: 'post', propertyName: 'access_token'},
+                        user: {url: 'user', method: 'get', propertyName: ''},
                         logout: {url: 'logout', method: 'post'}
                     }
                 }
