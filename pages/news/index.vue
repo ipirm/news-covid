@@ -137,6 +137,7 @@
             fakeType(n, o) {
                 if (n == this.types[0]) this.type = 'local';
                 else if (n == this.types[1]) this.type = 'worldwide';
+                else this.type = '';
                 
                 this.updateQuery();
             },
