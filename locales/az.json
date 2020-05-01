@@ -38,6 +38,10 @@
     }
   },
 
+  "mobile-menu": {
+    "search": "Axtarış"
+  },
+
   "not-found": "Heçnə tapılmadı",
   "interesting": "Maraqlı",
   "video": "Video",

@@ -101,14 +101,13 @@
 
         data() {
             return {
-                locationsItems: '',
                 date: Date.now(),
 
                 curPage: 1,
                 perPage: 18,
 
                 country: '',
-                source: '', // TODO LATER
+                source: '',
                 cat_id: '',
                 updated_at: '', // TODO LATER
                 type: '',
