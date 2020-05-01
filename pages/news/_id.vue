@@ -1,36 +1,48 @@
 <template>
     <div class="news-inner-page">
-        <div class="page__content custom-container custom-container--news news-page-item" >
+        <div class="page__content custom-container custom-container--news news-page-item">
             <main class="page__double-main" v-for="(activeNews,index) in activeNews" :key="index"
                   style="margin-right: 20px;max-width: 950px; margin-left: auto;">
                 <div class="news-content-breadcumbs">
                     <clink to="/">{{ $t('mainPage')}}</clink>
                     <clink to="/news/">{{ $t('header.news')}}</clink>
-                    <clink :to="`/news?cat_id=${activeNews.cat_id}`">{{ $t(cats.find(v => v.id == activeNews.cat_id).title[$i18n.locale])}}</clink>
+                    <clink :to="`/news?cat_id=${activeNews.cat_id}`">{{ $t(cats.find(v => v.id ==
+                        activeNews.cat_id).title[$i18n.locale])}}
+                    </clink>
                     <a>{{ activeNews.title[$i18n.locale]}}</a>
                 </div>
                 <div class="news-content-title">
                     <span>{{ activeNews.title[$i18n.locale] }}</span>
                 </div>
                 <div class="news-content-image">
-                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load style="height: 500px;  width: 100%;object-fit: cover;">
-                    <VideoComponent width="100%" :height="$mq === 'mobile' ? '200px' : '500px'" v-show="activeNews.video !== null" :data="activeNews" />
+                    <img v-show="activeNews.video === null" :data-src="`${$imagesUrl}/${activeNews.image}`" v-lazy-load
+                         style="height: 500px;  width: 100%;object-fit: cover;">
+                    <VideoComponent width="100%" :height="$mq === 'mobile' ? '200px' : '500px'"
+                                    v-show="activeNews.video !== null" :data="activeNews"/>
                 </div>
                 <div class="news-content-date" style="justify-content: space-between">
                     <client-only>
                         <div class="overlay-social">
-                            <facebook :url="url" scale="1.5" />
-                            <twitter :url="url" :title="activeNews.title[$i18n.locale]" scale="1.5" />
-                            <linkedin :url="url" scale="1.5" />
-                            <telegram :url="url" scale="1.5" />
-                            <whats-app :url="url" :title="activeNews.title[$i18n.locale]" scale="1.5" />
+                            <facebook :url="url" scale="1.5"/>
+                            <twitter :url="url" :title="activeNews.title[$i18n.locale]" scale="1.5"/>
+                            <linkedin :url="url" scale="1.5"/>
+                            <telegram :url="url" scale="1.5"/>
+                            <whats-app :url="url" :title="activeNews.title[$i18n.locale]" scale="1.5"/>
                         </div>
                     </client-only>
                     <div class="d-flex">
-                    <div class="news-content-date-item">{{ $t('source')}}: <clink style="margin-left: 6px" :to="`/news?source=${getSourceId(activeNews.source)}`">{{ activeNews.source }}</clink></div>
-                    <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}
-                    </div>
-                    <div class="news-content-date-item"><clink :to="`/news?country=${activeNews.country[$i18n.locale]}`">{{ activeNews.country[$i18n.locale] }}</clink></div>
+                        <div class="news-content-date-item">{{ $t('source')}}:
+                            <clink style="margin-left: 6px" :to="`/news?source=${activeNews.source}`">{{
+                                activeNews.source }}
+                            </clink>
+                        </div>
+                        <div class="news-content-date-item">
+                        </div>
+                        <div class="news-content-date-item">
+                            <clink :to="`/news?country=${activeNews.country[$i18n.locale]}`">{{
+                                activeNews.country[$i18n.locale] }}
+                            </clink>
+                        </div>
                     </div>
                 </div>
                 <div class="news-content-text mb-5">
@@ -52,7 +64,7 @@
                 <div class="news-cards-title">
                     <span>{{ $t('newsPageinterestiong')}}</span>
                 </div>
-                <NewsCards :data="newsData" />
+                <NewsCards :data="newsData"/>
             </main>
             <aside class="page__aside news-page-aside" style="margin-top: 88px">
                 <VirusStatic :virusWorldWide="virusWorldWide" :virusLocal="virusLocal"/>
@@ -64,7 +76,7 @@
         </div>
         <div class="page__content custom-container news-page-item news-item-mobile">
             <div class="page__double-main">
-                <NewsSlider :data="newsData"  />
+                <NewsSlider :data="newsData"/>
             </div>
             <aside class="page__aside">
                 <div class="overlay-banner">
@@ -78,7 +90,8 @@
     .main-page__mobile__news-slider {
         display: none;
     }
-    .news-cards-item-title{
+
+    .news-cards-item-title {
         padding: 0 !important;
     }
 </style>
@@ -94,7 +107,8 @@
 
     export default {
         components: {
-            VideoComponent, LeftSidebar, Spinner, VirusStatic,NewsSlider,NewsCards},
+            VideoComponent, LeftSidebar, Spinner, VirusStatic, NewsSlider, NewsCards
+        },
 
         async fetch({store, route}) {
             await store.dispatch('news/findNews', route.params.id).then(
@@ -102,7 +116,7 @@
                     await store.dispatch('news/getPaginatedNews',
                         {
                             id: store.state.news.activeNews.news.cat_id,
-                            slug:route.params.id,
+                            slug: route.params.id,
                             curPage: 1,
                             perPage: 3
                         })
