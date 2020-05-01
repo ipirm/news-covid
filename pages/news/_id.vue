@@ -28,7 +28,7 @@
                     </client-only>
                     <div class="d-flex">
                     <div class="news-content-date-item">{{ $t('source')}}: <clink style="margin-left: 6px" :to="`/news?source=${activeNews.source}`">{{ activeNews.source }}</clink></div>
-                    <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}
+<!--                    <div class="news-content-date-item">{{ activeNews.created_at | moment("from", "now") }}-->
                     </div>
                     <div class="news-content-date-item"><clink :to="`/news?country=${activeNews.country[$i18n.locale]}`">{{ activeNews.country[$i18n.locale] }}</clink></div>
                     </div>
