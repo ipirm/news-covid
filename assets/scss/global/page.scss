@@ -23,13 +23,15 @@
 .sidebar {
   &__sticky {
     position: sticky;
-    min-height: 90vh;
-    max-height: 90vh;
     top: 80px;
     background: white;
     padding: 10px;
-    overflow: hidden;
     border-radius: 5px;
+
+    &__wrapper {
+      height: 100%;
+      position: relative;
+    }
 
     &__card {
       display: flex;

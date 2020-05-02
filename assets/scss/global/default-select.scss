@@ -1,9 +1,21 @@
 .default-select {
 	width: 100%;
 	margin-bottom: 10px;
+	position: relative;
 
 	&:last-of-type {
 		margin-bottom: 0;
+	}
+
+	&__dropdown {
+		position: absolute;
+		right: 8px;
+		top: 50%;
+		margin-top: 2px;
+		transform: translateY(-50%);
+		width: 14px;
+		height: 10px;
+		@include flex-center;
 	}
 
 	select {
@@ -12,5 +24,25 @@
 		border-radius: 5px;
 		border: 1px solid rgba(60,60,60,.26);
 		outline: none;
+		font-size: 14px;
+	    -moz-appearance: none; /* Firefox */
+	    -webkit-appearance: none; /* Safari and Chrome */
+	    appearance: none;
+	    padding: 0 5px;
+	    position: relative;
+	    z-index: 1;
+	    background: none;
+
+		&.placeholder {
+			color: rgb(119,119,119);
+		}
+
+		&:active, &:focus {
+			border-radius: 5px 5px 0 0;
+		}
+
+		option {
+			color: black;
+		}
 	}
 }

@@ -31,7 +31,7 @@
                         <svg-icon name="mobile-menu-plus" />
                     </button>
                 </div>
-                <div class="news-cards-overlay">
+                <div class="news-cards-overlay desktop-news">
                     <clink :to="`/news/${item.slug}`" class="news-cards-item" v-for="(item, index) in searchNews"
                            :key="index">
                         <div class="news-cards-item__inner">
@@ -60,6 +60,40 @@
                             </div>
                         </div>
                     </clink>
+                </div>
+                <div class="mobile-news">
+                    <template v-for="(item, index) in searchNews">
+                        <clink :to="`/news/${item.slug}`" class="news-cards-item" :key="index">
+                            <div class="news-cards-item__inner">
+                                <div class="news-cards-item-image">
+                                    <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
+                                    <div class="news-card-image__infos">
+                                        <div class="news-card-image__infos__comments">
+                                            <svg-icon name="comments"/>
+                                            <span>{{ item.comments || 0 }}</span>
+                                        </div>
+                                        <div class="news-card-image__infos__bar"></div>
+                                        <div class="news-card-image__infos__time">
+                                            <span>{{ item.updated_at | moment("from", "now") }}</span>
+                                        </div>
+                                        <div class="news-card-image__infos__bar"></div>
+                                        <div class="news-card-image__infos__country">
+                                            <span>{{ item.country[$i18n.locale] }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="news-cards-item-info">
+                                    <div class="news-cards-item-title" v-if="item.title">
+                                        <span>{{ item.title[$i18n.locale] }}</span>
+                                    </div>
+                                    <div class="news-cards-item-text">
+                                        {{ item.description[$i18n.locale] }}
+                                    </div>
+                                </div>
+                            </div>
+                        </clink>
+                        <div class="mobile-news__line" :key="index" v-if="searchNews && searchNews.length && index != searchNews.length - 1"></div>
+                    </template>
                 </div>
                 <Pagination :perPage="perPage" :totalElems="totalElems" v-model="curPage" :emptyText="'not-found'" />
             </div>

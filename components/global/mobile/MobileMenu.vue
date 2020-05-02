@@ -67,6 +67,7 @@
 		methods: {
 			search() {
 				this.$bus.$emit('search');
+				this.hideMenu();
 			},
 
 			updateTitle(e) {
