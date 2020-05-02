@@ -1,0 +1,177 @@
+.mobile-menu {
+	z-index: 20000;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	display: none;
+	transition: opacity .2s ease;
+
+	&.show {
+		display: block;
+	}
+
+	&.visible {
+		opacity: 1;
+	}
+
+	&__search-area {
+		margin-bottom: 10px;
+		display: flex;
+
+		input {
+			height: 34px !important;
+			font-size: 14px;
+			padding-left: 5px !important;
+			padding-right: 5px;
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: black;
+		opacity: .5;
+	}
+
+	&__card {
+		background: white;
+		z-index: 1;
+		border-radius: 5px;
+		width: 300px;
+		min-height: 100px;
+		padding: 10px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 11px;
+		height: 11px;
+		@include flex-center;
+
+		svg {
+			width: 11px;
+			height: 11px;
+		}
+	}
+
+	&__two-togglers {
+		display: flex;
+
+		.toggler {
+			margin-right: 20px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.mobile-search, .mobile-news {
+	display: none;
+}
+
+
+@media (max-width: 760px) {
+	.desktop-search {
+		display: none !important;
+	}
+
+	.mobile-search {
+		display: flex;
+		align-items: center;
+		background: white;
+		padding: 10px;
+		border-radius: 5px;
+
+		&__cat {
+			width: 100%;
+			margin-right: 10px;
+		}
+
+		&__open {
+			background: white;
+			border-radius: 5px;
+			border: 1px solid rgba(60,60,60,.26);
+			min-width: 34px;
+			max-width: 34px;
+			height: 34px;
+			@include flex-center;
+
+			&:focus {
+				outline: none;
+			}
+
+			svg {
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+
+	.desktop-news {
+		display: none !important;
+	}
+
+	.news-page {
+		.news-card-item-text {
+			font-size: 13px !important;
+		}
+	}
+
+	.mobile-news {
+		display: block;
+
+		.news-card {
+			&-image {
+				&__infos {
+					display: none;
+				}
+			}
+		}
+
+		.news-cards-item {
+			padding: 0 !important;
+
+			&__inner {
+				display: flex;
+				position: relative;
+			}
+
+			&-image {
+				height: auto !important;
+				min-width: 50%;
+				max-width: 50%;
+				position: unset;
+				padding: 10px 0 10px 10px;
+
+				img {
+					height: auto;
+				}
+			}
+
+			&-title {
+				margin: 10px 10px 0 10px !important;
+				text-align: left !important;
+				padding: 0 !important;
+				font-size: 15px;
+			}
+
+			&-text {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

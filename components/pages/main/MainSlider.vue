@@ -7,7 +7,7 @@
                         <clink :to="`/news/${item.slug}`">
                             <img :data-src="`${$imagesUrl}/${item.image}`" class="main-page__main-slider__pic" v-lazy-load>
                             <div class="swiper-desc">
-                                <div class="swiper-title">{{item.title[$i18n.locale] | truncate(50) }}</div>
+                                <div class="swiper-title">{{item.title[$i18n.locale] }}</div>
                             </div>
                         </clink>
                     </div>

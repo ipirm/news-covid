@@ -2,7 +2,7 @@
     <div class="news-page news-page-list">
         <div class="page__content custom-container custom-container--news">
             <div class="page__double-main">
-                <form class="d-flex overlay-category" @submit.prevent="updateQuery">
+                <form class="d-flex overlay-category desktop-search" @submit.prevent="updateQuery">
                     <div class="news-search">
                         <input class="news-cards-input" v-model="title" :placeholder="$t('search.searchNews')"/>
                         <button class="news-search-btn" type="submit"><span>{{ $t('search.searchBtn')}}</span></button>
@@ -23,12 +23,20 @@
                         </div>
                     </div>
                 </form>
-                <div class="news-cards-overlay">
+                <div class="mobile-search">
+                    <div class="mobile-search__cat">
+                        <default-select class="news-search-item" :placeholder="$t('search.cats')" :value="cat_id" :title="'cat'" :options="categories" />
+                    </div>
+                    <button class="mobile-search__open" @click="isMobileMenuActive = true">
+                        <svg-icon name="mobile-menu-plus" />
+                    </button>
+                </div>
+                <div class="news-cards-overlay desktop-news">
                     <clink :to="`/news/${item.slug}`" class="news-cards-item" v-for="(item, index) in searchNews"
                            :key="index">
                         <div class="news-cards-item__inner">
                             <div class="news-cards-item-title" v-if="item.title">
-                                <span>{{ item.title[$i18n.locale] | truncate(50) }}</span>
+                                <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="news-cards-item-image">
                                 <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
@@ -48,10 +56,44 @@
                                 </div>
                             </div>
                             <div class="news-cards-item-text">
-                                {{ item.description[$i18n.locale] | truncate(100) }}
+                                {{ item.description[$i18n.locale] }}
                             </div>
                         </div>
                     </clink>
+                </div>
+                <div class="mobile-news">
+                    <template v-for="(item, index) in searchNews">
+                        <clink :to="`/news/${item.slug}`" class="news-cards-item" :key="index + 'x'">
+                            <div class="news-cards-item__inner">
+                                <div class="news-cards-item-image">
+                                    <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
+                                    <div class="news-card-image__infos">
+                                        <div class="news-card-image__infos__comments">
+                                            <svg-icon name="comments"/>
+                                            <span>{{ item.comments || 0 }}</span>
+                                        </div>
+                                        <div class="news-card-image__infos__bar"></div>
+                                        <div class="news-card-image__infos__time">
+                                            <span>{{ item.updated_at | moment("from", "now") }}</span>
+                                        </div>
+                                        <div class="news-card-image__infos__bar"></div>
+                                        <div class="news-card-image__infos__country">
+                                            <span>{{ item.country[$i18n.locale] }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="news-cards-item-info">
+                                    <div class="news-cards-item-title" v-if="item.title">
+                                        <span>{{ item.title[$i18n.locale] }}</span>
+                                    </div>
+                                    <div class="news-cards-item-text">
+                                        {{ item.description[$i18n.locale] }}
+                                    </div>
+                                </div>
+                            </div>
+                        </clink>
+                        <div class="mobile-news__line" :key="index + 'z'" v-if="searchNews && searchNews.length && index != searchNews.length - 1"></div>
+                    </template>
                 </div>
                 <Pagination :perPage="perPage" :totalElems="totalElems" v-model="curPage" :emptyText="'not-found'" />
             </div>
@@ -60,6 +102,22 @@
                 <LeftSidebar style="height: 60% !important;"/>
             </div>
         </div>
+        <MobileMenu
+            v-model="isMobileMenuActive"
+            :locations="locations"
+            :srcs="srcs"
+            :categories="categories"
+            :countries="countries"
+            :types="types"
+            :country="country"
+            :source="source"
+            :cat_id="cat_id"
+            :updated_at="updated_at"
+            :fakeType="fakeType"
+            :title="title"
+            :video="video"
+            :interesting="interesting"
+        />
     </div>
 </template>
 
@@ -68,12 +126,14 @@
     import Pagination from "~/components/global/Pagination";
     import VirusStatic from "~/components/global/VirusStatic";
     import Toggler from "~/components/global/Toggler";
+    import MobileMenu from "~/components/global/mobile/MobileMenu";
+    import DefaultSelect from "~/components/global/DefaultSelect";
     import Datepicker from 'vue-moment-datepicker';
 
     import {mapActions, mapState} from 'vuex';
 
     export default {
-        components: {VirusStatic, LeftSidebar, Datepicker, Pagination, Toggler},
+        components: {VirusStatic, LeftSidebar, Datepicker, Pagination, Toggler, MobileMenu, "default-select": DefaultSelect},
 
         created() {
             this.getVirus();
@@ -101,14 +161,13 @@
 
         data() {
             return {
-                locationsItems: '',
                 date: Date.now(),
 
                 curPage: 1,
                 perPage: 18,
 
                 country: '',
-                source: '', // TODO LATER
+                source: '',
                 cat_id: '',
                 updated_at: '', // TODO LATER
                 type: '',
@@ -116,7 +175,9 @@
                 video: false,
                 interesting: false,
 
-                fakeType: ''
+                fakeType: '',
+
+                isMobileMenuActive: false
             }
         },
 
@@ -156,11 +217,35 @@
         },
 
         mounted() {
-            this.$bus.$on('updateCat', (cat) => {
-                this.cat_id = cat;
-            })
-            this.$bus.$on('updateSearch', (title) => {
+            this.$bus.$on('update-search', (title) => {
                 this.title = title;
+                this.updateQuery();
+            })
+            this.$bus.$on('update-cat', (v) => {
+                this.cat_id = v;
+            })
+            this.$bus.$on('update-title', (v) => {
+                this.title = v;
+            })
+            this.$bus.$on('update-interesting', (v) => {
+                this.interesting = v;
+            })
+            this.$bus.$on('update-video', (v) => {
+                this.video = v;
+            })
+            this.$bus.$on('update-country', (v) => {
+                this.country = v;
+            })
+            this.$bus.$on('update-cats', (v) => {
+                this.cats = v;
+            })
+            this.$bus.$on('update-type', (v) => {
+                this.fakeType = v;
+            })
+            this.$bus.$on('update-source', (v) => {
+                this.source = v;
+            })
+            this.$bus.$on('search', () => {
                 this.updateQuery();
             })
         },
