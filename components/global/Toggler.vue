@@ -9,11 +9,13 @@
 
 <script>
 	export default {
-		props: ['value', 'title'],
+		props: ['value', 'title', 'emitToBus'],
 
 		methods: {
 			toggle() {
 				this.$emit('input', !this.value);
+				if (this.emitToBus === true)
+					this.$bus.$emit(`update-${this.title}`, !this.value);
 			}
 		}
 	}

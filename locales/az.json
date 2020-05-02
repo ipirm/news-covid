@@ -47,6 +47,7 @@
   "video": "Video",
   "watchAlso": "Buna da baxın",
   "watchNow": "Indi baxin",
+  "Təbiət və Coronavirus": "Təbiət və Coronavirus",
   "naturalVideo": "Təbiət və Coronavirus",
   "newsPageinterestiong": "Sizə maraqlı ola bilər:",
   "mapRegion": "Dünya/Bölgə",
@@ -155,7 +156,7 @@
     "map": "Bölgəni seçin"
   },
   "mapRussia": {
-    "link": "Rusiya xaritəsi",
+    "link": "Rusiya",
     "title": "Koronavirusun Rusiyada yayılması xəritəsi"
   },
   "actual": {

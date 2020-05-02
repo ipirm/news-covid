@@ -313,13 +313,13 @@
             goToNewsCat(cat_id, cat_title) {
                 if (this.$router.currentRoute.path != '/news')
                     this.$router.push(this.localePath({name: "news", query: {cat_id: cat_id}}));
-                else this.$bus.$emit('updateCat', cat_title);
+                else this.$bus.$emit('update-cat', cat_title);
             },
 
             search() {
                 if (this.$router.currentRoute.path != '/news')
                     this.$router.push(this.localePath({name: "news", query: {title: this.searchInput}}));
-                else this.$bus.$emit('updateSearch', this.searchInput);
+                else this.$bus.$emit('update-search', this.searchInput);
             }
         },
 
