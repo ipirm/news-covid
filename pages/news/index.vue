@@ -63,7 +63,7 @@
                 </div>
                 <div class="mobile-news">
                     <template v-for="(item, index) in searchNews">
-                        <clink :to="`/news/${item.slug}`" class="news-cards-item" :key="index">
+                        <clink :to="`/news/${item.slug}`" class="news-cards-item" :key="index + 'x'">
                             <div class="news-cards-item__inner">
                                 <div class="news-cards-item-image">
                                     <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                         </clink>
-                        <div class="mobile-news__line" :key="index" v-if="searchNews && searchNews.length && index != searchNews.length - 1"></div>
+                        <div class="mobile-news__line" :key="index + 'z'" v-if="searchNews && searchNews.length && index != searchNews.length - 1"></div>
                     </template>
                 </div>
                 <Pagination :perPage="perPage" :totalElems="totalElems" v-model="curPage" :emptyText="'not-found'" />

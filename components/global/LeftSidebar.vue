@@ -4,6 +4,7 @@
             <img v-if="banners" :src="`${$imagesUrl}/${banners.image_first}`">
         </div>
         <div class="sidebar__sticky__wrapper">
+            <div class="sidebar__sticky"></div>
             <div class="sidebar__sticky">
                 <div class="sidebar__videos__title">
                     <span>{{ $t('interestingVideos')}} </span>

@@ -1,6 +1,6 @@
 <template>
   <div class="toggler">
-    <button class="toggler__button" @click="toggle()" :class="{ active: value }">
+    <button class="toggler__button" type="button" @click="toggle()" :class="{ active: value }">
       <div class="toggler__button__toggler"></div>
     </button>
     <span class="toggler__text">{{ $t(title) }}</span>

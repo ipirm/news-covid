@@ -125,15 +125,19 @@
 		display: none !important;
 	}
 
+	.news-page {
+		.news-card-item-text {
+			font-size: 13px !important;
+		}
+	}
+
 	.mobile-news {
 		display: block;
 
 		.news-card {
 			&-image {
 				&__infos {
-					white-space: nowrap;
-					width: 100%;
-					justify-content: center;
+					display: none;
 				}
 			}
 		}
@@ -148,18 +152,25 @@
 
 			&-image {
 				height: auto !important;
-				min-width: 40%;
+				min-width: 50%;
+				max-width: 50%;
 				position: unset;
+				padding: 10px 0 10px 10px;
+
+				img {
+					height: auto;
+				}
 			}
 
 			&-title {
 				margin: 10px 10px 0 10px !important;
 				text-align: left !important;
 				padding: 0 !important;
+				font-size: 15px;
 			}
 
 			&-text {
-				margin-bottom: 29px;
+				margin-bottom: 10px;
 			}
 		}
 	}
