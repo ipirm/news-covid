@@ -13,7 +13,7 @@
                         <clink :to="`/news/${item.slug}`" class="sidebar__sticky__card" v-for="(item, index) in videoNews" :key="index">
                             <div class="sidebar__sticky__card__content">
                                 <img class="sidebar__sticky__img" :src="`${$imagesUrl}/${item.image}`">
-                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
+                                <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="sidebar__sticky__card__bar" v-if="index != videoNews.length - 1"></div>
                         </clink>

@@ -144,17 +144,30 @@
       color: #000000;
       margin: 0 !important;
       padding: 11px !important;
-      height: 70px;
       display: flex;
       justify-content: center;
       align-items: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; 
       overflow: hidden;
+
+      span {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical; 
+        overflow: hidden;
+      }
     }
 
     &-text {
       font-size: 15px;
       line-height: 20px;
       color: #000000;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; 
+      overflow: hidden;
     }
 
     &-image {

@@ -36,7 +36,7 @@
                            :key="index">
                         <div class="news-cards-item__inner">
                             <div class="news-cards-item-title" v-if="item.title">
-                                <span>{{ item.title[$i18n.locale] | truncate(50) }}</span>
+                                <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="news-cards-item-image">
                                 <img :data-src="`${$imagesUrl}/${item.image}`" v-lazy-load>
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="news-cards-item-text">
-                                {{ item.description[$i18n.locale] | truncate(100) }}
+                                {{ item.description[$i18n.locale] }}
                             </div>
                         </div>
                     </clink>

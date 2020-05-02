@@ -18,8 +18,8 @@
 			                    </div>
 			                </div>
 						</div>
-						<h3 class="main-page__mobile__news-slider__slide__title">{{ item.title[$i18n.locale] | truncate(50) }}</h3>
-						<p class="main-page__mobile__news-slider__slide__desc" v-if="item.description && item.description[$i18n.locale] && showDescription">{{ item.description[$i18n.locale] | truncate(300) }}</p>
+						<h3 class="main-page__mobile__news-slider__slide__title">{{ item.title[$i18n.locale] }}</h3>
+						<p class="main-page__mobile__news-slider__slide__desc" v-if="item.description && item.description[$i18n.locale] && showDescription">{{ item.description[$i18n.locale] }}</p>
 					</clink>
 				</div>
 			</div>

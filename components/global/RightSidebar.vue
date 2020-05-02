@@ -15,7 +15,7 @@
                                v-for="(item, index) in interestingNews" :key="index">
                             <div class="sidebar__sticky__card__content">
                                 <img class="sidebar__sticky__img" :src="`${$imagesUrl}/${item.image}`">
-                                <span>{{ item.title[$i18n.locale] | truncate(35)  }}</span>
+                                <span>{{ item.title[$i18n.locale] }}</span>
                             </div>
                             <div class="sidebar__sticky__card__bar"
                                  v-if="index != interestingNews.length - 1"></div>
