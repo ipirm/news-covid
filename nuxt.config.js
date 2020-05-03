@@ -75,9 +75,9 @@ routerBase = {
                         {code: 'az', iso: 'az-AZ', file: 'az.json'},
                         {code: 'ru', iso: 'ru-RU', file: 'ru.json'}
                     ],
-                    defaultLocale: 'az',
+                    defaultLocale: 'ru',
                     vueI18n: {
-                        fallbackLocale: 'az'
+                        fallbackLocale: 'ru'
                     },
                     lazy: true,
                     langDir: 'locales/'
@@ -95,15 +95,14 @@ routerBase = {
             '@nuxtjs/robots',
             "nuxt-mq",
             'cookie-universal-nuxt',
-            '@nuxtjs/google-adsense'
+            ['@nuxtjs/google-adsense', {
+                id: 'ca-pub-8393839430219283'
+            }]
         ],
         sitemap: {
             hostname: "https://covid.az",
             gzip: true,
             exclude: ["/secret", "/admin/**"]
-        },
-        'google-adsense': {
-            id: 'ca-pub-8393839430219283'
         },
         googleAnalytics: {
             id: "UA-163816416-2"

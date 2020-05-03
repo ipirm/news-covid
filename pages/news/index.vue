@@ -28,7 +28,7 @@
                         <default-select class="news-search-item" :placeholder="$t('search.cats')" :value="cat_id" :title="'cat'" :options="categories" />
                     </div>
                     <button class="mobile-search__open" @click="isMobileMenuActive = true">
-                        <svg-icon name="mobile-menu-plus" />
+                        <img src="~/static/svg/mobile/mobile-menu-plus.svg" />
                     </button>
                 </div>
                 <div class="news-cards-overlay desktop-news">
@@ -92,7 +92,6 @@
                                 </div>
                             </div>
                         </clink>
-                        <div class="mobile-news__line" :key="index + 'z'" v-if="searchNews && searchNews.length && index != searchNews.length - 1"></div>
                     </template>
                 </div>
                 <Pagination :perPage="perPage" :totalElems="totalElems" v-model="curPage" :emptyText="'not-found'" />
