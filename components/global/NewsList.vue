@@ -11,12 +11,12 @@
                         <svg-icon name="comments" />
                         <span>{{ item.comments || 0 }}</span>
                     </div>
-                    <div class="news-card-image__infos__bar"></div>
-                    <div class="news-card-image__infos__time">
+                    <div class="news-card-image__infos__bar" v-show="item.updated_at"></div>
+                    <div class="news-card-image__infos__time" v-show="item.updated_at">
                         <span>{{ item.updated_at | moment("from", "now") }}</span>
                     </div>
-                    <div class="news-card-image__infos__bar"></div>
-                    <div class="news-card-image__infos__country">
+                    <div class="news-card-image__infos__bar" v-show="item.country && item.country[$i18n.locale]"></div>
+                    <div class="news-card-image__infos__country" v-show="item.country && item.country[$i18n.locale]">
                         <span>{{ item.country[$i18n.locale] }}</span>
                     </div>
                 </div>

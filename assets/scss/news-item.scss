@@ -258,9 +258,27 @@
       }
     }
   } 
+
+  .news-page {
+    .news-cards {
+      &-item {
+        &-text {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
 }
 
-@media only screen and (max-width: 760px) {
+@media (max-width: 760px) {
+  .news-page {
+    .news-cards {
+      &-item {
+        // width: 100% !important;
+      }
+    }
+  }
+
   .news-item-mobile{
     display: flex;
   }

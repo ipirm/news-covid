@@ -10,7 +10,6 @@
 				<form class="mobile-menu__form" @submit.prevent="search">
 					<div class="mobile-menu__search-area">
 	                    <input class="news-cards-input" :value="title" @input="updateTitle($event)" :placeholder="$t('search.searchNews')"/>
-	                    <button class="news-search-btn" type="submit"><span>{{ $t('search.searchBtn')}}</span></button>
 	                </div>
                     <default-select class="news-search-item" :placeholder="$t('search.country')" :value="country" :title="'country'" :options="countries" />
                     <default-select class="news-search-item" :placeholder="$t('search.cats')" :value="cat_id" :title="'cat'" :options="categories" />
@@ -20,6 +19,7 @@
                         <Toggler :title="'interesting'" :value="interesting" :emitToBus="true" />
                         <Toggler :title="'video'" :value="video" :emitToBus="true" />
                     </div>
+                    <button class="news-search-btn" type="submit"><span>{{ $t('search.searchBtn')}}</span></button>
                 </form>
 			</div>
 		</div>
