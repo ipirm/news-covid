@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <adsbygoogle ad-slot="what" />
+            <!-- <adsbygoogle ad-slot="what" /> -->
         </div>
         <div class="header__mobile-bottom">
             <ul>
