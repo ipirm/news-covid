@@ -165,6 +165,7 @@
 
     img {
       border-radius: 5px;
+      object-fit: cover;
     }
 
     &__infos {
@@ -338,8 +339,12 @@
   background-color: $color-blue !important;
 }
 
+.video-nature {
+  margin-bottom: 50px;
+}
+
 .video-container {
-  margin-top: 50px;
+  margin-bottom: 100px;
 
   &-title {
     font-weight: bold;
