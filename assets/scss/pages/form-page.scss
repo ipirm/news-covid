@@ -1,36 +1,28 @@
 .form-page {
-	padding-left: 43px;
-	padding-right: 43px;
 	position: relative;
-
-	&.reset {
-		.form-page {
-			&__card {
-				min-width: 410px;
-			}
-
-			&__title {
-				margin-bottom: 30px;
-				font-family: 'Nunito',sans-serif;
-			}
-		}
-	}
+	max-height: calc(100vh - 70px);
+	min-height: calc(100vh - 70px);
+	height: 100%;
+	@include flex-center;
 
 	&__bg {
 		object-fit: cover;
 		width: 100%;
-		max-height: 100vh;
-	}
-
-	&__card {
+		height: 100%;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+	}
+
+	&__card {
 		max-width: 340px;
+		min-width: 340px;
 		padding: 30px;
 		background: white;
-		border-radius: 2px;
+		border-radius: 5px;
+		position: relative;
+		z-index: 1;
 	}
 
 	&__input, &__text {
@@ -105,6 +97,11 @@
 
 	&__social {
 		margin-left: 5px;
+
+		img {
+			width: 24px;
+			height: 24px;
+		}
 	}
 
 	&__enter-with {
@@ -138,5 +135,25 @@
 
 	.blue {
 		color: $color-blue;
+	}
+}
+
+@media (max-width: 760px) {
+	.form-page {
+		max-height: calc(100vh - 138px);
+		min-height: calc(100vh - 138px);
+	}
+}
+
+@media (max-width: 450px) {
+	.form-page {
+		&__card {
+			border-radius: 0;
+			min-width: 320px;
+			padding: 30px 10px;
+			width: 100%;
+			height: 100%;
+			@include flex-center;
+		}
 	}
 }

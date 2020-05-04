@@ -36,6 +36,35 @@
     }
   },
 
+  "form-page": {
+    "login-page": {
+      "title": "Explore the world with us"
+    },
+    "register-page": {
+      "title": "Explore the world with us"
+    },
+    "reset-page": {
+      "title": {
+        "enter-email": "Введите e-mail, с которого вы регистрировались",
+        "enter-code": "На ваш e-mail отправлен код. Введите его для сброса пароля",
+        "enter-password": "Готово! Ваш пароль сброшен. Придумайте новый пароль для входа"
+      }
+    },
+    "login": "Войти",
+    "register": "Зарегистрироваться",
+    "forgot-password": "Забыли пароль?",
+    "no-account": "Нет аккаунта?",
+    "yes-account": "Уже есть аккаунт?",
+    "enter-with": "Войти с помощью",
+    "enter-login": "Введите логин",
+    "enter-password": "Введите пароль",
+    "confirm-password": "Подтвердите пароль",
+    "enter-email": "Введите e-mail",
+    "enter-code": "Введите код",
+    "new-password": "Новый пароль",
+    "confirm-new-password": "Подтверждение пароля"
+  },
+
   "mobile-menu": {
     "search": "Поиск"
   },
