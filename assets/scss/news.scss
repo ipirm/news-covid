@@ -1,4 +1,6 @@
 .news-page {
+  margin-bottom: 50px;
+
   .page {
     &__double-main {
       max-width: 950px;
@@ -112,9 +114,15 @@
     }
   }
 }
+
 .news-page .news-cards-item-text{
   font-size: 15px !important;
 }
+
+.news-inner-page {
+  margin-bottom: 50px;
+}
+
 @media only screen and (max-width: 760px) {
   .page__middle {
     margin: 0 !important;

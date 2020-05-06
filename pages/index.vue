@@ -24,7 +24,7 @@
                 </aside>
             </section>
             <section>
-                <div class="custom-container custom-container--main">
+                <div class="custom-container custom-container--main video-nature">
                     <VideoSlider :data="naturalVideos" :title="$t('naturalVideo')" />
                 </div>
             </section>

@@ -255,10 +255,13 @@
 		&__bottom {
 			position: absolute;
 			bottom: 0;
-			transform: translateY(100%);
+			right: 50%;
+			transform: translate(50%, 100%);
 			background: $color-blue;
 			border-radius: 0 0 5px 5px;
 			width: 100%;
+			min-width: fit-content;
+			padding: 0 5px;
 			text-align: center;
 
 			&__item {

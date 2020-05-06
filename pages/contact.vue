@@ -20,7 +20,7 @@
                     <span>
                         {{ $t('contact.come')}}
                         <a target="_blank" href="https://www.facebook.com/covid.info.az/" class="contact-page-icons">
-	        				<svg-icon name="form-page/fb.svg" style="width: 20px;height: 20px"/>
+	        				<img src="~/static/svg/form-page/fb.svg" style="width: 20px;height: 20px"/>
 	        			</a>
 	        			<a target="_blank" href="https://www.instagram.com/covid.info.az/" class="contact-page-icons">
 	        			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
 </svg>
 	        			</a>
                         	<a target="_blank" href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" class="contact-page-icons">
-	        				<svg-icon name="form-page/tw.svg" style="width: 20px;height: 20px"/>
+	        				<img src="~/static/svg/form-page/tg.svg" style="width: 20px;height: 20px"/>
 	        			</a>
                     </span>
                 </div>

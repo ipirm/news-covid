@@ -12,7 +12,7 @@
                         <div class="footer-links">
                             <a href="https://t.me/joinchat/AAAAAFfUHh7hvxi6g-Gjvw" target="_blank" >{{ $t('weInTelegram')}}</a>
                             <a href="https://www.facebook.com/covid.info.az/" target="_blank">{{ $t('weOnFacebook')}}</a>
-                            <clink to="/">{{ $t('weInTwitter')}}</clink>
+                            <!-- <clink to="/">{{ $t('weInTwitter')}}</clink> -->
                         </div>
                     </div>
                 </div>
