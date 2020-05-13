@@ -1,3 +1,5 @@
+import neaxios from '~/utils/neaxios'
+
 export const state = () => ({
     virusWorldWide: null,
     virusLocalData: null,
@@ -471,77 +473,87 @@ export const mutations = {
         }
     },
     SET_COUNTRIES: (state, payload) => {
-        payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
-        let obj = {active: false}
-        payload.forEach(function (item) {
-            Object.assign(item, obj)
-        });
-        payload.sort(function (a, b) {
+        if (payload) {
+            payload = payload.filter(i => i.country !== 'MS Zaandam' && i.country !== "Diamond Princess");
+            let obj = {active: false}
+            payload.forEach(function (item) {
+                Object.assign(item, obj)
+            });
+            payload.sort(function (a, b) {
 
-            if (parseInt(a.confirmed) > parseInt(b.confirmed)) {
-                return 1;
+                if (parseInt(a.confirmed) > parseInt(b.confirmed)) {
+                    return 1;
+                }
+                if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
+                    return -1;
+                }
+                return 0;
+            });
+            state.countries = payload.reverse();
+            if (state.virusWorldWide) {
+                let world = {
+                    active: true,
+                    country: 'World',
+                    latitude: 33.93911,
+                    longitude: 67.709953,
+                    confirmed: state.virusWorldWide.Global.TotalConfirmed,
+                    recovered: state.virusWorldWide.Global.TotalRecovered,
+                    deaths: state.virusWorldWide.Global.TotalDeaths
+                }
+                state.countries.unshift(world);
             }
-            if (parseInt(a.confirmed) < parseInt(b.confirmed)) {
-                return -1;
-            }
-            return 0;
-        });
-        state.countries = payload.reverse();
-        if (state.virusWorldWide) {
-            let world = {
-                active: true,
-                country: 'World',
-                latitude: 33.93911,
-                longitude: 67.709953,
-                confirmed: state.virusWorldWide.Global.TotalConfirmed,
-                recovered: state.virusWorldWide.Global.TotalRecovered,
-                deaths: state.virusWorldWide.Global.TotalDeaths
-            }
-            state.countries.unshift(world);
         }
     },
     SET_ACTIVE_FALSE: (state, payload) => {
-        state.countries.forEach(function (item) {
-            if (item.country === payload.country) {
-                item.active = true
-            } else {
-                item.active = false
-            }
-        });
+        if (payload) {
+            state.countries.forEach(function (item) {
+                if (item.country === payload.country) {
+                    item.active = true
+                } else {
+                    item.active = false
+                }
+            });
+        }
     },
     SET_AZE_ACTIVE_COUNTRIES: (state, payload) => {
-        state.dataPaths.forEach(function (item) {
-            if (item.id === payload.id) {
-                item.active = true
-            } else {
-                item.active = false
-            }
-        });
+        if (payload) {
+            state.dataPaths.forEach(function (item) {
+                if (item.id === payload.id) {
+                    item.active = true
+                } else {
+                    item.active = false
+                }
+            });
+        }
     },
     SET_RUSSIA_ACTIVE_COUNTRIES: (state, payload) => {
-        state.russiaMap.forEach(function (item) {
-            if (item.LocationName === payload.LocationName) {
-                item.active = true
-            } else {
-                item.active = false
-            }
-        });
-        state.russianJson.forEach(function (item) {
-                if (item.id === payload.IsoCode) {
-                item.active = true
-            } else {
-                item.active = false
-            }
-        });
+        if (payload) {
+            state.russiaMap.forEach(function (item) {
+                if (item.LocationName === payload.LocationName) {
+                    item.active = true
+                } else {
+                    item.active = false
+                }
+            });
+            state.russianJson.forEach(function (item) {
+                    if (item.id === payload.IsoCode) {
+                    item.active = true
+                } else {
+                    item.active = false
+                }
+            });
+        }
     },
     SET_RUSSIA_ACTIVE_MARKER_COUNTRIES: (state, payload) => {
-        state.russianJson.forEach(function (item) {
-            if (item.id === payload.id) {
-                item.active = true
-            } else {
-                item.active = false
-            }
-        });
+        if (payload) {
+            state.russianJson.forEach(function (item) {
+                if (item.id === payload.id) {
+                    item.active = true
+                } else {
+                    item.active = false
+                }
+            });
+        }
     },
     SET_MAP: (state, payload) => {
         state.map = payload;
@@ -551,35 +563,36 @@ export const mutations = {
         state.russiaMapText = payload;
     },
     SET_RUSSIA_MAP: (state, payload) => {
+        if (payload) {
+            let obj = {active: false}
+            payload.forEach(function (item) {
+                Object.assign(item, obj)
+            });
+            state.russianJson.forEach(function (item) {
+                Object.assign(item, obj)
+            });
+            payload.sort(function (a, b) {
 
-        let obj = {active: false}
-        payload.forEach(function (item) {
-            Object.assign(item, obj)
-        });
-        state.russianJson.forEach(function (item) {
-            Object.assign(item, obj)
-        });
-        payload.sort(function (a, b) {
-
-            if (parseInt(a.Confirmed) > parseInt(b.Confirmed)) {
-                return 1;
+                if (parseInt(a.Confirmed) > parseInt(b.Confirmed)) {
+                    return 1;
+                }
+                if (parseInt(a.Confirmed) < parseInt(b.Confirmed)) {
+                    return -1;
+                }
+                return 0;
+            });
+            state.russiaMap = payload.reverse();
+            if (state.virusWorldWide) {
+                let world = {
+                    active: true,
+                    IsoCode: 'Rare',
+                    LocationName: "Россия",
+                    Confirmed: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalConfirmed,
+                    Recovered: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalRecovered,
+                    Deaths: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalDeaths
+                }
+                state.russiaMap.unshift(world);
             }
-            if (parseInt(a.Confirmed) < parseInt(b.Confirmed)) {
-                return -1;
-            }
-            return 0;
-        });
-        state.russiaMap = payload.reverse();
-        if (state.virusWorldWide) {
-            let world = {
-                active: true,
-                IsoCode: 'Rare',
-                LocationName: "Россия",
-                Confirmed: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalConfirmed,
-                Recovered: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalRecovered,
-                Deaths: state.virusWorldWide.Countries.find(v => v.Slug == 'russia').TotalDeaths
-            }
-            state.russiaMap.unshift(world);
         }
     }
 }
@@ -588,12 +601,18 @@ export const mutations = {
 export const actions = {
 
     async getVirus({commit}) {
-        const local = await this.$axios.$get('https://api.covid19api.com/summary');
+        const local = await this.$axios.$get('https://api.covid19api.com/summary').catch(e => {
+            console.log(e)
+            return
+        });
         commit('SET_VIRUS', local);
     },
     async getCountries({commit}) {
         const countries = await this.$axios.$get('https://covid-19-data.p.rapidapi.com/country/all', {
             headers: {'x-rapidapi-key': 'c3ae9cdbcfmsh29bc65690a77986p10a54bjsn9bc95c48b530'}
+        }).catch(e => {
+            console.log(e)
+            return
         });
         commit('SET_COUNTRIES', countries);
     },
@@ -610,7 +629,10 @@ export const actions = {
         commit('SET_PATHS_VIRUS', data.locals);
     },
     async getRussiaMap({commit}) {
-        const data = await this.$axios.$get('https://covid19.rosminzdrav.ru/wp-json/api/mapdata/')
+        const data = await this.$axios.$get('https://covid19.rosminzdrav.ru/wp-json/api/mapdata/').catch(e => {
+            console.log(e)
+            return
+        });
         commit('SET_RUSSIA_MAP', data.Items);
     },
     async getRussiaData({commit}) {

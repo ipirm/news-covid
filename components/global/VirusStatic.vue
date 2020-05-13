@@ -1,5 +1,5 @@
 <template>
-    <div class="virus-map">
+    <div class="virus-map" v-if="virusWorldWide && virusWorldWide.Global">
         <div class="virus-map-container">
             <clink to="/local-map" class="link-map">
                 <div class="virus-map-title">
