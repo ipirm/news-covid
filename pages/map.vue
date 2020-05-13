@@ -1,7 +1,7 @@
 <template>
     <section class="main-page-content map-page">
         <MapPopup :maps="['az', 'ru']" />
-        <div class="custom-container" style="margin-top: 40px">
+        <div class="custom-container" style="margin-top: 40px" v-if="map && map.virusLocalData">
             <div class="news-content-breadcumbs">
                 <clink to="/">{{ $t('mainPage')}}</clink>
                 <a>{{ $t('header.world-map')}}</a>
@@ -489,7 +489,8 @@
             },
         },
         mounted() {
-            this.activeCountry = this.countries.find(item => item.active);
+            if (this.countries)
+                this.activeCountry = this.countries.find(item => item.active);
             if (process.client) {
                 (function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
